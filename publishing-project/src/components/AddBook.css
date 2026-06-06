@@ -1,0 +1,88 @@
+.add-book-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(33, 121, 121);
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 2px 2px 8px rgb(77, 75, 75);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10px;
+    font-size: 30px;
+    color: white;
+}
+
+.add-book-container:hover {
+    box-shadow: 4px 4px 13px rgb(77, 75, 75);
+}
+
+.add-book-input {
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    color: gray;
+}
+
+.add-book-input:hover {
+    box-shadow: 6px 6px 8px rgb(77, 75, 75);
+}
+
+.add-book-input:focus {
+    border: 1px solid cadetblue;
+    color: darkcyan;
+}
+
+.add-book-button {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(22, 59, 59);
+    font-size: 30px;
+    width: 50%;
+    align-self: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.add-book-button:hover {
+    box-shadow: 2px 2px 8px rgb(77, 75, 75);
+    opacity: 0.9;
+}
+
+.add-book-input-file {
+    color: rgb(22, 59, 59);
+    font-size: 15px;
+}
+
+.add-book-input-file::file-selector-button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: gray;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.add-book-input-file::file-selector-button:hover {
+    box-shadow: 2px 2px 8px rgb(77, 75, 75);
+}
+
+.add-book-select {
+    width: 120px;
+    height: 30px;
+    font-size: 20px;
+    color: gray;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.add-book-txt {
+    font-size: 20px;
+}

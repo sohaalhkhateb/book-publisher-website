@@ -1,0 +1,62 @@
+.inventory-header-container {
+  display: flex;
+  height: 58px;
+  background-color:darkcyan;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+  position: sticky;
+  top: 0px;
+  z-index: 10px;
+}
+
+.inventory-notification-icon {
+  height: 40px;
+}
+
+.inventory-header-right-section {}
+
+.inventory-notification-count {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  font-weight: bold;
+  font-size: 20px;
+  color: wheat;
+}
+
+.inventory-notification-btn {
+  background: none;
+  border: none;
+  position: relative;
+
+}
+.inventory-header-title{
+  font-weight: bold;
+  font-size: 30px;
+  color: wheat;
+}
+
+.inventory-header-middle-section{
+  display: flex;
+  gap: 5px;
+}
+
+.inventory-status-txt{
+  font-size: 20px;
+  font-weight: 600;
+  color:rgb(209, 205, 205);
+}
+
+.inventory-status-result{
+  font-size: 20px;
+  color: darkred;
+}
+.inventory-header-icon{
+  height: 35px;
+}
+
+.inventory-header-left-section{
+  display: flex;
+  gap: 5px;
+}

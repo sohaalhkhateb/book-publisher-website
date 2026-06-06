@@ -1,0 +1,76 @@
+.edit-employee-container {
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(202, 116, 219);
+    color: white;
+    padding: 12px;
+    width: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 4px solid gray;
+    border-image: linear-gradient(to right, purple, gray) 1 1 1 1;
+}
+
+.edit-employee-container:hover{
+    background-color:rgb(89, 65, 139);
+    border-image: linear-gradient(to right, gray, purple) 1 1 1 1;
+}
+
+
+.edit-info-input {
+    border-radius: 10px;
+    border: 1px solid white;
+    background: none;
+    color: white;
+}
+
+.edit-info-input:focus {
+    opacity: 0.8;
+    box-shadow: 2px 2px 8px gray;
+    border: none;
+}
+
+.status-info-container {
+    display: flex;
+}
+
+.evaluation-selector {
+    color: gray;
+    border-radius: 10px;
+    border: 1px solid white;
+    width: 70px;
+}
+
+.confirm-edit-button {
+    width: 60px;
+    align-self: center;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background: none;
+    padding: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+.confirm-edit-button:hover {
+    opacity: 0.8;
+    box-shadow: 2px 2px 8px gray;
+}
+
+.edit-info-radio {
+    background: none;
+    border: 1px solid white;
+}
+
+.close-edit-icon {
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}

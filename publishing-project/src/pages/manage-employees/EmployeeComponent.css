@@ -1,0 +1,70 @@
+.employee-component-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(51, 136, 136);
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.employee-component-container:hover{
+    box-shadow: 2px 2px 8px gray;
+}
+
+.employee-image {
+    height: 50px;
+    width: 50px;
+    align-self: center;
+}
+
+.evaluation-icon {
+    height: 20px;
+    width: 100px;
+}
+
+.status-container {
+    display: flex;
+    gap: 20px;
+}
+
+.employee-info{
+    font-size: 15px;
+}
+.arrow-list{
+    height: 20px;
+    cursor: pointer;
+}
+.employee-works-container{
+    display: flex;
+}
+.employees-works-names{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    color: rgb(218, 209, 209);
+}
+.hidden{
+    display: none;
+}
+
+.employee-component-edit-icon{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.add-employee-icon{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+}
