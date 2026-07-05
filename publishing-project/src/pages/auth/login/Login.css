@@ -8,19 +8,19 @@
   margin-left: auto;
   margin-right: auto;
   height: 60vh;
-  background-color: rgb(245, 243, 243);
+  background-color:  var(--background);
   padding: 10px;
 }
 
 .login-title {
   font-size: 50px;
   margin: 0px;
-  color: gray;
+  color: var(--text);
 }
 
 .sign-up-link {
   text-decoration: none;
-  color: rgb(179, 175, 175);
+  color: var(--primary);
   font-size: 25px;
 }
 
@@ -31,12 +31,18 @@
 }
 
 .login-button {
-  height: 40px;
-  width: 200px;
+  height: 50px;
+  width: 250px;
   font-size: 30px;
-  color: gray;
+  color:  var(--text-muted);
   border-radius: 10px;
-  border: 1px solid gray;
+  border: 1px solid  var(--border);
+  background-color:  var(--primary);
+  cursor: pointer;
+}
+
+.login-button:hover{
+  background-color:  var(--hover);
 }
 
 .login-input.email {

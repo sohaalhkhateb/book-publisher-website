@@ -3,10 +3,10 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    background-color: cadetblue;
-    border: 4px solid gray;
-    border-image: linear-gradient(to right, purple, gray) 1 1 1 1;
-    color: white;
+    background-color: var(--primary);
+    border: 4px solid var(--border);
+    border-image: linear-gradient(to right, var(--accent), var(--border)) 1 1 1 1;
+    color: var(--text-muted);
     padding: 10px;
     width: 400px;
     position: fixed;
@@ -17,7 +17,7 @@
 }
 
 .employee-options-container:hover {
-    border-image: linear-gradient(to right, gray, purple) 1 1 1 1;
+    border-image: linear-gradient(to right, var(--border), var(--accent)) 1 1 1 1;
 }
 
 .employee-options-title {
@@ -50,8 +50,8 @@
 
 .employee-options-btn {
     background: none;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
     padding: 10px;
     width: 60px;
     align-self: center;
@@ -59,11 +59,11 @@
 }
 
 .employee-options-btn:hover {
-    box-shadow: 4px 4px 8px gray;
-    background-color: darkcyan;
+    box-shadow: 4px 4px 8px var(--shadow);
+    background-color: var(--primary);
 }
 
 .driver {
     width: 1px;
-    background-color: white;
+    background-color: var(--accent);
 }

@@ -8,7 +8,7 @@
   margin-left: auto;
   margin-right: auto;
   height: 70vh;
-  background-color: rgb(245, 243, 243);
+  background-color: var(--background);
   padding: 10px;
 }
 .prefix-number{
@@ -18,13 +18,13 @@
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  border: 1px solid gray;
+  border: 1px solid var(--border);
   margin-right: 5px;
   font-size: 15px;
-  color: gray;
+  color: var(--text);
 }
 .two-fa-title{
   font-size: 60px;
   margin: 0px;
-  color: gray;
+  color: var(--text);
 }

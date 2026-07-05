@@ -1,18 +1,19 @@
 .sign-up-2-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-top: 100px;
   width: 50%;
+  height: 70vh;
   margin-left: auto;
   margin-right: auto;
-  height: 70vh;
-  background-color: rgb(245, 243, 243);
+  background-color:  var(--background);
   padding: 10px;
 }
 .sign-up-2-details{
-  font-size: 30px;
+  font-size: 40px;
+  align-self: flex-start;
   margin: 0px;
   color: gray;
 }

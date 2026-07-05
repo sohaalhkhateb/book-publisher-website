@@ -12,10 +12,12 @@ import { EmployeeDetails } from './EmployeeDetails'
 import { EmployeeOptions } from './EmployeeOptions'
 import { EditEmployee } from './EditEmployee'
 import { AddOccupation } from './AddOccupation'
+import { AssignComponent } from './AssignComponent'
 
 export function EmployeePage({ employees, setHomeProducts, setShowOptionList, showOptionList }) {
     const [showDetails, setShowDetails] = useState('');
     const [showEdit, setShowEdit] = useState(false);
+    const [assignTask, setAssignTask] = useState(false);
     const employeesDetails = [
         {
             occupation: 'Translators',

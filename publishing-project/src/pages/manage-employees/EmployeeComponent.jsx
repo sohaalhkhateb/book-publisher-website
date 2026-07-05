@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import { EditEmployee } from './EditEmployee'
 import { EmployeeDetails } from './EmployeeDetails'
 
-export function EmployeeComponent({ image, name, type, salary, evaluation, date, experience, status, works, showEdit, setShowEdit }) {
+export function EmployeeComponent({ key ,image, name, type, salary, evaluation, date, experience, status, works, showEdit, setShowEdit}) {
   const [showDetails, setShowDetails] = useState(false);
   function toggleShowDetails() {
     setShowDetails(!showDetails);
@@ -17,6 +17,10 @@ export function EmployeeComponent({ image, name, type, salary, evaluation, date,
   function showEditEmp(event) {
     event.stopPropagation();
     setShowEdit(!showEdit);
+  }
+  function assignTask() {
+    // axios.post("...url...", key:key)
+    //go to the AssignBook component
   }
   return (
     <div
@@ -29,11 +33,12 @@ export function EmployeeComponent({ image, name, type, salary, evaluation, date,
         onClick={showEditEmp}
         alt=""
       />
-      <img 
+      <img
         src={addIcon}
-        className='add-employee-icon' 
+        onClick={assignTask}
+        className='add-employee-icon'
         alt=""
-       />
+      />
       {
         showDetails &&
         <EmployeeDetails

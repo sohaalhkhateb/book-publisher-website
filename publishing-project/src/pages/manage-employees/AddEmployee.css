@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: cadetblue;
+    background-color: var(--primary);
     padding: 20px;
     width: 300px;
-    border: 4px solid gray;
-    border-image: linear-gradient(to right, purple, gray) 1 1 1 1;
+    border: 4px solid var(--border);
+    border-image: linear-gradient(to right, var(--accent), var(--primary)) 1 1 1 1;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -15,64 +15,65 @@
 }
 
 .add-employee-container:hover{
-    border-image: linear-gradient(to right, gray, purple) 1 1 1 1;
+    border-image: linear-gradient(to right, var(--primary), var(--accent)) 1 1 1 1;
 }
 
 .add-employee-input {
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid var(--border);
     background: none;
-    color: white;
+    color: var(--text);
     padding: 10px;
     width: 200px;
 }
 
 .add-employee-input:hover {
     opacity: 0.8;
-    box-shadow: 2px 2px 8px gray;
+    box-shadow: 2px 2px 8px var(--shadow);
 }
 
 .add-employee-btn {
     background: none;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    background-color: var(--primary);
 }
 
 .add-employee-btn:hover {
     opacity: 0.8;
-    box-shadow: 2px 2px 8px gray;
+    box-shadow: 2px 2px 8px var(--shadow);
 }
 
 .add-employee-image {
-    color: white;
+    color: var(--text-muted);
 }
 
 .add-employee-image::file-selector-button{
     border: none;
     border-radius: 10px;
     padding: 10px;
-    color: gray;
-    background-color: white;
+    color: var(--text);
+    background-color: var(--surface);
     cursor: pointer;   
 }
 
 .add-txt{
-    color: white;
+    color: var(--text);
     margin-right: 60px;
 }
 
 .add-employee-title{
-    color: white;
+    color: var(--text);
     font-size: 20px;
 }
 
 .add-employee-select{
     width: 100px;
-    color: gray;
-    border: 1px solid white;
+    color: var(--primary);
+    border: 1px solid var(--border);
     border-radius: 10px;
 }
 

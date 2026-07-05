@@ -3,8 +3,8 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
-    background-color: cadetblue;
-    color: white;
+    background-color: var(--primary);
+    color: var(--text-muted);
     padding: 10px;
     width: 400px;
     position: fixed;
@@ -12,12 +12,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    border: 4px solid gray;
-    border-image: linear-gradient(to right, purple, gray) 1 1 1 1;
+    border: 4px solid var(--border);
+    border-image: linear-gradient(to right, var(--accent), var(--primary)) 1 1 1 1;
 }
 
 .add-occupation-div:hover {
-    border-image: linear-gradient(to right, gray, purple) 1 1 1 1;
+    border-image: linear-gradient(to right, var(--primary), var(--accent)) 1 1 1 1;
 }
 
 .add-occupation-title {
@@ -30,13 +30,13 @@
     padding: 10px;
     border-radius: 10px;
     background: none;
-    border: 1px solid white;
+    border: 1px solid var(--border);
 }
 
 .add-occupation-btn {
     background: none;
-    color: white;
-    border: 1px solid white;
+    color: var(--primary);
+    border: 1px solid var(--border);
     padding: 10px;
     border-radius: 10px;
     width: 60px;

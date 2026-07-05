@@ -2,42 +2,26 @@ import { BookDetails } from './BookDetails';
 import './Product.css'
 import { useState } from 'react';
 
-export function Product({
-  title, image, number, writer }) {
-  const [showDetails, setShowDetails] = useState(false);
-  const openShowDetails = () => {
-    setShowDetails(!showDetails);
-  }
+export function Product({ book, onClick }) {
   return (
     <div
       className='product-container'
     >
       <img
-        src={image}
+        src={book.image}
         className='product-image'
-        onClick={openShowDetails}
+        onClick={onClick}
         alt=""
       />
       <p className='product-title paragraph'>
-        Book Title: {title}
+        Book Title: {book.title}
       </p>
       <p className='number-copies paragraph'>
-        Number of copies: {number}
+        Number of copies: {book.number}
       </p>
       <p className='writer-name paragraph'>
-        Writer's Name: {writer}
+        author's Name: {book.author}
       </p>
-      {
-        showDetails &&
-        <BookDetails
-          showDetails={showDetails}
-          setShowDetails={setShowDetails}
-          title={title}
-          image={image}
-          number={number}
-          writer={writer}
-        />
-      }
     </div>
   )
 }

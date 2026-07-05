@@ -1,13 +1,13 @@
 import './Header.css'
 import seaarchImage from '../assets/images/icons/search-icon.png'
 import personImage from '../assets/images/icons/person-icon.png'
-import menuImage from '../assets/images/icons/menu-icon2.png'
-import bookImage from '../assets/images/icons/book-icon.png'
+import menuImage from '../assets/images/icons/menu.png'
+import bookImage from '../assets/images/icons/book-16-48.png'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate, useSearchParams } from 'react-router'
+import { NavLink, useNavigate, useSearchParams } from 'react-router'
 
-export function Header({ showOptionList, setShowOptionList, setHomeProducts, searchBooks, setSearchBooks }) {
+export function Header({ showOptionList, setShowOptionList, setHomeProducts, search, setSearch }) {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
@@ -46,11 +46,11 @@ export function Header({ showOptionList, setShowOptionList, setHomeProducts, sea
     }
     if (event.key == 'Enter' && inputSearch=='') {
       navigate('/');
-        setSearchBooks(false);
+        setSearch(false);
     }
   }
   const sendSearchInput = () => {
-    setSearchBooks(true);
+    setSearch(true);
     navigate(`/?search=${inputSearch}`);
   }
 
@@ -59,14 +59,11 @@ export function Header({ showOptionList, setShowOptionList, setHomeProducts, sea
     event.stopPropagation();
     setShowOptionList(!showOptionList);
   }
-  function goBackToProducts() {
-    setShowMainContent('books');
-  }
   return (
     <div className='header-container'>
-      <div
+      <NavLink
         className='header-left-section'
-        onClick={goBackToProducts}
+        to='/'
       >
         <img
           src={personImage}
@@ -74,9 +71,14 @@ export function Header({ showOptionList, setShowOptionList, setHomeProducts, sea
           onClick={showOption}
           alt=""
         />
-      </div>
+      </NavLink>
       <div className='header-middle-section'>
-        <p className='web-name'>Web Name</p>
+        <NavLink 
+          className='web-name'
+          to='/'
+        >
+          Web Name
+        </NavLink>
         <div className='header-search-section'>
           <input
             type="text"

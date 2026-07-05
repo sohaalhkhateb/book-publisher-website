@@ -1,8 +1,8 @@
 .edit-employee-container {
     display: flex;
     flex-direction: column;
-    background-color:rgb(202, 116, 219);
-    color: white;
+    background-color:var(--primary);
+    color: var(--text-muted);
     padding: 12px;
     width: 200px;
     position: fixed;
@@ -10,26 +10,26 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    border: 4px solid gray;
-    border-image: linear-gradient(to right, purple, gray) 1 1 1 1;
+    border: 4px solid var(--border);
+    border-image: linear-gradient(to right, var(--accent), var(--border)) 1 1 1 1;
 }
 
 .edit-employee-container:hover{
-    background-color:rgb(89, 65, 139);
-    border-image: linear-gradient(to right, gray, purple) 1 1 1 1;
+    background-color:var(--hover);
+    border-image: linear-gradient(to right, var(--border), var(--accent)) 1 1 1 1;
 }
 
 
 .edit-info-input {
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid var(--border);
     background: none;
-    color: white;
+    color: var(--text-muted);
 }
 
 .edit-info-input:focus {
     opacity: 0.8;
-    box-shadow: 2px 2px 8px gray;
+    box-shadow: 2px 2px 8px var(--shadow);
     border: none;
 }
 
@@ -38,9 +38,9 @@
 }
 
 .evaluation-selector {
-    color: gray;
+    color: var(--text-muted);
     border-radius: 10px;
-    border: 1px solid white;
+    border: 1px solid var(--border);
     width: 70px;
 }
 
@@ -49,21 +49,21 @@
     align-self: center;
     margin-top: 5px;
     border-radius: 5px;
-    border: 1px solid white;
+    border: 1px solid var(--border);
     background: none;
     padding: 5px;
-    color: white;
+    color: var(--text-muted);
     font-size: 15px;
 }
 
 .confirm-edit-button:hover {
     opacity: 0.8;
-    box-shadow: 2px 2px 8px gray;
+    box-shadow: 2px 2px 8px var(--shadow);
 }
 
 .edit-info-radio {
     background: none;
-    border: 1px solid white;
+    border: 1px solid var(--border);
 }
 
 .close-edit-icon {

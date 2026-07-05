@@ -9,7 +9,7 @@
   right: 45%;
   left: 30%;
   bottom: 0px;
-  background-color: lightgrey;
+  background-color: var(--primary);
   border-radius: 20px;
   opacity: 0.9;
   grid-area: footer;
@@ -32,7 +32,7 @@
   align-items: center;
   width: 100%;
   text-decoration: none;
-  color: black;
+  color:  var(--text-muted);
   padding-left: 3px;
   padding-right: 3px;
 }
@@ -44,8 +44,7 @@
 }
 
 .sub-menu-section.active {
-  background-color: darkblue;
-  box-shadow: 4px 4px 8px gray;
-  color: white;
+  background-color:  var(--accent);
+  color:  var(--text-muted);
   border-radius: 20px;
 }

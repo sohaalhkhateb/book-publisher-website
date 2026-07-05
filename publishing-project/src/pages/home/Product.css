@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 1px solid gray;
+  border-right: 1px solid var(--border);
   border-bottom: 1px solid gray;
   padding: 10px;
   margin: 0px;
   cursor: pointer;
+  position: relative;
+  color: var(--text);
 }
 
 .product-image {

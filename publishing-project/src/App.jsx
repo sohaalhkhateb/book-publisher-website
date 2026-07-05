@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router'
 import './App.css'
+import './index.css'
 import { Login } from './pages/auth/login/Login'
 import { SignUp } from './pages/auth/signup/SignUp'
 import { SignUp2 } from './pages/auth/signup/SignUp2'
@@ -9,104 +10,142 @@ import { HomePage } from './pages/home/HomePage'
 import book1Image from './assets/images/book1.png'
 import book2Image from './assets/images/book2.png'
 import book3Image from './assets/images/book3.png'
-import { InventoryPage } from './pages/wharehouse/inventory/InventoryPage'
-import { InventoryHeader } from './pages/wharehouse/inventory/InventoryHeader'
-import { AddBook } from './components/AddBook'
-import { BookDetails } from './pages/home/BookDetails'
-import { EmployeeComponent } from './pages/manage-employees/EmployeeComponent'
 import { EmployeePage } from './pages/manage-employees/EmployeePage'
-import { EditEmployee } from './pages/manage-employees/EditEmployee'
-import { AddEmployee } from './pages/manage-employees/AddEmployee'
 import { SearchComponent } from './components/SearchComponent'
 import { WareHousePage } from './pages/wharehouse/WareHousePage'
 import { useState } from 'react'
-import { EmployeeDetails } from './pages/manage-employees/EmployeeDetails'
+import { AssignTask } from './pages/manage-employees/AssignTask'
+import { Orders } from './pages/purchase-orders/Orders'
 import { EmployeeOptions } from './pages/manage-employees/EmployeeOptions'
+import { OrdersPage } from './pages/purchase-orders/OrdersPage'
+import { Order } from './pages/purchase-orders/Order'
+import { ProfilePage } from './pages/profile/ProfilePage'
+import { EditProfilePage } from './pages/profile/EditProfilePage'
+import { SalesOrderPage } from './pages/sales-orders/SalesOrdersPage'
 import { AssignComponent } from './pages/manage-employees/AssignComponent'
+import { PrivacyPage } from './pages/account/PrivacyPage'
+import { ChangePassowrd } from './pages/account/ChangePassword'
+import { BookDetails } from './pages/home/BookDetails'
 
 function App() {
-  const products = [
+  const books = [
     {
       title: 'SUN EATER',
       image: book1Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book2Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     }, {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
       image: book3Image,
       number: 10,
-      writer: 'Megan campisi',
+      author: 'Megan campisi',
+      date: '10/12/2022',
+      pages: 222,
+      edit: 'first',
       id: crypto.randomUUID()
     },
   ];
@@ -199,9 +238,9 @@ function App() {
     },
   ];
   const [showOptionList, setShowOptionList] = useState(false);
-  const [homeProducts, setHomeProducts] = useState(products);
+  const [search, setSearch] = useState(false);
   return (
-    
+
     <Routes>
       <Route
         path="/login"
@@ -227,10 +266,11 @@ function App() {
         path='/'
         element={
           <HomePage
-            homeProducts={homeProducts}
-            setHomeProducts={setHomeProducts}
+            books={books}
             showOptionList={showOptionList}
             setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
           />
         }
       />
@@ -238,7 +278,6 @@ function App() {
         path='/wareHouse'
         element={
           <WareHousePage
-            setHomeProducts={setHomeProducts}
             setShowOptionList={setShowOptionList}
             showOptionList={showOptionList}
           />
@@ -249,10 +288,8 @@ function App() {
         element={
           <EmployeePage
             employees={employees}
-            setHomeProducts={setHomeProducts}
             setShowOptionList={setShowOptionList}
             showOptionList={showOptionList}
-
           />
         }
       />
@@ -262,15 +299,53 @@ function App() {
       />
       <Route
         path='/employeeOptions'
-        element={<EmployeeOptions/>}
+        element={<EmployeeOptions />}
       />
       <Route
         path='/assign'
-        element={<AssignComponent/>}
+        element={<AssignTask />}
+      />
+      <Route
+        path='/purchase-orders'
+        element={<OrdersPage
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
+        path='/profile'
+        element={<ProfilePage />}
+      />
+      <Route
+        path='/edit-profile'
+        element={<EditProfilePage />}
+      />
+      <Route
+        path='/sales-orders'
+        element={<SalesOrderPage
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
+        path='/assign-component'
+        element={<AssignComponent />}
+      />
+      <Route
+        path='/privacy'
+        element={<PrivacyPage />}
+      />
+      <Route
+        path='/change-pw'
+        element={<ChangePassowrd />}
       />
     </Routes>
   )
-  
+
 }
 
 export default App

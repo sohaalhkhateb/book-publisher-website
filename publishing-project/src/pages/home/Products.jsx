@@ -1,17 +1,15 @@
 import { Product } from "./Product"
-export function Products({homeProducts}
+export function Products({books, setSelectedBookId }
 ){
   return(
     <>
     {
-      homeProducts.map((product)=>{
+      books.map((book)=>{
         return(
-          <Product 
-            title={product.title}
-            image={product.image}
-            number={product.number}
-            writer={product.writer}
-            key={product.id}
+          <Product
+            key={book.id}
+            book={book}
+            onClick= {() => setSelectedBookId(book.id)}
           />
         )
       })

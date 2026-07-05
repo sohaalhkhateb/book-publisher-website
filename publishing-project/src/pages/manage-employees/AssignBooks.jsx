@@ -11,6 +11,8 @@ export function AssignBooks({ assignBooks }) {
                             image={assignBook.image}
                             number={assignBook.number}
                             writer={assignBook.writer}
+                            assignedState={assignBook.assignedState}
+                            assignedEmp={assignBook.assignedEmp}
                             key={assignBook.id}
                         />
                     )

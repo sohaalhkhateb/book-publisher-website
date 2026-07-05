@@ -1,7 +1,38 @@
+:root {
+  --background: #F8F5F0;
+  --surface: #FFFFFF;
+  --text: #122130;
+  --text-muted: #d7dce6;
+  --primary: #1E3A5F;
+  --accent: #C89B3C;
+  --border: #67696e;
+  --hover: #1f4570;
+  --shadow: #8593a1;
+  --success: #2F855A;
+  --warning: #D97706;
+  --error: #C53030;
+}
+
+[data-theme="dark"] {
+  --background: #0F172A;
+  --surface: #162033;
+  --text: #F8FAFC;
+  --text-muted: #CBD5E1;
+  --primary: #152038;
+  --accent: #E1B65B;
+  --border: #263247;
+  --hover: #32415C;
+  --shadow: #b7c3cf;
+  --success: #34D399;
+  --warning: #F59E0B;
+  --error: #F87171;
+}
+
 body {
   margin: 0px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   min-height: 100vh;
+  background: var(--background);
 }
 
 p {

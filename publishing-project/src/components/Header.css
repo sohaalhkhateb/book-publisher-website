@@ -1,8 +1,21 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary);
+  padding-left: 10px;
+  padding-right: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  grid-area: header;
+}
+
 .header-middle-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: cadetblue;
+  color: var(--text-muted);
   flex-grow: 1;
   margin-left: 20px;
   margin-right: 20px;
@@ -26,7 +39,7 @@
   width: 200px;
   height: 30px;
   border-radius: 10px;
-  border: 1px solid grey;
+  border: 1px solid var(--border);
   font-size: 20px;
   flex-grow: 1;
 }
@@ -42,21 +55,9 @@
   height: 50px;
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: lightgrey;
-  padding-left: 10px;
-  padding-right: 10px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  grid-area: header;
-}
-
 .header-menu-image {
-  height: 40px;
+  height: 30px;
+  margin-top: 10px;
 }
 
 .header-book-image {
@@ -66,39 +67,44 @@
 .sort-paragraph {
   margin: 0px;
   font-size: 20px;
-  color: rgb(43, 42, 42);
+  color: var(--text-muted);
 }
 
 .header-sort-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: cadetblue;
+  background-color: var(--primary);
   border-radius: 10px;
   border: none;
   width: 100px;
   cursor: pointer;
 }
 
+.header-sort-button:hover{
+  background-color: var(--hover);
+}
+
 .web-name {
   font-size: 20px;
   font-weight: bold;
-  color: darkslategrey;
+  color: var(--text-muted);
   margin: 0px;
+  text-decoration: none;
 }
 
 .number-book-paragraph {
   font-size: 20px;
-  color: darkslategrey;
+  color: var(--text-muted);
   margin: 0px;
 }
 
 .menu-button {
-  background-color: lightgrey;
+  background-color: var(--primary);
   border: none;
   cursor: pointer;
 }
 
-.header-left-section{
+.header-left-section {
   cursor: pointer;
 }

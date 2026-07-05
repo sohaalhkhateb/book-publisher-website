@@ -1,11 +1,11 @@
 import './MainMenu.css'
-import booksIcon from '../assets/images/icons/books-icon.png'
-import WareHouseIcon from '../assets/images/icons/storehouse-icon.png'
+import booksIcon from '../assets/images/icons/book-stack-48.png'
+import WareHouseIcon from '../assets/images/icons/barn-48.png'
 import employeeIcon from '../assets/images/icons/employee-icon.png'
-import purchaseIcon from '../assets/images/icons/purchase-icon.png'
+import purchaseIcon from '../assets/images/icons/purchase-order-48.png'
 import saleIcon from '../assets/images/icons/sale-icon.png'
-import alarmIcon from '../assets/images/icons/alarm-icon.png'
-import { Link, NavLink } from 'react-router'
+import alarmIcon from '../assets/images/icons/appointment-reminders-48.png'
+import { NavLink } from 'react-router'
 import { useState } from 'react'
 export function MainMenu({ setShowMainContent, showMainContent }) {
 
@@ -50,7 +50,7 @@ export function MainMenu({ setShowMainContent, showMainContent }) {
         </p>
       </NavLink>
       <NavLink
-        to='/orders'
+        to='/purchase-orders'
         className='main-menu-sub-container'
       >
         <img
@@ -62,7 +62,7 @@ export function MainMenu({ setShowMainContent, showMainContent }) {
         </p>
       </NavLink>
       <NavLink
-        to='/sales'
+        to='/sales-orders'
         className='main-menu-sub-container'
       >
         <img

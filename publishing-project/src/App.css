@@ -3,7 +3,7 @@
   height: 60px;
   font-size: 25px;
   border-radius: 10px;
-  border: 1px solid gray;
+  border: 1px solid var(--border);
 }
 
 .container {

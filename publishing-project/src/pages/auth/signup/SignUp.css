@@ -1,4 +1,4 @@
-.sign-up-container{
+.sign-up-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,44 +8,52 @@
   margin-left: auto;
   margin-right: auto;
   height: 70vh;
-  background-color: rgb(245, 243, 243);
+  background-color: var(--background);
   padding: 10px;
 }
-.sign-up-phone-section{
-width: 100%;
-display: flex;
-justify-content: space-between;
+
+.sign-up-phone-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-.sign-up-title{
+
+.sign-up-title {
   font-size: 50px;
   margin: 0px;
-  color: gray;
+  color: var(--text);
 }
-.sign-up-button{
-  height: 40px;
-  width: 150px;
+
+.sign-up-button {
+  height: 50px;
+  width: 250px;
   font-size: 30px;
-  color: gray;
+  color: var(--text-muted);
   border-radius: 10px;
   border: 1px solid gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color:  var(--primary);
 }
-.sign-up-input{
+
+.sign-up-input {
   width: 100%;
   height: 40px;
   font-size: 20px;
   border-radius: 10px;
   border: 1px solid gray;
 }
-.sign-up-arrow-image{
+
+.sign-up-arrow-image {
   height: 30px;
 }
-.next-text-button{
+
+.next-text-button {
   margin: 0px;
 }
-.buttons-container{
+
+.buttons-container {
   display: flex;
   align-items: center;
   justify-content: space-between;

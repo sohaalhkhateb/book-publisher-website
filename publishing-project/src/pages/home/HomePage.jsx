@@ -2,7 +2,6 @@ import { Header } from '../../components/Header'
 import { MainMenu } from '../../components/MainMenu'
 import { SubMenu } from '../../components/SubMenu'
 import './HomePage.css'
-import { Products } from './Products'
 import { Options } from '../../components/Options'
 import { WareHousePage } from '../wharehouse/WareHousePage'
 import { useEffect, useState } from 'react'
@@ -12,21 +11,22 @@ import axios from 'axios'
 import { BookDetails } from './BookDetails'
 import { EmployeePage } from '../manage-employees/EmployeePage'
 import { SearchComponent } from '../../components/SearchComponent'
+import { Products } from './Products'
 
-export function HomePage({ homeProducts, setHomeProducts, showOptionList, setShowOptionList }) {
+export function HomePage({ books, showOptionList, setShowOptionList, search, setSearch }) {
+  const [selectedBookId, setSelectedBookId] = useState(null);
   const [addBook, setAddBook] = useState(false);
-  const [searchBooks, setSearchBooks] = useState(false);
-  useEffect(() => {
-
-  }, [showOptionList])
   /*useEffect(() => {
-    const getHomeProducts = async () =>{
+    const getbooks = async () =>{
       const response = await axios.get('');
-      setHomeProducts(response.data);
+      setbooks(response.data);
     }
-    getHomeProducts();
+    getbooks();
   },[]);
   */
+  const selectedBook = books.find((book) =>
+    book.id === selectedBookId);
+
   function addBookActive() {
     setAddBook(true);
   }
@@ -41,9 +41,8 @@ export function HomePage({ homeProducts, setHomeProducts, showOptionList, setSho
       <Header
         showOptionList={showOptionList}
         setShowOptionList={setShowOptionList}
-        setHomeProducts={setHomeProducts}
-        searchBooks={searchBooks}
-        setSearchBooks={setSearchBooks}
+        search={search}
+        setSearch={setSearch}
       />
       <Options
         showOptionList={showOptionList}
@@ -52,34 +51,41 @@ export function HomePage({ homeProducts, setHomeProducts, showOptionList, setSho
       <MainMenu />
       <div className='content-container'>
         {
-          searchBooks &&
+          search &&
           <SearchComponent />
         }
         {
-          !searchBooks &&
-          <div className='products-container'>
-            <Products
-              homeProducts={homeProducts}
+          selectedBook ? (
+            <BookDetails
+              book={selectedBook}
+              onClose= {() => setSelectedBookId(null)}
             />
-            {
-              addBook &&
-              <AddBook
-                setAddBook={setAddBook}
+          ) : (
+            !search &&
+            <div className='products-container'>
+              <Products
+                books={books}
+                setSelectedBookId={setSelectedBookId}
               />
-            }
-          </div>
+              {
+                addBook &&
+                <AddBook
+                  setAddBook={setAddBook}
+                />
+              }
+              <div
+                className="add-books-container"
+                onClick={addBookActive}
+              >
+                <img
+                  src={plusIcon}
+                  alt=""
+                  className='add-books-icon'
+                />
+              </div>
+            </div>
+          )
         }
-
-        <div
-          className="add-books-container"
-          onClick={addBookActive}
-        >
-          <img
-            src={plusIcon}
-            alt=""
-            className='add-books-icon'
-          />
-        </div>
 
       </div>
       <SubMenu />

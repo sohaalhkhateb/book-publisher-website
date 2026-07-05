@@ -1,7 +1,7 @@
 .inventory-header-container {
   display: flex;
   height: 58px;
-  background-color:darkcyan;
+  background-color:var(--primary);
   align-items: center;
   justify-content: space-between;
   padding: 0px 10px;
@@ -22,7 +22,7 @@
   top: 2px;
   font-weight: bold;
   font-size: 20px;
-  color: wheat;
+  color: var(--text-muted);
 }
 
 .inventory-notification-btn {
@@ -34,7 +34,7 @@
 .inventory-header-title{
   font-weight: bold;
   font-size: 30px;
-  color: wheat;
+  color: var(--text-muted);
 }
 
 .inventory-header-middle-section{
@@ -45,12 +45,12 @@
 .inventory-status-txt{
   font-size: 20px;
   font-weight: 600;
-  color:rgb(209, 205, 205);
+  color:var(--text-muted);
 }
 
 .inventory-status-result{
   font-size: 20px;
-  color: darkred;
+  color: var(--accent);
 }
 .inventory-header-icon{
   height: 35px;

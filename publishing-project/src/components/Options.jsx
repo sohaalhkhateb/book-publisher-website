@@ -8,10 +8,18 @@ import arrowListDown from '../assets/images/icons/arrow-list-down.png'
 import SettingIcon from '../assets/images/icons/setting.png'
 import { Link } from 'react-router'
 import { useState } from 'react'
+import '../index.css'
 
 export function Options({ showOptionList, setShowOptionList }) {
   const [showNotList, setShowNotList] = useState(false);
   const [showSetList, setShowSetList] = useState(false);
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme",newTheme);
+  }
 
   function toggleNotList() {
     setShowNotList(!showNotList);
@@ -144,14 +152,17 @@ export function Options({ showOptionList, setShowOptionList }) {
               </li>
               <li>
                 <Link to='' className='options-link'>
-                  <div className='icon-and-txt'>
+                  <div 
+                    onClick={toggleTheme}
+                    className='icon-and-txt'
+                  >
                     <img
                       src={themeIcon}
                       alt=""
                       className='options-icon'
                     />
                     <p>
-                      Theme
+                      Switch to {theme === "light" ? "Dark" : "Light"} Theme
                     </p>
                   </div>
                 </Link>

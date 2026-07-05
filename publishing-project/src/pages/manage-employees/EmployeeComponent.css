@@ -2,17 +2,17 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgb(51, 136, 136);
+    background-color: var(--primary);
     padding: 10px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: white;
+    color: var(--text-muted);
     border-radius: 10px;
     cursor: pointer;
     position: relative;
 }
 
 .employee-component-container:hover{
-    box-shadow: 2px 2px 8px gray;
+    box-shadow: 2px 2px 8px var(--shadow);
 }
 
 .employee-image {
@@ -46,7 +46,7 @@
     flex-direction: column;
     gap: 10px;
     font-size: 15px;
-    color: rgb(218, 209, 209);
+    color: var(--text-muted);
 }
 .hidden{
     display: none;
