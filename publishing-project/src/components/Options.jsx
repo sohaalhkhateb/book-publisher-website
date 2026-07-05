@@ -1,10 +1,11 @@
 import './Options.css'
-import personIcon from '../assets/images/icons/person-icon.png'
-import privecyIcon from '../assets/images/icons/privecy.png'
-import profileListIcon from '../assets/images/icons/profile-list-icon.png'
-import themeIcon from '../assets/images/icons/theme.png'
-import arrowList from '../assets/images/icons/arrow-list.png'
-import arrowListDown from '../assets/images/icons/arrow-list-down.png'
+import personIcon from '../assets/images/icons/user-icon.png'
+import privecyIcon from '../assets/images/icons/privacy-icon.png'
+import profileListIcon from '../assets/images/icons/account.png'
+import lightThemeIcon from '../assets/images/icons/night-mode.png'
+import darkThemeIcon from '../assets/images/icons/dark-mode.png'
+import arrowList from '../assets/images/icons/right-arrow.png'
+import arrowListDown from '../assets/images/icons/down-arrow.png'
 import SettingIcon from '../assets/images/icons/setting.png'
 import { Link } from 'react-router'
 import { useState } from 'react'
@@ -157,7 +158,7 @@ export function Options({ showOptionList, setShowOptionList }) {
                     className='icon-and-txt'
                   >
                     <img
-                      src={themeIcon}
+                      src={theme === "light"? lightThemeIcon : darkThemeIcon}
                       alt=""
                       className='options-icon'
                     />
