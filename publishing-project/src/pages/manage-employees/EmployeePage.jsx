@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { EmployeeComponents } from './EmployeeComponents'
 import plusIcon from '../../assets/images/icons/plus.png'
-import editIcon from '../../assets/images/icons/edit (1).png'
+import editIcon from '../../assets/images/icons/edit-icon.png'
 import './EmployeePage.css'
 import { AddEmployee } from './AddEmployee';
 import { Header } from '../../components/Header';

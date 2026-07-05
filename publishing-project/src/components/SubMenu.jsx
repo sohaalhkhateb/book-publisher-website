@@ -1,7 +1,7 @@
 import './SubMenu.css'
-import bookIcon from '../assets/images/icons/books-icon.png'
-import resourcesIcon from '../assets/images/icons/resources-icon.png'
-import manageSalesIcon from '../assets/images/icons/manage-sales-icon.png'
+import bookIcon from '../assets/images/icons/book-icon2.png'
+import resourcesIcon from '../assets/images/icons/resource.png'
+import manageSalesIcon from '../assets/images/icons/growth-icon.png'
 import { Link, NavLink } from 'react-router'
 import { useState } from 'react'
 export function SubMenu() {

@@ -46,8 +46,8 @@
 .edit-employee-icon {
     position: fixed;
     cursor: pointer;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     right: 10px;
     bottom: 10px;
     z-index: 1000;

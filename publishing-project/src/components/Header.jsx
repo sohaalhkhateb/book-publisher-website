@@ -1,6 +1,6 @@
 import './Header.css'
 import seaarchImage from '../assets/images/icons/search-icon.png'
-import personImage from '../assets/images/icons/person-icon.png'
+import personImage from '../assets/images/icons/account.png'
 import menuImage from '../assets/images/icons/menu.png'
 import bookImage from '../assets/images/icons/book-16-48.png'
 import { useState, useEffect } from 'react'
