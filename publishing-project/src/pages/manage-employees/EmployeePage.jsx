@@ -13,8 +13,9 @@ import { EmployeeOptions } from './EmployeeOptions'
 import { EditEmployee } from './EditEmployee'
 import { AddOccupation } from './AddOccupation'
 import { AssignComponent } from './AssignComponent'
+import PageLayout from '../PageLayout'
 
-export function EmployeePage({ employees, setHomeProducts, setShowOptionList, showOptionList }) {
+export function EmployeePage({ employees, setShowOptionList, showOptionList }) {
     const [showDetails, setShowDetails] = useState('');
     const [showEdit, setShowEdit] = useState(false);
     const [assignTask, setAssignTask] = useState(false);
@@ -48,20 +49,10 @@ export function EmployeePage({ employees, setHomeProducts, setShowOptionList, sh
         setShowOptionList(false);
     }
     return (
-        <div
-            className='container'
-            onClick={closeShowDetails}
+        <PageLayout
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
         >
-            <Header
-                showOptionList={showOptionList}
-                setShowOptionList={setShowOptionList}
-                setHomeProducts={setHomeProducts}
-            />
-            <Options
-                showOptionList={showOptionList}
-                setShowOptionList={setShowOptionList}
-            />
-            <MainMenu />
             <div className='content-container'>
                 {
                     employeesDetails.map((employeeDetails) => {
@@ -117,7 +108,6 @@ export function EmployeePage({ employees, setHomeProducts, setShowOptionList, sh
                     />
                 }
             </div>
-            <SubMenu />
-        </div>
+        </PageLayout>
     )
 }

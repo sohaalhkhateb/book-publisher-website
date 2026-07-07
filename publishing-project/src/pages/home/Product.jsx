@@ -1,3 +1,4 @@
+import { BookImage } from '../../components/BookImage';
 import { BookDetails } from './BookDetails';
 import './Product.css'
 import { useState } from 'react';
@@ -6,12 +7,10 @@ export function Product({ book, onClick }) {
   return (
     <div
       className='product-container'
+      onClick={onClick}
     >
-      <img
+      <BookImage 
         src={book.image}
-        className='product-image'
-        onClick={onClick}
-        alt=""
       />
       <p className='product-title paragraph'>
         Book Title: {book.title}

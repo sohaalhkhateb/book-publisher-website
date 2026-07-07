@@ -7,86 +7,41 @@ import saleIcon from '../assets/images/icons/sales-order.png'
 import alarmIcon from '../assets/images/icons/appointment-reminders-48.png'
 import { NavLink } from 'react-router'
 import { useState } from 'react'
+import { SidebarButton } from './SidebarButton'
 export function MainMenu({ setShowMainContent, showMainContent }) {
 
   return (
     <div className='main-menu-container'>
-      <NavLink
+      <SidebarButton
         to='/'
-        className='main-menu-sub-container'
-      >
-        <img
-          src={booksIcon}
-          className='main-icon'
-          alt=""
-        />
-        <p className='main-paragraph'>
-          Books
-        </p>
-      </NavLink>
-      <NavLink
+        src={booksIcon}
+        text='Books'
+      />
+      <SidebarButton
         to='/wareHouse'
-        className='main-menu-sub-container'
-      >
-        <img
-          src={WareHouseIcon}
-          className='main-icon'
-          alt=""
-        />
-        <p className='main-paragraph'>
-          WareHouse
-        </p>
-      </NavLink>
-      <NavLink
+        src={WareHouseIcon}
+        text='WareHouse'
+      />
+      <SidebarButton
         to='/employees'
-        className='main-menu-sub-container'
-      >
-        <img
-          src={employeeIcon}
-          className='main-icon'
-          alt="" />
-        <p className='main-paragraph'>
-          Manage Employees
-        </p>
-      </NavLink>
-      <NavLink
+        src={employeeIcon}
+        text='Manage Employees'
+      />
+      <SidebarButton
         to='/purchase-orders'
-        className='main-menu-sub-container'
-      >
-        <img
-          src={purchaseIcon}
-          className='main-icon'
-          alt="" />
-        <p className='main-paragraph'>
-          Purchase Orders
-        </p>
-      </NavLink>
-      <NavLink
+        src={purchaseIcon}
+        text='Purchase Orders'
+      />
+      <SidebarButton
         to='/sales-orders'
-        className='main-menu-sub-container'
-      >
-        <img
-          src={saleIcon}
-          className='main-icon'
-          alt="" />
-        <p className='main-paragraph'>
-          Sales Orders
-        </p>
-      </NavLink>
-      <NavLink
+        src={saleIcon}
+        text='Sales Orders'
+      />
+      <SidebarButton
         to='/notifications'
-        className='main-menu-sub-container'
-      >
-        <img
-          src={alarmIcon}
-          className='alarm-icon'
-          alt=""
-        />
-        <p className='main-paragraph'>
-          Notificatios
-        </p>
-      </NavLink>
-
+        src={alarmIcon}
+        text='Notificatios'
+      />
     </div>
   )
 }

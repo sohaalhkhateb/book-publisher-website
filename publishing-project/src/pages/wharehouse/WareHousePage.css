@@ -3,91 +3,23 @@
   grid-auto-columns: minmax(auto-fit, 1fr);
   grid-auto-rows: minmax(300px, 1fr);
   grid-template-areas:
-    "inventory inventory finished finished"
-    "progres progres review goods";
+    "inventory inventory finished finished samples samples"
+    "progres progres review goods ebooks ebooks";
   gap: 20px;
-  background-image: url('../../assets/images/background-image3.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   padding: 10px;
   grid-area: main;
   
 }
-
-.inventory-management-container {
-  grid-area: inventory;
-  background-color: var(--background);
-  height: 100%;
-  width: 100%;
-
-}
-
-.finished-books-container {
-  grid-area: finished;
-  background-color: var(--primary);
-  height: 100%;
-  width: 100%;
-}
-
-.books-in-progress-container {
-  grid-area: progres;
-  background-color: var(--bordeprimaryr);
-  height: 100%;
-  width: 100%;
-}
-
-.review-container {
-  grid-area: review;
-  background-color: var(--primary);
-  height: 100%;
-  width: 100%;
-}
-
-.goods-container {
-  grid-area: goods;
-  background-color: var(--primary);
-  height: 100%;
-  width: 100%;
-}
-
-.sub-container {
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: self-start;
-  cursor: pointer;
-  opacity: 0.8;
-  border: 1px solid var(--border);
-  text-decoration: none;
-  color: var(--text);
-}
-
-.title {
-  font-size: 50px;
-  font-weight: bold;
-  margin: 0px;
-}
-
-.details {
-  font-size: 20px;
-  color: var(--text);
-  margin: 0px;
-}
-
-.sub-container:hover {
-  background-color: var(--hover);
-  color: var(--text-muted);
-}
-
-@media (max-width: 33em) {
+@media (min-width: 300px) {
   .storehouse-container {
     grid-template-areas:
       "inventory finished"
       "inventory review"
       "progres review"
-      "progres goods";
-    grid-auto-rows: minmax(auto, auto);
-    grid-auto-columns: minmax(auto, auto);
+      "progres goods"
+      "samples ebooks"
+      "samples ebooks";
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-columns: minmax(100px, auto);
   }
 }

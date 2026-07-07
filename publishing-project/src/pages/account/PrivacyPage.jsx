@@ -10,14 +10,11 @@ export function PrivacyPage() {
                 alt="" 
             />
             <p className='privacy-title'>
-                Privacy Setting
+                Account Setting
             </p>
             <ul className='privacy-list'>
                 <li className='privacy-item'>
                     change password
-                </li>
-                <li className='privacy-item'>
-                    change/add email
                 </li>
                 <li className='privacy-item'>
                     change/add phone number

@@ -5,11 +5,6 @@
 .home-page-container{
   position: relative;
 }
-.content-container{
-  width: 100%;
-  grid-area: main;
-  position: relative;
-}
 
 .add-books-icon{
   height: 60px;

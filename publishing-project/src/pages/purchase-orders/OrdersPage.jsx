@@ -2,43 +2,37 @@ import { MainMenu } from '../../components/MainMenu'
 import { Options } from '../../components/Options'
 import { SearchComponent } from '../../components/SearchComponent'
 import { SubMenu } from '../../components/SubMenu'
-import { Orders } from './Orders'
+import { Orders } from '../../components/Orders'
 import { OrdersHeader } from '../../components/OrdersHeader'
 import './OrdersPage.css'
+import PageLayout from '../PageLayout'
+import { useState } from 'react'
 export function OrdersPage({ showOptionList, setShowOptionList, search, setSearch }) {
-    
     function closeShowDetails() {
         setShowOptionList(false);
     }
     return (
-        <div
-            className="container"
-            onClick={closeShowDetails}
+        <PageLayout
+            headerState='order'
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
         >
-            <OrdersHeader
-                showOptionList={showOptionList}
-                setShowOptionList={setShowOptionList}
-                search={search}
-                setSearch={setSearch}
-            />
-            <Options
-                showOptionList={showOptionList}
-                setShowOptionList={setShowOptionList}
-            />
-            <MainMenu />
             <div className='content-container'>
                 {
                     search &&
-                    <SearchComponent/>
+                    <SearchComponent />
                 }
                 {
                     !search &&
                     <div className='orders-container'>
-                        <Orders />
+                        <Orders
+                            title='Purchase Orders:'
+                        />
                     </div>
                 }
             </div>
-            <SubMenu />
-        </div>
+        </PageLayout>
     )
 }

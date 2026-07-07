@@ -12,6 +12,7 @@ import { BookDetails } from './BookDetails'
 import { EmployeePage } from '../manage-employees/EmployeePage'
 import { SearchComponent } from '../../components/SearchComponent'
 import { Products } from './Products'
+import PageLayout from '../PageLayout'
 
 export function HomePage({ books, showOptionList, setShowOptionList, search, setSearch }) {
   const [selectedBookId, setSelectedBookId] = useState(null);
@@ -34,21 +35,12 @@ export function HomePage({ books, showOptionList, setShowOptionList, search, set
     setShowOptionList(false);
   }
   return (
-    <div
-      className='home-page-container container'
-      onClick={closeShowDetails}
-    >
-      <Header
+    <PageLayout
         showOptionList={showOptionList}
         setShowOptionList={setShowOptionList}
         search={search}
         setSearch={setSearch}
-      />
-      <Options
-        showOptionList={showOptionList}
-        setShowOptionList={setShowOptionList}
-      />
-      <MainMenu />
+    >
       <div className='content-container'>
         {
           search &&
@@ -58,7 +50,7 @@ export function HomePage({ books, showOptionList, setShowOptionList, search, set
           selectedBook ? (
             <BookDetails
               book={selectedBook}
-              onClose= {() => setSelectedBookId(null)}
+              onClose={() => setSelectedBookId(null)}
             />
           ) : (
             !search &&
@@ -88,7 +80,6 @@ export function HomePage({ books, showOptionList, setShowOptionList, search, set
         }
 
       </div>
-      <SubMenu />
-    </div>
+    </PageLayout>
   )
 }

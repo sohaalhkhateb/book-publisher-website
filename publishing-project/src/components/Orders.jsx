@@ -1,6 +1,6 @@
-import { Order } from "./Order"
+import { Order } from "../components/Order"
 
-export function Orders() {
+export function Orders({ title }) {
     const orders = [
         {
             books: [
@@ -97,7 +97,9 @@ export function Orders() {
                 orders.map((order) => {
                     return (
                         <Order
+                            key={order.id}
                             order={order}
+                            title={title}
                         />
                     )
                 })

@@ -1,10 +1,9 @@
-import './SalesOrder.css'
-
-export function SalesOrder({ order}) {
-    return (
-        <div className='order-container'>
+import './Order.css'
+export function Order({order, title}) {
+    return(
+        <div className="order-container">
             <p className='order-title'>
-                Sales Order:
+                {title}
             </p>
             <p className='order-txt'>
                 For the following items:
@@ -23,13 +22,13 @@ export function SalesOrder({ order}) {
                                     alt=""
                                 />
                                 <p className='book-order-txt'>
-                                    Quantity : {book.quantity}
+                                    Quantity: {book.quantity}
                                 </p>
                                 <p className='book-order-txt'>
-                                    Name : {book.name}
+                                    Name: {book.name}
                                 </p>
                                 <p className='book-order-txt'>
-                                    Author : {book.author}
+                                    Author: {book.author}
                                 </p>
                             </div>
                         )

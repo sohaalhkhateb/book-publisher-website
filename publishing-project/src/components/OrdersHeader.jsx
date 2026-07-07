@@ -1,6 +1,6 @@
 import seaarchImage from '../assets/images/icons/search-icon.png'
 import personImage from '../assets/images/icons/account.png'
-import menuImage from '../assets/images/icons/menu-icon2.png'
+import menuImage from '../assets/images/icons/menu.png'
 import { useState, useEffect } from 'react'
 import { NavLink, useSearchParams } from 'react-router'
 

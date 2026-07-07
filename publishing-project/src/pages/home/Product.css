@@ -11,11 +11,6 @@
   color: var(--text);
 }
 
-.product-image {
-  height: 300px;
-  border-radius: 10px;
-}
-
 .paragraph {
   align-self: flex-start;
 }

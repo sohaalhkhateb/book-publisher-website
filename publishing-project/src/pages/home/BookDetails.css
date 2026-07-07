@@ -26,12 +26,10 @@
     top: 10px;
     right: 10px;
     z-index: 10px;
+    margin-right: 70px;
+    margin-top: 90px;
 }
 
-.book-details-image {
-    border-radius: 10px;
-    height: 300px;
-}
 
 .book-details-info {
     font-size: 25px;

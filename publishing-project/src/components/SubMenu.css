@@ -16,35 +16,8 @@
   min-width: 366.5px;
 }
 
-.sub-menu-icon {
-  height: 30px;
-  align-self: center;
-}
-
-.sub-menu-paragraph {
-  margin: 0px;
-}
-
-.sub-menu-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  text-decoration: none;
-  color:  var(--text-muted);
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
 .body-sub-menu {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.sub-menu-section.active {
-  background-color:  var(--accent);
-  color:  var(--text-muted);
-  border-radius: 20px;
 }

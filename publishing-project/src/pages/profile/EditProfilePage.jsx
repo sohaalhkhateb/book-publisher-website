@@ -32,10 +32,10 @@ export function EditProfilePage() {
             </button>
             <div className='more-edit-section'>
                 <p className='edit-profile-txt'>
-                    if you want to change or add an email
+                    if you want more editing
                 </p>
                 <NavLink
-                    to='/'
+                    to='/privacy'
                     className='edit-profile-link'
                 >
                     Click here

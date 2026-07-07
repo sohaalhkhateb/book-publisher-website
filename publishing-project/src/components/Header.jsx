@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { NavLink, useNavigate, useSearchParams } from 'react-router'
 
-export function Header({ showOptionList, setShowOptionList, setHomeProducts, search, setSearch }) {
+export function Header({ showOptionList, setShowOptionList, search, setSearch }) {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
@@ -28,11 +28,6 @@ export function Header({ showOptionList, setShowOptionList, setHomeProducts, sea
      getNumberOfBooks();
    }, []);
    */
-
-  const sortBooks = async () => {
-    const response = await axios.get('');
-    setHomeProducts(response.data);
-  }
 
   const updateInputSearch = (event) => {
     setInputSearch(event.target.value);
@@ -97,7 +92,6 @@ export function Header({ showOptionList, setShowOptionList, setHomeProducts, sea
         </div>
         <button
           className='header-sort-button'
-          onClick={sortBooks}
         >
           <p className='sort-paragraph'>Sort</p>
           <img

@@ -15,27 +15,10 @@
   width: 90px;
   min-height: calc(100vh - 54px);
 }
-.main-menu-sub-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: var(--text-muted);
-  padding: 10px;
-  width: 100%;
-}
-.main-icon{
-  height: 30px;
-}
+
 .alarm-icon{
   height: 30px;
   margin-bottom: auto;
-}
-.main-paragraph{
-  margin: 0px;
-  align-self: center;
-  
 }
 .alarm-button{
   background-color: var(--primary);
@@ -43,7 +26,3 @@
   cursor: pointer;
 }
 
-.main-menu-sub-container.active{
-  text-decoration: underline;
-  color: var(--accent);
-}

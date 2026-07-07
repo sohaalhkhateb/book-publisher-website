@@ -1,10 +1,11 @@
 import { MainMenu } from '../../components/MainMenu'
 import { Options } from '../../components/Options'
+import { Orders } from '../../components/Orders'
 import { OrdersHeader } from '../../components/OrdersHeader'
 import { SearchComponent } from '../../components/SearchComponent'
 import { SubMenu } from '../../components/SubMenu'
+import PageLayout from '../PageLayout'
 import './SalesOrderPage.css'
-import { SalesOrders } from './SalesOrders'
 
 
 export function SalesOrderPage({ showOptionList, setShowOptionList, search, setSearch }) {
@@ -14,21 +15,13 @@ export function SalesOrderPage({ showOptionList, setShowOptionList, search, setS
     }
 
     return (
-        <div
-            className="container"
-            onClick={closeShowDetails}
+        <PageLayout
+            headerState='order'
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
         >
-            <OrdersHeader
-                showOptionList={showOptionList}
-                setShowOptionList={setShowOptionList}
-                search={search}
-                setSearch={setSearch}
-            />
-            <Options
-                showOptionList={showOptionList}
-                setShowOptionList={setShowOptionList}
-            />
-            <MainMenu />
             <div className='content-container'>
                 {
                     search &&
@@ -37,11 +30,12 @@ export function SalesOrderPage({ showOptionList, setShowOptionList, search, setS
                 {
                     !search &&
                     <div className='orders-container'>
-                        <SalesOrders />
+                        <Orders
+                            title='Sales Orders:'
+                        />
                     </div>
                 }
             </div>
-            <SubMenu />
-        </div>
+        </PageLayout>
     )
 }

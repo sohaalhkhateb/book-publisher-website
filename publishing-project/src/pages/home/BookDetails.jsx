@@ -1,14 +1,13 @@
 import './BookDetails.css'
-import closeIcon from '../../assets/images/icons/close.png'
+import closeIcon from '../../assets/images/icons/close-blue.png'
 import bookImage from '../../assets/images/book1.png'
 import { data } from 'react-router';
+import { BookImage } from '../../components/BookImage';
 export function BookDetails({ book,  onClose}) {
     return (
         <div className='book-details-with-img'>
-            <img
+            <BookImage
                 src={book.image}
-                className='book-details-image'
-                alt=""
             />
             <div className="book-details-container">
                 <img

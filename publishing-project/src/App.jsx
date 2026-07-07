@@ -8,17 +8,15 @@ import { TwoFA } from './pages/auth/twofa/TwoFA'
 import { TwoFaCheck } from './pages/auth/twofa/TowFaCheck'
 import { HomePage } from './pages/home/HomePage'
 import book1Image from './assets/images/book1.png'
-import book2Image from './assets/images/book2.png'
 import book3Image from './assets/images/book3.png'
 import { EmployeePage } from './pages/manage-employees/EmployeePage'
 import { SearchComponent } from './components/SearchComponent'
 import { WareHousePage } from './pages/wharehouse/WareHousePage'
 import { useState } from 'react'
 import { AssignTask } from './pages/manage-employees/AssignTask'
-import { Orders } from './pages/purchase-orders/Orders'
+import { Orders } from './components/Orders'
 import { EmployeeOptions } from './pages/manage-employees/EmployeeOptions'
 import { OrdersPage } from './pages/purchase-orders/OrdersPage'
-import { Order } from './pages/purchase-orders/Order'
 import { ProfilePage } from './pages/profile/ProfilePage'
 import { EditProfilePage } from './pages/profile/EditProfilePage'
 import { SalesOrderPage } from './pages/sales-orders/SalesOrdersPage'
@@ -26,6 +24,9 @@ import { AssignComponent } from './pages/manage-employees/AssignComponent'
 import { PrivacyPage } from './pages/account/PrivacyPage'
 import { ChangePassowrd } from './pages/account/ChangePassword'
 import { BookDetails } from './pages/home/BookDetails'
+import { ManagePhoneNum } from './pages/account/ManagePhoneNum'
+import { BookImage } from './components/BookImage'
+import { FinishedBooksPage } from './pages/wharehouse/finished-books/FinishedBooksPage'
 
 function App() {
   const books = [
@@ -37,16 +38,22 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'translating',
       id: crypto.randomUUID()
     },
     {
       title: 'SUN EATER',
-      image: book2Image,
+      image: book1Image,
       number: 10,
       author: 'Megan campisi',
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'editing',
       id: crypto.randomUUID()
     }, {
       title: 'SUN EATER',
@@ -56,6 +63,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'checking',
       id: crypto.randomUUID()
     },
     {
@@ -66,6 +76,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'translating',
       id: crypto.randomUUID()
     },
     {
@@ -76,6 +89,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'accepted',
       id: crypto.randomUUID()
     },
     {
@@ -86,6 +102,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'accepted',
       id: crypto.randomUUID()
     },
     {
@@ -96,6 +115,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'translating',
       id: crypto.randomUUID()
     },
     {
@@ -106,6 +128,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'accepted',
       id: crypto.randomUUID()
     },
     {
@@ -116,6 +141,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'accepted',
       id: crypto.randomUUID()
     },
     {
@@ -126,6 +154,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'accepted',
       id: crypto.randomUUID()
     },
     {
@@ -136,6 +167,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'checking',
       id: crypto.randomUUID()
     },
     {
@@ -146,6 +180,9 @@ function App() {
       date: '10/12/2022',
       pages: 222,
       edit: 'first',
+      copies: 200,
+      price: 300,
+      state: 'checking',
       id: crypto.randomUUID()
     },
   ];
@@ -342,6 +379,24 @@ function App() {
       <Route
         path='/change-pw'
         element={<ChangePassowrd />}
+      />
+      <Route
+        path='/manage-phone-number'
+        element={<ManagePhoneNum />}
+      />
+      <Route
+        path='/finished-book'
+        element={<FinishedBooksPage
+          books={books}
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
+        path='/test'
+        element={<BookImage />}
       />
     </Routes>
   )
