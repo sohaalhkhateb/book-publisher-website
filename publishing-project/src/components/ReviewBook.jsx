@@ -1,27 +1,22 @@
 import './ReviewBook.css'
 import { BookImage } from './BookImage'
-export function ReviewBook({book}) {
+export function ReviewBook({children, book}) {
     return(
-        <div className="finished-book-container">
+        <div className="review-book-container">
             <BookImage
                 src={book.image}
             />
-            <div className='finished-book-without-img'>
-                <p className='finished-book-txt'>
+            <div className='review-book-without-img'>
+                <p className='review-book-txt'>
                     book name: {book.title}
                 </p>
-                <p className='finished-book-txt'>
+                <p className='review-book-txt'>
                     author : {book.author}
                 </p>
-                <p className='finished-book-txt'>
+                <p className='review-book-txt'>
                     number of printed copies : {book.copies}
                 </p>
-                <p className='finished-book-txt'>
-                    publishing date : {book.date}
-                </p>
-                <p className='finished-book-txt'>
-                    price for one copy : {book.price}$ 
-                </p>
+                {children}
             </div>
         </div>
     )

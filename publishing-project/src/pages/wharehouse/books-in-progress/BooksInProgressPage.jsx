@@ -1,9 +1,10 @@
-import PageLayout from '../../PageLayout'
 import { ReviewBooks } from '../../../components/ReviewBooks'
-import './FinishedBooksPage.css'
-import { FinishedBooks } from './FinishedBooks'
 import { ReviewBooksPage } from '../../../components/ReviewBooksPage'
-export function FinishedBooksPage({ books, showOptionList, setShowOptionList, search, setSearch }) {
+import { BooksInProgress } from './BooksInProgress'
+import './BooksInProgressPage.css'
+
+export function BooksInProgressPage({ books, showOptionList, setShowOptionList, search, setSearch }) {
+    
     return (
         <ReviewBooksPage
             books={books}
@@ -13,9 +14,9 @@ export function FinishedBooksPage({ books, showOptionList, setShowOptionList, se
             setSearch={setSearch}
         >
             <p className='review-books-title'>
-                Finished Books:
+                In Progress Books:
             </p>
-            <FinishedBooks />
+            <BooksInProgress/>
         </ReviewBooksPage>
     )
 }

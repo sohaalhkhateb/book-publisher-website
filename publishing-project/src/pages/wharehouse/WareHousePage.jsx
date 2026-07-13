@@ -37,22 +37,25 @@ export function WareHousePage({ setHomeProducts, setShowOptionList, showOptionLi
           <WarehouseLink
             to='/finished-book'
             title='finished books'
-            details='information about published,
-              ready-to-sell and printed books'
+            details='Books that are fully prepared and ready for sale,
+             printing, or distribution. This usually means the editing, design,
+             and production work is complete'
             secificClass='finished-books'
           />
           <WarehouseLink
-            to='/'
+            to='/progress-books'
             title='Books in-progress'
-            details='Books under translation,
-              accepted for publication but not yet published'
+            details='Books that are still being worked on, such as editing,
+             formatting, translation, or cover preparation. They are not ready yet,
+             but they are actively moving through the publishing process'
             secificClass='books-in-progress'
           />
           <WarehouseLink
-            to='/'
+            to='/need-review-books'
             title='Books review-needed'
-            details='Copies of books that need to be
-              checked before publication and production'
+            details='Books that need a check before moving forward.
+             This can mean editorial review, quality review, approval,
+             or fixing an issue before publication'
             secificClass='review'
           />
           <WarehouseLink
@@ -63,17 +66,26 @@ export function WareHousePage({ setHomeProducts, setShowOptionList, showOptionLi
             secificClass='goods'
           />
           <WarehouseLink
-            to='/'
+            to='/samples'
             title='samples'
-            details='Goods related to books,such as:
-              posters and other goods'
+            details='Sample copies or promotional copies used for marketing,
+             previews, or sales presentations.
+             These are often used to show a book before full release or to help the sales team'
             secificClass='samples'
           />
           <WarehouseLink
             to='/'
             title='ebooks'
-            details='Goods related to books,such as:
-              posters and other goods'
+            details='Digital versions of books that are published and delivered electronically instead of in print.
+             This section is useful for tracking titles that are sold as downloadable or online-readable filess'
+            secificClass='ebooks'
+          />
+          <WarehouseLink
+            to='/not-sold-books'
+            title='Related books not sold'
+            details='Books that are connected to the catalog but are not currently being sold.
+             This may include archived titles, unavailable books,
+             or titles kept for reference or future relaunch'
             secificClass='ebooks'
           />
         </div>

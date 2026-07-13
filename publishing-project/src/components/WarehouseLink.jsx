@@ -76,6 +76,13 @@ export function WarehouseLink({ to, title, details, secificClass }) {
                         height: 100%;
                         width: 100%;
                     } 
+                    .not-solid{
+                        grid-area: notSolid;
+                        background-color: var(--background);
+                        color:var(--primary);
+                        height: 100%;
+                        width: 100%;
+                    }
                     .books-in-progress:hover,.finished-books:hover,.goods:hover{
                         background-color: var(--background);
                         color: var(--primary);

@@ -1,11 +1,11 @@
-.finished-book-container{
+.review-book-container{
     display: flex;
     justify-content: space-between;
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 10px;
 }
-.finished-book-without-img{
+.review-book-without-img{
     display: flex;
     align-self: center;
     min-width: 300px;
@@ -16,7 +16,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-.finished-book-txt{
+.review-book-txt{
     font-size: 20px;
     width: max-content;
 }

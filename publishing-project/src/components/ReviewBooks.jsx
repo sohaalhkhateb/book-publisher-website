@@ -1,6 +1,6 @@
 import { ReviewBook } from "./ReviewBook"
 
-export function ReviewBooks({ books }) {
+export function ReviewBooks({children , books }) {
     return (
         <>
             <style>
@@ -19,7 +19,9 @@ export function ReviewBooks({ books }) {
                             <ReviewBook
                                 key={book.id}
                                 book={book}
-                            />
+                            >
+                                {children ? children(book) : null}
+                            </ReviewBook>
                         )
                     })
                 }

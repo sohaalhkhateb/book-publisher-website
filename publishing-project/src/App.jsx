@@ -27,6 +27,11 @@ import { BookDetails } from './pages/home/BookDetails'
 import { ManagePhoneNum } from './pages/account/ManagePhoneNum'
 import { BookImage } from './components/BookImage'
 import { FinishedBooksPage } from './pages/wharehouse/finished-books/FinishedBooksPage'
+import { BooksInProgressPage } from './pages/wharehouse/books-in-progress/BooksInProgressPage'
+import { BooksReviewNeedPage } from './pages/wharehouse/books-review-needed/BooksReviewNeedPage'
+import { SamplesBooksPage } from './pages/wharehouse/samples/SamplesBooksPage'
+import { BooksNotSoldPage } from './pages/wharehouse/books-not-sold/BooksNotSoldPage'
+import { InventoryPage } from './pages/wharehouse/inventory/InventoryPage'
 
 function App() {
   const books = [
@@ -40,6 +45,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Finished Books',
       state: 'translating',
       id: crypto.randomUUID()
     },
@@ -53,6 +59,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Finished Books',
       state: 'editing',
       id: crypto.randomUUID()
     }, {
@@ -65,6 +72,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Books in-progress',
       state: 'checking',
       id: crypto.randomUUID()
     },
@@ -78,6 +86,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Books in-progress',
       state: 'translating',
       id: crypto.randomUUID()
     },
@@ -91,6 +100,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Books review needed',
       state: 'accepted',
       id: crypto.randomUUID()
     },
@@ -104,6 +114,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Books review needed',
       state: 'accepted',
       id: crypto.randomUUID()
     },
@@ -117,6 +128,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Ebooks',
       state: 'translating',
       id: crypto.randomUUID()
     },
@@ -130,6 +142,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Ebooks',
       state: 'accepted',
       id: crypto.randomUUID()
     },
@@ -143,6 +156,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Finished Books',
       state: 'accepted',
       id: crypto.randomUUID()
     },
@@ -156,6 +170,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Books in-progress',
       state: 'accepted',
       id: crypto.randomUUID()
     },
@@ -169,6 +184,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Books review needed',
       state: 'checking',
       id: crypto.randomUUID()
     },
@@ -182,6 +198,7 @@ function App() {
       edit: 'first',
       copies: 200,
       price: 300,
+      type: 'Ebooks',
       state: 'checking',
       id: crypto.randomUUID()
     },
@@ -395,8 +412,48 @@ function App() {
         />}
       />
       <Route
-        path='/test'
-        element={<BookImage />}
+        path='/progress-books'
+        element={<BooksInProgressPage
+          books={books}
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
+        path='/need-review-books'
+        element={<BooksReviewNeedPage
+          books={books}
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
+        path='/samples'
+        element={<SamplesBooksPage
+          books={books}
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
+        path='/not-sold-books'
+        element={<BooksNotSoldPage
+          books={books}
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
+        path='/inventory'
+        element={<InventoryPage/>}
       />
     </Routes>
   )

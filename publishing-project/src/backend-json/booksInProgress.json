@@ -1,0 +1,29 @@
+[
+    {
+    "id": 3,
+    "title": "Echoes of Marota",
+    "author": "Nour Al‑Masri",
+    "date": "2026-03-20",
+    "status": "in-progress",
+    "format": "both",
+    "assignedEditor": "Omar Nour",
+    "assignedDesigner": "Sara Kez",
+    "manuscriptFile": "/files/manuscripts/marota-draft-2.docx",
+    "reviewNotes": "Finish chapter 9; confirm historical timeline.",
+    "createdAt": "2025-06-15T09:00:00Z",
+    "updatedAt": "2026-01-05T16:45:00Z"
+    },
+    {
+    "id": 4,
+    "title": "Code & Clay: A Maker’s Memoir",
+    "author": "Sam Hatem",
+    "date": "2026-06-01",
+    "status": "in-progress",
+    "format": "ebook",
+    "assignedEditor": "Lina Khoury",
+    "manuscriptFile": "/files/manuscripts/code-clay-v1.md",
+    "reviewNotes": "Add chapter on data visualization workflows.",
+    "createdAt": "2025-09-10T11:30:00Z",
+    "updatedAt": "2026-01-02T10:20:00Z"
+    }
+]
