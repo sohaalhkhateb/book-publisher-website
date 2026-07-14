@@ -7,8 +7,6 @@ import { SignUp2 } from './pages/auth/signup/SignUp2'
 import { TwoFA } from './pages/auth/twofa/TwoFA'
 import { TwoFaCheck } from './pages/auth/twofa/TowFaCheck'
 import { HomePage } from './pages/home/HomePage'
-import book1Image from './assets/images/book1.png'
-import book3Image from './assets/images/book3.png'
 import { EmployeePage } from './pages/manage-employees/EmployeePage'
 import { SearchComponent } from './components/SearchComponent'
 import { WareHousePage } from './pages/wharehouse/WareHousePage'
@@ -32,265 +30,14 @@ import { BooksReviewNeedPage } from './pages/wharehouse/books-review-needed/Book
 import { SamplesBooksPage } from './pages/wharehouse/samples/SamplesBooksPage'
 import { BooksNotSoldPage } from './pages/wharehouse/books-not-sold/BooksNotSoldPage'
 import { InventoryPage } from './pages/wharehouse/inventory/InventoryPage'
+import { books } from '../src/backend-json/books'
+import { employees } from '../src/backend-json/employees'
+import { internationalIds } from '../src/backend-json/internationalIds'
+import { InventoryHeader } from './pages/wharehouse/inventory/InventoryHeader'
+import { InventoryBox } from './pages/wharehouse/inventory/InventoryBox'
+import { InventoryRow } from './pages/wharehouse/inventory/InventoryRow'
 
 function App() {
-  const books = [
-    {
-      title: 'SUN EATER',
-      image: book1Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Finished Books',
-      state: 'translating',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book1Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Finished Books',
-      state: 'editing',
-      id: crypto.randomUUID()
-    }, {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Books in-progress',
-      state: 'checking',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Books in-progress',
-      state: 'translating',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Books review needed',
-      state: 'accepted',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Books review needed',
-      state: 'accepted',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Ebooks',
-      state: 'translating',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Ebooks',
-      state: 'accepted',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Finished Books',
-      state: 'accepted',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Books in-progress',
-      state: 'accepted',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Books review needed',
-      state: 'checking',
-      id: crypto.randomUUID()
-    },
-    {
-      title: 'SUN EATER',
-      image: book3Image,
-      number: 10,
-      author: 'Megan campisi',
-      date: '10/12/2022',
-      pages: 222,
-      edit: 'first',
-      copies: 200,
-      price: 300,
-      type: 'Ebooks',
-      state: 'checking',
-      id: crypto.randomUUID()
-    },
-  ];
-
-  const internationalIds = [
-    {
-      number: '+111',
-      id: crypto.randomUUID()
-    },
-    {
-      number: '+963',
-      id: crypto.randomUUID()
-    },
-    {
-      number: '+098',
-      id: crypto.randomUUID()
-    },
-    {
-      number: '+897',
-      id: crypto.randomUUID()
-    },
-    {
-      number: '+223',
-      id: crypto.randomUUID()
-    }
-  ];
-  const employees = [
-    {
-      image: '',
-      name: 'Soha Alkhateeb',
-      type: 'Translator',
-      salary: 3000,
-      evaluation: 1,
-      date: '10/12/2021',
-      experience: 3,
-      status: 'active',
-      works: [
-        {
-          job: 'translate x book',
-          id: crypto.randomUUID()
-        },
-        {
-          job: 'translate y book',
-          id: crypto.randomUUID()
-        }
-      ],
-      id: crypto.randomUUID()
-    },
-    {
-      image: '',
-      name: 'Sam Alkhateeb',
-      type: 'Editors',
-      salary: 3000,
-      evaluation: 1,
-      date: '10/12/2021',
-      experience: 3,
-      status: 'active',
-      works: [
-        {
-          job: 'translate x book',
-          id: crypto.randomUUID()
-        },
-        {
-          job: 'translate y book',
-          id: crypto.randomUUID()
-        }
-      ],
-      id: crypto.randomUUID()
-    },
-    {
-      image: '',
-      name: 'Soha Alkhateeb',
-      type: 'Translator',
-      salary: 3000,
-      evaluation: 1,
-      date: '10/12/2021',
-      experience: 3,
-      status: 'active',
-      works: [
-        {
-          job: 'translate x book',
-          id: crypto.randomUUID()
-        },
-        {
-          job: 'translate y book',
-          id: crypto.randomUUID()
-        }
-      ],
-      id: crypto.randomUUID()
-    },
-  ];
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
   return (
@@ -453,7 +200,11 @@ function App() {
       />
       <Route
         path='/inventory'
-        element={<InventoryPage/>}
+        element={<InventoryPage />}
+      />
+      <Route
+        path='/inventory-header'
+        element={<InventoryRow />}
       />
     </Routes>
   )

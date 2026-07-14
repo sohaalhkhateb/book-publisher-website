@@ -1,4 +1,4 @@
-[
+export const booksInProgress = [
     {
     "id": 3,
     "title": "Echoes of Marota",

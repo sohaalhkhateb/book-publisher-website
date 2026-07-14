@@ -1,0 +1,22 @@
+.inventory-row-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--surface);
+    color: var(--primary);
+    box-sizing: border-box;
+    height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+}
+.inventory-row-txt{
+    font-weight: 500;
+}
+
+.inventory-row-states{
+    padding: 3px;
+    border-radius: 10px;
+    background-color: var(--success);
+    font-weight: 700;
+
+}

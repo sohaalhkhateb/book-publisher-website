@@ -3,6 +3,7 @@ import { MainMenu } from "../components/MainMenu";
 import { Options } from "../components/Options";
 import { OrdersHeader } from "../components/OrdersHeader";
 import { SubMenu } from "../components/SubMenu";
+import { InventoryHeader } from "./wharehouse/inventory/InventoryHeader";
 
 export default function PageLayout({ children, headerState, showOptionList, setShowOptionList, search, setSearch }) {
     function closeShowDetails() {
@@ -21,12 +22,19 @@ export default function PageLayout({ children, headerState, showOptionList, setS
                         setSearch={setSearch}
                     />
                     :
-                    <Header
-                        showOptionList={showOptionList}
-                        setShowOptionList={setShowOptionList}
-                        search={search}
-                        setSearch={setSearch}
-                    />
+                    (headerState == "inventory" ?
+                        <InventoryHeader
+
+                        />
+                        :
+                        <Header
+                            showOptionList={showOptionList}
+                            setShowOptionList={setShowOptionList}
+                            search={search}
+                            setSearch={setSearch}
+                        />
+                    )
+
             }
 
             <Options

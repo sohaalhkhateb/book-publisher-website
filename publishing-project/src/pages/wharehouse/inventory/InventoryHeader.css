@@ -1,62 +1,22 @@
-.inventory-header-container {
+.inventory-header-container{
   display: flex;
-  height: 58px;
-  background-color:var(--primary);
-  align-items: center;
+  width: 100%;
   justify-content: space-between;
-  padding: 0px 10px;
+  background-color: var(--primary);
+  color: var(--text-muted);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 5px;
+  box-sizing: border-box;
   position: sticky;
   top: 0px;
-  z-index: 10px;
+  z-index: 1000;
 }
-
-.inventory-notification-icon {
-  height: 40px;
-}
-
-.inventory-header-right-section {}
-
-.inventory-notification-count {
-  position: absolute;
-  right: 10px;
-  top: 2px;
-  font-weight: bold;
-  font-size: 20px;
-  color: var(--text-muted);
-}
-
-.inventory-notification-btn {
-  background: none;
-  border: none;
-  position: relative;
-
+.inventory-header-right{
+  display: flex;
+  flex-direction: column;
 }
 .inventory-header-title{
+  font-size: 40px;
   font-weight: bold;
-  font-size: 30px;
-  color: var(--text-muted);
-}
-
-.inventory-header-middle-section{
-  display: flex;
-  gap: 5px;
-}
-
-.inventory-status-txt{
-  font-size: 20px;
-  font-weight: 600;
-  color:var(--text-muted);
-}
-
-.inventory-status-result{
-  font-size: 20px;
-  color: var(--accent);
-}
-.inventory-header-icon{
-  height: 35px;
-}
-
-.inventory-header-left-section{
-  display: flex;
-  gap: 5px;
 }
