@@ -1,0 +1,51 @@
+.main-menu-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightgrey;
+  overflow: hidden;
+  position: fixed;
+  z-index: 100;
+  top: 54px;
+  align-self: flex-start;
+  height: calc(100vh - 54px);
+  opacity: 0.8;
+  grid-area: side;
+  min-width: 60px;
+  width: 90px;
+  min-height: calc(100vh - 54px);
+}
+.main-menu-sub-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  width: 100%;
+}
+.main-icon{
+  height: 30px;
+}
+.alarm-icon{
+  height: 40px;
+  margin-bottom: auto;
+}
+.main-paragraph{
+  margin: 0px;
+  align-self: center;
+  
+}
+.alarm-button{
+  background-color: lightgrey;
+  border: none;
+  cursor: pointer;
+}
+
+.main-menu-sub-container.active{
+  background-color: darkblue;
+  box-shadow: 4px 4px 8px 8px gray;
+  color: white;
+}

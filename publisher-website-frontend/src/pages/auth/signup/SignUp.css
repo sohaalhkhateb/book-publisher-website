@@ -1,0 +1,53 @@
+.sign-up-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 100px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(245, 243, 243);
+  padding: 10px;
+}
+.sign-up-phone-section{
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+.sign-up-title{
+  font-size: 50px;
+  margin: 0px;
+  color: gray;
+}
+.sign-up-button{
+  margin-top: 20PX;
+  height: 40px;
+  width: 150px;
+  font-size: 30px;
+  color: gray;
+  border-radius: 10px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sign-up-input{
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+.sign-up-arrow-image{
+  height: 30px;
+}
+.next-text-button{
+  margin: 0px;
+}
+.buttons-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

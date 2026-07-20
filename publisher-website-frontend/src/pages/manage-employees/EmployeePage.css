@@ -1,0 +1,53 @@
+.employee-page-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.employee-section {
+    padding: 10px;
+    font-size: 30px;
+    color: rgb(141, 170, 170);
+    border-radius: 20px;
+    border-top: 1px solid rgb(141, 170, 170);
+}
+
+.employee-components {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.add-employee-place {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.add-employee-place:hover {
+    opacity: 0.8;
+    box-shadow: 2px 2px 8px gray;
+}
+
+.add-employee-close-icon {
+    height: 20px;
+    width: 20px;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.edit-employee-icon {
+    position: fixed;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 1000;
+}

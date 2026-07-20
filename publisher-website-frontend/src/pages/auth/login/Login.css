@@ -1,0 +1,51 @@
+.login-body-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 100px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60vh;
+  background-color: rgb(245, 243, 243);
+  padding: 10px;
+}
+
+.login-title {
+  font-size: 50px;
+  margin: 0px;
+  color: gray;
+}
+
+.sign-up-link {
+  text-decoration: none;
+  color: rgb(179, 175, 175);
+  font-size: 25px;
+}
+
+.another-way-auth-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-button {
+  height: 40px;
+  width: 200px;
+  font-size: 30px;
+  color: gray;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.login-input.email {
+  margin-bottom: 10px;
+}
+
+.question-paragraph {
+  margin: 0px;
+  text-decoration: none;
+  color: gray;
+  font-size: 25px;
+}

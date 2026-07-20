@@ -1,0 +1,104 @@
+.header-middle-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: cadetblue;
+  flex-grow: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+}
+
+.header-search-image {
+  height: 32px;
+  position: absolute;
+  right: 0px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.header-search-image:hover {
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.header-search-bar {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  font-size: 20px;
+  flex-grow: 1;
+}
+
+.header-search-section {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  max-width: 500px;
+}
+
+.header-person-image {
+  height: 50px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightgrey;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  grid-area: header;
+}
+
+.header-menu-image {
+  height: 40px;
+}
+
+.header-book-image {
+  height: 35px;
+}
+
+.sort-paragraph {
+  margin: 0px;
+  font-size: 20px;
+  color: rgb(43, 42, 42);
+}
+
+.header-sort-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: cadetblue;
+  border-radius: 10px;
+  border: none;
+  width: 100px;
+  cursor: pointer;
+}
+
+.web-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: darkslategrey;
+  margin: 0px;
+}
+
+.number-book-paragraph {
+  font-size: 20px;
+  color: darkslategrey;
+  margin: 0px;
+}
+
+.menu-button {
+  background-color: lightgrey;
+  border: none;
+  cursor: pointer;
+}
+
+.header-left-section{
+  cursor: pointer;
+}
