@@ -1,0 +1,138 @@
+.resources-card-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.resource-icon {
+    height: 25px;
+}
+
+.resources-card-row1 {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.row1-left,
+.row1-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.resources-card-txt {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.resources-card-row2 {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border);
+    padding: 10px;
+}
+
+.resources-card-name {
+    color: var(--primary);
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.resources-card-category {
+    color: var(--shadow);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.row1-left,
+.row1-right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-and-value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resources-card-val {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--warning);
+}
+
+.resources-card-row3 {
+    border-bottom: 1px solid var(--border);
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.resources-card-row4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    padding: 10px;
+}
+
+.alert {
+    color: var(--error);
+}
+
+.normally {
+    color: var(--success);
+}
+
+.resources-card-row5 {
+    align-self: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.resources-details-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    gap: 30px;
+}
+
+.resources-details-text {
+    color: var(--accent);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.resources-card-status {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.status-active{
+    color: var(--success);
+}
+
+.status-delayed{
+    color: var(--accent);
+}
+
+.status-at-risk{
+    color: var(--warning);
+}
+
+.status-down{
+    color: var(--error);
+}

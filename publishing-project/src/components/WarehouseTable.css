@@ -1,0 +1,57 @@
+.warehouse-table-container {
+    border-radius: 20px;
+}
+
+.warehouse-row-states {
+    padding: 3px;
+    border-radius: 10px;
+    font-weight: 700;
+    width: 80px;
+
+}
+
+.green-stock {
+    background-color: var(--success);
+}
+
+.yellow-stock {
+    background-color: var(--accent);
+}
+
+.red-stock {
+    background-color: var(--error);
+    color: var(--text-muted);
+}
+
+.warehouse-table {
+    width: calc(100% - 60px);
+    border-collapse: collapse;
+    box-shadow: 5px 5px 8px var(--shadow);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.warehouse-table th,
+.warehouse-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.warehouse-table th {
+    background-color: var(--primary);
+    color: var(--text-muted);
+    padding: 22px 26px;
+}
+
+.warehouse-table-body tr:last-child td {
+    border-bottom: none;
+}
+
+.warehouse-table-body tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+.warehouse-table-body tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}

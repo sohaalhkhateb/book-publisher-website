@@ -52,6 +52,9 @@ export function SamplesBooks() {
             {
                 (book) => (
                     <>
+                        <p className='review-book-txt'>
+                            Printed copies : {book.copies}
+                        </p>
                         <p className="review-book-txt">
                             sampleType : {book.sampleType}
                         </p>

@@ -35,7 +35,7 @@ export function MainMenu({ setShowMainContent, showMainContent }) {
       <SidebarButton
         to='/sales-orders'
         src={saleIcon}
-        text='Sales Orders'
+        text='Publishing offers'
       />
       <SidebarButton
         to='/notifications'

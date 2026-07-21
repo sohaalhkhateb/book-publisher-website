@@ -36,6 +36,9 @@ export function FinishedBooks() {
             {
                 (book) => (
                     <>
+                        <p className='review-book-txt'>
+                            Printed copies : {book.copies}
+                        </p>
                         <p className="review-book-txt">
                             publishedDate : {book.date}
                         </p>

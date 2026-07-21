@@ -59,7 +59,7 @@ export function WareHousePage({ setHomeProducts, setShowOptionList, showOptionLi
             secificClass='review'
           />
           <WarehouseLink
-            to='/'
+            to='/goods'
             title='Goods'
             details='Goods related to books,such as:
               posters and other goods'
@@ -74,7 +74,7 @@ export function WareHousePage({ setHomeProducts, setShowOptionList, showOptionLi
             secificClass='samples'
           />
           <WarehouseLink
-            to='/'
+            to='/ebooks'
             title='ebooks'
             details='Digital versions of books that are published and delivered electronically instead of in print.
              This section is useful for tracking titles that are sold as downloadable or online-readable filess'
@@ -86,7 +86,7 @@ export function WareHousePage({ setHomeProducts, setShowOptionList, showOptionLi
             details='Books that are connected to the catalog but are not currently being sold.
              This may include archived titles, unavailable books,
              or titles kept for reference or future relaunch'
-            secificClass='ebooks'
+            secificClass='not-solid'
           />
         </div>
       </div>

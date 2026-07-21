@@ -33,10 +33,9 @@ import { InventoryPage } from './pages/wharehouse/inventory/InventoryPage'
 import { books } from '../src/backend-json/books'
 import { employees } from '../src/backend-json/employees'
 import { internationalIds } from '../src/backend-json/internationalIds'
-import { InventoryHeader } from './pages/wharehouse/inventory/InventoryHeader'
-import { InventoryBox } from './pages/wharehouse/inventory/InventoryBox'
-import { InventoryRow } from './pages/wharehouse/inventory/InventoryRow'
-
+import { GoodsPage } from './pages/wharehouse/goods/GoodsPage'
+import { EbooksPage } from './pages/wharehouse/ebooks/EbooksPage'
+import { ResourcesPage } from './pages/resources/ResourcesPage'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -199,12 +198,31 @@ function App() {
         />}
       />
       <Route
+        path='/ebooks'
+        element={<EbooksPage
+          books={books}
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
+      />
+      <Route
         path='/inventory'
         element={<InventoryPage />}
       />
       <Route
-        path='/inventory-header'
-        element={<InventoryRow />}
+        path='/goods'
+        element={<GoodsPage />}
+      />
+      <Route
+        path='/resources'
+        element={<ResourcesPage
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
       />
     </Routes>
   )

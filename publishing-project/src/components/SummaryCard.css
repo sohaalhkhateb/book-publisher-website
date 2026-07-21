@@ -1,0 +1,67 @@
+.summary-card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: var(--surface);
+    color: var(--primary);
+    box-sizing: border-box;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 5px 5px 8px var(--shadow);
+}
+
+.summary-card-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.summary-card-number{
+  font-size: 40px;
+  font-weight: bold;
+}
+.summary-state-low,.summary-state-out{
+    color: var(--text-muted);
+    background-color: var(--accent);
+    border-radius: 15px;
+    font-size: 15px;
+    width: 30px;
+    padding: 4px;
+    align-self: center;
+}
+.summary-state-out{
+    background-color: var(--error);
+}
+.summary-number-yellow{
+    color: var(--accent);
+}
+.summary-number-red{
+    color: var(--error);
+}
+
+.summary-state-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-card-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-good{
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.card-warning{
+    border: 1px solid var(--warning);
+    color: var(--warning);
+}
+
+.card-risk{
+    border: 1px solid var(--error);
+    color: var(--error);
+}

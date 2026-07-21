@@ -63,6 +63,9 @@ export function BooksNotSold() {
             {
                 (book) => (
                     <>
+                        <p className='review-book-txt'>
+                            Printed copies : {book.copies}
+                        </p>
                         <p className="review-book-txt">
                             status : {book.status}
                         </p>

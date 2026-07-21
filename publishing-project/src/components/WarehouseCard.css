@@ -1,0 +1,52 @@
+.warehouse-card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: var(--surface);
+    color: var(--primary);
+    box-sizing: border-box;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 5px 5px 8px var(--shadow);
+}
+
+.warehouse-card-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.warehouse-card-number{
+  font-size: 40px;
+  font-weight: bold;
+}
+.warehouse-state-low,.warehouse-state-out{
+    color: var(--text-muted);
+    background-color: var(--accent);
+    border-radius: 15px;
+    font-size: 15px;
+    width: 30px;
+    padding: 4px;
+    align-self: center;
+}
+.warehouse-state-out{
+    background-color: var(--error);
+}
+.warehouse-number-yellow{
+    color: var(--accent);
+}
+.warehouse-number-red{
+    color: var(--error);
+}
+
+.warehouse-state-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.warehouse-card-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

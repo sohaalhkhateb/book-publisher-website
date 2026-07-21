@@ -1,6 +1,6 @@
 import PageLayout from "../pages/PageLayout";
 
-export function ReviewBooksPage({ children, books, showOptionList, setShowOptionList, search, setSearch }) {
+export function ReviewBooksPage({ children, showOptionList, setShowOptionList, search, setSearch }) {
     return (
         <>
             <style>

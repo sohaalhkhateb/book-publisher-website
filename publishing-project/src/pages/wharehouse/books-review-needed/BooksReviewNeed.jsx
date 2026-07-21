@@ -49,6 +49,9 @@ export function BooksReviewNeed() {
             {
                 (book) => (
                     <>
+                        <p className='review-book-txt'>
+                            Printed copies : {book.copies}
+                        </p>
                         <p className="review-book-txt">
                             assignedEditor : {book.assignedEditor}
                         </p>

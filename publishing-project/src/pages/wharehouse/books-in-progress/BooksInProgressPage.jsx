@@ -7,7 +7,6 @@ export function BooksInProgressPage({ books, showOptionList, setShowOptionList, 
     
     return (
         <ReviewBooksPage
-            books={books}
             showOptionList={showOptionList}
             setShowOptionList={setShowOptionList}
             search={search}

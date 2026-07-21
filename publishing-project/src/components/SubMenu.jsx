@@ -1,5 +1,5 @@
 import './SubMenu.css'
-import bookIcon from '../assets/images/icons/book-icon2.png'
+import resourceIcon from '../assets/images/icons/resource.png'
 import resourcesIcon from '../assets/images/icons/resource.png'
 import manageSalesIcon from '../assets/images/icons/growth-icon.png'
 import { useState } from 'react'
@@ -21,11 +21,11 @@ export function SubMenu() {
       <div className='sub-menu-container'>
         <BottombarButton
           to='/warehouse'
-          src={bookIcon}
-          text='Books in progress'
+          src={resourceIcon}
+          text='Inventory sales'
         />
         <BottombarButton
-          to='/'
+          to='/resources'
           src={resourcesIcon}
           text='Resources'
         />
