@@ -1,0 +1,23 @@
+{
+  "editor.fontFamily": "'JetBrains Mono', Consolas, monospace",
+  "editor.fontLigatures": true,
+  "editor.semanticHighlighting.enabled": true,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "red",
+      "backgroundColor": "#2b2b2b",
+      "bold": true
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "bold": true
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "bold": false
+    }
+  ]
+}
