@@ -20,10 +20,10 @@ export function Ebooks() {
                 { format: "pdf", url: "/files/ebooks/silent-city.pdf" }
             ],
             copiesSold: 430, // digital copies sold / downloads
-            id: crypto.randomUUID(),
+            id: uuidv4(),
         },
         {
-            id: crypto.randomUUID(),
+            id: uuidv4(),
             title: "Modern Data Workflows",
             image: book1Image,
             number: 10,
@@ -40,7 +40,7 @@ export function Ebooks() {
                 { format: "mobi", url: "/files/ebooks/data-workflows.mobi" }
             ],
             copiesSold: 210,
-            id: crypto.randomUUID(),
+            id: uuidv4(),
         }
     ];
     return (

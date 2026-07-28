@@ -9,32 +9,32 @@ export function Orders({ title }) {
                     name: 'SIN EATER',
                     author: 'Magan Campisi',
                     quantity: 30,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 },
                 {
                     image: 'book1',
                     name: 'Nature and Value',
                     author: 'Akeel Bilgrami',
                     quantity: 40,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 },
                 {
                     image: 'book3',
                     name: 'The Promise of Psychedelics',
                     author: 'Beter mental',
                     quantity: 39,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 },
                 {
                     image: 'book3',
                     name: 'The Promise of Psychedelics',
                     author: 'Beter mental',
                     quantity: 39,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 }
             ],
             from: 'userName@gmail.com',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             books: [
@@ -43,25 +43,25 @@ export function Orders({ title }) {
                     name: 'SIN EATER',
                     author: 'Magan Campisi',
                     quantity: 30,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 },
                 {
                     image: 'book1',
                     name: 'Nature and Value',
                     author: 'Akeel Bilgrami',
                     quantity: 40,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 },
                 {
                     image: 'book3',
                     name: 'The Promise of Psychedelics',
                     author: 'Beter mental',
                     quantity: 39,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 }
             ],
             from: 'userName@gmail.com',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             books: [
@@ -70,25 +70,25 @@ export function Orders({ title }) {
                     name: 'SIN EATER',
                     author: 'Magan Campisi',
                     quantity: 30,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 },
                 {
                     image: 'book1',
                     name: 'Nature and Value',
                     author: 'Akeel Bilgrami',
                     quantity: 40,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 },
                 {
                     image: 'book3',
                     name: 'The Promise of Psychedelics',
                     author: 'Beter mental',
                     quantity: 39,
-                    id: crypto.randomUUID()
+                    id: uuidv4()
                 }
             ],
             from: 'userName@gmail.com',
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ]
     return (

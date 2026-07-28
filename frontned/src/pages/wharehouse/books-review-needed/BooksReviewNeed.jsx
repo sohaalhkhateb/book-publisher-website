@@ -21,7 +21,7 @@ export function BooksReviewNeed() {
             reviewNotes: 'Finish chapter 9; confirm historical timeline.',
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             title: 'SUN EATER',
@@ -41,7 +41,7 @@ export function BooksReviewNeed() {
             reviewNotes: 'Finish chapter 9; confirm historical timeline.',
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ];
     return (

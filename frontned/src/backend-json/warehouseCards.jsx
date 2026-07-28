@@ -1,10 +1,11 @@
+import { v4 as uuidv4 } from 'uuid';
 export const cards = [
     {
         title: 'TOTAL ITEMS',
         number: 247,
         unit: null,
         details: 'Active inventory lines',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'LOW STOCK',
@@ -12,7 +13,7 @@ export const cards = [
         unit: null,
         details: 'Reorder soon',
         state: 'LOW',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'OUT OF STOCK',
@@ -20,13 +21,13 @@ export const cards = [
         unit: null,
         details: 'Unavailable',
         state: 'OUT',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'INVENTORY VALUE',
         number: '$48,291',
         unit: null,
         details: 'Total wholesale value',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
 ]

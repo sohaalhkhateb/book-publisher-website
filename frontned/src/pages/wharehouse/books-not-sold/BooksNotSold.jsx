@@ -28,7 +28,7 @@ export function BooksNotSold() {
             format: "print",
             state: 'translating',
             note: "Out of active promotion; kept for bundles.",
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             title: 'SUN EATER',
@@ -55,7 +55,7 @@ export function BooksNotSold() {
             format: "print",
             state: 'translating',
             note: "Available only in boxed sets.",
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ];
     return (

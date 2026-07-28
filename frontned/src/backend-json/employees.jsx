@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 export const employees = [
     {
         image: '',
@@ -11,14 +12,14 @@ export const employees = [
         works: [
             {
                 job: 'translate x book',
-                id: crypto.randomUUID()
+                id: uuidv4()
             },
             {
                 job: 'translate y book',
-                id: crypto.randomUUID()
+                id: uuidv4()
             }
         ],
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         image: '',
@@ -32,14 +33,14 @@ export const employees = [
         works: [
             {
                 job: 'translate x book',
-                id: crypto.randomUUID()
+                id: uuidv4()
             },
             {
                 job: 'translate y book',
-                id: crypto.randomUUID()
+                id: uuidv4()
             }
         ],
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         image: '',
@@ -53,13 +54,13 @@ export const employees = [
         works: [
             {
                 job: 'translate x book',
-                id: crypto.randomUUID()
+                id: uuidv4()
             },
             {
                 job: 'translate y book',
-                id: crypto.randomUUID()
+                id: uuidv4()
             }
         ],
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
 ];

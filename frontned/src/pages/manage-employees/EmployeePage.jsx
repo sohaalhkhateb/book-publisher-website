@@ -24,19 +24,19 @@ export function EmployeePage({ employees, setShowOptionList, showOptionList }) {
             occupation: 'Translators',
             number: 30,
             employees: employees,
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             occupation: 'Editors',
             number: 20,
             employees: employees,
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             occupation: 'Checkers',
             number: 10,
             employees: employees,
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
     ]
     function showEditDetails(event) {

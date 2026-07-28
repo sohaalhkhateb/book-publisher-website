@@ -1,6 +1,7 @@
+import { v4 as uuidv4 } from 'uuid';
 export const inventoryItems = [
   {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     itemName: "A4 Paper",
     category: "Paper",
     type: "Material",
@@ -18,7 +19,7 @@ export const inventoryItems = [
     notes: "Used for paperback printing",
   },
   {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     itemName: "Glossy Cover Paper",
     category: "Cover Material",
     type: "Material",
@@ -36,7 +37,7 @@ export const inventoryItems = [
     notes: "For hardcover and premium books",
   },
   {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     itemName: "Black Ink",
     category: "Ink",
     type: "Material",
@@ -54,7 +55,7 @@ export const inventoryItems = [
     notes: "Standard text printing ink",
   },
   {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     itemName: "Binding Glue",
     category: "Binding",
     type: "Material",
@@ -72,7 +73,7 @@ export const inventoryItems = [
     notes: "Used for perfect binding",
   },
   {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     itemName: "SUN EATER",
     category: "Finished Book",
     type: "Book Stock",
@@ -90,7 +91,7 @@ export const inventoryItems = [
     notes: "Ready for sale",
   },
   {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     itemName: "MYSTIC LINES",
     category: "Ebook",
     type: "Digital Stock",
@@ -108,7 +109,7 @@ export const inventoryItems = [
     notes: "Digital version for online sale",
   },
   {
-    id: crypto.randomUUID(),
+    id: uuidv4(),
     itemName: "Sample Pack",
     category: "Promotion",
     type: "Sample",

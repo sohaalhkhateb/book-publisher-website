@@ -22,7 +22,7 @@ export function SamplesBooks() {
             sampleType: "chapter-preview",
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             title: 'SUN EATER',
@@ -44,7 +44,7 @@ export function SamplesBooks() {
             sampleType: "reviewer-copy",
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ];
     return (

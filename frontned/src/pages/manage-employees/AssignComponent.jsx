@@ -15,14 +15,14 @@ export function AssignComponent() {
       assignedEmp: [
         {
           name: 'soha',
-          id: crypto.randomUUID()
+          id: uuidv4()
         },
         {
           name: 'sam',
-          id: crypto.randomUUID()
+          id: uuidv4()
         }
       ],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -31,7 +31,7 @@ export function AssignComponent() {
       writer: 'Megan campisi',
       assignedState: false,
       assignedEmp: [],
-      id: crypto.randomUUID()
+      id: uuidv4()
     }, {
       title: 'SUN EATER',
       image: book3Image,
@@ -41,10 +41,10 @@ export function AssignComponent() {
       assignedEmp: [
         {
           name: 'sara',
-          id: crypto.randomUUID()
+          id: uuidv4()
         },
       ],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -55,14 +55,14 @@ export function AssignComponent() {
       assignedEmp: [
         {
           name: 'doaa',
-          id: crypto.randomUUID()
+          id: uuidv4()
         },
         {
           name: 'ali',
-          id: crypto.randomUUID()
+          id: uuidv4()
         }
       ],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -71,7 +71,7 @@ export function AssignComponent() {
       writer: 'Megan campisi',
       assignedState: false,
       assignedEmp: [],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -80,7 +80,7 @@ export function AssignComponent() {
       writer: 'Megan campisi',
       assignedState: false,
       assignedEmp: [],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -89,7 +89,7 @@ export function AssignComponent() {
       writer: 'Megan campisi',
       assignedState: false,
       assignedEmp: [],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -100,14 +100,14 @@ export function AssignComponent() {
       assignedEmp: [
         {
           name: 'soha',
-          id: crypto.randomUUID()
+          id: uuidv4()
         },
         {
           name: 'sam',
-          id: crypto.randomUUID()
+          id: uuidv4()
         }
       ],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -118,14 +118,14 @@ export function AssignComponent() {
       assignedEmp: [
         {
           name: 'soha',
-          id: crypto.randomUUID()
+          id: uuidv4()
         },
         {
           name: 'sam',
-          id: crypto.randomUUID()
+          id: uuidv4()
         }
       ],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -134,7 +134,7 @@ export function AssignComponent() {
       writer: 'Megan campisi',
       assignedState: false,
       assignedEmp: [],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -143,7 +143,7 @@ export function AssignComponent() {
       writer: 'Megan campisi',
       assignedState: false,
       assignedEmp: [],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
     {
       title: 'SUN EATER',
@@ -152,7 +152,7 @@ export function AssignComponent() {
       writer: 'Megan campisi',
       assignedState: false,
       assignedEmp: [],
-      id: crypto.randomUUID()
+      id: uuidv4()
     },
   ];
   return (

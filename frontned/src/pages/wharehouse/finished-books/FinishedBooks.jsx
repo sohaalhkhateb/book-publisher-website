@@ -14,7 +14,7 @@ export function FinishedBooks() {
             price: 300,
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             title: 'SUN EATER',
@@ -28,7 +28,7 @@ export function FinishedBooks() {
             price: 300,
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ];
     return (

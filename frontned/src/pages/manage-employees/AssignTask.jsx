@@ -18,15 +18,15 @@ export function AssignTask({ setIsAssign, showAssign, setShowAssign }) {
     const tasks = [
         {
             type: 'translators',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             type: 'editors',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             type: 'checkers',
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ];
     const setAssign = (event) => {

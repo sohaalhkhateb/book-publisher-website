@@ -18,7 +18,7 @@ export function BooksInProgress() {
             updatedAt: '2026-01-05T16:45:00Z',
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             title: 'SUN EATER',
@@ -36,7 +36,7 @@ export function BooksInProgress() {
             updatedAt: '2026-01-05T16:45:00Z',
             type: 'Finished Books',
             state: 'translating',
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ];
     return (

@@ -3,37 +3,36 @@ import arrowImage from '../../../assets/images/icons/arrow-icon.png'
 import arrowImagePrefix from '../../../assets/images/icons/arrow-icon-prefix.png'
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
-import axios from 'axios'
+import api from '../../../lib/axios';
+
 
 export function SignUp() {
+
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [confirmPwInput, setConfirmPwInput] = useState('');
+
   const navigate = useNavigate();
-  const saveEmailInput = (event) => {
-    setEmailInput(event.target.value);
-  }
-  const savePasswordInput = (event) => {
-    setPasswordInput(event.target.value);
-  }
-  const saveConfirmPwInput = (event) => {
-    setConfirmPwInput(event.target.value);
-  }
+
   const nextFunction = async () => {
-    navigate('/signup2');
-    const response = await axios.post('', {
+    await api.get('sanctum/csrf-cookie')
+    await api.post('register', {
       email: emailInput,
       password: passwordInput,
-      confirmPassword: confirmPwInput
-    })
-    setEmailInput('');
-    setPasswordInput('');
-    setConfirmPwInput('');
-    console.log(response);
+      password_confirmation: confirmPwInput
+    }).then(
+      response => console.log(response.data)
+
+    ).catch(
+      errors => console.log(errors.response.data)
+    )
   }
+
   function backFunction() {
     navigate('/login');
   }
+
+
   return (
     <>
       <div className='sign-up-container'>
@@ -43,21 +42,21 @@ export function SignUp() {
           placeholder='enter your email'
           className='login-input'
           value={emailInput}
-          onChange={saveEmailInput}
+          onChange={event => setEmailInput(event.target.value)}
         />
         <input
           type="password"
           placeholder='enter your password'
           className='login-input'
           value={passwordInput}
-          onChange={savePasswordInput}
+          onChange={event => setPasswordInput(event.target.value)}
         />
         <input
           type="password"
           placeholder='confirm password'
           className='login-input'
           value={confirmPwInput}
-          onChange={saveConfirmPwInput}
+          onChange={event => setConfirmPwInput(event.target.value)}
         />
         <div className='buttons-container'>
           <button

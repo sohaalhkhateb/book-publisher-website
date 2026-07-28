@@ -5,15 +5,15 @@ export function AddEmployee({ showDetails, setShowDetails }) {
     const occupations = [
         {
             name: 'translators',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             name: 'editors',
-            id: crypto.randomUUID()
+            id: uuidv4()
         },
         {
             name: 'checkers',
-            id: crypto.randomUUID()
+            id: uuidv4()
         }
     ]
     function closeShow(event) {

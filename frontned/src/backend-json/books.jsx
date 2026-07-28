@@ -1,6 +1,6 @@
 import book1Image from '../assets/images/book1.png'
 import book3Image from '../assets/images/book3.png'
-
+import { v4 as uuidv4 } from 'uuid';
 export const books = [
     {
         title: 'SUN EATER',
@@ -14,7 +14,7 @@ export const books = [
         price: 300,
         type: 'Finished Books',
         state: 'translating',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -28,7 +28,7 @@ export const books = [
         price: 300,
         type: 'Finished Books',
         state: 'editing',
-        id: crypto.randomUUID()
+        id: uuidv4()
     }, {
         title: 'SUN EATER',
         image: book3Image,
@@ -41,7 +41,7 @@ export const books = [
         price: 300,
         type: 'Books in-progress',
         state: 'checking',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -55,7 +55,7 @@ export const books = [
         price: 300,
         type: 'Books in-progress',
         state: 'translating',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -69,7 +69,7 @@ export const books = [
         price: 300,
         type: 'Books review needed',
         state: 'accepted',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -83,7 +83,7 @@ export const books = [
         price: 300,
         type: 'Books review needed',
         state: 'accepted',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -97,7 +97,7 @@ export const books = [
         price: 300,
         type: 'Ebooks',
         state: 'translating',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -111,7 +111,7 @@ export const books = [
         price: 300,
         type: 'Ebooks',
         state: 'accepted',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -125,7 +125,7 @@ export const books = [
         price: 300,
         type: 'Finished Books',
         state: 'accepted',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -139,7 +139,7 @@ export const books = [
         price: 300,
         type: 'Books in-progress',
         state: 'accepted',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -153,7 +153,7 @@ export const books = [
         price: 300,
         type: 'Books review needed',
         state: 'checking',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
     {
         title: 'SUN EATER',
@@ -167,6 +167,6 @@ export const books = [
         price: 300,
         type: 'Ebooks',
         state: 'checking',
-        id: crypto.randomUUID()
+        id: uuidv4()
     },
 ];

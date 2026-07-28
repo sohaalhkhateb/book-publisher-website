@@ -1,6 +1,7 @@
+import { v4 as uuidv4 } from 'uuid';
 export const goods = [
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Cardboard Boxes (Medium)",
         category: "Packaging",
         type: "Good",
@@ -17,7 +18,7 @@ export const goods = [
         notes: "Used for shipping books",
     },
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Bubble Wrap Rolls",
         category: "Packaging",
         type: "Good",
@@ -34,7 +35,7 @@ export const goods = [
         notes: "For fragile book protection",
     },
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Shipping Labels",
         category: "Shipping",
         type: "Good",
@@ -51,7 +52,7 @@ export const goods = [
         notes: "Standard A6 labels",
     },
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Pallets",
         category: "Storage",
         type: "Good",
@@ -68,7 +69,7 @@ export const goods = [
         notes: "Wooden pallets for bulk book storage",
     },
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Book Display Stands",
         category: "Display",
         type: "Good",
@@ -85,7 +86,7 @@ export const goods = [
         notes: "Used in book fairs and events",
     },
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Promotional Posters",
         category: "Marketing",
         type: "Good",
@@ -102,7 +103,7 @@ export const goods = [
         notes: "For selected book launches",
     },
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Bookmarks",
         category: "Marketing",
         type: "Good",
@@ -119,7 +120,7 @@ export const goods = [
         notes: "Branded with company logo",
     },
     {
-        id: crypto.randomUUID(),
+        id: uuidv4(),
         itemName: "Returned Books Pallet",
         category: "Returns",
         type: "Good",
