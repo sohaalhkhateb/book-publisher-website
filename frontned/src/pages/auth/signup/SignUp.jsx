@@ -4,27 +4,45 @@ import arrowImagePrefix from '../../../assets/images/icons/arrow-icon-prefix.png
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import api from '../../../lib/axios';
+import InputFieldWithErrors from '../../../components/InputFieldWithErrors';
+
+export function SignUp({ setUser }) {
 
 
-export function SignUp() {
 
-  const [emailInput, setEmailInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
-  const [confirmPwInput, setConfirmPwInput] = useState('');
-
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const nextFunction = async () => {
+    setIsLoading(true);
     await api.get('sanctum/csrf-cookie')
     await api.post('register', {
-      email: emailInput,
-      password: passwordInput,
-      password_confirmation: confirmPwInput
+      name: name,
+      email: email,
+      password: password,
+      password_confirmation: passwordConfirmation
     }).then(
-      response => console.log(response.data)
-
+      (response) => {
+        if (response.data.success) {
+          setIsLoading(false)
+          setUser(response.data.user)
+          navigate('/signup2')
+        }
+      }
     ).catch(
-      errors => console.log(errors.response.data)
+      (error) => {
+          setIsLoading(false)
+          setNameError(error.response.data['name'])
+          setEmailError(error.response.data['email'])
+          setPasswordError(error.response.data['password'])
+        }
     )
   }
 
@@ -37,27 +55,35 @@ export function SignUp() {
     <>
       <div className='sign-up-container'>
         <p className='sign-up-title'>Create Your Account</p>
-        <input
+
+        <InputFieldWithErrors
+          type="text"
+          name='name'
+          value={name}
+          setValue={setName}
+          error={nameError}
+        />
+        <InputFieldWithErrors
           type="email"
-          placeholder='enter your email'
-          className='login-input'
-          value={emailInput}
-          onChange={event => setEmailInput(event.target.value)}
+          name="email"
+          value={email}
+          setValue={setEmail}
+          error={emailError}
         />
-        <input
+        <InputFieldWithErrors
           type="password"
-          placeholder='enter your password'
-          className='login-input'
-          value={passwordInput}
-          onChange={event => setPasswordInput(event.target.value)}
+          name="password"
+          value={password}
+          setValue={setPassword}
+          error={passwordError}
         />
-        <input
+        <InputFieldWithErrors
           type="password"
-          placeholder='confirm password'
-          className='login-input'
-          value={confirmPwInput}
-          onChange={event => setConfirmPwInput(event.target.value)}
+          name="password_confirmation"
+          value={passwordConfirmation}
+          setValue={setPasswordConfirmation}
         />
+
         <div className='buttons-container'>
           <button
             className='sign-up-button'
@@ -73,7 +99,9 @@ export function SignUp() {
             className='sign-up-button'
             onClick={nextFunction}
           >
-            <p className='next-text-button'>next</p>
+            <p className='next-text-button'>
+              {isLoading ? 'loading..' : 'next'}
+            </p>
             <img src={arrowImage}
               className='sign-up-arrow-image'
               alt=''
