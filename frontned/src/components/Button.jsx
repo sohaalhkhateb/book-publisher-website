@@ -1,4 +1,4 @@
-export function Button({ text, onClickBtn, image = null }) {
+export function Button({ text, onClickBtn, image = null, position='right' }) {
     return (
         <>
             <style>
@@ -7,6 +7,7 @@ export function Button({ text, onClickBtn, image = null }) {
                         display : flex;
                         flex-direction : row;
                         align-items:center;
+                        justify-content:center;
                         background-color: var(--primary);
                         color: var(--text-muted);
                         border:none;
@@ -33,16 +34,32 @@ export function Button({ text, onClickBtn, image = null }) {
                         padding-left : 1lh;
                         
                     }    
+                    .image-wrapper-left{
+                        height :1.5lh;
+                        width : 1.5lh;
+                        padding-right : 1lh;    
+                    }    
+                    
                 `}
             </style>
+
+
+
             <button
                 className="button"
                 onClick={onClickBtn}
             >
+                {image && position=='left' && (
+                    <div className="image-wrapper-left">
+                        <img className="button-image"
+                            src={image}
+                        />
+                    </div>
+                )}
                 <p className="txt-button">
                     {text}
                 </p>
-                {image && (
+                {image && position=='right' && (
                     <div className="image-wrapper">
                         <img className="button-image"
                             src={image}
