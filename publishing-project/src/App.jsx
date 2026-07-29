@@ -36,6 +36,9 @@ import { internationalIds } from '../src/backend-json/internationalIds'
 import { GoodsPage } from './pages/wharehouse/goods/GoodsPage'
 import { EbooksPage } from './pages/wharehouse/ebooks/EbooksPage'
 import { ResourcesPage } from './pages/resources/ResourcesPage'
+import { InventorySalesHeader } from './pages/inventory-sales/InventorySalesHeader'
+import { InventorySalesPage } from './pages/inventory-sales/InventorySalesPage'
+import { InventorySalesItem } from './pages/inventory-sales/InventorySalesItem'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -209,11 +212,21 @@ function App() {
       />
       <Route
         path='/inventory'
-        element={<InventoryPage />}
+        element={<InventoryPage
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
       />
       <Route
         path='/goods'
-        element={<GoodsPage />}
+        element={<GoodsPage
+          showOptionList={showOptionList}
+          setShowOptionList={setShowOptionList}
+          search={search}
+          setSearch={setSearch}
+        />}
       />
       <Route
         path='/resources'
@@ -223,6 +236,17 @@ function App() {
           search={search}
           setSearch={setSearch}
         />}
+      />
+      <Route
+        path='/inventory-sales'
+        element={
+          <InventorySalesPage
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
+          />
+        }
       />
     </Routes>
   )

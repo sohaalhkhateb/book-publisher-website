@@ -20,7 +20,7 @@ export function SubMenu() {
     <div className='body-sub-menu'>
       <div className='sub-menu-container'>
         <BottombarButton
-          to='/warehouse'
+          to='/inventory-sales'
           src={resourceIcon}
           text='Inventory sales'
         />

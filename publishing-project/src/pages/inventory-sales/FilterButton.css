@@ -1,0 +1,14 @@
+.filter-btn {
+    background: none;
+    color: var(--text-muted);
+    box-sizing: border-box;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.filter-btn:hover{
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+}

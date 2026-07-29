@@ -1,0 +1,53 @@
+.inventory-sale-details-container{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 60px;
+    border-radius: 20px;
+    padding: 30px;
+    padding-left: 60px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid var(--primary);
+    box-shadow: 10px 10px 6px var(--shadow);
+}
+
+.inventory-sale-details-title{
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.inventory-sale-details-txt{
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.close-icon-sale{
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10px;
+    cursor: pointer;
+}
+
+.card-good{
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.card-warning{
+    border: 1px solid var(--warning);
+    color: var(--warning);
+}
+
+.card-risk{
+    border: 1px solid var(--error);
+    color: var(--error);
+}
