@@ -32,6 +32,8 @@ import { GoodsPage } from './pages/wharehouse/goods/GoodsPage'
 import { EbooksPage } from './pages/wharehouse/ebooks/EbooksPage'
 import { ResourcesPage } from './pages/resources/ResourcesPage'
 import './App.css'
+import { Button } from './components/Button'
+import addImage from '../src/assets/images/icons/add.png'     
 
 const AuthContext = createContext(null);
 
@@ -226,6 +228,17 @@ function App() {
             search={search}
             setSearch={setSearch}
           />}
+        />
+
+        <Route
+          path='/test'
+          element={
+            <Button 
+              onClickBtn={()=>{}}
+              text="hello there "
+              image={addImage}
+            />
+          }
         />
       </Routes>
     </AuthContext>

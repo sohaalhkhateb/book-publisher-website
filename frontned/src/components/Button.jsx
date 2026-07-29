@@ -1,16 +1,19 @@
-export function Button({ text , onClickBtn}) {
+export function Button({ text, onClickBtn, image = null }) {
     return (
         <>
             <style>
                 {`
                     .button {
+                        display : flex;
+                        flex-direction : row;
+                        align-items:center;
                         background-color: var(--primary);
                         color: var(--text-muted);
-                        border: 1px solid var(--text-muted);
-                        box-shadow: 5px 5px 5px var(--shadow);
+                        border:none;
+                        box-shadow: 0px 0px 7px 4px #9ea6b6;
                         border-radius: 10px;
-                        width: 200px;
-                        padding: 5px;
+                        min-width: 75px;
+                        padding: 7px 10px;
                         cursor: pointer;
                     }
                      .txt-button{
@@ -20,7 +23,16 @@ export function Button({ text , onClickBtn}) {
                     .button:hover{
                         background-color: var(--text-muted);
                         color: var(--primary);
-                    }                           
+                    }
+                    .button-image{
+                        width : 100%;
+                    }                       
+                    .image-wrapper{
+                        height :1.5lh;
+                        width : 1.5lh;
+                        padding-left : 1lh;
+                        
+                    }    
                 `}
             </style>
             <button
@@ -30,6 +42,13 @@ export function Button({ text , onClickBtn}) {
                 <p className="txt-button">
                     {text}
                 </p>
+                {image && (
+                    <div className="image-wrapper">
+                        <img className="button-image"
+                            src={image}
+                        />
+                    </div>
+                )}
             </button>
         </>
     )

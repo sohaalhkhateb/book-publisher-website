@@ -31,7 +31,7 @@ export function SignUp2() {
   return (
     <div className='sign-up-2-container'>
       <p className='sign-up-2-details'>please insert your publishing company's name and location</p>
-      
+
       <InputFieldWithErrors
         name='publisher Name'
         type='text'
@@ -63,6 +63,7 @@ export function SignUp2() {
           className='sign-up-button'
           onClick={nextFunction}
         >
+          
           <p className='next-text-button'>next</p>
           <img src={arrowImage}
             className='sign-up-arrow-image'
