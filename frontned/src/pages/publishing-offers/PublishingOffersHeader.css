@@ -1,0 +1,32 @@
+.p-offers-header-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 5px;
+    background-color: var(--primary);
+    color: var(--text-muted);
+    position: sticky;
+    top: 0px;
+    z-index: 100000;
+    grid-area: header;
+}
+
+.p-offers-header-right{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.p-offers-header-title{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.p-offers-header-subtitle{
+    font-size: 16px;
+    font-weight: 700;
+}

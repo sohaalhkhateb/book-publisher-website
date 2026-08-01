@@ -33,7 +33,7 @@ export function MainMenu({ setShowMainContent, showMainContent }) {
         text='Purchase Orders'
       />
       <SidebarButton
-        to='/sales-orders'
+        to='/offers'
         src={saleIcon}
         text='Publishing offers'
       />

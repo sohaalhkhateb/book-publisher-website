@@ -39,6 +39,8 @@ import { ResourcesPage } from './pages/resources/ResourcesPage'
 import { InventorySalesHeader } from './pages/inventory-sales/InventorySalesHeader'
 import { InventorySalesPage } from './pages/inventory-sales/InventorySalesPage'
 import { InventorySalesItem } from './pages/inventory-sales/InventorySalesItem'
+import { Offer } from './pages/publishing-offers/Offer'
+import { PublishingOffersPage } from './pages/publishing-offers/PublishingOffersPage'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -247,6 +249,16 @@ function App() {
             setSearch={setSearch}
           />
         }
+      />
+      <Route
+        path='/offers'
+        element={
+          <PublishingOffersPage
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
+          />}
       />
     </Routes>
   )

@@ -5,6 +5,7 @@ import { OrdersHeader } from "../components/OrdersHeader";
 import { SubMenu } from "../components/SubMenu";
 import { WarehouseHeader } from "../components/WareHouseHeader";
 import { InventorySalesHeader } from "./inventory-sales/InventorySalesHeader";
+import { PublishingOffersHeader } from "./publishing-offers/PublishingOffersHeader";
 
 export default function PageLayout({ children, headerState, showOptionList, setShowOptionList, search, setSearch }) {
     function closeShowDetails() {
@@ -46,15 +47,21 @@ export default function PageLayout({ children, headerState, showOptionList, setS
                                     headerState == 'inventory-sales' ?
                                         <InventorySalesHeader />
                                         :
-                                        <Header
-                                            showOptionList={showOptionList}
-                                            setShowOptionList={setShowOptionList}
-                                            search={search}
-                                            setSearch={setSearch}
-                                        />
+                                        (
+                                            headerState == 'offers' ?
+                                                <PublishingOffersHeader />
+                                                :
+                                                <Header
+                                                    showOptionList={showOptionList}
+                                                    setShowOptionList={setShowOptionList}
+                                                    search={search}
+                                                    setSearch={setSearch}
+                                                />
+                                        )
+
                                 )
 
-                    )
+                        )
 
                     )
 
