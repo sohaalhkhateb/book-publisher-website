@@ -8,7 +8,7 @@ import { HomePage } from './pages/home/HomePage'
 import { EmployeePage } from './pages/manage-employees/EmployeePage'
 import { SearchComponent } from './components/SearchComponent'
 import { WareHousePage } from './pages/wharehouse/WareHousePage'
-import { createContext, useState } from 'react'
+import { useState } from 'react'
 import { AssignTask } from './pages/manage-employees/AssignTask'
 import { EmployeeOptions } from './pages/manage-employees/EmployeeOptions'
 import { OrdersPage } from './pages/purchase-orders/OrdersPage'
@@ -31,54 +31,58 @@ import { internationalIds } from '../src/backend-json/internationalIds'
 import { GoodsPage } from './pages/wharehouse/goods/GoodsPage'
 import { EbooksPage } from './pages/wharehouse/ebooks/EbooksPage'
 import { ResourcesPage } from './pages/resources/ResourcesPage'
-import './App.css'
 import { Button } from './components/Button'
-import addImage from '../src/assets/images/icons/add.png'     
+import addImage from '../src/assets/images/icons/add.png'
+import AuthGuard from './lib/AuthGuard.jsx'
+import './App.css'
+import PageLayout from './pages/PageLayout.jsx'
+import { OrdersHeader } from './components/OrdersHeader.jsx'
+import { WarehouseHeader } from './components/WareHouseHeader.jsx'
+import { LayoutElement } from './pages/layout/LayoutElement.jsx'
+import { HomePageEnchanced } from './pages/home/HomePageEnchanced.jsx'
 
-const AuthContext = createContext(null);
+
 
 function App() {
   const [user, setUser] = useState(null);
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
   return (
-    <AuthContext value={user}>
-      <Routes>
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-        <Route
-          path='/signup'
-          element={<SignUp
-            setUser={setUser}
-          />
-        }
-        />
-        <Route
-          path='/signup2'
-          element={<SignUp2 />}
-        />
-        <Route
-          path="/twofa"
-          element={<TwoFA internationalIds={internationalIds} />}
-        />
-        <Route
-          path='/twofacheck'
-          element={<TwoFaCheck />}
-        />
-        <Route
-          path='/'
-          element={
-            <HomePage
-              books={books}
-              showOptionList={showOptionList}
-              setShowOptionList={setShowOptionList}
-              search={search}
-              setSearch={setSearch}
-            />
-          }
-        />
+
+    <Routes>
+      <Route element={<AuthGuard user={user} />}>
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path='/signup'>
+          <Route index element={<SignUp setUser={setUser} />} />
+          <Route path='1' element={<SignUp2 />} />
+          <Route path="2" element={<TwoFA internationalIds={internationalIds} />} />
+          <Route path='3' element={<TwoFaCheck />} />
+        </Route>
+
+        <Route element={<LayoutElement />}>
+          <Route path='/' element={<HomePageEnchanced books={books} />}>
+          </Route>
+        </Route>
+
+
+
+
+
+
+        {/* <Route
+            path='/'
+            element={
+              <HomePage
+                books={books}
+                showOptionList={showOptionList}
+                setShowOptionList={setShowOptionList}
+                search={search}
+                setSearch={setSearch}
+              />
+            }
+          /> */}
         <Route
           path='/wareHouse'
           element={
@@ -230,18 +234,16 @@ function App() {
           />}
         />
 
-        <Route
-          path='/test'
-          element={
-            <Button 
-              onClickBtn={()=>{}}
-              text="hello there "
-              image={addImage}
-            />
-          }
-        />
-      </Routes>
-    </AuthContext>
+      </Route>
+      <Route
+        path='/test'
+        element={<LayoutElement
+          setShowOptionList={setShowOptionList}
+          showOptionList={showOptionList}
+        />}
+      />
+    </Routes>
+
   )
 
 }

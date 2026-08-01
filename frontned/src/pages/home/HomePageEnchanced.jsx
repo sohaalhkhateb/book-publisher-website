@@ -3,11 +3,9 @@ import { useState } from 'react'
 import plusIcon from '../../assets/images/icons/add.png'
 import { AddBook } from '../../components/AddBook'
 import { BookDetails } from './BookDetails'
-import { SearchComponent } from '../../components/SearchComponent'
 import { Products } from './Products'
-import PageLayout from '../PageLayout'
 
-export function HomePage({ books, showOptionList, setShowOptionList, search, setSearch }) {
+export function HomePageEnchanced({books}) {
   const [selectedBookId, setSelectedBookId] = useState(null);
   const [addBook, setAddBook] = useState(false);
   /*useEffect(() => {
@@ -24,21 +22,10 @@ export function HomePage({ books, showOptionList, setShowOptionList, search, set
   function addBookActive() {
     setAddBook(true);
   }
-  function closeShowDetails() {
-    setShowOptionList(false);
-  }
+
   return (
-    <PageLayout
-        showOptionList={showOptionList}
-        setShowOptionList={setShowOptionList}
-        search={search}
-        setSearch={setSearch}
-    >
       <div className='content-container'>
-        {
-          search &&
-          <SearchComponent />
-        }
+       
         {
           selectedBook ? (
             <BookDetails
@@ -46,7 +33,7 @@ export function HomePage({ books, showOptionList, setShowOptionList, search, set
               onClose={() => setSelectedBookId(null)}
             />
           ) : (
-            !search &&
+            
             <div className='products-container'>
               <Products
                 books={books}
@@ -73,6 +60,5 @@ export function HomePage({ books, showOptionList, setShowOptionList, search, set
         }
 
       </div>
-    </PageLayout>
   )
 }

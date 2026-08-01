@@ -1,10 +1,11 @@
-import './SignUp.css'
-import arrowImage from '../../../assets/images/icons/arrow-icon.png'
-import arrowImagePrefix from '../../../assets/images/icons/arrow-icon-prefix.png'
+import rightArrow from '../../../assets/images/icons/rightArrow.png'
+import leftArrow from '../../../assets/images/icons/leftArrow.png'
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
+import { Button } from '../../../components/Button';
 import api from '../../../lib/axios';
 import InputFieldWithErrors from '../../../components/InputFieldWithErrors';
+import './SignUp.css'
 
 export function SignUp({ setUser }) {
 
@@ -38,17 +39,14 @@ export function SignUp({ setUser }) {
       }
     ).catch(
       (error) => {
-          setIsLoading(false)
-          setNameError(error.response.data['name'])
-          setEmailError(error.response.data['email'])
-          setPasswordError(error.response.data['password'])
-        }
+        setIsLoading(false)
+        setNameError(error.response.data['name'])
+        setEmailError(error.response.data['email'])
+        setPasswordError(error.response.data['password'])
+      }
     )
   }
 
-  function backFunction() {
-    navigate('/login');
-  }
 
 
   return (
@@ -85,28 +83,19 @@ export function SignUp({ setUser }) {
         />
 
         <div className='buttons-container'>
-          <button
-            className='sign-up-button'
-            onClick={backFunction}
-          >
-            <p className='next-text-button'>back</p>
-            <img src={arrowImagePrefix}
-              className='sign-up-arrow-image'
-              alt=''
-            />
-          </button>
-          <button
-            className='sign-up-button'
-            onClick={nextFunction}
-          >
-            <p className='next-text-button'>
-              {isLoading ? 'loading..' : 'next'}
-            </p>
-            <img src={arrowImage}
-              className='sign-up-arrow-image'
-              alt=''
-            />
-          </button>
+          <Button
+            position='left'
+            text='back'
+            onClickBtn={() => navigate('/login')}
+            image={leftArrow}
+          />
+          <Button
+            position='right'
+            text='next'
+            isLoading={isLoading}
+            image={rightArrow}
+            onClickBtn={nextFunction}
+          />
         </div>
       </div>
 

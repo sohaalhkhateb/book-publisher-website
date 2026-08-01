@@ -1,4 +1,5 @@
-export function Button({ text, onClickBtn, image = null, position='right' }) {
+import loadingGif from '../assets/images/icons/loading.gif'
+export function Button({ text, onClickBtn, image = null, position = 'right', isLoading = false }) {
     return (
         <>
             <style>
@@ -31,13 +32,13 @@ export function Button({ text, onClickBtn, image = null, position='right' }) {
                     .image-wrapper{
                         height :1.5lh;
                         width : 1.5lh;
-                        padding-left : 1lh;
+                        padding-left :  ${isLoading ? '0px' : '1lh'};
                         
                     }    
                     .image-wrapper-left{
                         height :1.5lh;
                         width : 1.5lh;
-                        padding-right : 1lh;    
+                        padding-right : ${isLoading ? '0px' : '1lh'};    
                     }    
                     
                 `}
@@ -47,22 +48,22 @@ export function Button({ text, onClickBtn, image = null, position='right' }) {
 
             <button
                 className="button"
-                onClick={onClickBtn}
+                onClick={isLoading ? () => { } : onClickBtn}
             >
-                {image && position=='left' && (
+                {image && position == 'left' && (
                     <div className="image-wrapper-left">
                         <img className="button-image"
-                            src={image}
+                            src={isLoading ? loadingGif : image}
                         />
                     </div>
                 )}
                 <p className="txt-button">
-                    {text}
+                    {isLoading ? null : text}
                 </p>
-                {image && position=='right' && (
+                {image && position == 'right' && (
                     <div className="image-wrapper">
                         <img className="button-image"
-                            src={image}
+                            src={isLoading ? loadingGif : image}
                         />
                     </div>
                 )}

@@ -1,16 +1,16 @@
 import './WarehouseHeader.css'
-
+import { v4 as uuidv4 } from 'uuid';
 export function WarehouseHeader({ headerState }) {
     const headerItems = [
         {
             title: 'INVENTORY',
             details: 'Publishing House Admin | Manage Paper, Supplies & Book Stock',
-            id: uuidv4()
+            id:1
         },
         {
             title: 'GOODS',
             details: 'Manage packaging, shipping supplies, storage items, and promotional materials',
-            id: uuidv4()
+            id: 2
         }
     ]
     return (

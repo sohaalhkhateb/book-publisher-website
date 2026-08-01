@@ -1,34 +1,45 @@
-import './TwoFA.css'
-import arrowImage from '../../../assets/images/icons/arrow-icon.png'
-import arrowImagePrefix from '../../../assets/images/icons/arrow-icon-prefix.png'
+import rightArrow from '../../../assets/images/icons/rightArrow.png'
+import leftArrow from '../../../assets/images/icons/leftArrow.png'
+import InputFieldWithErrors from '../../../components/InputFieldWithErrors';
+import { Button } from '../../../components/Button';
 import { useNavigate } from 'react-router';
 import axios from 'axios'
 import { OptionsComponent } from './OptionsComponent';
 import { useState } from 'react';
+import './TwoFA.css'
+import api from '../../../lib/axios';
 
 export function TwoFA({ internationalIds }) {
+
   const [prefixNumber, setPrefixNumber] = useState(internationalIds[0].number);
   const [phoneNumber, setPhoneNumber] = useState('');
-  const navigate = useNavigate();
+  const[phoneNumberError, setPhoneNumberError] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
 
+  const navigate = useNavigate();
+    
   const nextFunction = async () => {
-    navigate('/twofacheck');
-    const response = await axios.post('', {
-      phone: prefixNumber+phoneNumber
-    })
+    try {
+      const response = await axios.post('/saveNumber', {
+        countryCode :prefixNumber,
+        phoneNumber:phoneNumber
+      })
+      if (response.data.success) {
+        navigate('/twofacheck')
+      }
+    } catch (error) {
+      setPhoneNumberError(error.response.data['phoneNumber']);
+
+    }
     setPrefixNumber('');
     setPrefixNumber(internationalIds[0].number);
     console.log(response);
   }
-  function backFunction() {
-    navigate('/signup2');
-  }
+
   function changePrefixNumber(event) {
     setPrefixNumber(event.target.value);
   }
-  function savePhoneInput(event) {
-    setPhoneNumber(event.target.value);
-  }
+
   return (
     <div className='two-fa-container'>
       <p className='two-fa-title'>
@@ -43,35 +54,28 @@ export function TwoFA({ internationalIds }) {
         >
           <OptionsComponent internationalIds={internationalIds} />
         </select>
-        <input
-          type="number"
-          placeholder='enter your phone'
-          className='login-input'
+        <InputFieldWithErrors
+          name='phone number'
+          type='number'
           value={phoneNumber}
-          onChange={savePhoneInput}
+          setValue={setPhoneNumber}
+          error={phoneNumberError}
         />
       </div>
       <div className='buttons-container'>
-        <button
-          className='sign-up-button'
-          onClick={backFunction}
-        >
-          <p className='next-text-button'>back</p>
-          <img src={arrowImagePrefix}
-            className='sign-up-arrow-image'
-            alt=''
-          />
-        </button>
-        <button
-          className='sign-up-button'
-          onClick={nextFunction}
-        >
-          <p className='next-text-button'>next</p>
-          <img src={arrowImage}
-            className='sign-up-arrow-image'
-            alt=''
-          />
-        </button>
+        <Button
+          position='left'
+          text='back'
+          onClickBtn={() => navigate('/signup2')}
+          image={leftArrow}
+        />
+        <Button
+          position='right'
+          text='next'
+          isLoading={isLoading}
+          image={rightArrow}
+          onClickBtn={nextFunction}
+        />
       </div>
     </div>
   )
