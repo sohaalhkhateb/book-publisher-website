@@ -39,7 +39,7 @@ import PageLayout from './pages/PageLayout.jsx'
 import { OrdersHeader } from './components/OrdersHeader.jsx'
 import { WarehouseHeader } from './components/WareHouseHeader.jsx'
 import { LayoutElement } from './pages/layout/LayoutElement.jsx'
-import { HomePageEnchanced } from './pages/home/HomePageEnchanced.jsx'
+import { HomePageEnhanced } from './pages/home/HomePageEnhanced.jsx'
 
 
 
@@ -50,20 +50,23 @@ function App() {
   return (
 
     <Routes>
-      <Route element={<AuthGuard user={user} />}>
 
-        <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
 
-        <Route path='/signup'>
-          <Route index element={<SignUp setUser={setUser} />} />
-          <Route path='1' element={<SignUp2 />} />
+      <Route path='/signup'>
+        <Route index element={<SignUp setUser={setUser} />} />
+        <Route path='1' element={<SignUp2 />} />
+        <Route element={<AuthGuard user={user} />}>
           <Route path="2" element={<TwoFA internationalIds={internationalIds} />} />
           <Route path='3' element={<TwoFaCheck />} />
         </Route>
+      </Route>
+
+      <Route element={<AuthGuard user={user} />}>
 
         <Route element={<LayoutElement />}>
-          <Route path='/' element={<HomePageEnchanced books={books} />}>
-          </Route>
+          <Route path='/' element={<HomePageEnhanced books={books} />} />
+
         </Route>
 
 

@@ -34,7 +34,7 @@ export function SignUp({ setUser }) {
         if (response.data.success) {
           setIsLoading(false)
           setUser(response.data.user)
-          navigate('/signup2')
+          navigate('1')
         }
       }
     ).catch(

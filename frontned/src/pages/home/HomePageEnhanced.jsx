@@ -5,7 +5,7 @@ import { AddBook } from '../../components/AddBook'
 import { BookDetails } from './BookDetails'
 import { Products } from './Products'
 
-export function HomePageEnchanced({books}) {
+export function HomePageEnhanced({books}) {
   const [selectedBookId, setSelectedBookId] = useState(null);
   const [addBook, setAddBook] = useState(false);
   /*useEffect(() => {

@@ -8,7 +8,10 @@ import { useState } from "react";
 export function LayoutElement() {
     const [showOptionList, setShowOptionList] = useState(false);
     return (
-        <>
+        <div className='home-page-container container'
+            onClick={() =>
+                setShowOptionList(false)
+            }>
             <Header
                 setShowOptionList={setShowOptionList}
                 showOptionList={showOptionList}
@@ -20,7 +23,6 @@ export function LayoutElement() {
             <MainMenu />
             <Outlet />
             <SubMenu />
-
-        </>
-    )
+        </ div>
+            )
 }

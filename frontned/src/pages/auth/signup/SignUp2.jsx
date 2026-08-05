@@ -30,7 +30,7 @@ export function SignUp2() {
     })
       .then(function (response) {
         if (response.data.success) {
-          navigate('/twofa')
+          navigate('/signup/2')
           setIsLoading(false)
         };
       })
@@ -66,7 +66,7 @@ export function SignUp2() {
         <Button
           position='left'
           text='back'
-          onClickBtn={() => navigate('/login')}
+          onClickBtn={() => navigate(-1)}
           image={leftArrow}
         />
         <Button
