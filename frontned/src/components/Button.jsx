@@ -3,7 +3,7 @@ export function Button({ text, onClickBtn, image = null, position = 'right', isL
     return (
         <>
             <style>
-                {`
+                {`     
                     .button {
                         display : flex;
                         flex-direction : row;

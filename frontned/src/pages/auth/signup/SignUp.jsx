@@ -7,7 +7,7 @@ import api from '../../../lib/axios';
 import InputFieldWithErrors from '../../../components/InputFieldWithErrors';
 import './SignUp.css'
 
-export function SignUp({ setUser }) {
+export function SignUp() {
 
 
 
@@ -15,34 +15,34 @@ export function SignUp({ setUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [nameError, setNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [errors,setErrors]= useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const nextFunction = async () => {
+
     setIsLoading(true);
+    
     await api.get('sanctum/csrf-cookie')
+
     await api.post('register', {
       name: name,
       email: email,
       password: password,
       password_confirmation: passwordConfirmation
+
     }).then(
       (response) => {
         if (response.data.success) {
           setIsLoading(false)
-          setUser(response.data.user)
           navigate('1')
         }
       }
+
     ).catch(
       (error) => {
         setIsLoading(false)
-        setNameError(error.response.data['name'])
-        setEmailError(error.response.data['email'])
-        setPasswordError(error.response.data['password'])
+        setErrors(error.response.data)
       }
     )
   }
@@ -59,21 +59,21 @@ export function SignUp({ setUser }) {
           name='name'
           value={name}
           setValue={setName}
-          error={nameError}
+          error={errors.name}
         />
         <InputFieldWithErrors
           type="email"
           name="email"
           value={email}
           setValue={setEmail}
-          error={emailError}
+          error={errors.email}
         />
         <InputFieldWithErrors
           type="password"
           name="password"
           value={password}
           setValue={setPassword}
-          error={passwordError}
+          error={errors.password}
         />
         <InputFieldWithErrors
           type="password"

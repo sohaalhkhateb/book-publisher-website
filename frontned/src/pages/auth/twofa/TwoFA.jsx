@@ -1,39 +1,40 @@
 import rightArrow from '../../../assets/images/icons/rightArrow.png'
-import leftArrow from '../../../assets/images/icons/leftArrow.png'
+import skipImage from '../../../assets/images/icons/skip.png'
 import InputFieldWithErrors from '../../../components/InputFieldWithErrors';
 import { Button } from '../../../components/Button';
 import { useNavigate } from 'react-router';
-import axios from 'axios'
 import { OptionsComponent } from './OptionsComponent';
 import { useState } from 'react';
-import './TwoFA.css'
 import api from '../../../lib/axios';
+import './TwoFA.css'
 
 export function TwoFA({ internationalIds }) {
 
   const [prefixNumber, setPrefixNumber] = useState(internationalIds[0].number);
   const [phoneNumber, setPhoneNumber] = useState('');
-  const[phoneNumberError, setPhoneNumberError] = useState('')
+  const [errors, setErrors] = useState('')
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
-    
+
   const nextFunction = async () => {
     try {
-      const response = await axios.post('/saveNumber', {
-        countryCode :prefixNumber,
-        phoneNumber:phoneNumber
+      setIsLoading(true)
+      const response = await api.post('/saveNumber', {
+        countryCode: prefixNumber,
+        phoneNumber: phoneNumber
       })
+      setIsLoading(false)
       if (response.data.success) {
-        navigate('/twofacheck')
+        navigate('/signup/3')
       }
-    } catch (error) {
-      setPhoneNumberError(error.response.data['phoneNumber']);
-
+    } catch (error) { 
+      setErrors(error.response.data);
+      if(error.response.status==419){
+        setErrors({'phoneNumber':'session Expired'})
+      }
+      setIsLoading(false)
     }
-    setPrefixNumber('');
-    setPrefixNumber(internationalIds[0].number);
-    console.log(response);
   }
 
   function changePrefixNumber(event) {
@@ -43,7 +44,7 @@ export function TwoFA({ internationalIds }) {
   return (
     <div className='two-fa-container'>
       <p className='two-fa-title'>
-        2-FA
+        enable two-factor authentication for better security 
       </p>
       <div className='sign-up-phone-section'>
         <select
@@ -56,18 +57,18 @@ export function TwoFA({ internationalIds }) {
         </select>
         <InputFieldWithErrors
           name='phone number'
-          type='number'
+          type='text'
           value={phoneNumber}
           setValue={setPhoneNumber}
-          error={phoneNumberError}
+          error={errors.phoneNumber}
         />
       </div>
       <div className='buttons-container'>
         <Button
           position='left'
-          text='back'
-          onClickBtn={() => navigate('/signup2')}
-          image={leftArrow}
+          text='skip'
+          onClickBtn={() => navigate('/')}
+          image={skipImage}
         />
         <Button
           position='right'

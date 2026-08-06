@@ -2,24 +2,23 @@ import rightArrow from '../../../assets/images/icons/rightArrow.png'
 import leftArrow from '../../../assets/images/icons/leftArrow.png'
 import { useNavigate } from 'react-router';
 import api from '../../../lib/axios'
-import { useState } from 'react'; 
+import { useState } from 'react';
 import InputFieldWithErrors from '../../../components/InputFieldWithErrors';
 import { Button } from '../../../components/Button';
 import './SignUp2.css'
 
 
 export function SignUp2() {
-  
+
   const [publisherName, setPublisherName] = useState('');
   const [location, setLocation] = useState('');
-  const [publisherNameError, setPublisherNameError] = useState('');
-  const [locationError, setLocationError] = useState('');
+  const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  
 
-  
+
+
 
 
   const nextFunction = async () => {
@@ -30,13 +29,16 @@ export function SignUp2() {
     })
       .then(function (response) {
         if (response.data.success) {
-          navigate('/signup/2')
+          console.log(response.data.user)
           setIsLoading(false)
+          navigate('/signup/2')
         };
       })
       .catch(function (error) {
-        setLocationError(error.response.data['location'])
-        setPublisherNameError(error.response.data['publisher_name'])
+        setErrors(error.response.data)
+        if(error.response.status==419){
+        setErrors({'location':'session Expired','publisher_name':'session expired'})
+      }
         setIsLoading(false)
       });
 
@@ -51,14 +53,14 @@ export function SignUp2() {
         type='text'
         value={publisherName}
         setValue={setPublisherName}
-        error={publisherNameError}
+        error={errors.publisher_name || errors.error}
       />
       <InputFieldWithErrors
         name='location'
         type='text'
         value={location}
         setValue={setLocation}
-        error={locationError}
+        error={errors.location || errors.error}
       />
 
 

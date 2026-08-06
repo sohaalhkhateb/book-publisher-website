@@ -2,7 +2,10 @@ import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 import personImage from '../../assets/images/icons/account.png'
 import searchImage from '../../assets/images/icons/search-icon.png'
+import logoutImage from '../../assets/images/icons/logout.png'
 import menuImage from '../../assets/images/icons/menu.png'
+import { Button } from "../../components/Button";
+import api from "../../lib/axios";
 
 export function Header({setShowOptionList, showOptionList}) {
     const [inputSearch, setInputSearch] = useState('');
@@ -52,7 +55,14 @@ export function Header({setShowOptionList, showOptionList}) {
                         alt=""
                         onClick={() => navigate(inputSearch ? `results?query=${inputSearch}` : '/')}
                     />
-                </div>
+                </div> 
+                <Button 
+                    image={logoutImage}
+                    text="logout"
+                    onClickBtn={async()=>{await api.get('/logout')}}
+                />
+                
+                
                 <p className='number-book-paragraph'>
                     number of orders : 22
                 </p>

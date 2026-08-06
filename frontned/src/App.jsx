@@ -44,30 +44,27 @@ import { HomePageEnhanced } from './pages/home/HomePageEnhanced.jsx'
 
 
 function App() {
-  const [user, setUser] = useState(null);
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
   return (
 
     <Routes>
 
-      <Route path="/login" element={<Login />} />
 
+      <Route path="/login" element={<Login />} />
       <Route path='/signup'>
-        <Route index element={<SignUp setUser={setUser} />} />
-        <Route path='1' element={<SignUp2 />} />
-        <Route element={<AuthGuard user={user} />}>
-          <Route path="2" element={<TwoFA internationalIds={internationalIds} />} />
-          <Route path='3' element={<TwoFaCheck />} />
-        </Route>
+        <Route index element={<SignUp />} />
+        <Route path='1' element={<SignUp2  />} />
+        <Route path="2" element={<TwoFA internationalIds={internationalIds} />} />
+        <Route path='3' element={<TwoFaCheck />} />
       </Route>
 
-      <Route element={<AuthGuard user={user} />}>
 
+      <Route element={<AuthGuard  />}>
         <Route element={<LayoutElement />}>
           <Route path='/' element={<HomePageEnhanced books={books} />} />
-
         </Route>
+
 
 
 

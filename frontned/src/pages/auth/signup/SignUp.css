@@ -13,9 +13,11 @@
 }
 
 .sign-up-phone-section {
-  width: 100%;
+  min-width: 50vh;
+  align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: 30px 0px;
 }
 
 .sign-up-title {
