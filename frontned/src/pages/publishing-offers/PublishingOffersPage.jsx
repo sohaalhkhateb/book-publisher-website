@@ -83,7 +83,7 @@ export function PublishingOffersPage({ showOptionList, setShowOptionList, search
                             handleAcceptOffer={handleAcceptOffer}
                         />
                     ) : (
-                        null+
+                        null
                     )
                 }
 
