@@ -1,45 +1,52 @@
-import './Login.css'
+import InputFieldWithErrors from '../../../components/InputFieldWithErrors';
+import { Button } from '../../../components/Button';
+import rightArrow from '../../../assets/images/icons/rightArrow.png'
 import { Link } from 'react-router'
 import { useNavigate } from 'react-router';
-import axios from 'axios'
 import { useState } from 'react';
+import './Login.css'
+import api from '../../../lib/axios';
 
 export function Login() {
-  const [emailInput, setEmailInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
-  const saveEmailInput = (event) => {
-    setEmailInput(event.target.value);
-  }
-  const savePasswordInput = (event) => {
-    setPasswordInput(event.target.value);
-  }
-  const goFunction = async () => {
-    navigate('/');
-    const response = await axios.post('', {
-      email: emailInput,
-      password: passwordInput
+
+
+  const nextFunction = async () => {
+    setIsLoading(true)
+    api.post('/login', {
+      email: email,
+      password: password
+    }).then((response) => {
+      if (response.data.success)
+        navigate('/')
+    }).catch((error) => {
+      setErrors(error.response.data)
+      setIsLoading(false)
     })
-    setEmailInput('');
-    setPasswordInput('');
-    console.log(response);
   }
+
+
   return (
     <div className='login-body-section'>
       <p className='login-title'>Welcome to WebName</p>
-      <input
+      <InputFieldWithErrors
         type="email"
-        placeholder='enter your email'
-        className='login-input email'
-        value={emailInput}
-        onChange={saveEmailInput}
+        name="email"
+        value={email}
+        setValue={setEmail}
+        error={errors.email}
       />
-      <input
+      <InputFieldWithErrors
         type="password"
-        placeholder='enter your password'
-        className='login-input'
-        value={passwordInput}
-        onChange={savePasswordInput}
+        name="password"
+        value={password}
+        setValue={setPassword}
+        error={errors.password}
       />
       <div className='another-way-auth-section'>
         <p className='question-paragraph'>don't have an account ?</p>
@@ -47,11 +54,13 @@ export function Login() {
           SignUp
         </Link>
       </div>
-      <button className='login-button'
-        onClick={goFunction}
-      >
-        Login
-      </button>
+      <Button
+        position='right'
+        text='next'
+        isLoading={isLoading}
+        image={rightArrow}
+        onClickBtn={nextFunction}
+      />
     </div>
   )
 }

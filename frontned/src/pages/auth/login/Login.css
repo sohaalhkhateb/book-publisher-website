@@ -1,10 +1,11 @@
 .login-body-section {
   display: flex;
+  gap: 4px;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   margin-top: 100px;
-  width: 50%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   height: 60vh;
@@ -19,13 +20,14 @@
 }
 
 .sign-up-link {
-  text-decoration: none;
+  
+  text-decoration: underline;
   color: var(--primary);
   font-size: 25px;
 }
 
 .another-way-auth-section {
-  width: 100%;
+  gap: 30px;
   display: flex;
   justify-content: space-between;
 }
