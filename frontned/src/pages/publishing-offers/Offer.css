@@ -1,0 +1,80 @@
+.offer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    width: 350px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.offer-title {
+    font-size: 20px;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.offer-txt {
+    color: var(--shadow);
+}
+
+.offer-desc {
+    color: var(--border);
+}
+
+.offer-view-btn {
+    color: var(--text-muted);
+    background-color: var(--accent);
+    border: none;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.offer-view-btn:hover,.offer-btn:hover {
+    color: var(--primary);
+    background-color: var(--text-muted);
+}
+
+.offer-btn {
+    color: var(--text-muted);
+    background-color: var(--primary);
+    border: none;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+}
+
+.offer-btns{
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.offer-accepted{
+    color: var(--success);
+}
+
+.offer-new{
+    color: var(--accent);
+}
+
+.offer-reviewed{
+    color: var(--warning);
+}
+
+.offer-rejected{
+    color: var(--error);
+}

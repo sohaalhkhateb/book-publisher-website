@@ -1,0 +1,22 @@
+.kpi-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    background-color: var(--surface);
+    color: var(--primary);
+    box-sizing: border-box;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 5px 5px 8px var(--shadow);
+}
+
+.kpi-card-number {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.kpi-card-label {
+    font-size: 20px;
+    font-weight: bold;
+}

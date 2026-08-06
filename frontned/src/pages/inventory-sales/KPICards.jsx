@@ -1,26 +1,26 @@
-import { WarehouseCard } from "./WarehouseCard"
+import { KPICard } from "./KPICard"
 
-export function WarehouseCards({cards}) {
+export function KPICards({ cards }) {
     return (
         <>
             <style>
                 {`
-                    .summary-cards-container{
+                    .kpi-cards-container{
                         display: flex;
                         justify-content: space-around;
                     }
                 `}
             </style>
-            <div className="summary-cards-container">
+            <div className="kpi-cards-container">
                 {
                     cards.map((card) => {
                         return (
-                            <WarehouseCard
+                            <KPICard
                                 key={card.id}
                                 card={card}
                             >
                                 {card.state ? card.state : null}
-                            </WarehouseCard>
+                            </KPICard>
                         )
                     })
                 }

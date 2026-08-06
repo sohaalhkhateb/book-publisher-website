@@ -31,30 +31,30 @@ import { GoodsPage } from './pages/wharehouse/goods/GoodsPage'
 import { EbooksPage } from './pages/wharehouse/ebooks/EbooksPage'
 import { ResourcesPage } from './pages/resources/ResourcesPage'
 import AuthGuard from './lib/AuthGuard.jsx'
-import './App.css'
 import { LayoutElement } from './pages/layout/LayoutElement.jsx'
 import { HomePageEnhanced } from './pages/home/HomePageEnhanced.jsx'
-
-
-
+import { InventorySalesHeader } from './pages/inventory-sales/InventorySalesHeader'
+import { InventorySalesPage } from './pages/inventory-sales/InventorySalesPage'
+import { InventorySalesItem } from './pages/inventory-sales/InventorySalesItem'
+import { Offer } from './pages/publishing-offers/Offer'
+import { PublishingOffersPage } from './pages/publishing-offers/PublishingOffersPage'
+import './App.css'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
   return (
 
     <Routes>
-
-
       <Route path="/login" element={<Login />} />
       <Route path='/signup'>
         <Route index element={<SignUp />} />
-        <Route path='1' element={<SignUp2  />} />
+        <Route path='1' element={<SignUp2 />} />
         <Route path="2" element={<TwoFA internationalIds={internationalIds} />} />
         <Route path='3' element={<TwoFaCheck />} />
       </Route>
 
 
-      <Route element={<AuthGuard  />}>
+      <Route element={<AuthGuard />}>
         <Route element={<LayoutElement />}>
           <Route path='/' element={<HomePageEnhanced books={books} />} />
         </Route>
@@ -212,11 +212,21 @@ function App() {
         />
         <Route
           path='/inventory'
-          element={<InventoryPage />}
+          element={<InventoryPage
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
+          />}
         />
         <Route
           path='/goods'
-          element={<GoodsPage />}
+          element={<GoodsPage
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
+          />}
         />
         <Route
           path='/resources'
@@ -227,8 +237,30 @@ function App() {
             setSearch={setSearch}
           />}
         />
-
+        
+         <Route
+        path='/inventory-sales'
+        element={
+          <InventorySalesPage
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
+          />
+        }
+      />
+      <Route
+        path='/offers'
+        element={
+          <PublishingOffersPage
+            showOptionList={showOptionList}
+            setShowOptionList={setShowOptionList}
+            search={search}
+            setSearch={setSearch}
+          />}
+      />
       </Route>
+      
       <Route
         path='/test'
         element={<LayoutElement

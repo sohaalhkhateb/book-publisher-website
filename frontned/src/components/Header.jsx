@@ -1,11 +1,12 @@
 import './Header.css'
-import seaarchImage from '../assets/images/icons/search-icon.png'
+import searchImage from '../assets/images/icons/search-icon.png'
 import personImage from '../assets/images/icons/account.png'
 import menuImage from '../assets/images/icons/menu.png'
 import bookImage from '../assets/images/icons/book-16-48.png'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { NavLink, useNavigate, useSearchParams } from 'react-router'
+import { SearchInput } from './SearchInput'
 
 export function Header({ showOptionList, setShowOptionList, search, setSearch }) {
   const navigate = useNavigate();
@@ -74,22 +75,15 @@ export function Header({ showOptionList, setShowOptionList, search, setSearch })
         >
           Web Name
         </NavLink>
-        <div className='header-search-section'>
-          <input
+          <SearchInput
             type="text"
             placeholder='search'
-            className='header-search-bar'
-            value={inputSearch}
-            onChange={updateInputSearch}
-            onKeyDown={checkInput}
+            inputValue={inputSearch}
+            inputOnChange={updateInputSearch}
+            inputOnKeyDown={checkInput}
+            searchImage={searchImage}
+            ImageOnClick={sendSearchInput}
           />
-          <img
-            src={seaarchImage}
-            className='header-search-image'
-            alt=""
-            onClick={sendSearchInput}
-          />
-        </div>
         <button
           className='header-sort-button'
         >

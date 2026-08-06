@@ -1,9 +1,10 @@
-import seaarchImage from '../assets/images/icons/search-icon.png'
-import menuImage from '../assets/images/icons/menu.png'
+import searchImage from '../assets/images/icons/search-icon.png'
 import personImage from '../assets/images/icons/account.png'
+import menuImage from '../assets/images/icons/menu.png'
 
 import { useState, useEffect } from 'react'
 import { NavLink, useSearchParams } from 'react-router'
+import { SearchInput } from './SearchInput'
 
 export function OrdersHeader({ showOptionList, setShowOptionList, search, setSearch }) {
 
@@ -61,19 +62,14 @@ export function OrdersHeader({ showOptionList, setShowOptionList, search, setSea
                     Web Name
                 </NavLink>
                 <div className='header-search-section'>
-                    <input
+                    <SearchInput
                         type="text"
-                        placeholder='search'
-                        className='header-search-bar'
-                        value={inputSearch}
-                        onChange={updateInputSearch}
-                        onKeyDown={checkInput}
-                    />
-                    <img
-                        src={seaarchImage}
-                        className='header-search-image'
-                        alt=""
-                        onClick={sendSearchInput}
+                        placeholder="search"
+                        inputValue={inputSearch}
+                        inputOnChange={updateInputSearch}
+                        inputOnKeyDown={checkInput}
+                        searchImage={searchImage}
+                        ImageOnClick={sendSearchInput}
                     />
                 </div>
                 <p className='number-book-paragraph'>

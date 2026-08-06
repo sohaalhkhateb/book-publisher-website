@@ -9,7 +9,7 @@
   z-index: 1000;
   top: 54px;
   align-self: flex-start;
-  height: calc(100vh - 54px);
+  height: calc(100vh - 74px);
   grid-area: side;
   min-width: 60px;
   width: 90px;
