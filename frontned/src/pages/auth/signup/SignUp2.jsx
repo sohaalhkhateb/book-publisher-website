@@ -29,16 +29,15 @@ export function SignUp2() {
     })
       .then(function (response) {
         if (response.data.success) {
-          console.log(response.data.user)
           setIsLoading(false)
           navigate('/signup/2')
         };
       })
       .catch(function (error) {
         setErrors(error.response.data)
-        if(error.response.status==419){
-        setErrors({'location':'session Expired','publisher_name':'session expired'})
-      }
+        if (error.response.status == 419) {
+          setErrors({ 'location': 'session Expired', 'publisher_name': 'session expired' })
+        }
         setIsLoading(false)
       });
 
@@ -68,7 +67,7 @@ export function SignUp2() {
         <Button
           position='left'
           text='back'
-          onClickBtn={() => navigate(-1)}
+          onClickBtn={() => navigate('/signup')}
           image={leftArrow}
         />
         <Button

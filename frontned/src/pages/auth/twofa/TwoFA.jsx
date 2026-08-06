@@ -25,13 +25,15 @@ export function TwoFA({ internationalIds }) {
         phoneNumber: phoneNumber
       })
       setIsLoading(false)
-      if (response.data.success) {
+      if (response.data.redirect)
+        navigate(`/${response.data.redirect}`)
+      if (response.data.success)
         navigate('/signup/3')
-      }
-    } catch (error) { 
+      
+    } catch (error) {
       setErrors(error.response.data);
-      if(error.response.status==419){
-        setErrors({'phoneNumber':'session Expired'})
+      if (error.response.status == 419) {
+        setErrors({ 'phoneNumber': 'session Expired' })
       }
       setIsLoading(false)
     }
@@ -44,7 +46,7 @@ export function TwoFA({ internationalIds }) {
   return (
     <div className='two-fa-container'>
       <p className='two-fa-title'>
-        enable two-factor authentication for better security 
+        enable two-factor authentication for better security
       </p>
       <div className='sign-up-phone-section'>
         <select

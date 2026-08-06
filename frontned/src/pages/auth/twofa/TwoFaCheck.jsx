@@ -1,65 +1,89 @@
-import './TwoFACheck.css'
-import arrowImage from '../../../assets/images/icons/arrow-icon.png'
-import arrowImagePrefix from '../../../assets/images/icons/arrow-icon-prefix.png'
+import leftArrow from '../../../assets/images/icons/leftArrow.png'
+import rightArrow from '../../../assets/images/icons/rightArrow.png'
+import resetImage from '../../../assets/images/icons/reset.png'
 import { useNavigate } from 'react-router';
-import axios from 'axios'
-import { Link } from 'react-router';
-import { useState } from 'react';
+import InputFieldWithErrors from '../../../components/InputFieldWithErrors'
+import { Button } from '../../../components/Button'
+import { useEffect, useState } from 'react';
+import api from '../../../lib/axios'
+import './TwoFACheck.css'
+
 export function TwoFaCheck() {
-  const [code, setCode ] = useState('');
+
+  const [actualCode, setActualCode] = useState('');
+  const [code, setCode] = useState('');
+  const [error, setError] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchCode = async () => {
+      setLoading(true)
+      const response = await api.get('/verificationCode');
+      if (response.data.redirect)
+        navigate(`/${response.data.redirect}`)
+      setActualCode(response.data['code'])
+      setLoading(false)
+    }
+    fetchCode();
+  }, [refresh]);
+
   const nextFunction = async () => {
-    navigate('/');
-    const response = await axios.post('', {
-      code: code
-    })
-    setCode('');
-    console.log(response);
+    try {
+      const response = await api.post('/verificationCode', {
+        code: code
+      });
+      if (response.data.success) {
+        navigate('/')
+      }
+    } catch (errors) {
+      setError(errors.response.data)
+      console.log(error)
+    }
+
   }
-  function backFunction() {
-    navigate('/twofa');
-  }
-  function saveCodeInput(evant){
-    setCode(evant.target.value);
-  }
- 
+
+
   return (
     <div className='tow-fa-check-container'>
       <p className='tow-fa-check-title'>
-        Enter the code that was sent to +963 *** *** *345
+        Enter the code that was sent to your imaginary phone number
       </p>
-      <input
-        type="number"
-        placeholder='enter code here'
-        className='login-input'
+      <p className='actualCode'>
+        {loading ? 'loading' : `enter the code : ${actualCode}`}
+      </p>
+
+      <InputFieldWithErrors
+        type="text"
+        name='code'
         value={code}
-        onChange={saveCodeInput}
+        setValue={setCode}
+        error={error.code}
+
       />
-      <Link to='' className='tow-fa-ckeck-link'>
-        resend
-      </Link>
+
       <div className='buttons-container'>
-        <button
-          className='sign-up-button'
-          onClick={backFunction}
-        >
-          <p className='next-text-button'>back</p>
-          <img src={arrowImagePrefix}
-            className='sign-up-arrow-image'
-            alt=''
-          />
-        </button>
-        <button
-          className='sign-up-button'
-          onClick={nextFunction}
-        >
-          <p className='next-text-button'>next</p>
-          <img src={arrowImage}
-            className='sign-up-arrow-image'
-            alt=''
-          />
-        </button>
+        <Button
+          position='left'
+          text='resend'
+          onClickBtn={() => setRefresh(!refresh)}
+          image={resetImage}
+          isLoading={loading}
+        />
+        <Button
+          position='left'
+          text='back'
+          onClickBtn={() => navigate('/signup/2')}
+          image={leftArrow}
+        />
+        <Button
+          position='right'
+          text='next'
+          isLoading={loading}
+          image={rightArrow}
+          onClickBtn={nextFunction}
+        />
       </div>
     </div>
   )
