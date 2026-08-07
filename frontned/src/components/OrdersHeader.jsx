@@ -1,9 +1,8 @@
 import searchImage from '../assets/images/icons/search-icon.png'
 import personImage from '../assets/images/icons/account.png'
 import menuImage from '../assets/images/icons/menu.png'
-
 import { useState, useEffect } from 'react'
-import { NavLink, useSearchParams } from 'react-router'
+import { NavLink, useNavigate, useSearchParams } from 'react-router'
 import { SearchInput } from './SearchInput'
 
 export function OrdersHeader({ showOptionList, setShowOptionList, search, setSearch }) {
@@ -11,6 +10,7 @@ export function OrdersHeader({ showOptionList, setShowOptionList, search, setSea
     const [searchParams] = useSearchParams();
     const searchText = searchParams.get('search');
     const [inputSearch, setInputSearch] = useState(searchText || '');
+    const navigate = useNavigate();
 
     useEffect(() => {
         setInputSearch(searchText || '');
