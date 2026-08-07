@@ -1,25 +1,14 @@
 import { Link, useNavigate } from "react-router";
-import { useState } from "react";
 import personImage from '../../assets/images/icons/account.png'
-import searchImage from '../../assets/images/icons/search-icon.png'
 import logoutImage from '../../assets/images/icons/logout.png'
+import {SearchInput } from '../../components/SearchInput'
 import menuImage from '../../assets/images/icons/menu.png'
 import { Button } from "../../components/Button";
 import api from "../../lib/axios";
 
 export function Header({setShowOptionList, showOptionList}) {
-    const [inputSearch, setInputSearch] = useState('');
-    const navigate = useNavigate();
-
-
-    function go(event) {
-        if (event.key == 'Escape') {
-            setInputSearch('');
-        }
-        if (event.key == 'Enter') {
-            navigate(inputSearch ? `results?query=${inputSearch}` : '/')
-        }
-    }
+    const navigate = useNavigate ('');
+    
     function showOption(event) {
         event.stopPropagation();
         setShowOptionList(!showOptionList);
@@ -41,25 +30,17 @@ export function Header({setShowOptionList, showOptionList}) {
                 </Link>
 
                 <div className='header-search-section'>
-                    <input
-                        type="text"
-                        placeholder='search'
-                        className='header-search-bar'
-                        value={inputSearch}
-                        onChange={(e) => setInputSearch(e.target.value)}
-                        onKeyDown={go}
+
+                    <SearchInput
+                        fallbackPage='/'
+                        targetPage='books'
                     />
-                    <img
-                        src={searchImage}
-                        className='header-search-image'
-                        alt=""
-                        onClick={() => navigate(inputSearch ? `results?query=${inputSearch}` : '/')}
-                    />
+
                 </div> 
                 <Button 
                     image={logoutImage}
                     text="logout"
-                    onClickBtn={async()=>{await api.get('/logout')}}
+                    onClickBtn={async()=>{await api.get('/logout');navigate('/login')}}
                 />
                 
                 
