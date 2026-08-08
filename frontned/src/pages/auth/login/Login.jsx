@@ -59,7 +59,7 @@ export function Login() {
         text='next'
         isLoading={isLoading}
         image={rightArrow}
-        onClickBtn={nextFunction}
+        onClick={nextFunction}
       />
     </div>
   )

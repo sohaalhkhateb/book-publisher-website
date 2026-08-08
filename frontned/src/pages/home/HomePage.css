@@ -1,6 +1,7 @@
 .products-container{
   display: grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(181px,1fr)) ;
+  gap: 3px;
 }
 .home-page-container{
   position: relative;
@@ -12,7 +13,8 @@
 
 .add-books-container{
   position: fixed;
-  bottom: 0px;
+  bottom: 15px;
   right: 10px;
   cursor: pointer;
+  
 }

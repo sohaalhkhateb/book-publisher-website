@@ -7,6 +7,18 @@
 
 }
 
+.input-astrisk-container{
+    gap: 10px;
+    display: flex;
+    flex-direction:row ;
+    align-items: end;
+    width: fit-content;
+}
+.astrisk{
+    font-size: larger;
+    color: red;
+}
+
 .input-label{
     width:max-content;
     font-family:Arial, Helvetica, sans-serif;
@@ -18,7 +30,7 @@
 .input-field{
     border: none;
     border-radius: 10px;
-    background-color: rgb(101, 101, 230);
+    background-color: var(--bg-color);
     padding: 10px;
     color: white;
     

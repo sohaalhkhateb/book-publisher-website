@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router'
+import { AddBook } from './pages/books/AddBook.jsx'
 import { Login } from './pages/auth/login/Login'
 import { SignUp } from './pages/auth/signup/SignUp'
 import { SignUp2 } from './pages/auth/signup/SignUp2'
@@ -33,11 +34,10 @@ import { ResourcesPage } from './pages/resources/ResourcesPage'
 import AuthGuard from './lib/AuthGuard.jsx'
 import { LayoutElement } from './pages/layout/LayoutElement.jsx'
 import { HomePageEnhanced } from './pages/home/HomePageEnhanced.jsx'
-import { InventorySalesHeader } from './pages/inventory-sales/InventorySalesHeader'
 import { InventorySalesPage } from './pages/inventory-sales/InventorySalesPage'
-import { InventorySalesItem } from './pages/inventory-sales/InventorySalesItem'
-import { Offer } from './pages/publishing-offers/Offer'
 import { PublishingOffersPage } from './pages/publishing-offers/PublishingOffersPage'
+import { ViewBook } from './pages/books/ViewBook.jsx'
+import { EditBook } from './pages/books/EditBook.jsx'
 import './App.css'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
@@ -56,9 +56,15 @@ function App() {
 
       <Route element={<AuthGuard />}>
         <Route element={<LayoutElement />}>
-          <Route path='/' element={<HomePageEnhanced books={books} />} />
+          <Route path='/' element={<HomePageEnhanced />} />
         </Route>
 
+        
+        <Route path='books'>
+          <Route path='add' element={<AddBook />} />
+          <Route path=':id' element={<ViewBook />} />
+          <Route path='edit/:id' element={<EditBook />} />
+        </Route>
 
 
 
@@ -237,30 +243,30 @@ function App() {
             setSearch={setSearch}
           />}
         />
-        
-         <Route
-        path='/inventory-sales'
-        element={
-          <InventorySalesPage
-            showOptionList={showOptionList}
-            setShowOptionList={setShowOptionList}
-            search={search}
-            setSearch={setSearch}
-          />
-        }
-      />
-      <Route
-        path='/offers'
-        element={
-          <PublishingOffersPage
-            showOptionList={showOptionList}
-            setShowOptionList={setShowOptionList}
-            search={search}
-            setSearch={setSearch}
-          />}
-      />
+
+        <Route
+          path='/inventory-sales'
+          element={
+            <InventorySalesPage
+              showOptionList={showOptionList}
+              setShowOptionList={setShowOptionList}
+              search={search}
+              setSearch={setSearch}
+            />
+          }
+        />
+        <Route
+          path='/offers'
+          element={
+            <PublishingOffersPage
+              showOptionList={showOptionList}
+              setShowOptionList={setShowOptionList}
+              search={search}
+              setSearch={setSearch}
+            />}
+        />
       </Route>
-      
+
       <Route
         path='/test'
         element={<LayoutElement

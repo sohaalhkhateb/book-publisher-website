@@ -67,14 +67,14 @@ export function TwoFaCheck() {
         <Button
           position='left'
           text='resend'
-          onClickBtn={() => setRefresh(!refresh)}
+          onClick={() => setRefresh(!refresh)}
           image={resetImage}
           isLoading={loading}
         />
         <Button
           position='left'
           text='back'
-          onClickBtn={() => navigate('/signup/2')}
+          onClick={() => navigate('/signup/2')}
           image={leftArrow}
         />
         <Button
@@ -82,7 +82,7 @@ export function TwoFaCheck() {
           text='next'
           isLoading={loading}
           image={rightArrow}
-          onClickBtn={nextFunction}
+          onClick={nextFunction}
         />
       </div>
     </div>

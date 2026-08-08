@@ -69,7 +69,7 @@ export function TwoFA({ internationalIds }) {
         <Button
           position='left'
           text='skip'
-          onClickBtn={() => navigate('/')}
+          onClick={() => navigate('/')}
           image={skipImage}
         />
         <Button
@@ -77,7 +77,7 @@ export function TwoFA({ internationalIds }) {
           text='next'
           isLoading={isLoading}
           image={rightArrow}
-          onClickBtn={nextFunction}
+          onClick={nextFunction}
         />
       </div>
     </div>

@@ -1,0 +1,40 @@
+.addBook-input-container{
+    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    row-gap: 30px;
+
+}
+
+.edit-form-label{
+    margin-left: 50px;
+    background-color: rgba(189, 183, 107, 0.5);;
+    width:fit-content;
+    padding: 2px 10px;
+    border-radius: 5px ;
+    border-bottom: 6px darkkhaki solid;
+    color: rgb(116, 136, 29);
+}
+.editBook-container{
+    position: relative;
+}
+
+.divider{
+    background-color: lightblue;
+    height: 1px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-wrapper-left{
+    position:fixed;
+    bottom: 30px;
+    left: 40px;
+}
+.button-wrapper-right{
+    position:fixed;
+    bottom: 30px;
+    right: 40px;
+}

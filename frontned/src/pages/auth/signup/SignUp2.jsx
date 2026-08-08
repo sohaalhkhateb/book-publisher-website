@@ -67,7 +67,7 @@ export function SignUp2() {
         <Button
           position='left'
           text='back'
-          onClickBtn={() => navigate('/signup')}
+          onClick={() => navigate('/signup')}
           image={leftArrow}
         />
         <Button
@@ -75,7 +75,7 @@ export function SignUp2() {
           text='next'
           isLoading={isLoading}
           image={rightArrow}
-          onClickBtn={nextFunction}
+          onClick={nextFunction}
         />
       </div>
     </div>

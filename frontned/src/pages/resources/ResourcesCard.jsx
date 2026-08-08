@@ -146,7 +146,7 @@ export function ResourcesCard({ resource }) {
                 />
                 <Button
                     text='Contact'
-                    onClickBtn={onClickContactBtn}
+                    onClick={onClickContactBtn}
                 />
             </div>
             {

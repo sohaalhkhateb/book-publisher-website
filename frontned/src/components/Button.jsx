@@ -1,15 +1,17 @@
+import { useId } from 'react'
 import loadingGif from '../assets/images/icons/loading.gif'
-export function Button({ text, onClickBtn, image = null, position = 'right', isLoading = false }) {
+export function Button({ text, onClick, image = null, position = 'right', isLoading = false ,color=null}) {
+    const buttonId = useId();
     return (
         <>
             <style>
                 {`     
-                    .button {
+                     #${buttonId} {
                         display : flex;
                         flex-direction : row;
                         align-items:center;
                         justify-content:center;
-                        background-color: var(--primary);
+                        background-color: ${color??'var(--primary)'};
                         color: var(--text-muted);
                         border:none;
                         box-shadow: 0px 0px 7px 4px #9ea6b6;
@@ -47,8 +49,9 @@ export function Button({ text, onClickBtn, image = null, position = 'right', isL
 
 
             <button
+                id={buttonId}
                 className="button"
-                onClick={isLoading ? () => { } : onClickBtn}
+                onClick={isLoading ? () => { } : onClick}
             >
                 {image && position == 'left' && (
                     <div className="image-wrapper-left">

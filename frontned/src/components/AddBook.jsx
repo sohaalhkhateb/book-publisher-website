@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import './AddBook.css'
-import axios
-    from 'axios'
-export function AddBook({ setAddBook }) {
+import api from '../lib/axios';
+export function AddBook() {
     const [bookTitle, setBookTitle] = useState('');
     const [numberCopies, setNumberCopies] = useState('');
     const [writerName, setWriterName] = useState('');
@@ -25,7 +24,7 @@ export function AddBook({ setAddBook }) {
             writerName: writerName
         })
             */
-        setAddBook(false);
+        
     }
     return (
         <div className="add-book-container">

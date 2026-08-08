@@ -14,12 +14,12 @@
     "header header"
     "side main"
     "side footer";
-  scrollbar-width: none;
-  position: relative;
-}
-
-.content-container {
-  width: 100%;
-  grid-area: main;
-  position: relative;
+    position: relative;
+  }
+  
+  .content-container {
+    width: 100%;
+    grid-area: main;
+    position: relative;
+    
 }

@@ -1,64 +1,43 @@
-import './HomePage.css'
-import { useState } from 'react'
-import plusIcon from '../../assets/images/icons/add.png'
-import { AddBook } from '../../components/AddBook'
-import { BookDetails } from './BookDetails'
+import { useState ,useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import { Products } from './Products'
+import { Button } from '../../components/Button'
+import plusIcon from '../../assets/images/icons/add.png'
+import api from '../../lib/axios'
+import './HomePage.css'
 
-export function HomePageEnhanced({books}) {
-  const [selectedBookId, setSelectedBookId] = useState(null);
-  const [addBook, setAddBook] = useState(false);
-  /*useEffect(() => {
-    const getbooks = async () =>{
-      const response = await axios.get('');
-      setbooks(response.data);
+export function HomePageEnhanced() {
+
+  const [books, setBooks] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getbooks = async () => {
+      const response = await api.get('/books');
+      setBooks(response.data.books);
     }
     getbooks();
-  },[]);
-  */
-  const selectedBook = books.find((book) =>
-    book.id === selectedBookId);
+  }, []);
 
-  function addBookActive() {
-    setAddBook(true);
-  }
+
 
   return (
-      <div className='content-container'>
-       
-        {
-          selectedBook ? (
-            <BookDetails
-              book={selectedBook}
-              onClose={() => setSelectedBookId(null)}
-            />
-          ) : (
-            
-            <div className='products-container'>
-              <Products
-                books={books}
-                setSelectedBookId={setSelectedBookId}
-              />
-              {
-                addBook &&
-                <AddBook
-                  setAddBook={setAddBook}
-                />
-              }
-              <div
-                className="add-books-container"
-                onClick={addBookActive}
-              >
-                <img
-                  src={plusIcon}
-                  alt=""
-                  className='add-books-icon'
-                />
-              </div>
-            </div>
-          )
-        }
-
+    <div className='content-container'>
+      <div className='products-container'>
+        <Products
+          books={books}
+        />
       </div>
+      <div className='add-books-container'>
+        <Button
+          text='add a book'
+          position='right'
+          image={plusIcon}
+          onClick={() => navigate('/books/add')}
+        />
+      </div>
+    </div>
   )
 }
+
+
