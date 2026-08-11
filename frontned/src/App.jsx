@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router'
+import { AddEmployee } from './pages/employees/AddEmployee.jsx'
 import { AddBook } from './pages/books/AddBook.jsx'
 import { Login } from './pages/auth/login/Login'
 import { SignUp } from './pages/auth/signup/SignUp'
@@ -39,9 +40,60 @@ import { PublishingOffersPage } from './pages/publishing-offers/PublishingOffers
 import { ViewBook } from './pages/books/ViewBook.jsx'
 import { EditBook } from './pages/books/EditBook.jsx'
 import './App.css'
+import { EmployeeComponents } from './pages/manage-employees/EmployeeComponents.jsx'
+import { Occupation, Occupations } from './components/Occupation.jsx'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
+  const [list, setList] = useState([]);
+
+  const occupations = [
+    {
+      name: 'Translators',
+      color:'#808080',
+      id: 1
+    },
+    {
+      name: 'Editors',
+      color :'#2e7b24',	
+      id: 2
+    },
+    {
+      name: 'Checkers',
+      color : '#c50d0d',
+      id: 3
+    },
+    {
+      name: 'Translators',
+      color:'#808080',
+      id: 4
+    },
+    {
+      name: 'Editors',
+      color :'#2e7b24',	
+      id: 5
+    },
+    {
+      name: 'Checkers',
+      color : '#c50d0d',
+      id: 6
+    },
+    {
+      name: 'Translators',
+      color:'#808080',
+      id: 7
+    },
+    {
+      name: 'Editors',
+      color :'#2e7b24',	
+      id: 8
+    },
+    {
+      name: 'Checkers',
+      color : '#c50d0d',
+      id: 9
+    },
+  ]
   return (
 
     <Routes>
@@ -59,14 +111,18 @@ function App() {
           <Route path='/' element={<HomePageEnhanced />} />
         </Route>
 
-        
+
         <Route path='books'>
           <Route path='add' element={<AddBook />} />
           <Route path=':id' element={<ViewBook />} />
           <Route path='edit/:id' element={<EditBook />} />
         </Route>
 
-
+        <Route path='employees'>
+          <Route path='add' element={<AddEmployee />} />
+          <Route path=':id' element={<ViewBook />} />
+          <Route path='edit/:id' element={<EditBook />} />
+        </Route>
 
 
 
@@ -269,11 +325,15 @@ function App() {
 
       <Route
         path='/test'
-        element={<LayoutElement
-          setShowOptionList={setShowOptionList}
-          showOptionList={showOptionList}
-        />}
+        element={<Occupations
+          occupations={occupations}
+          selectedOccupations={list}
+          SetSelectedOccupations={setList}
+          
+          />}
       />
+
+
     </Routes>
 
   )

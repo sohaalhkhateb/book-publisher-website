@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './AssignBook.css'
 import '../../index.css'
-import checkBook from '../../assets/images/icons/ok-48.png'
+import checkBook from '../../assets/images/icons/ok.png'
 import { AssignTask } from './AssignTask';
 export function AssignBook({
     title, image, number, writer, assignedState, assignedEmp }) {

@@ -15,7 +15,7 @@ export default function InputFieldWithErrors({ type, name, error, value, setValu
                     className={error ? 'input-field errored' : 'input-field'}
                     id={inputId}
                     type={type}
-                    placeholder={name.includes('confirmation') ? `${type} confirmation...` : `${name}...`}
+                    placeholder={(name.includes('confirmation') ? `${type} confirmation...` : `${name}...`)}
                     value={type == 'file' ? undefined : value}
                     name={name}
                     onChange={e => {

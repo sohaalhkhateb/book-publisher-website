@@ -24,19 +24,19 @@ export function EmployeePage({ employees, setShowOptionList, showOptionList }) {
             occupation: 'Translators',
             number: 30,
             employees: employees,
-            id: uuidv4()
+            id: 1
         },
         {
             occupation: 'Editors',
             number: 20,
             employees: employees,
-            id: uuidv4()
+            id: 2
         },
         {
             occupation: 'Checkers',
             number: 10,
             employees: employees,
-            id: uuidv4()
+            id: 3
         },
     ]
     function showEditDetails(event) {
