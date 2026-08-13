@@ -18,7 +18,7 @@ export function ViewEmployee() {
     const [employee, setEmployee] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
 
         async function fetchEmployee() {
@@ -74,6 +74,28 @@ export function ViewEmployee() {
                     <p>sam</p>
                     <h3>name</h3>
                     <p>sam</p>
+                    {/* age
+                    :
+                    33
+                    created_at
+                    :
+                    "2026-08-13T10:52:01.000000Z"
+                    id
+                    :
+                    3
+                    
+                    name
+                    :
+                    "sha"
+                    notes
+                    :
+                    null
+                    rating
+                    :
+                    "3"
+                    updated_at
+                    :
+                    "2026-08-13T10:52:01.000000Z" */}
                 </div>
                 <img src={employee.image} alt="book image" width='200' height='300' />
 

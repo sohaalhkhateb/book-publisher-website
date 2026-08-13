@@ -3,10 +3,7 @@
     flex-direction: column;
     justify-content: space-around;
     max-width: max-content;
-    margin-left: auto;
-    margin-right: auto;
     height: 80vh;
-    margin-top: 80px;
 }
 
 .viewbook-wrapper {
@@ -29,6 +26,7 @@
 .separator-container {
     background-color: var(--border);
     min-width: 1px;
+    max-width: 1px;
     height: 55vh;
 }
 

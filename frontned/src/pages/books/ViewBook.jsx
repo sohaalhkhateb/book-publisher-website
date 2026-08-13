@@ -10,6 +10,7 @@ import { Button } from '../../components/Button';
 import './ViewBook.css'
 import { Header } from '../layout/Header';
 import { InfoCard } from '../../components/InfoCard';
+import { NarrowView } from '../../components/NarrowView';
 
 
 export function ViewBook() {
@@ -53,7 +54,7 @@ export function ViewBook() {
 
 
     return (
-        <>
+        <NarrowView>
             <Header />
             <h1>{location.state}</h1>
             <div className='view-book-container'>
@@ -129,7 +130,7 @@ export function ViewBook() {
                     />
                 </div>
             </div>
-        </>
+        </NarrowView>
 
 
     )
