@@ -41,7 +41,7 @@ import { ViewBook } from './pages/books/ViewBook.jsx'
 import { EditBook } from './pages/books/EditBook.jsx'
 import { NarrowView } from './components/NarrowView.jsx'
 import { Occupations } from './components/Occupation.jsx'
-import { EditEmployee } from './pages/manage-employees/EditEmployee.jsx'
+import { EditEmployee } from './pages/employees/EditEmployee.jsx'
 import { ViewEmployee } from './pages/employees/ViewEmployee.jsx'
 import './App.css'
 function App() {

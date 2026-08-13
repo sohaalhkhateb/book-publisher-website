@@ -1,10 +1,18 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import checkMark from '../assets/images/icons/check-mark.png'
 export function Occupation({ occupation, selectedOccupations, setSelectedOccupations }) {
 
     const [checked, setChecked] = useState(false);
     const devId = useId();
 
+    useEffect(()=>{
+        function resolveChecked(){
+            if(selectedOccupations.includes(occupation.id))
+                setChecked(true)
+        }
+        resolveChecked()
+    },[selectedOccupations])
+    
     function handleClick(e) {
         e.stopPropagation()
         setChecked(!checked);
