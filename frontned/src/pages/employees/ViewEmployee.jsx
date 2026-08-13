@@ -74,28 +74,6 @@ export function ViewEmployee() {
                     <p>sam</p>
                     <h3>name</h3>
                     <p>sam</p>
-                    {/* age
-                    :
-                    33
-                    created_at
-                    :
-                    "2026-08-13T10:52:01.000000Z"
-                    id
-                    :
-                    3
-                    
-                    name
-                    :
-                    "sha"
-                    notes
-                    :
-                    null
-                    rating
-                    :
-                    "3"
-                    updated_at
-                    :
-                    "2026-08-13T10:52:01.000000Z" */}
                 </div>
                 <img src={`${employee.image}?v=${new Date(employee.updated_at).getTime()}`}
                     alt={employee.name} width='200' height='300'
@@ -130,3 +108,10 @@ export function ViewEmployee() {
 
     )
 }
+
+{/*
+age:43
+name:"ssssssssaaaaaaaa33ssammsss"
+notes:null
+occupationNames:["translator", "rrr", "wertytrewqwertyuhg", "s", "ssexsd"]
+rating:"3" */}
