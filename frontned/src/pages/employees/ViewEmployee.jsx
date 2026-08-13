@@ -92,30 +92,8 @@ export function ViewEmployee() {
                                 subtitle={employee.notes}
                             />
                         }
-                        {/* age
-                    :
-                    33
-                    created_at
-                    :
-                    "2026-08-13T10:52:01.000000Z"
-                    id
-                    :
-                    3
-                    
-                    name
-                    :
-                    "sha"
-                    notes
-                    :
-                    null
-                    rating
-                    :
-                    "3"
-                    updated_at
-                    :
-                    "2026-08-13T10:52:01.000000Z" */}
+                        
                     </div>
-
                 </div>
                 <div className='button-container'>
                     <Button
@@ -145,3 +123,10 @@ export function ViewEmployee() {
 
     )
 }
+
+{/*
+age:43
+name:"ssssssssaaaaaaaa33ssammsss"
+notes:null
+occupationNames:["translator", "rrr", "wertytrewqwertyuhg", "s", "ssexsd"]
+rating:"3" */}

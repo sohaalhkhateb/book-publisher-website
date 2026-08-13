@@ -40,7 +40,7 @@ export function Header({setShowOptionList, showOptionList}) {
                 <Button 
                     image={logoutImage}
                     text="logout"
-                    onClick={async()=>{await api.get('/logout');navigate('/login')}}
+                    onClick={async()=>{await api.post('/logout',{});navigate('/login')}}
                 />
                 
                 
