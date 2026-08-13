@@ -1,8 +1,10 @@
 import { useId, useState } from "react";
 import checkMark from '../assets/images/icons/check-mark.png'
 export function Occupation({ occupation, selectedOccupations, setSelectedOccupations }) {
+
     const [checked, setChecked] = useState(false);
     const devId = useId();
+
     function handleClick(e) {
         e.stopPropagation()
         setChecked(!checked);
@@ -76,12 +78,13 @@ export function Occupation({ occupation, selectedOccupations, setSelectedOccupat
 }
 
 
-export function Occupations({ occupations = [], selectedOccupations, setSelectedOccupations }) {
+export function Occupations({ occupations = [], selectedOccupations, setSelectedOccupations, errors }) {
     return (
         <>
             <style>
                 {`
                 #container-occupations{
+                        border: ${errors ? 'red 3px solid' : null};
                         display: grid;
                         grid-template-columns:repeat(auto-fit,minmax(100px,1fr)) ;
                         place-items:center;
@@ -94,8 +97,12 @@ export function Occupations({ occupations = [], selectedOccupations, setSelected
             </style>
 
             <div id="container-occupations">
-                {occupations.length ==0 ?
-                    (<div style={{ display: "flex", alignItems: 'center', flexDirection: 'column', borderRadius: '10px', backgroundColor: 'lightblue', padding: '10px 20px', fontStyle: 'italic', }}>
+                {occupations.length == 0 ?
+                    (<div style={{
+                        display: "flex", alignItems: 'center', flexDirection: 'column',
+                        borderRadius: '10px', backgroundColor: 'lightblue', padding: '10px 20px',
+                        fontStyle: 'italic'
+                    }}>
                         <h3 style={{ opacity: 0.6, color: "red" }}>no occupations</h3>
                         <p style={{ opacity: 0.6, color: "red" }}>add one now!</p>
                     </div>
@@ -104,15 +111,23 @@ export function Occupations({ occupations = [], selectedOccupations, setSelected
                     occupations.map((occupation) => {
                         return (
                             <Occupation
+                                key={occupation.id}
                                 occupation={occupation}
                                 selectedOccupations={selectedOccupations}
                                 setSelectedOccupations={setSelectedOccupations}
                             />
                         )
                     })
-
                 }
             </div>
+            <div style={{
+                textAlign: 'center',
+                color: 'red',
+                fontStyle: 'oblique',
+                fontSize: 20
+            }}
+            >{errors}</div>
+
         </>
     )
 }

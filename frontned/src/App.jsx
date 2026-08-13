@@ -39,61 +39,17 @@ import { InventorySalesPage } from './pages/inventory-sales/InventorySalesPage'
 import { PublishingOffersPage } from './pages/publishing-offers/PublishingOffersPage'
 import { ViewBook } from './pages/books/ViewBook.jsx'
 import { EditBook } from './pages/books/EditBook.jsx'
+import { NarrowView } from './components/NarrowView.jsx'
+import { Occupations } from './components/Occupation.jsx'
+import { EditEmployee } from './pages/manage-employees/EditEmployee.jsx'
+import { ViewEmployee } from './pages/employees/ViewEmployee.jsx'
 import './App.css'
-import { EmployeeComponents } from './pages/manage-employees/EmployeeComponents.jsx'
-import { Occupation, Occupations } from './components/Occupation.jsx'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
   const [list, setList] = useState([]);
 
-  const occupations = [
-    {
-      name: 'Translators',
-      color:'#808080',
-      id: 1
-    },
-    {
-      name: 'Editors',
-      color :'#2e7b24',	
-      id: 2
-    },
-    {
-      name: 'Checkers',
-      color : '#c50d0d',
-      id: 3
-    },
-    {
-      name: 'Translators',
-      color:'#808080',
-      id: 4
-    },
-    {
-      name: 'Editors',
-      color :'#2e7b24',	
-      id: 5
-    },
-    {
-      name: 'Checkers',
-      color : '#c50d0d',
-      id: 6
-    },
-    {
-      name: 'Translators',
-      color:'#808080',
-      id: 7
-    },
-    {
-      name: 'Editors',
-      color :'#2e7b24',	
-      id: 8
-    },
-    {
-      name: 'Checkers',
-      color : '#c50d0d',
-      id: 9
-    },
-  ]
+  
   return (
 
     <Routes>
@@ -111,17 +67,19 @@ function App() {
           <Route path='/' element={<HomePageEnhanced />} />
         </Route>
 
-
+          <Route element={<NarrowView />}>
+          </Route>
+          
         <Route path='books'>
           <Route path='add' element={<AddBook />} />
-          <Route path=':id' element={<ViewBook />} />
-          <Route path='edit/:id' element={<EditBook />} />
+            <Route path=':id' element={<ViewBook />} />
+            <Route path='edit/:id' element={<EditBook />} />
         </Route>
 
         <Route path='employees'>
           <Route path='add' element={<AddEmployee />} />
-          <Route path=':id' element={<ViewBook />} />
-          <Route path='edit/:id' element={<EditBook />} />
+          <Route path=':id' element={<ViewEmployee />} />
+          <Route path='edit/:id' element={<EditEmployee />} />
         </Route>
 
 
@@ -325,12 +283,7 @@ function App() {
 
       <Route
         path='/test'
-        element={<Occupations
-          occupations={occupations}
-          selectedOccupations={list}
-          SetSelectedOccupations={setList}
-          
-          />}
+        element={<></>}
       />
 
 
