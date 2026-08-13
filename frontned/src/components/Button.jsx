@@ -27,6 +27,7 @@ export function Button({ text, onClick, image = null, position = 'right', isLoad
                     .button:hover{
                         background-color: var(--text-muted);
                         color: var(--primary);
+                        transform: scale(1.2);
                     }
                     .button-image{
                         width : 100%;

@@ -7,15 +7,16 @@ import { useState } from "react";
 
 export function LayoutElement() {
     const [showOptionList, setShowOptionList] = useState(false);
-    return (
+    return (<>
+        <Header
+            setShowOptionList={setShowOptionList}
+            showOptionList={showOptionList}
+        />
         <div className='home-page-container container'
             onClick={() =>
                 setShowOptionList(false)
             }>
-            <Header
-                setShowOptionList={setShowOptionList}
-                showOptionList={showOptionList}
-            />
+
             <Options
                 showOptionList={showOptionList}
                 setShowOptionList={setShowOptionList}
@@ -24,5 +25,6 @@ export function LayoutElement() {
             <Outlet />
             <SubMenu />
         </ div>
-            )
+    </>
+    )
 }

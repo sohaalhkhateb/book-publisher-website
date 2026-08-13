@@ -88,9 +88,9 @@ export function EditBook() {
       })
   }
 
-  return (
-    <div className="addBook-container">
-      <Header />
+  return (<>
+    <Header />
+    <div className="editBook-container">
       <h2 className="edit-form-label">edit your book information :</h2>
       <div className="addBook-input-container">
 
@@ -174,19 +174,20 @@ export function EditBook() {
           text='cancel'
           position="left"
           image={closeImage}
-          onClick={()=>navigate(`/books/${params.id}`)}
+          onClick={() => navigate(`/books/${params.id}`)}
           isLoading={loading}
         />
-        </div>
-        <div className="button-wrapper-right">
-          <Button
-            color='darkgreen'
-            text='confirm'
-            image={checkImage}
-            onClick={editBook}
-            isLoading={loading}
-          />
-        </div>
       </div>
-      )
+      <div className="button-wrapper-right">
+        <Button
+          color='darkgreen'
+          text='confirm'
+          image={checkImage}
+          onClick={editBook}
+          isLoading={loading}
+        />
+      </div>
+    </div>
+  </>
+  )
 }

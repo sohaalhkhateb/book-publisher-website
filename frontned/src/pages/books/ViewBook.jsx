@@ -9,6 +9,7 @@ import api from '../../lib/axios';
 import { Button } from '../../components/Button';
 import './ViewBook.css'
 import { Header } from '../layout/Header';
+import { InfoCard } from '../../components/InfoCard';
 
 
 export function ViewBook() {
@@ -55,24 +56,43 @@ export function ViewBook() {
         <>
             <Header />
             <h1>{location.state}</h1>
-            <div className='viewbook-wrapper'>
-                <div className='book-info-container'>
+            <div className='view-book-container'>
+                <div className='viewbook-wrapper'>
+                    <div className='book-info-container'>
+                        <InfoCard
+                            title="title "
+                            subtitle={book.title}
+                        />
+                        <InfoCard
+                            title="page Count "
+                            subtitle={book.page_count}
+                        />
+                        <InfoCard
+                            title="publishing year "
+                            subtitle={book.publishing_year}
+                        />
+                        <InfoCard
+                            title="author "
+                            subtitle={book.author}
+                        />
+                    </div>
+                    <div className='separator-container'></div>
+                    <div className='book-info-container'>
 
-                    <h3>book title :</h3>
-                    <p>{book.title}</p>
-
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
+                        <InfoCard
+                            title="edition "
+                            subtitle={book.edition}
+                        />
+                        <InfoCard
+                            title="copies "
+                            subtitle={book.number_of_copies}
+                        />
+                        <InfoCard
+                            title="notes "
+                            subtitle={book.notes}
+                            hieght={6}
+                        />
+                    </div>
                     {// "id": 17,
                         // "title": "sambook",
                         // "page_count": 22,
@@ -84,33 +104,31 @@ export function ViewBook() {
                         // "notes": "ss",
                         // "created_at": "2026-08-08T12:06:59.000000Z",
                     }
+                    <img src={book.image} className='view-book-img' alt="book image" width='200' height='300' />
                 </div>
-                <img src={book.image} alt="book image" width='200' height='300' />
-
+                <div className='button-container'>
+                    <Button
+                        text='delete'
+                        color='red'
+                        onClick={deleteBook}
+                        isLoading={loading}
+                        image={trashImage}
+                    />
+                    <Button
+                        text='edit'
+                        onClick={() => navigate(`/books/edit/${book.id}`)}
+                        isLoading={loading}
+                        image={editImage}
+                    />
+                    <Button
+                        text='ok'
+                        color='green'
+                        onClick={() => navigate('/')}
+                        isLoading={loading}
+                        image={checkImage}
+                    />
+                </div>
             </div>
-            <div className='button-container'>
-                <Button
-                    text='delete'
-                    color='red'
-                    onClick={deleteBook}
-                    isLoading={loading}
-                    image={trashImage}
-                />
-                <Button
-                    text='edit'
-                    onClick={() => navigate(`/books/edit/${book.id}`)}
-                    isLoading={loading}
-                    image={editImage}
-                />
-                <Button
-                    text='ok'
-                    color='green'
-                    onClick={() => navigate('/')}
-                    isLoading={loading}
-                    image={checkImage}
-                />
-            </div>
-
         </>
 
 
