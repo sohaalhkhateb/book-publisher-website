@@ -1,0 +1,11 @@
+.employee-rating{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.rating-image{
+    width: 40px;
+    height: 40px;
+    display: block;
+}

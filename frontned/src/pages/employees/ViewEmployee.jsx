@@ -7,7 +7,9 @@ import checkImage from '../../assets/images/icons/check.png'
 import editImage from '../../assets/images/icons/edit2.png'
 import api from '../../lib/axios';
 import './ViewEmployee.css'
-
+import { NarrowView } from '../../components/NarrowView';
+import { InfoCard } from '../../components/InfoCard';
+import starRating from '../../assets/images/icons/star-rating.png'
 
 
 
@@ -55,26 +57,42 @@ export function ViewEmployee() {
     return (
         <>
             <Header />
-            <h1>{location.state}</h1>
-            <div>
+            <NarrowView>
+                <h1>{location.state}</h1>
                 <div>
-
-                    <h3>employee name :</h3>
-                    <p>{employee.name}</p>
-
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    <h3>name</h3>
-                    <p>sam</p>
-                    {/* age
+                    <img src={`${employee.image}?v=${new Date(employee.updated_at).getTime()}`}
+                        alt={employee.name} width='200' height='300'
+                        className='employee-img'
+                    />
+                    <div className='employee-info-section'>
+                        <div className='employee-info'>
+                            <InfoCard
+                                title='Name'
+                                subtitle={employee.name}
+                            />
+                            <InfoCard
+                                title='Age'
+                                subtitle={employee.age}
+                            />
+                        </div>
+                        <div className='employee-rating'>
+                            {Array.from({length: employee.rating})
+                            .map((i) => (
+                                <img 
+                                    key={i}
+                                    src={starRating} 
+                                    alt=""
+                                    className='rating-image'
+                                />
+                            ))}
+                        </div>
+                        {
+                            employee.notes &&
+                            <InfoCard
+                                subtitle={employee.notes}
+                            />
+                        }
+                        {/* age
                     :
                     33
                     created_at
@@ -96,35 +114,32 @@ export function ViewEmployee() {
                     updated_at
                     :
                     "2026-08-13T10:52:01.000000Z" */}
+                    </div>
+
                 </div>
-                <img src={`${employee.image}?v=${new Date(employee.updated_at).getTime()}`}
-                    alt={employee.name} width='200' height='300'
-                />
-
-            </div>
-            <div className='button-container'>
-                <Button
-                    text='delete'
-                    color='red'
-                    onClick={deleteEmployee}
-                    isLoading={loading}
-                    image={trashImage}
-                />
-                <Button
-                    text='edit'
-                    onClick={() => navigate(`/employees/edit/${employee.id}`)}
-                    isLoading={loading}
-                    image={editImage}
-                />
-                <Button
-                    text='ok'
-                    color='green'
-                    onClick={() => navigate('/employees')}
-                    isLoading={loading}
-                    image={checkImage}
-                />
-            </div>
-
+                <div className='button-container'>
+                    <Button
+                        text='delete'
+                        color='red'
+                        onClick={deleteEmployee}
+                        isLoading={loading}
+                        image={trashImage}
+                    />
+                    <Button
+                        text='edit'
+                        onClick={() => navigate(`/employees/edit/${employee.id}`)}
+                        isLoading={loading}
+                        image={editImage}
+                    />
+                    <Button
+                        text='ok'
+                        color='green'
+                        onClick={() => navigate('/employees')}
+                        isLoading={loading}
+                        image={checkImage}
+                    />
+                </div>
+            </NarrowView>
         </>
 
 
