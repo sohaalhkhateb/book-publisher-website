@@ -3,10 +3,13 @@ export function NarrowView({ children }) {
         <div style={{
             maxWidth: '80vw',
             marginLeft:'auto',
-            marginRight:'auto'
+            marginRight:'auto',
+            marginTop: '80px',
 
         }}>
             {children}
         </div>
     )
 }
+
+

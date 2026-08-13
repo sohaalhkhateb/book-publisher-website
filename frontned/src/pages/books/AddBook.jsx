@@ -60,98 +60,100 @@ export function AddBook() {
   }
 
   return (
-    <div className="addBook-container">
-      <Header />
-      <NarrowView>
-        <h2 className="form-label">add a new book to your collection :</h2>
-        <div className="addBook-input-container">
-          <InputFieldWithErrors
-            type='text'
-            name='book title'
-            value={title}
-            setValue={setTitle}
-            error={error.title}
-          />
-          <InputFieldWithErrors
-            type='number'
-            name='book page count'
-            value={pageCount}
-            setValue={setPageCount}
-            error={error.page_count}
-            required={false}
-          />
-          <InputFieldWithErrors
-            type='number'
-            name='book publishing year'
-            value={publishingYear}
-            setValue={setPublishingYear}
-            error={error.publishing_year}
-          />
-          <InputFieldWithErrors
-            type='text'
-            name='book author'
-            value={author}
-            setValue={setAuthor}
-            error={error.author}
-          />
-          <InputFieldWithErrors
-            type='text'
-            name='book edition'
-            value={edition}
-            setValue={setEdition}
-            error={error.edition}
-            required={false}
-          />
-          <InputFieldWithErrors
-            message="enter the number of copies you have"
-            type='number'
-            name='book copies count'
-            value={numberOfCopies}
-            setValue={setNumberOfCopies}
-            error={error.number_of_copies}
-            required={false}
-          />
-          <InputFieldWithErrors
-            type='text'
-            name='notes'
-            value={notes}
-            setValue={setNotes}
-            error={error.notes}
-            required={false}
-          />
+    <NarrowView>
+      <div className="addBook-container">
+        <Header />
+        <NarrowView>
+          <h2 className="form-label">add a new book to your collection :</h2>
+          <div className="addBook-input-container">
+            <InputFieldWithErrors
+              type='text'
+              name='book title'
+              value={title}
+              setValue={setTitle}
+              error={error.title}
+            />
+            <InputFieldWithErrors
+              type='number'
+              name='book page count'
+              value={pageCount}
+              setValue={setPageCount}
+              error={error.page_count}
+              required={false}
+            />
+            <InputFieldWithErrors
+              type='number'
+              name='book publishing year'
+              value={publishingYear}
+              setValue={setPublishingYear}
+              error={error.publishing_year}
+            />
+            <InputFieldWithErrors
+              type='text'
+              name='book author'
+              value={author}
+              setValue={setAuthor}
+              error={error.author}
+            />
+            <InputFieldWithErrors
+              type='text'
+              name='book edition'
+              value={edition}
+              setValue={setEdition}
+              error={error.edition}
+              required={false}
+            />
+            <InputFieldWithErrors
+              message="enter the number of copies you have"
+              type='number'
+              name='book copies count'
+              value={numberOfCopies}
+              setValue={setNumberOfCopies}
+              error={error.number_of_copies}
+              required={false}
+            />
+            <InputFieldWithErrors
+              type='text'
+              name='notes'
+              value={notes}
+              setValue={setNotes}
+              error={error.notes}
+              required={false}
+            />
 
-          <InputFieldWithErrors
-            type='file'
-            name='book cover or image'
-            value={image}
-            setValue={setImage}
-            error={error.image}
-            required={false}
-          />
-        </div>
+            <InputFieldWithErrors
+              type='file'
+              name='book cover or image'
+              value={image}
+              setValue={setImage}
+              error={error.image}
+              required={false}
+            />
+          </div>
 
-        <div className="divider"></div>
+          <div className="divider"></div>
 
-        <div className="button-wrapper-left">
-          <Button
-            color='firebrick'
-            text='cancel'
-            position="left"
-            image={closeImage}
-            onClick={() => navigate('/')}
-            isLoading={loading}
-          />
-        </div>
-        <div className="button-wrapper-right">
-          <Button
-            color='darkgreen'
-            text='add'
-            image={upwardsArrow}
-            onClick={uploadBook}
-            isLoading={loading}
-          />
-        </div>
-      </NarrowView>
-    </div>
+          <div className="button-wrapper-left">
+            <Button
+              color='firebrick'
+              text='cancel'
+              position="left"
+              image={closeImage}
+              onClick={() => navigate('/')}
+              isLoading={loading}
+            />
+          </div>
+          <div className="button-wrapper-right">
+            <Button
+              color='darkgreen'
+              text='add'
+              image={upwardsArrow}
+              onClick={uploadBook}
+              isLoading={loading}
+            />
+          </div>
+        </NarrowView>
+      </div>
+    </NarrowView>
   )
 }

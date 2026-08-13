@@ -1,0 +1,43 @@
+.fields-section{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.fields-left-section,.fields-right-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.separator-container-emp {
+    background-color: var(--border);
+    min-width: 1px;
+    max-width: 1px;
+    height: 35vh;
+}
+
+
+.add-occupation-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.add-occupation-inputs{
+    align-self: flex-start;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.add-occupation-btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}

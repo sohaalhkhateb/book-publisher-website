@@ -97,7 +97,7 @@ export function Occupations({ occupations = [], selectedOccupations, setSelected
                         grid-template-columns:repeat(auto-fit,minmax(100px,1fr)) ;
                         place-items:center;
                         border-radius:30px;
-                        background:#0ff0ff5e;
+                        background:var(--shadow);
                         padding:10px 10px;
                         box-shadow: 0px 0px 4px 2px lightgrey;
                     }

@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import loadingGif from '../assets/images/icons/loading.gif'
-export function Button({ text, onClick, image = null, position = 'right', isLoading = false ,color=null}) {
+export function Button({ text, onClick, image = null, position = 'right', isLoading = false ,color=null, alignSelf=null}) {
     const buttonId = useId();
     return (
         <>
@@ -19,6 +19,7 @@ export function Button({ text, onClick, image = null, position = 'right', isLoad
                         min-width: 75px;
                         padding: 7px 10px;
                         cursor: pointer;
+                        align-self: ${alignSelf};
                     }
                      .txt-button{
                         font-size: 20px;

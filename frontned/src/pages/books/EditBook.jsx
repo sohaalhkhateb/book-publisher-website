@@ -8,6 +8,7 @@ import closeImage from '../../assets/images/icons/close.png'
 import api from "../../lib/axios";
 import { useNavigate, useParams } from "react-router";
 import './EditBook.css'
+import { NarrowView } from "../../components/NarrowView";
 
 export function EditBook() {
 
@@ -88,7 +89,7 @@ export function EditBook() {
       })
   }
 
-  return (<>
+  return (<NarrowView>
     <Header />
     <div className="editBook-container">
       <h2 className="edit-form-label">edit your book information :</h2>
@@ -188,6 +189,6 @@ export function EditBook() {
         />
       </div>
     </div>
-  </>
+  </NarrowView>
   )
 }
