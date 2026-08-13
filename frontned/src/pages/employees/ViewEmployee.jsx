@@ -18,7 +18,7 @@ export function ViewEmployee() {
     const [employee, setEmployee] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
 
         async function fetchEmployee() {
@@ -60,7 +60,7 @@ export function ViewEmployee() {
                 <div>
 
                     <h3>employee name :</h3>
-                    <p>{employee.title}</p>
+                    <p>{employee.name}</p>
 
                     <h3>name</h3>
                     <p>sam</p>
@@ -75,7 +75,9 @@ export function ViewEmployee() {
                     <h3>name</h3>
                     <p>sam</p>
                 </div>
-                <img src={employee.image} alt="book image" width='200' height='300' />
+                <img src={`${employee.image}?v=${new Date(employee.updated_at).getTime()}`}
+                    alt={employee.name} width='200' height='300'
+                />
 
             </div>
             <div className='button-container'>

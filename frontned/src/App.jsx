@@ -40,8 +40,8 @@ import { PublishingOffersPage } from './pages/publishing-offers/PublishingOffers
 import { ViewBook } from './pages/books/ViewBook.jsx'
 import { EditBook } from './pages/books/EditBook.jsx'
 import { NarrowView } from './components/NarrowView.jsx'
-import { Occupations } from './components/Occupation.jsx'
-import { EditEmployee } from './pages/manage-employees/EditEmployee.jsx'
+import {Employees} from './pages/employees/Employees.jsx'
+import { EditEmployee } from './pages/employees/EditEmployee.jsx'
 import { ViewEmployee } from './pages/employees/ViewEmployee.jsx'
 import './App.css'
 function App() {
@@ -77,6 +77,7 @@ function App() {
         </Route>
 
         <Route path='employees'>
+          <Route index element={<Employees />} />
           <Route path='add' element={<AddEmployee />} />
           <Route path=':id' element={<ViewEmployee />} />
           <Route path='edit/:id' element={<EditEmployee />} />
@@ -283,7 +284,8 @@ function App() {
 
       <Route
         path='/test'
-        element={<></>}
+        element={<>
+        </>}
       />
 
 
