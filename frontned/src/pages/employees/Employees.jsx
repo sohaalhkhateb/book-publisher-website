@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import api from "../../lib/axios"
+import { EmployeesComponent } from "../../components/EmployeesComonent";
+import { NarrowView } from "../../components/NarrowView";
+import { Header } from "../layout/Header";
 
 export function Employees() {
 
@@ -9,6 +12,7 @@ export function Employees() {
         api.get('/employees')
             .then((response) => {
                 setEmployees(response.data)
+
             })
             .catch((error) => {
                 console.log(error.response.data)
@@ -16,29 +20,38 @@ export function Employees() {
             })
     }, [])
 
-
+    console.log(employees)
     return (
-        employees.map((occupation) => {
-            return (
-                <>
-                    <p>name : {occupation.name}</p>
-                    <p>color : {occupation.color}</p>
-                    <hr />
-                    {
-                        occupation.employees.map((employee) => {
-                            return (
-                                <>
-                                    <p>employee name : {employee.name}</p>
-                                    <p>employee age : {employee.age}</p>
-                                    <p>employe rating : {employee.rating}</p>
-                                    <img src={employee.image} alt="" width='200px'/>
-                                </>
-                            )
-                        })
-                    }
-                    <hr />
-                </>
-            )
-        })
+        <>
+            <Header />
+            <NarrowView>
+                <p
+                    style={{
+                        fontSize: 'clamp(25px, 3vw, 20px)',
+                        fontWeight: 'bold',
+                        color: 'var(--primary)',
+                        marginBottom: '20px',
+                        borderBottom: '1px solid var(--primary)',
+                        width: 'max-content',
+                    }}
+                >
+                    You'r current employees :
+                </p>
+                {employees != [] &&
+                    employees.map((occupation) => {
+                        return (
+                                <EmployeesComponent
+                                    color={occupation.color}
+                                    name={occupation.name}
+                                    employees={occupation.employees}
+                                    key={occupation.id}
+                                    occupationId={occupation.id}
+                                />
+
+                        )
+                    })
+                }
+            </NarrowView>
+        </>
     )
 }

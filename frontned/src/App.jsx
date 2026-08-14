@@ -44,6 +44,7 @@ import {Employees} from './pages/employees/Employees.jsx'
 import { EditEmployee } from './pages/employees/EditEmployee.jsx'
 import { ViewEmployee } from './pages/employees/ViewEmployee.jsx'
 import './App.css'
+import { EmployeeComponent } from './components/EmployeeComponent.jsx'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -282,12 +283,11 @@ function App() {
         />
       </Route>
 
-      <Route
+      
+<Route
         path='/test'
-        element={<>
-        </>}
+        element={<EmployeeComponent />}
       />
-
 
     </Routes>
 

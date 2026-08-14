@@ -1,0 +1,43 @@
+.employee-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--primary);
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--surface);
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px var(--shadow);
+    cursor: pointer;
+    min-width: 200px;
+    max-width: 250px;
+    border: 1px solid var(--surface);
+    cursor: pointer;
+}
+
+.employee-image{
+    height: 60px;
+    width: 60px;
+    align-self: center;
+    border-radius: 40px;
+    border: 1px solid var(--surface);
+}
+
+.employee-info{
+    font-size: clamp(15px,2.5vw,10px);
+    font-weight: 700;
+}
+
+.rating-img{
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+.emp-rating{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+    justify-content: center;
+}
