@@ -2,9 +2,11 @@ import { useId } from 'react'
 import './InputFieldWithErrors.css'
 export default function InputFieldWithErrors({ type, name, error, value, setValue, message = '', required = true, color = null }) {
     const inputId = useId();
+    
+    
     return (
         <div className='input-astrisk-container'>
-            <div className='input-container' style={{"--bg-color":color??'rgb(101, 101, 230)'}}>
+            <div className='input-container' style={{ "--bg-color": color ?? 'rgb(101, 101, 230)' }}>
                 <label className='input-label' htmlFor={inputId}>
                     • {message ? message :
                         name.includes('confirmation') ? `confirm your ${type}:` :
@@ -29,6 +31,7 @@ export default function InputFieldWithErrors({ type, name, error, value, setValu
             </div>
 
             <p className='astrisk'>
+                {required && '*'}
             </p>
         </div>
     )

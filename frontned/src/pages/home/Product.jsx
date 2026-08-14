@@ -1,38 +1,44 @@
 import { BookImage } from '../../components/BookImage';
 import { useNavigate } from 'react-router'
 import './Product.css'
-function Status() {
+import { useRef, useState } from 'react';
 
+
+function Status({ statusValue, id }) {
+  const listRef = useRef(null);
+  function handleClick(e) {
+    e.stopPropagation()
+    listRef.current.
+
+  }
   function getColor(statusValue) {
     switch (statusValue) {
-      case 'untouched':
+
+
+      case 'need translation':
         return "#808080"
 
-      case 'under translation':
+      case 'need copyEditing':
         return "#0da00d"
 
-      case 'under copyediting':
+      case 'need typeSetting':
         return "#1515c8"
 
-      case 'under typesetting':
+      case 'need proofReading':
         return "#c814c8"
-
-      case 'under proofReading':
-        return "#c3c314"
       case 'ready for printing':
-        return "#f38f42"
+        return "#c3c314"
     }
 
   }
-  let status ='untouched'
   return (
     <>
       <style>
         {`
           .status-val{ 
           font-weight :bold;
-            color : ${getColor(status)} ;
-            background-color:${getColor(status)}5e;
+            color : ${getColor(statusValue)} ;
+            background-color:${getColor(statusValue)}5e;
             padding : 1px 5px;
             border-radius:10px;
             border-bottom:3px solid ;
@@ -40,9 +46,16 @@ function Status() {
             
         `}
       </style>
-      <span className='status-val'>
-        status
+      <span className='status-val'
+        onClick={handleClick}
+      >
+        {statusValue}
       </span>
+      <StatusSelector
+        ref={listRef}
+        statusValue={statusValue}
+        id={id}
+      />
     </>
   )
 }
@@ -64,10 +77,39 @@ export function Product({ book }) {
         </span>
       </span>
       <span className='label'>
-        current status :
-        <Status />
+        <p style={{ textAlign: 'center' }}>status:</p>
+
+        <Status
+          statusValue={book.status}
+          id={book.id}
+        />
       </span>
 
     </div>
+  )
+}
+
+function StatusSelector({ id, statusValue, ref }) {
+
+  const [open, setOpen] = useState(false);
+  const [selectedState, setSelectedState] = useState();
+  return (
+    open && (
+      <div ref={ref}>
+        <label>
+          change the state to:
+          <select
+            value={selectedState}
+            onChange={e => setSelectedState(e.target.value)}
+          >
+            <option value="need translation"></option>
+            <option value="need copyediting"></option>
+            <option value="need typesetting"></option>
+            <option value="need proofReading"></option>
+            <option value="ready for printing"></option>
+          </select>
+        </label>
+      </div>
+    )
   )
 }

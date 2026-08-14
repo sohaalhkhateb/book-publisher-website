@@ -43,6 +43,9 @@ import { NarrowView } from './components/NarrowView.jsx'
 import {Employees} from './pages/employees/Employees.jsx'
 import { EditEmployee } from './pages/employees/EditEmployee.jsx'
 import { ViewEmployee } from './pages/employees/ViewEmployee.jsx'
+import { AddTask } from './pages/tasks/AddTask.jsx'
+import { ViewTask } from './pages/tasks/ViewTask.jsx'
+import { Tasks } from './pages/tasks/Tasks.jsx'
 import './App.css'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
@@ -81,6 +84,12 @@ function App() {
           <Route path='add' element={<AddEmployee />} />
           <Route path=':id' element={<ViewEmployee />} />
           <Route path='edit/:id' element={<EditEmployee />} />
+        </Route>
+
+        <Route path='tasks'>
+          <Route index element={<Tasks />}/>
+          <Route path='add' element={<AddTask />}/>
+          <Route path=':id' element={<ViewTask />}/>
         </Route>
 
 
