@@ -1,11 +1,45 @@
+.view-employee-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
 .employee-rating{
     display: inline-flex;
     align-items: center;
     gap: 2px;
+    width: 100%;
+    justify-content: center;
 }
+
 
 .rating-image{
     width: 40px;
     height: 40px;
     display: block;
+    
+}
+
+.employee-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.employee-img{
+    align-self: center;
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 100px;
+}
+
+.view-employee-txt{
+    font-size: clamp(20px, 2.5vw, 10px);
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
 }

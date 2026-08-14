@@ -58,64 +58,87 @@ export function ViewEmployee() {
         <>
             <Header />
             <NarrowView>
-                <h1>{location.state}</h1>
-                <div>
+                <h1 style={{color: 'var(--success)'}}>{location.state}</h1>
+                <div className='view-employee-container'>
                     <img src={`${employee.image}?v=${new Date(employee.updated_at).getTime()}`}
                         alt={employee.name} width='200' height='300'
                         className='employee-img'
                     />
-                    <div className='employee-info-section'>
-                        <div className='employee-info'>
-                            <InfoCard
-                                title='Name'
-                                subtitle={employee.name}
-                            />
-                            <InfoCard
-                                title='Age'
-                                subtitle={employee.age}
-                            />
-                        </div>
-                        <div className='employee-rating'>
-                            {Array.from({length: employee.rating})
+                    <div className='employee-info'>
+                        <InfoCard
+                            title='Name'
+                            subtitle={employee.name}
+                        />
+                        <InfoCard
+                            title='Age'
+                            subtitle={employee.age}
+                        />
+                    </div>
+                    <p className='view-employee-txt'>
+                        rating :
+                    </p>
+                    <div className='employee-rating'>
+                        {Array.from({ length: employee.rating })
                             .map((i) => (
-                                <img 
+                                <img
                                     key={i}
-                                    src={starRating} 
+                                    src={starRating}
                                     alt=""
                                     className='rating-image'
                                 />
                             ))}
-                        </div>
-                        {
-                            employee.notes &&
-                            <InfoCard
-                                subtitle={employee.notes}
-                            />
-                        }
-                        
                     </div>
-                </div>
-                <div className='button-container'>
-                    <Button
-                        text='delete'
-                        color='red'
-                        onClick={deleteEmployee}
-                        isLoading={loading}
-                        image={trashImage}
-                    />
-                    <Button
-                        text='edit'
-                        onClick={() => navigate(`/employees/edit/${employee.id}`)}
-                        isLoading={loading}
-                        image={editImage}
-                    />
-                    <Button
-                        text='ok'
-                        color='green'
-                        onClick={() => navigate('/employees')}
-                        isLoading={loading}
-                        image={checkImage}
-                    />
+                    {
+                        employee.notes != null &&
+                        <InfoCard
+                            subtitle={employee.notes}
+                        />
+                    }
+                        <p className='view-employee-txt'>
+                        occupations:
+                    </p>
+                    
+                    <div className='occupations-section'
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: '10px',
+                            placeItems: 'center'
+
+                        }}
+                    >
+                        {employee.occupationNames && employee.occupationNames.map(
+                            function (occ) {
+                                return (
+                                    <InfoCard
+                                        subtitle={occ}
+                                    />
+                                )
+                            }
+                        )}
+                    </div>
+                    <div className='button-container'>
+                        <Button
+                            text='delete'
+                            color='red'
+                            onClick={deleteEmployee}
+                            isLoading={loading}
+                            image={trashImage}
+                        />
+                        <Button
+                            text='edit'
+                            onClick={() => navigate(`/employees/edit/${employee.id}`)}
+                            isLoading={loading}
+                            image={editImage}
+                        />
+                        <Button
+                            text='ok'
+                            color='green'
+                            onClick={() => navigate('/employees')}
+                            isLoading={loading}
+                            image={checkImage}
+                        />
+                    </div>
                 </div>
             </NarrowView>
         </>
