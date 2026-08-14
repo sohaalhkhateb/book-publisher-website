@@ -1,0 +1,48 @@
+.employees-comp-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.occupation-name {
+    font-size: clamp(20px, 2.5vw, 15px);
+    color: var(--primary);
+}
+
+.occupation-section {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+    border: 1px solid white;
+    padding: 20px;
+    box-shadow: 5px 5px 8px var(--shadow);
+    width: 80vw;
+}
+
+.trash-img {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.trash-img:hover {
+    transform: scale(1.3);
+}
+
+.delete-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete-section-txt {
+    font-size: clamp(20px, 2.5vw, 25px);
+    font-weight: 800;
+    color: var(--warning);
+}
+
+.delete-section-ansure:hover {
+    border-bottom: 1px solid var(--error);
+    transform: scale(1.2);
+}

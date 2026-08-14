@@ -47,6 +47,7 @@ import { AddTask } from './pages/tasks/AddTask.jsx'
 import { ViewTask } from './pages/tasks/ViewTask.jsx'
 import { Tasks } from './pages/tasks/Tasks.jsx'
 import './App.css'
+import { EmployeeComponent } from './components/EmployeeComponent.jsx'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -291,12 +292,11 @@ function App() {
         />
       </Route>
 
-      <Route
+      
+<Route
         path='/test'
-        element={<>
-        </>}
+        element={<EmployeeComponent />}
       />
-
 
     </Routes>
 
