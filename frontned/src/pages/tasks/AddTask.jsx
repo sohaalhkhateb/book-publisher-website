@@ -7,7 +7,11 @@ import rightArrow from '../../assets/images/icons/rightArrow.png'
 import leftArrow from '../../assets/images/icons/leftArrow.png'
 import { useNavigate } from "react-router";
 import api from "../../lib/axios";
-
+import './AddTask.css'
+import { Books } from "../../components/Books";
+import { Employees } from "../employees/Employees";
+import { EmployeesSelector } from "../../components/EmployeesSelecor";
+import { InfoCard } from "../../components/InfoCard";
 
 export function AddTask() {
 
@@ -69,126 +73,143 @@ export function AddTask() {
     <>
       <Header />
       <NarrowView>
-        {
-          phase == 1 &&
-          (<>
-            <InputFieldWithErrors
-              type='text'
-              name='name'
-              error={errors.name}
-              value={name}
-              setValue={setName}
-              message="enter task name here : "
-            />
-            <InputFieldWithErrors
-              type="text"
-              name="type"
-              error={errors.type}
-              value={type}
-              setValue={setType}
-              required={true}
-              message="enter task type here : "
-            />
-            <InputFieldWithErrors
-              type="date"
-              name="deadline"
-              error={errors.deadline}
-              value={deadline}
-              setValue={setDeadline}
-              required={true}
-              message="enter deadline here : "
-            />
-
-            <label className='input-label'>
-              Do you want to assign the entire book?
-              <input className='input-checkbox'
-                name={name}
-                type="checkbox"
-                checked={fullBook}
-                onChange={handleCheckBoxChange}
-              />
-            </label>
-
-            {
-              !fullBook && (
-                <>
+        <div className="add-task-container">
+          {
+            phase == 1 &&
+            (
+              <div className="phase-1-container">
+                <div className="phase-1-inputs">
                   <InputFieldWithErrors
-                    type="number"
-                    name="pagesStart"
-                    error={errors.pagesStart}
-                    value={pagesStart}
-                    setValue={setPagesStart}
-                    required={false}
-                    message="enter starting page here : "
+                    type='text'
+                    name='name'
+                    error={errors.name}
+                    value={name}
+                    color='darkkhaki'
+                    setValue={setName}
+                    message="enter task name here : "
                   />
-
                   <InputFieldWithErrors
-                    type="number"
-                    name="pagesEnd"
-                    error={errors.pagesEnd}
-                    value={pagesEnd}
-                    setValue={setPagesEnd}
-                    required={false}
-                    message="enter ending page here : "
+                    type="text"
+                    name="type"
+                    error={errors.type}
+                    value={type}
+                    color='darkkhaki'
+                    setValue={setType}
+                    required={true}
+                    message="enter task type here : "
                   />
-                </>
-              )
-            }
-            <InputFieldWithErrors
-              type="text"
-              name="notes"
-              error={errors.notes}
-              value={notes}
-              setValue={setNotes}
-              required={false}
-              message="enter notes (if you have any) here : "
-            />
-          </>)
-        }
+                  <InputFieldWithErrors
+                    type="date"
+                    name="deadline"
+                    error={errors.deadline}
+                    value={deadline}
+                    color='darkkhaki'
+                    setValue={setDeadline}
+                    required={true}
+                    message="enter deadline here : "
+                  />
+                </div>
+                <div className="saparator-container-y"></div>
+                <div className="phase-1-optional-inputs">
+                  <label className='input-label-assign'>
+                    Do you want to assign the entire book?
+                    <input
+                      className='input-checkbox'
+                      name={name}
+                      type="checkbox"
+                      color='darkkhaki'
+                      checked={fullBook}
+                      onChange={handleCheckBoxChange}
+                    />
+                  </label>
 
-        {
-          phase == 2 &&
-          (
+                  {
+                    !fullBook && (
+                      <>
+                        <InputFieldWithErrors
+                          type="number"
+                          name="pagesStart"
+                          error={errors.pagesStart}
+                          value={pagesStart}
+                          color='darkkhaki'
+                          setValue={setPagesStart}
+                          required={false}
+                          message="enter starting page here : "
+                        />
 
-            <BookViewer
-              type={type}
-              chosenBook={bookId}
-              setChosenBook={setBookId}
-            />
+                        <InputFieldWithErrors
+                          type="number"
+                          name="pagesEnd"
+                          error={errors.pagesEnd}
+                          value={pagesEnd}
+                          color='darkkhaki'
+                          setValue={setPagesEnd}
+                          required={false}
+                          message="enter ending page here : "
+                        />
+                      </>
+                    )
+                  }
+                  <InputFieldWithErrors
+                    type="text"
+                    name="notes"
+                    error={errors.notes}
+                    value={notes}
+                    setValue={setNotes}
+                    color='darkkhaki'
+                    required={false}
+                    message="enter notes (if you have any) here : "
+                  />
+                </div>
+              </div>
+            )
+          }
 
-          )
-        }
-        {
-          phase == 3 &&
-          (
-            <>
-              <EmployeeViewer
+
+          {
+            phase == 2 &&
+            (
+
+              <BookViewer
                 type={type}
-                employeeId={employeeId}
-                setChosenEmployee={setEmployeeId}
+                chosenBook={bookId}
+                setChosenBook={setBookId}
               />
-            </>
-          )
-        }
-      </NarrowView>
 
-      <div>
-        <Button
-          text='back'
-          image={leftArrow}
-          position="left"
-          isLoading={loading}
-          color='red'
-          onClick={leftClick}
-        />
-        <Button
-          text='next'
-          image={rightArrow}
-          color='green'
-          isLoading={loading}
-          onClick={rightClick}
-        />
-      </div>
+            )
+          }
+          {
+            phase == 3 &&
+            (
+              <>
+                <EmployeeViewer
+                  type={type}
+                  employeeId={employeeId}
+                  setChosenEmployee={setEmployeeId}
+                />
+              </>
+            )
+          }
+
+          <div className="add-task-btns">
+            <Button
+              text='back'
+              image={leftArrow}
+              position="left"
+              isLoading={loading}
+              color='red'
+              onClick={leftClick}
+            />
+            <Button
+              text='next'
+              image={rightArrow}
+              color='green'
+              isLoading={loading}
+              onClick={rightClick}
+            />
+          </div>
+        </div>
+      </NarrowView>
     </>
   )
 }
@@ -196,6 +217,7 @@ export function AddTask() {
 
 function BookViewer({ type, chosenBook, setChosenBook }) {
   const [books, setBooks] = useState([]);
+  const [selectedBookIds, setSelectedBooksIds] = useState(null);
 
   useEffect(() => {
     const getbooks = async () => {
@@ -204,25 +226,197 @@ function BookViewer({ type, chosenBook, setChosenBook }) {
     }
     getbooks();
   }, [type]);
+
+  function onToggleBook(bookId) {
+    setSelectedBooksIds((x) => {
+      return (x === bookId ? null : bookId);
+    });
+  }
   return (
     <>
-
+      <Header />
+      <NarrowView>
+        <p className="viewer-title">
+          •select a books to assign :
+        </p>
+        <div className="books-container">
+          <Books
+            books={books}
+            selectedBookIds={selectedBookIds}
+            onToggleBook={onToggleBook}
+          />
+        </div>
+      </NarrowView>
     </>
   )
 }
 
 function EmployeeViewer({ type, chosenEmployee, setChosenEmployee }) {
-  const [employees, setEmployees] = useState([]);
-
-  useEffect(() => {
-    const getEmployees = async () => {
-      const response = await api.get(`/employees?occupation=${type}`);
-      setEmployees(response.data.employees);
+  const [employees, setEmployees] = useState([
+    {
+      "id": 1,
+      "name": "Fadi Hatem",
+      "age": 33,
+      "rating": "3",
+      "image": "http://backend.test/employees/1/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:50:25.000000Z",
+      "updated_at": "2026-08-14T16:50:25.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Ali Alkateeb",
+      "age": 28,
+      "rating": "2",
+      "image": "http://backend.test/employees/2/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:51:30.000000Z",
+      "updated_at": "2026-08-14T16:51:30.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 2
+      }
+    },
+    {
+      "id": 3,
+      "name": "Hasan Mahmoud",
+      "age": 33,
+      "rating": "4",
+      "image": "http://backend.test/employees/3/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:52:40.000000Z",
+      "updated_at": "2026-08-14T16:52:40.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 3
+      }
+    },
+    {
+      "id": 4,
+      "name": "Kinan Ali",
+      "age": 25,
+      "rating": "4",
+      "image": "http://backend.test/employees/4/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:53:58.000000Z",
+      "updated_at": "2026-08-14T16:53:58.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 4
+      }
+    },
+    {
+      "id": 5,
+      "name": "Sara Ali",
+      "age": 24,
+      "rating": "4",
+      "image": "http://backend.test/employees/5/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:54:40.000000Z",
+      "updated_at": "2026-08-14T16:54:40.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 5
+      }
+    },
+    {
+      "id": 6,
+      "name": "farah Ahmad",
+      "age": 30,
+      "rating": "5",
+      "image": "http://backend.test/employees/6/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:55:20.000000Z",
+      "updated_at": "2026-08-14T16:55:20.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 6
+      }
+    },
+    {
+      "id": 7,
+      "name": "Jana Hasan",
+      "age": 25,
+      "rating": "3",
+      "image": "http://backend.test/employees/7/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:56:03.000000Z",
+      "updated_at": "2026-08-14T16:56:03.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 7
+      }
+    },
+    {
+      "id": 8,
+      "name": "Nada Ali",
+      "age": 32,
+      "rating": "3",
+      "image": "http://backend.test/employees/8/image",
+      "notes": null,
+      "created_at": "2026-08-14T16:56:35.000000Z",
+      "updated_at": "2026-08-14T16:56:35.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 8
+      }
+    },
+    {
+      "id": 10,
+      "name": "Sara Ali",
+      "age": 22,
+      "rating": "4",
+      "image": "http://backend.test/employees/10/image",
+      "notes": null,
+      "created_at": "2026-08-14T17:41:45.000000Z",
+      "updated_at": "2026-08-14T17:41:45.000000Z",
+      "pivot": {
+        "occupation_id": 1,
+        "employee_id": 10
+      }
     }
-    getEmployees();
-  }, [type]);
+  ]);
+  const [selectEmployeeId, setSelectEmployeeId] = useState(null);
+
+  /*  useEffect(() => {
+     const getEmployees = async () => {
+       const response = await api.get(`/employees?occupation=${type}`);
+       setEmployees(response.data.employees);
+       console.log(response.data.employees);
+     }
+     getEmployees();
+   }, [type]);
+  */
+  function onToggleEmployee(employeeId) {
+    setSelectEmployeeId((x) => {
+      return (x === employeeId ? null : employeeId);
+    });
+  }
+
   return (
     <>
+      <Header />
+      <NarrowView>
+        <p className="viewer-title">
+          •select a employees to assign :
+        </p>
+        <InfoCard
+          subtitle='tanslators'
+          padding="10px"
+          width='70'
+          color="grey"
+        />
+        <br/>
+        <EmployeesSelector
+          employees={employees}
+          selectEmployeeId={selectEmployeeId}
+          onToggleEmployee={onToggleEmployee}
+        />
+      </NarrowView>
     </>
   )
 }

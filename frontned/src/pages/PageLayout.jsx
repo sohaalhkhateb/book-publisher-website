@@ -27,20 +27,12 @@ export default function PageLayout({ children, headerState, showOptionList, setS
                     (headerState == "inventory" ?
                         <WarehouseHeader
                             headerState={headerState}
-                            showOptionList={showOptionList}
-                            setShowOptionList={setShowOptionList}
-                            search={search}
-                            setSearch={setSearch}
                         />
                         :
                         (
                             headerState == 'goods' ?
                                 <WarehouseHeader
                                     headerState={headerState}
-                                    showOptionList={showOptionList}
-                                    setShowOptionList={setShowOptionList}
-                                    search={search}
-                                    setSearch={setSearch}
                                 />
                                 :
                                 (

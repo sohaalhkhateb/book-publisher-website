@@ -9,6 +9,7 @@ export function EmployeesComponent({ color, name, employees, occupationId }) {
     const deleteOccupation = () => {
         // delete an occupation with an id : occupationId
     }
+
     return (
         <div className="employees-comp-container">
             {

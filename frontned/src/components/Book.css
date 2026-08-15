@@ -1,0 +1,41 @@
+.book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px;
+    cursor: pointer;
+    position: relative;
+}
+
+.book-title {
+    align-self: center;
+    font-size: clamp(20px,3vw,15px);
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.book-label {
+    font-weight: bold;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.book-val {
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 5px;
+    align-self: flex-start;
+    color: var(--primary);
+}
+
+.labels-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.book-container:hover{
+    transform: scale(1.03);
+    box-shadow: 2px 2px 8px var(--shadow);
+}

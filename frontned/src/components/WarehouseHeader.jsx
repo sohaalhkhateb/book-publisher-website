@@ -7,43 +7,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 import { v4 as uuidv4 } from 'uuid';
 
-export function WarehouseHeader({ headerState, showOptionList, setShowOptionList, search, setSearch }) {
-    const navigate = useNavigate();
-
-    const [searchParams] = useSearchParams();
-    const searchText = searchParams.get('search');
-    const [inputSearch, setInputSearch] = useState(searchText || '');
-
-    useEffect(() => {
-        setInputSearch(searchText || '');
-    }, []);
-
-    const updateInputSearch = (event) => {
-        setInputSearch(event.target.value);
-    }
-    function checkInput(event) {
-        if (event.key == 'Escape') {
-            setInputSearch('');
-        }
-        if (event.key == 'Enter') {
-            sendSearchInput();
-        }
-        if (event.key == 'Enter' && inputSearch == '') {
-            navigate('/');
-            setSearch(false);
-        }
-    }
-    const sendSearchInput = () => {
-        setSearch(true);
-        navigate(`/?search=${inputSearch}`);
-    }
-
-
-    function showOption(event) {
-        event.stopPropagation();
-        setShowOptionList(!showOptionList);
-    }
-
+export function WarehouseHeader({ headerState}) {
     var title = headerState == 'inventory' ? headerItems[0].title
         :
         headerItems[1].title;
@@ -60,15 +24,6 @@ export function WarehouseHeader({ headerState, showOptionList, setShowOptionList
                     {details}
                 </p>
             </div>
-            <SearchInput
-                type="text"
-                placeholder='search'
-                inputValue={inputSearch}
-                inputOnChange={updateInputSearch}
-                inputOnKeyDown={checkInput}
-                searchImage={searchImage}
-                ImageOnClick={sendSearchInput}
-            />
         </div>
     )
 }

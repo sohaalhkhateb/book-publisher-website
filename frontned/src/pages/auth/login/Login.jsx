@@ -23,6 +23,7 @@ export function Login() {
       password: password
     }).then((response) => {
       if (response.data.success)
+        setIsLoading(false)
         navigate('/')
     }).catch((error) => {
       setErrors(error.response.data)

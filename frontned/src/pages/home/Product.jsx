@@ -8,7 +8,7 @@ function Status({ statusValue, id }) {
   const listRef = useRef(null);
   function handleClick(e) {
     e.stopPropagation()
-    listRef.current.
+    // listRef.current.
 
   }
   function getColor(statusValue) {

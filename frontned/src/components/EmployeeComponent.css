@@ -9,7 +9,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 8px var(--shadow);
     cursor: pointer;
-    min-width: 200px;
+    min-width: 250px;
     max-width: 250px;
     border: 1px solid var(--surface);
     cursor: pointer;
