@@ -1,0 +1,44 @@
+.view-task-container{
+    border: 1px solid var(--primary);
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 80vw;
+}
+
+.view-task{
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-task-left{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.label-name{
+    font-weight: 400;
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.task-val{
+    font-weight: bold;
+    font-size: clamp(25px,3vw,15px);
+    width: max-content;
+    border-bottom: 1px solid var(--warning);
+    color: var(--warning);
+}
+
+.view-task-right{
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+}
+
+.view-task-btns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}

@@ -49,6 +49,7 @@ import { Tasks } from './pages/tasks/Tasks.jsx'
 import './App.css'
 import { EmployeeComponent } from './components/EmployeeComponent.jsx'
 import { Book } from './components/Book.jsx'
+import { Forbiddern } from './pages/Forbidden.jsx'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -296,7 +297,7 @@ function App() {
       
 <Route
         path='/test'
-        element={<Book />}
+        element={<Forbiddern />}
       />
 
     </Routes>
