@@ -66,6 +66,7 @@ export function AddBook() {
         <NarrowView>
           <h2 className="form-label">add a new book to your collection :</h2>
           <div className="addBook-input-container">
+
             <InputFieldWithErrors
               type='text'
               name='book title'
@@ -81,7 +82,7 @@ export function AddBook() {
               error={error.page_count}
               required={false}
             />
-            <InputFieldWithErrors
+            <InputFieldWithErrors 
               type='number'
               name='book publishing year'
               value={publishingYear}
