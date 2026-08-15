@@ -2,8 +2,8 @@ import { useId } from 'react'
 import './InputFieldWithErrors.css'
 export default function InputFieldWithErrors({ type, name, error, value, setValue, message = '', required = true, color = null }) {
     const inputId = useId();
-    
-    
+
+
     return (
         <div className='input-astrisk-container'>
             <div className='input-container' style={{ "--bg-color": color ?? 'rgb(101, 101, 230)' }}>

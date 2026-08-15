@@ -1,6 +1,6 @@
 import { EmployeeComponent } from "./EmployeeComponent"
 
-export function EmployeesSelector({ employees, selectEmployeeId, onToggleEmployee }) {
+export function EmployeesSelector({ employees, employeeId, setEmployeeId }) {
     return (
         <div className="employees-grid"
             style={{
@@ -20,12 +20,10 @@ export function EmployeesSelector({ employees, selectEmployeeId, onToggleEmploye
                             image={employee.image}
                             key={employee.id}
                             id={employee.id}
-                            select={true}
-                            selectEmployeeId={selectEmployeeId === employee.id}
-                            onClick={() => {
-                                onToggleEmployee(employee.id)
-                                /* choose this employee with ${employee.id} */
-                            }}
+                            onClick={()=>setEmployeeId(employee.id)}
+                            employeeId={employeeId}
+                            
+
                         />
                     )
                 })

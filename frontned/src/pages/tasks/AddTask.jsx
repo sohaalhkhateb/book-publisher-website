@@ -9,14 +9,13 @@ import { useNavigate } from "react-router";
 import api from "../../lib/axios";
 import './AddTask.css'
 import { Books } from "../../components/Books";
-import { Employees } from "../employees/Employees";
 import { EmployeesSelector } from "../../components/EmployeesSelecor";
 import { InfoCard } from "../../components/InfoCard";
 
 export function AddTask() {
 
   const [name, setName] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('translation');
   const [deadline, setDeadline] = useState('');
   const [fullBook, setFullBook] = useState(true);
   const [pagesStart, setPagesStart] = useState('');
@@ -52,7 +51,7 @@ export function AddTask() {
     if (phase == 3) {
       setLoading(true);
       api.post('/tasks', {
-        name, type, deadline, pagesStart, pagesEnd, notes, employeeId, bookId
+        name, type, deadline, page_start: pagesStart, page_end: pagesEnd, notes, employee_id: employeeId, book_id: bookId
       })
         .then((response) => {
           if (response.data.success) {
@@ -89,16 +88,6 @@ export function AddTask() {
                     message="enter task name here : "
                   />
                   <InputFieldWithErrors
-                    type="text"
-                    name="type"
-                    error={errors.type}
-                    value={type}
-                    color='darkkhaki'
-                    setValue={setType}
-                    required={true}
-                    message="enter task type here : "
-                  />
-                  <InputFieldWithErrors
                     type="date"
                     name="deadline"
                     error={errors.deadline}
@@ -108,6 +97,37 @@ export function AddTask() {
                     required={true}
                     message="enter deadline here : "
                   />
+                  <div className='input-astrisk-container'>
+                    <div className='input-container'>
+                      <label className='input-label'>
+                        • enter task type here :
+                      </label>
+                      <select
+                        style={{
+
+                          color: 'white',
+                          borderRadius: '10px',
+                          border: 'none',
+                          padding: '10px 5px',
+                          backgroundColor: 'darkkhaki'
+                        }}
+                        name='type'
+                        value={type}
+                        onChange={e => setType(e.target.value)}
+                      >
+                        <option value="translation">translation</option>
+                        <option value="copyEditing">copyediting</option>
+                        <option value="typeSetting">typesetting</option>
+                        <option value="proofReading">proofReading</option>
+                        <option value="ready for printing">printing</option>
+                      </select>
+                    </div>
+
+                    <p className='astrisk'>
+                      *
+                    </p>
+                  </div>
+
                 </div>
                 <div className="saparator-container-y"></div>
                 <div className="phase-1-optional-inputs">
@@ -128,8 +148,8 @@ export function AddTask() {
                       <>
                         <InputFieldWithErrors
                           type="number"
-                          name="pagesStart"
-                          error={errors.pagesStart}
+                          name="page_start"
+                          error={errors.page_start}
                           value={pagesStart}
                           color='darkkhaki'
                           setValue={setPagesStart}
@@ -139,8 +159,8 @@ export function AddTask() {
 
                         <InputFieldWithErrors
                           type="number"
-                          name="pagesEnd"
-                          error={errors.pagesEnd}
+                          name="page_end"
+                          error={errors.page_end}
                           value={pagesEnd}
                           color='darkkhaki'
                           setValue={setPagesEnd}
@@ -172,8 +192,8 @@ export function AddTask() {
 
               <BookViewer
                 type={type}
-                chosenBook={bookId}
-                setChosenBook={setBookId}
+                bookId={bookId}
+                setBookId={setBookId}
               />
 
             )
@@ -185,7 +205,7 @@ export function AddTask() {
                 <EmployeeViewer
                   type={type}
                   employeeId={employeeId}
-                  setChosenEmployee={setEmployeeId}
+                  setEmployeeId={setEmployeeId}
                 />
               </>
             )
@@ -209,15 +229,15 @@ export function AddTask() {
             />
           </div>
         </div>
-      </NarrowView>
+      </NarrowView >
     </>
   )
 }
 
 
-function BookViewer({ type, chosenBook, setChosenBook }) {
+function BookViewer({ type, bookId, setBookId }) {
+
   const [books, setBooks] = useState([]);
-  const [selectedBookIds, setSelectedBooksIds] = useState(null);
 
   useEffect(() => {
     const getbooks = async () => {
@@ -227,23 +247,19 @@ function BookViewer({ type, chosenBook, setChosenBook }) {
     getbooks();
   }, [type]);
 
-  function onToggleBook(bookId) {
-    setSelectedBooksIds((x) => {
-      return (x === bookId ? null : bookId);
-    });
-  }
+
   return (
     <>
       <Header />
       <NarrowView>
         <p className="viewer-title">
-          •select a books to assign :
+          •select a book to assign :
         </p>
         <div className="books-container">
           <Books
             books={books}
-            selectedBookIds={selectedBookIds}
-            onToggleBook={onToggleBook}
+            bookId={bookId}
+            setBookId={setBookId}
           />
         </div>
       </NarrowView>
@@ -251,151 +267,18 @@ function BookViewer({ type, chosenBook, setChosenBook }) {
   )
 }
 
-function EmployeeViewer({ type, chosenEmployee, setChosenEmployee }) {
-  const [employees, setEmployees] = useState([
-    {
-      "id": 1,
-      "name": "Fadi Hatem",
-      "age": 33,
-      "rating": "3",
-      "image": "http://backend.test/employees/1/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:50:25.000000Z",
-      "updated_at": "2026-08-14T16:50:25.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 1
-      }
-    },
-    {
-      "id": 2,
-      "name": "Ali Alkateeb",
-      "age": 28,
-      "rating": "2",
-      "image": "http://backend.test/employees/2/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:51:30.000000Z",
-      "updated_at": "2026-08-14T16:51:30.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 2
-      }
-    },
-    {
-      "id": 3,
-      "name": "Hasan Mahmoud",
-      "age": 33,
-      "rating": "4",
-      "image": "http://backend.test/employees/3/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:52:40.000000Z",
-      "updated_at": "2026-08-14T16:52:40.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 3
-      }
-    },
-    {
-      "id": 4,
-      "name": "Kinan Ali",
-      "age": 25,
-      "rating": "4",
-      "image": "http://backend.test/employees/4/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:53:58.000000Z",
-      "updated_at": "2026-08-14T16:53:58.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 4
-      }
-    },
-    {
-      "id": 5,
-      "name": "Sara Ali",
-      "age": 24,
-      "rating": "4",
-      "image": "http://backend.test/employees/5/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:54:40.000000Z",
-      "updated_at": "2026-08-14T16:54:40.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 5
-      }
-    },
-    {
-      "id": 6,
-      "name": "farah Ahmad",
-      "age": 30,
-      "rating": "5",
-      "image": "http://backend.test/employees/6/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:55:20.000000Z",
-      "updated_at": "2026-08-14T16:55:20.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 6
-      }
-    },
-    {
-      "id": 7,
-      "name": "Jana Hasan",
-      "age": 25,
-      "rating": "3",
-      "image": "http://backend.test/employees/7/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:56:03.000000Z",
-      "updated_at": "2026-08-14T16:56:03.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 7
-      }
-    },
-    {
-      "id": 8,
-      "name": "Nada Ali",
-      "age": 32,
-      "rating": "3",
-      "image": "http://backend.test/employees/8/image",
-      "notes": null,
-      "created_at": "2026-08-14T16:56:35.000000Z",
-      "updated_at": "2026-08-14T16:56:35.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 8
-      }
-    },
-    {
-      "id": 10,
-      "name": "Sara Ali",
-      "age": 22,
-      "rating": "4",
-      "image": "http://backend.test/employees/10/image",
-      "notes": null,
-      "created_at": "2026-08-14T17:41:45.000000Z",
-      "updated_at": "2026-08-14T17:41:45.000000Z",
-      "pivot": {
-        "occupation_id": 1,
-        "employee_id": 10
-      }
-    }
-  ]);
-  const [selectEmployeeId, setSelectEmployeeId] = useState(null);
+function EmployeeViewer({ type, employeeId, setEmployeeId }) {
 
-  /*  useEffect(() => {
-     const getEmployees = async () => {
-       const response = await api.get(`/employees?occupation=${type}`);
-       setEmployees(response.data.employees);
-       console.log(response.data.employees);
-     }
-     getEmployees();
-   }, [type]);
-  */
-  function onToggleEmployee(employeeId) {
-    setSelectEmployeeId((x) => {
-      return (x === employeeId ? null : employeeId);
-    });
-  }
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    const getEmployees = async () => {
+      const response = await api.get(`/employees?occupation=${type}`);
+      setEmployees(response.data.occupation.employees);
+      console.log(response.data.employees);
+    }
+    getEmployees();
+  }, [type]);
 
   return (
     <>
@@ -410,11 +293,11 @@ function EmployeeViewer({ type, chosenEmployee, setChosenEmployee }) {
           width='70'
           color="grey"
         />
-        <br/>
+        <br />
         <EmployeesSelector
           employees={employees}
-          selectEmployeeId={selectEmployeeId}
-          onToggleEmployee={onToggleEmployee}
+          employeeId={employeeId}
+          setEmployeeId={setEmployeeId}
         />
       </NarrowView>
     </>

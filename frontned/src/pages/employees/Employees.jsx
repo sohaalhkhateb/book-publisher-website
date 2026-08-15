@@ -35,7 +35,7 @@ export function Employees() {
                         width: 'max-content',
                     }}
                 >
-                    You'r current employees :
+                    Your current employees :
                 </p>
                 {employees != [] &&
                     employees.map((occupation) => {

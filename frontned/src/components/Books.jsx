@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Book } from "./Book"
 
-export function Books({ books, selectedBookIds, onToggleBook }) {
-      
-    return(
+export function Books({ books, bookId, setBookId }) {
+
+    return (
         <>
             {
                 books.map((book) => {
@@ -11,10 +10,8 @@ export function Books({ books, selectedBookIds, onToggleBook }) {
                         <Book
                             key={book.id}
                             book={book}
-                            selectedBookIds={selectedBookIds === book.id}
-                            onClick={() => {
-                                onToggleBook(book.id)
-                                /* choose this book with ${book.id} */}}
+                            bookId={bookId}
+                            setBookId={setBookId}
                         />
                     )
                 })

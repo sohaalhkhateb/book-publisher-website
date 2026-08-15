@@ -1,15 +1,14 @@
 import { BookImage } from "./BookImage";
 import './Book.css'
 
-export function Book({book, selectedBookIds, onClick}) {
+export function Book({book,bookId,setBookId}) {
     return (
-        <div 
-            className="book-container"
-            onClick={onClick}   
+        <div className="book-container"
+            onClick={()=>setBookId(book.id)}
             style={{
-                backgroundColor: selectedBookIds ? 'var(--success)' : 'rgba(200, 211, 245, 0.428)',
-            }} 
-        >
+                backgroundColor: book.id==bookId ? 'var(--success)' : 'rgba(200, 211, 245, 0.428)',
+            }}>
+
             <BookImage src={book.image} />
             <p className="book-title">{book.title}</p>
             <div className="labels-section">

@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router'
-import employeeImage from '../assets/images/icons/person-icon.png'
 import starRating from '../assets/images/icons/star-rating.png'
 import './EmployeeComponent.css'
 import { useState } from 'react';
-export function EmployeeComponent({ name, age, rating, image, id, select = false, onClick, selectEmployeeId }) {
+export function EmployeeComponent({ name, age, rating, image, id, employeeId, onClick }) {
     const navigate = useNavigate();
     const [isHovered, setIsHoverd] = useState(false);
 
@@ -18,9 +17,9 @@ export function EmployeeComponent({ name, age, rating, image, id, select = false
             onMouseEnter={() => setIsHoverd(true)}
             onMouseLeave={() => setIsHoverd(false)}
             style={{
-                transform: (isHovered && select) ?
+                transform: (isHovered) ?
                     "scale(1.04)" : "scale(1)",
-                backgroundColor: (select && selectEmployeeId) ?
+                backgroundColor: (id==employeeId) ?
                     'var(--success)' : 'var(--primary)',
             }}
         >
