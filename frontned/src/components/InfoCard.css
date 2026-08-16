@@ -18,7 +18,6 @@
 .info-card-subtitle{
     margin-left: 20px;
     font-size: clamp(20px, 2.5vw, 10px);
-    color: var(--primary);
     overflow-wrap: break-word;
     word-break: break-word;
     word-wrap: break-word;

@@ -88,8 +88,14 @@ export function AddTask() {
           {
             phase == 1 &&
             (
-              <div className="phase-1-container">
-                <div className="phase-1-inputs">
+              <div
+                className="phase-1-container"
+                style={{
+                  alignItems: fullBook ? 'center' : 'flex-start'
+                }}
+              >
+                <div
+                  className="phase-1-inputs">
                   <InputFieldWithErrors
                     type='text'
                     name='name'
@@ -116,7 +122,6 @@ export function AddTask() {
                       </label>
                       <select
                         style={{
-
                           color: 'white',
                           borderRadius: '10px',
                           border: 'none',
@@ -202,7 +207,12 @@ export function AddTask() {
             phase == 2 &&
             (
               <>
-                <h2>{errors.book_id}</h2>
+                <h2
+                  style={{
+                    color: 'var(--error)',
+                    fontSize: 'clamp(20px,2vw,15px)',
+                  }}
+                >{errors.book_id}</h2>
                 <BookViewer
                   type={type}
                   bookId={bookId}
@@ -215,7 +225,12 @@ export function AddTask() {
             phase == 3 &&
             (
               <>
-                <h2>{errors.employee_id}</h2>
+                <h2
+                  style={{
+                    color: 'var(--error)',
+                    fontSize: 'clamp(20px,2vw,15px)',
+                  }}
+                >{errors.employee_id}</h2>
                 <EmployeeViewer
                   type={type}
                   employeeId={employeeId}

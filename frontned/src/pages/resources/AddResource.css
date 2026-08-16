@@ -1,0 +1,24 @@
+.add-resource-container{
+    display: flex;
+    min-width: max-content;
+    max-width: 100%;
+    justify-content: space-around;
+}
+
+.add-resource-left{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-resource-right{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.add-resource-btns{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}

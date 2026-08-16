@@ -4,11 +4,14 @@
     padding: 20px;
     border-radius: 20px;
     min-width: 80vw;
+    background-color: #c0c8d3;
+    box-shadow: 10px 10px 8px var(--shadow);
+    width: max-content;
 }
 
 .view-task{
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 .view-task-left{
@@ -25,16 +28,18 @@
 
 .task-val{
     font-weight: bold;
-    font-size: clamp(25px,3vw,15px);
+    font-size: clamp(20px,3vw,15px);
     width: max-content;
-    border-bottom: 1px solid var(--warning);
+    text-decoration: underline;
     color: var(--warning);
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .view-task-right{
     display: flex;
     flex-direction: column;
-    gap: 33px;
+    gap: 38px;
 }
 
 .view-task-btns{

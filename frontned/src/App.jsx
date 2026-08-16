@@ -51,6 +51,7 @@ import { Resources } from './pages/resources/Resources.jsx'
 import { AddResource } from './pages/resources/AddResource.jsx'
 import { ViewResource } from './pages/resources/ViewResource.jsx'
 import { EditResource } from './pages/resources/EditResource.jsx'
+import { Task } from './components/Task.jsx'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -303,7 +304,7 @@ function App() {
 
       <Route
         path='/test'
-        element={<Forbiddern />}
+        element={<Task />}
       />
 
     </Routes>

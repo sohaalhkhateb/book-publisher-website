@@ -1,0 +1,38 @@
+.task-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 20px;
+    border: 1px solid var(--primary);
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px var(--shadow);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.task-title {
+    font-size: clamp(25px, 3.5vw, 20px);
+    font-weight: bold;
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.task-info {
+    display: flex;
+    gap: 20px;
+}
+
+.label-name-t {
+    font-weight: 400;
+    color: #e9dac2;
+    font-size: 20px;
+}
+
+.task-val-t {
+    font-weight: bold;
+    font-size: clamp(20px, 3vw, 15px);
+    text-decoration: underline;
+    color: var(--primary);
+    margin-left: 10px;
+}

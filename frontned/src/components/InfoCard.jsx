@@ -1,7 +1,7 @@
 import { useId } from 'react'
 import './InfoCard.css'
 
-export function InfoCard({ title = null, subtitle, width=20, color='white', border='var(--border)', padding='5px'}) {
+export function InfoCard({ title = null, subtitle, width=20, color='white', border='var(--border)', padding='5px', fontColor='var(--primary)'}) {
     const infoCardId = useId();
     return (<>
         <style>
@@ -11,6 +11,7 @@ export function InfoCard({ title = null, subtitle, width=20, color='white', bord
                     background-color:${color};
                     border: 1px solid ${border};
                     padding: ${padding};
+                    color: ${fontColor}
                     }
                     `}
         </style>
