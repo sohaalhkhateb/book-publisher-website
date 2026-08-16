@@ -61,8 +61,20 @@ export function AddTask() {
           }
         })
         .catch((errors) => {
-          setPhase(1)
-          setErrors(errors.response.data)
+          if (Object.hasOwn(errors.response.data, 'employee_id')) {
+            setPhase(3)
+            setErrors(errors.response.data)
+          }
+
+          else if (Object.hasOwn(errors.response.data, 'book_id')) {
+            setPhase(2)
+            setErrors(errors.response.data)
+          }
+          else {
+            setPhase(1)
+            setErrors(errors.response.data)
+          }
+
           setLoading(false)
         })
     }
@@ -189,19 +201,21 @@ export function AddTask() {
           {
             phase == 2 &&
             (
-
-              <BookViewer
-                type={type}
-                bookId={bookId}
-                setBookId={setBookId}
-              />
-
+              <>
+                <h2>{errors.book_id}</h2>
+                <BookViewer
+                  type={type}
+                  bookId={bookId}
+                  setBookId={setBookId}
+                />
+              </>
             )
           }
           {
             phase == 3 &&
             (
               <>
+                <h2>{errors.employee_id}</h2>
                 <EmployeeViewer
                   type={type}
                   employeeId={employeeId}

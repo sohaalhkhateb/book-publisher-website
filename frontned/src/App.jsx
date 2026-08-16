@@ -31,7 +31,7 @@ import { employees } from '../src/backend-json/employees'
 import { internationalIds } from '../src/backend-json/internationalIds'
 import { GoodsPage } from './pages/wharehouse/goods/GoodsPage'
 import { EbooksPage } from './pages/wharehouse/ebooks/EbooksPage'
-import { ResourcesPage } from './pages/resources/ResourcesPage'
+import { ResourcesPage } from './pages/resources(old)/ResourcesPage.jsx'
 import AuthGuard from './lib/AuthGuard.jsx'
 import { LayoutElement } from './pages/layout/LayoutElement.jsx'
 import { HomePageEnhanced } from './pages/home/HomePageEnhanced.jsx'
@@ -39,23 +39,23 @@ import { InventorySalesPage } from './pages/inventory-sales/InventorySalesPage'
 import { PublishingOffersPage } from './pages/publishing-offers/PublishingOffersPage'
 import { ViewBook } from './pages/books/ViewBook.jsx'
 import { EditBook } from './pages/books/EditBook.jsx'
-import { NarrowView } from './components/NarrowView.jsx'
-import {Employees} from './pages/employees/Employees.jsx'
+import { Employees } from './pages/employees/Employees.jsx'
 import { EditEmployee } from './pages/employees/EditEmployee.jsx'
 import { ViewEmployee } from './pages/employees/ViewEmployee.jsx'
 import { AddTask } from './pages/tasks/AddTask.jsx'
 import { ViewTask } from './pages/tasks/ViewTask.jsx'
 import { Tasks } from './pages/tasks/Tasks.jsx'
 import './App.css'
-import { EmployeeComponent } from './components/EmployeeComponent.jsx'
-import { Book } from './components/Book.jsx'
 import { Forbiddern } from './pages/Forbidden.jsx'
+import { Resources } from './pages/resources/Resources.jsx'
+import { AddResource } from './pages/resources/AddResource.jsx'
+import { ViewResource } from './pages/resources/ViewResource.jsx'
+import { EditResource } from './pages/resources/EditResource.jsx'
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
-  const [list, setList] = useState([]);
 
-  
+
   return (
 
     <Routes>
@@ -73,13 +73,11 @@ function App() {
           <Route path='/' element={<HomePageEnhanced />} />
         </Route>
 
-          <Route element={<NarrowView />}>
-          </Route>
-          
+
         <Route path='books'>
           <Route path='add' element={<AddBook />} />
-            <Route path=':id' element={<ViewBook />} />
-            <Route path='edit/:id' element={<EditBook />} />
+          <Route path=':id' element={<ViewBook />} />
+          <Route path='edit/:id' element={<EditBook />} />
         </Route>
 
         <Route path='employees'>
@@ -90,11 +88,19 @@ function App() {
         </Route>
 
         <Route path='tasks'>
-          <Route index element={<Tasks />}/>
-          <Route path='add' element={<AddTask />}/>
-          <Route path=':id' element={<ViewTask />}/>
+          <Route index element={<Tasks />} />
+          <Route path='add' element={<AddTask />} />
+          <Route path=':id' element={<ViewTask />} />
         </Route>
 
+
+        <Route path='resources'>
+          <Route index element={<Resources />} />
+          <Route path='add' element={<AddResource />} />
+          <Route path=':id' element={<ViewResource />} />
+          <Route path='edit/:id' element={<EditResource />} />
+
+        </Route>
 
 
 
@@ -294,8 +300,8 @@ function App() {
         />
       </Route>
 
-      
-<Route
+
+      <Route
         path='/test'
         element={<Forbiddern />}
       />

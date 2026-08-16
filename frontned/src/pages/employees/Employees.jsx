@@ -20,7 +20,6 @@ export function Employees() {
             })
     }, [])
 
-    console.log(employees)
     return (
         <>
             <Header />
