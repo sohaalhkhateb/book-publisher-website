@@ -136,7 +136,7 @@ export function AddTask() {
                         <option value="copyEditing">copyediting</option>
                         <option value="typeSetting">typesetting</option>
                         <option value="proofReading">proofReading</option>
-                        <option value="ready for printing">printing</option>
+                        <option value="printing">printing</option>
                       </select>
                     </div>
 
