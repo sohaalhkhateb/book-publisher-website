@@ -288,7 +288,7 @@ function EmployeeViewer({ type, employeeId, setEmployeeId }) {
   useEffect(() => {
     const getEmployees = async () => {
       const response = await api.get(`/employees?occupation=${type}`);
-      setEmployees(response.data.occupation.employees);
+      setEmployees(response.data.occupation);
       console.log(response.data.employees);
     }
     getEmployees();
@@ -302,14 +302,14 @@ function EmployeeViewer({ type, employeeId, setEmployeeId }) {
           •select a employees to assign :
         </p>
         <InfoCard
-          subtitle='tanslators'
+          subtitle={employees.name}
           padding="10px"
           width='70'
           color="grey"
         />
         <br />
         <EmployeesSelector
-          employees={employees}
+          employees={employees.employees}
           employeeId={employeeId}
           setEmployeeId={setEmployeeId}
         />
