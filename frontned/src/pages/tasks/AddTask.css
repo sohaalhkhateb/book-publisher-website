@@ -76,3 +76,9 @@
     color: var(--primary);
     margin-bottom: 20px;
 }
+
+.books-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 10px;
+}
