@@ -8,17 +8,7 @@
 
 .tasks-btn-container {
     position: fixed;
-    bottom: 15px;
-    right: 10px;
+    bottom: 45px;
+    right: 40px;
     cursor: pointer;
-}
-
-.no-employees-txt{
-    text-align: center;
-    font-size: clamp(30px,3.5vw,25px);
-    text-decoration: underline;
-    color: var(--warning);
-    width: max-content;
-    margin-left: auto;
-    margin-right: auto;
 }
