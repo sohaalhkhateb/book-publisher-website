@@ -51,17 +51,24 @@ export function ViewTask() {
         <>
             <Header />
             <NarrowView>
-                <h3>{location.state}</h3>
+                <h3
+                    style={{
+                        color: 'var(--success)',
+                        fontSize: 'clamp(25px,3.5vw,20px)',
+                    }}
+                >{location.state}</h3>
                 <div className="view-task-container">
                     <div className="view-task">
                         <div className="view-task-left">
                             <InfoCard
                                 title="Task Name"
                                 subtitle={task.name}
+                                width={40}
                             />
                             <InfoCard
                                 title="Type"
                                 subtitle={task.type}
+                                width={40}
                             />
                             <span className='label-name'>
                                 to:
@@ -74,15 +81,19 @@ export function ViewTask() {
                             <InfoCard
                                 title='notes'
                                 subtitle={task.notes}
+                                width={40}
                             />
                         </div>
                         <div className="view-task-right">
                             <InfoCard
                                 title="Deadline"
                                 subtitle={task.deadline}
+                                fontColor='var(--error)'
+                                width={40}
                             />
                             <InfoCard
                                 subtitle={task.task_size}
+                                width={40}
                             />
                             <span className='label-name'>
                                 about:

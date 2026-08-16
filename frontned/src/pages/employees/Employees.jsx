@@ -3,10 +3,14 @@ import api from "../../lib/axios"
 import { EmployeesComponent } from "../../components/EmployeesComonent";
 import { NarrowView } from "../../components/NarrowView";
 import { Header } from "../layout/Header";
+import plusIconWhite from '../../assets/images/icons/add-white.png'
+import { useNavigate } from "react-router";
+import { Button } from "../../components/Button";
 
 export function Employees() {
 
     const [employees, setEmployees] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         api.get('/employees')
@@ -39,17 +43,34 @@ export function Employees() {
                 {employees != [] &&
                     employees.map((occupation) => {
                         return (
-                                <EmployeesComponent
-                                    color={occupation.color}
-                                    name={occupation.name}
-                                    employees={occupation.employees}
-                                    key={occupation.id}
-                                    occupationId={occupation.id}
-                                />
+                            <EmployeesComponent
+                                color={occupation.color}
+                                name={occupation.name}
+                                employees={occupation.employees}
+                                key={occupation.id}
+                                occupationId={occupation.id}
+                            />
 
                         )
                     })
                 }
+                <div 
+                    style={{
+                        position: 'fixed',
+                        bottom: '15px',
+                        right: '10px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    <Button
+                        text='add employees'
+                        position='right'
+                        image={plusIconWhite}
+                        color='var(--success)'
+                        onClick={() => navigate('/employees/add')}
+                    // get add image
+                    />
+                </div>
             </NarrowView>
         </>
     )

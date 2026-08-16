@@ -1,7 +1,7 @@
 import { EmployeeComponent } from "./EmployeeComponent"
 import './EmployeesComponent.css'
 import { InfoCard } from "./InfoCard"
-import trash from "../assets/images/icons/trash.png"
+import trash from "../assets/images/icons/delete.png"
 import { useState } from "react"
 
 export function EmployeesComponent({ color, name, employees, occupationId }) {
@@ -77,18 +77,23 @@ export function EmployeesComponent({ color, name, employees, occupationId }) {
                 }}
             >
                 {
-                    employees && employees.length > 0 && employees.map((employee) => {
-                        return (
-                            <EmployeeComponent
-                                name={employee.name}
-                                age={employee.age}
-                                rating={employee.rating}
-                                image={employee.image}
-                                key={employee.id}
-                                id={employee.id}
-                            />
-                        )
-                    })
+                    employees == []
+                        ?
+                        <p className="no-employees-txt">
+                            no Employees for this occupation!
+                        </p>
+                        : employees.length > 0 && employees.map((employee) => {
+                            return (
+                                <EmployeeComponent
+                                    name={employee.name}
+                                    age={employee.age}
+                                    rating={employee.rating}
+                                    image={employee.image}
+                                    key={employee.id}
+                                    id={employee.id}
+                                />
+                            )
+                        })
                 }
             </div>
         </div>

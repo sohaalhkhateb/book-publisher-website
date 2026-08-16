@@ -1,0 +1,24 @@
+.tasks-title {
+    font-size: clamp(25px, 3.5vw, 20px);
+    font-weight: bold;
+    color: var(--primary);
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.tasks-btn-container {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.no-employees-txt{
+    text-align: center;
+    font-size: clamp(30px,3.5vw,25px);
+    text-decoration: underline;
+    color: var(--warning);
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
