@@ -24,6 +24,7 @@
     font-weight: 400;
     color: var(--primary);
     font-size: 20px;
+    text-align: center;
 }
 
 .task-val{
@@ -31,7 +32,7 @@
     font-size: clamp(20px,3vw,15px);
     width: max-content;
     text-decoration: underline;
-    color: var(--warning);
+    color: rgb(65, 65, 235);
     margin-left: 10px;
     cursor: pointer;
 }

@@ -1,9 +1,14 @@
+import { useNavigate } from 'react-router'
 import { InfoCard } from './InfoCard'
 import './Task.css'
 
 export function Task({ task }) {
+
+    const navigate = useNavigate()
+
     return (
-        <div
+        <div 
+            onClick={()=>navigate(`/tasks/${task.id}`)}
             className="task-container"
             style={{
                 backgroundColor: task.finished ? 'var(--success)' : '#f75e5e'
@@ -28,14 +33,14 @@ export function Task({ task }) {
                 />
             </div>
             <span className='label-name-t'>
-                to:
+                employee :
                 <span className='task-val-t'
                 >
                     {task.employee?.name}
                 </span>
             </span>
             <span className='label-name-t'>
-                about:
+                book :
                 <span className='task-val-t'
                 >
                     {task.book?.title}

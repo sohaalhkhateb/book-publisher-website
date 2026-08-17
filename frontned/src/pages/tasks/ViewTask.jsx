@@ -71,7 +71,7 @@ export function ViewTask() {
                                 width={40}
                             />
                             <span className='label-name'>
-                                to:
+                                to the following employee:
                                 <span className='task-val'
                                     onClick={() => navigate(`/employees/${task.employee_id}`)}
                                 >
@@ -96,7 +96,7 @@ export function ViewTask() {
                                 width={40}
                             />
                             <span className='label-name'>
-                                about:
+                                for the following book:
                                 <span className='task-val'
                                     onClick={() => navigate(`/books/${task.book_id}`)}
 
@@ -105,9 +105,9 @@ export function ViewTask() {
                                 </span>
                             </span>
                             <span className='label-name'>
-                                Task status:
-                                <span className='task-val'>
-                                    {task.finished}
+                                Task status :
+                                <span style={{ fontWeight:'900',fontSize:'30px'}}>
+                                    {task.finished =='yes'? ' done!!':' not yet'}
                                 </span>
                             </span>
                         </div>

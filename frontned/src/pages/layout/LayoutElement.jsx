@@ -7,7 +7,8 @@ import { useState } from "react";
 
 export function LayoutElement() {
     const [showOptionList, setShowOptionList] = useState(false);
-    return (<>
+    return (
+    <>
         <Header
             setShowOptionList={setShowOptionList}
             showOptionList={showOptionList}

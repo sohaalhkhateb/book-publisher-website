@@ -27,7 +27,7 @@ export function Tasks() {
             <Header />
             <NarrowView>
                 <p className="tasks-title">here are all the tasks you created :</p>
-                <div
+                <div   
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(400px,1fr))',

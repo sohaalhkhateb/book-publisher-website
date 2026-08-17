@@ -45,13 +45,21 @@ import { ViewEmployee } from './pages/employees/ViewEmployee.jsx'
 import { AddTask } from './pages/tasks/AddTask.jsx'
 import { ViewTask } from './pages/tasks/ViewTask.jsx'
 import { Tasks } from './pages/tasks/Tasks.jsx'
-import './App.css'
-import { Forbiddern } from './pages/Forbidden.jsx'
 import { Resources } from './pages/resources/Resources.jsx'
 import { AddResource } from './pages/resources/AddResource.jsx'
 import { ViewResource } from './pages/resources/ViewResource.jsx'
 import { EditResource } from './pages/resources/EditResource.jsx'
 import { Task } from './components/Task.jsx'
+import { Step1 } from './pages/orders/Step1.jsx'
+import { Step2 } from './pages/orders/Step2.jsx'
+import { Step3 } from './pages/orders/Step3.jsx'
+import { Step4 } from './pages/orders/Step4.jsx'
+import { Step5 } from './pages/orders/Step5.jsx'
+import { Step6 } from './pages/orders/Step6.jsx'
+import './App.css'
+import { GuestLayout } from './pages/layout/GuestLayout.jsx'
+
+
 function App() {
   const [showOptionList, setShowOptionList] = useState(false);
   const [search, setSearch] = useState(false);
@@ -68,7 +76,19 @@ function App() {
         <Route path='3' element={<TwoFaCheck />} />
       </Route>
 
-
+      <Route path='orders'>
+        <Route index />
+        <Route path='add' element={<GuestLayout />}>
+          <Route path='1' element={<Step1 />} />
+          <Route path='2' element={<Step2 />} />
+          <Route path='3' element={<Step3 />} />
+          <Route path='4' element={<Step4 />} />
+          <Route path='5' element={<Step5 />} />
+          <Route path='6' element={<Step6 />} />
+        </Route>
+        <Route path=':id' element={<></>} />
+        <Route path='edit/:id' element={<></>} />
+      </Route>
       <Route element={<AuthGuard />}>
         <Route element={<LayoutElement />}>
           <Route path='/' element={<HomePageEnhanced />} />
@@ -100,7 +120,6 @@ function App() {
           <Route path='add' element={<AddResource />} />
           <Route path=':id' element={<ViewResource />} />
           <Route path='edit/:id' element={<EditResource />} />
-
         </Route>
 
 
