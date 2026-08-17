@@ -60,7 +60,7 @@ export function Step5() {
     }).then((response) => {
       if (response.data.success) {
         setLoading(false)
-        navigate('/orders/add/7')
+        navigate('/orders/add/3')
       }
     }).catch((errors) => {
       setError(errors.response.data.errors ?? errors.response.data)

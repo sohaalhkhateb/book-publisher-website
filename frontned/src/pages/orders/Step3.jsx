@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 export function Step3() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate()
+
   useEffect(() => {
     api.get('/sessionItems')
       .then((response) => {
@@ -15,7 +16,7 @@ export function Step3() {
 
   return (
     <>
-      <p>{items.isEmpty?null:'no items , try adding one to your order !'}</p>
+      <p>{items.isEmpty ? null : 'no items , try adding one to your order !'}</p>
       {
         items.map((item) => {
           return (
@@ -46,7 +47,9 @@ export function OrderItem({ item }) {
         {item.other && (<span>other |</span>)}
       </span>
       <p>{item.book_title && `book title ${item.book_title}`}</p>
-      <p>quantity : {item.quantity}</p>
+      <p>{item.quantity && `quantity : ${item.quantity}`}</p>
+      <p>{item.files && `files sent : ${item.files.length} files`}</p>
+
 
     </>
 
