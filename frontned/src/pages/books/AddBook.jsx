@@ -111,7 +111,7 @@ export function AddBook() {
               value={numberOfCopies}
               setValue={setNumberOfCopies}
               error={error.number_of_copies}
-              required={false}
+              required={true}
             />
             <InputFieldWithErrors
               type='text'

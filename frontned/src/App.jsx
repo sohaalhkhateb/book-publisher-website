@@ -60,6 +60,7 @@ import { Step7 } from './pages/orders/Step7.jsx'
 
 import './App.css'
 import { GuestLayout } from './pages/layout/GuestLayout.jsx'
+import { OrderSuccess } from './pages/orders/OrderSuccess.jsx'
 
 
 function App() {
@@ -80,14 +81,17 @@ function App() {
 
       <Route path='orders'>
         <Route index />
-        <Route path='add' element={<GuestLayout />}>
-          <Route path='1' element={<Step1 />} />
-          <Route path='2' element={<Step2 />} />
-          <Route path='3' element={<Step3 />} />
-          <Route path='4' element={<Step4 />} />
-          <Route path='5' element={<Step5 />} />
-          <Route path='6' element={<Step6 />} />
-          <Route path='7' element={<Step7 />} />
+        <Route element={<GuestLayout />}>
+          <Route path='success' element={<OrderSuccess />} />
+          <Route path='add'>
+            <Route path='1' element={<Step1 />} />
+            <Route path='2' element={<Step2 />} />
+            <Route path='3' element={<Step3 />} />
+            <Route path='4' element={<Step4 />} />
+            <Route path='5' element={<Step5 />} />
+            <Route path='6' element={<Step6 />} />
+            <Route path='7' element={<Step7 />} />
+          </Route>
 
         </Route>
         <Route path=':id' element={<></>} />

@@ -1,6 +1,6 @@
 import { useId } from 'react'
 import './InputFieldWithErrors.css'
-export default function InputFieldWithErrors({ type, name, error, value, setValue, message = '', required = true, color = null }) {
+export default function InputFieldWithErrors({ type, name, error, value, setValue, message = '', required = true, color = null, multipleFiles = false }) {
     const inputId = useId();
 
 
@@ -14,6 +14,7 @@ export default function InputFieldWithErrors({ type, name, error, value, setValu
                     }
                 </label>
                 <input
+                    multiple={multipleFiles ? true : undefined}
                     className={error ? 'input-field errored' : 'input-field'}
                     id={inputId}
                     type={type}
@@ -21,11 +22,11 @@ export default function InputFieldWithErrors({ type, name, error, value, setValu
                     value={type == 'file' ? undefined : value}
                     name={name}
                     onChange={e => {
-                        type == 'file' ?
-                            setValue(e.target.files[0]) :
+                        if (type == 'file') {
+                            multipleFiles ? setValue(e.target.files) : setValue(e.target.files[0])
+                        } else
                             setValue(e.target.value)
-                    }
-                    }
+                    }}
                 />
                 {error && (<p className=' input-error'>{error}</p>)}
             </div>
