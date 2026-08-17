@@ -57,8 +57,8 @@ export function Employees() {
                 <div 
                     style={{
                         position: 'fixed',
-                        bottom: '15px',
-                        right: '10px',
+                        bottom: '45px',
+                        right: '40px',
                         cursor: 'pointer'
                     }}
                 >

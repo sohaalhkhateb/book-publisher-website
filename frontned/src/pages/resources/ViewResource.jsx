@@ -6,7 +6,9 @@ import { NarrowView } from '../../components/NarrowView';
 import trashImage from '../../assets/images/icons/trash.png';
 import checkImage from '../../assets/images/icons/check.png';
 import editImage from '../../assets/images/icons/edit2.png';
-import api from '../../lib/axios';
+import api from '../../lib/axios'
+import { InfoCard } from '../../components/InfoCard';
+import './ViewResource.css'
 
 export function ViewResource() {
 
@@ -46,40 +48,87 @@ export function ViewResource() {
     return (
         <NarrowView>
             <Header />
-            <h1>{location.state}</h1>
-            <div>
-                <p>id: {resource.id}</p>
-                <p>name: {resource.name}</p>
-                <p>category: {resource.category}</p>
-                <p>stock: {resource.stock}</p>
-                <p>unit: {resource.unit}</p>
-                <p>minimum stock threshold: {resource.min_stock}</p>
-                <p>unit price: {resource.price_in_cents}</p>
-                <p>status: {resource.status}</p>
-                <p>supplier: {resource.supplier}</p>
-                <p>total_value: {resource.total_value}</p>
-            </div>
-            <div>
-                <Button
-                    text='delete'
-                    color='red'
-                    onClick={deleteResource}
-                    isLoading={loading}
-                    image={trashImage}
-                />
-                <Button
-                    text='edit'
-                    onClick={() => navigate(`/resources/edit/${resource.id}`)}
-                    isLoading={loading}
-                    image={editImage}
-                />
-                <Button
-                    text='ok'
-                    color='green'
-                    onClick={() => navigate('/resources')}
-                    isLoading={loading}
-                    image={checkImage}
-                />
+            <div className='view-resource-container'>
+                <h1
+                    style={{
+                        color: 'var(--success)',
+                        fontSize: 'clamp(30px,3vw,25px)',
+                        fontWeight: 'bold',
+                    }}
+                >{location.state}</h1>
+                <div className='view-resource-div'>
+                    <div className='view-resource-left'>
+                        <InfoCard
+                            title='Name:'
+                            subtitle={resource.name}
+                            width={35}
+                        />
+                        <InfoCard
+                            title='Category:'
+                            subtitle={resource.category}
+                            width={35}
+                        />
+                        <InfoCard
+                            title='Stock:'
+                            subtitle={resource.stock}
+                            width={35}
+                        />
+                        <InfoCard
+                            title='Unit:'
+                            subtitle={resource.unit}
+                            width={35}
+                        />
+                        <InfoCard
+                            title='Minimum stock threshold:'
+                            subtitle={resource.min_stock}
+                            width={35}
+                        />
+                    </div>
+                    <div className='view-resource-right'>
+                        <InfoCard
+                            title='Unit price:'
+                            subtitle={resource.price_in_cents}
+                            width={35}
+                        />
+                        <InfoCard
+                            title='Status:'
+                            subtitle={resource.status}
+                            width={35}
+                        />
+                        <InfoCard
+                            title='Supplier:'
+                            subtitle={resource.supplier}
+                            width={35}
+                        />
+                        <InfoCard
+                            title='Total value'
+                            subtitle={resource.total_value}
+                            width={35}
+                        />
+                    </div>
+                </div>
+                <div className='view-resources-btns'>
+                    <Button
+                        text='delete'
+                        color='red'
+                        onClick={deleteResource}
+                        isLoading={loading}
+                        image={trashImage}
+                    />
+                    <Button
+                        text='edit'
+                        onClick={() => navigate(`/resources/edit/${resource.id}`)}
+                        isLoading={loading}
+                        image={editImage}
+                    />
+                    <Button
+                        text='ok'
+                        color='green'
+                        onClick={() => navigate('/resources')}
+                        isLoading={loading}
+                        image={checkImage}
+                    />
+                </div>
             </div>
         </NarrowView>
     );

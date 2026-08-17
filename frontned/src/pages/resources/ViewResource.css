@@ -1,0 +1,33 @@
+.view-resource-container{
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    padding: 10px;
+    width: max-content;
+    border-radius: 20px;
+    box-shadow: 10px 10px 8px var(--shadow);
+}
+
+.view-resource-div{
+    display: flex;
+    width: max-content;
+    gap: 100px;
+}
+
+.view-resource-left{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.view-resource-right{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.view-resources-btns{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    margin-top: 30px;
+}

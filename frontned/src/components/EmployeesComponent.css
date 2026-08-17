@@ -46,3 +46,13 @@
     border-bottom: 1px solid var(--error);
     transform: scale(1.2);
 }
+
+.no-employees-txt {
+    text-align: center;
+    font-size: clamp(30px, 3.5vw, 25px);
+    text-decoration: underline;
+    color: var(--warning);
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
