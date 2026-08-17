@@ -56,6 +56,8 @@ import { Step3 } from './pages/orders/Step3.jsx'
 import { Step4 } from './pages/orders/Step4.jsx'
 import { Step5 } from './pages/orders/Step5.jsx'
 import { Step6 } from './pages/orders/Step6.jsx'
+import { Step7 } from './pages/orders/Step7.jsx'
+
 import './App.css'
 import { GuestLayout } from './pages/layout/GuestLayout.jsx'
 
@@ -85,6 +87,8 @@ function App() {
           <Route path='4' element={<Step4 />} />
           <Route path='5' element={<Step5 />} />
           <Route path='6' element={<Step6 />} />
+          <Route path='7' element={<Step7 />} />
+
         </Route>
         <Route path=':id' element={<></>} />
         <Route path='edit/:id' element={<></>} />
