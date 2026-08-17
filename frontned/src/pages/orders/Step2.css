@@ -1,0 +1,16 @@
+.step2-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.step2-section{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.step2-btns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
