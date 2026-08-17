@@ -3,23 +3,24 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 20px;
-    background-color: var(--surface);
-    color: var(--primary);
     box-sizing: border-box;
     padding: 20px;
-    max-width: max-content;
-    min-width: 180px;
     box-shadow: 5px 5px 8px var(--shadow);
     cursor: pointer;
+    min-width: max-content;
+}
+
+.card-container:hover{
+    transform: scale(1.03);
 }
 
 .card-number {
-    font-size: clamp(40px, 2vw, 20px);
+    font-size: clamp(20px, 5vw, 40px);
     font-weight: bold;
 }
 
 .card-title {
-    font-size: clamp(20px, 2vw, 15px);
+    font-size: clamp(15px, 2vw, 20px);
     color: var(--primary);
     font-weight: bold;
 }
@@ -31,7 +32,7 @@
 }
 
 .card-txt {
-    color: var(--primary);
+    font-size: clamp(20px,2vw,15px);
 }
 
 .card-state-container {
@@ -47,4 +48,11 @@
     width: 30px;
     padding: 4px;
     align-self: center;
+    margin-left: 10px;
+}
+
+.img-adition{
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }

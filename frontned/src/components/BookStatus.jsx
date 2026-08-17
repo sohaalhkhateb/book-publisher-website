@@ -40,9 +40,10 @@ export function Status({ statusValue, id }) {
             border-color :${getColor(statusValue)};
             border-radius:10px;
             border-bottom:3px solid ;
-            margin-left :4px;
+            margin-left: auto;
+            margin-right: auto;
             anchor-name:${anchorName};
-            
+            cursor: pointer;
         `}
             </style>
             <button className={'status-val-' + listId}

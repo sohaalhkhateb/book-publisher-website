@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { Products } from './Products'
 import { Button } from '../../components/Button'
 import { BookStatus } from '../../lib/BookStatus'
-import plusIcon from '../../assets/images/icons/add.png'
+import plusIcon from '../../assets/images/icons/addIcon.png'
 
 import api from '../../lib/axios'
 import './HomePage.css'

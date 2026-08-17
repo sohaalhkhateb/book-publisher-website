@@ -34,3 +34,9 @@
 .resources-table-body tr:last-child td:last-child {
     border-bottom-right-radius: 12px;
 }
+
+.resources-table-body tr:hover{
+    cursor: pointer;
+    background-color: var(--shadow);
+    transform: scale(1.03);
+}

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router'
 import api from "../../lib/axios";
+import { UserCard } from "../../components/UserCard";
 
 export function Step1() {
   const [users, setUsers] = useState([]);
-  
+
   const navigate = useNavigate();
   useEffect(() => {
     const fetchUsers = async () => {
@@ -30,20 +31,33 @@ export function Step1() {
 
   return (
     <>
-    <h1>choose a publishing house to use their services : </h1>
-      {users.map((user) => (
-        <div
-          key={user.id}
-          onClick={() => { next(user.id) }}
-          role="button"
-          style={{ cursor: "pointer" }}
-        >
-          <p>{user.publisher_name}</p>
-          <p>{user.location}</p>
-          <p>{user.email}</p>
-          <hr />
-        </div>
-      ))}
+      <h1
+        style={{
+          color: 'var(--primary)'
+        }}
+      >•choose a publishing house to use their services : </h1>
+      <div
+        style={{
+          cursor: "pointer",
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px'
+        }}
+      >
+        {users.map((user) => (
+          <div
+            key={user.id}
+            onClick={() => { next(user.id) }}
+            role="button"
+          >
+            <UserCard
+              name={user.publisher_name}
+              location={user.location}
+              email={user.email}
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 }

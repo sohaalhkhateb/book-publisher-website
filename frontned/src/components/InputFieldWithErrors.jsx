@@ -6,7 +6,7 @@ export default function InputFieldWithErrors({ type, name, error, value, setValu
 
     return (
         <div className='input-astrisk-container'>
-            <div className='input-container' style={{ "--bg-color": color ?? 'rgb(101, 101, 230)' }}>
+            <div className='input-container' style={{ "--bg-color": color ?? 'var(--primary)' }}>
                 <label className='input-label' htmlFor={inputId}>
                     • {message ? message :
                         name.includes('confirmation') ? `confirm your ${type}:` :
