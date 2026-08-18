@@ -1,0 +1,30 @@
+.order-contant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px;
+    cursor: pointer;
+    gap: 10px;
+    border: 1px solid var(--primary);
+    width: max-content;
+    box-shadow: 10px 10px 8px var(--shadow);
+    background-color: #FFFFFF;
+}
+
+.order-label {
+    display: flex;
+    font-weight: bold;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.order-val {
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 5px;
+    align-self: flex-start;
+    color: var(--primary);
+    font-weight: 600;
+}

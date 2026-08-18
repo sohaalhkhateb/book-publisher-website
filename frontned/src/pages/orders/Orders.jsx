@@ -4,6 +4,7 @@ import { InputList } from "../../components/InputList";
 import api from "../../lib/axios";
 import { Header } from "../layout/Header";
 import { NarrowView } from "../../components/NarrowView";
+import { OrderComponent } from "../../components/OrderComponent";
 
 
 export function Orders() {
@@ -52,7 +53,12 @@ export function Orders() {
             <Header />
             <NarrowView>
 
-                <h2>orders</h2>
+                <h2
+                    style={{
+                        fontSize: 'clamp(20px, 2vw, 30px)',
+                        color: 'var(--primary)'
+                    }}
+                >orders</h2>
 
 
                 <InputList
@@ -70,32 +76,62 @@ export function Orders() {
 
 
                 {error && Object.keys(error).length > 0 && (
-                    <p>{error.message ?? 'something went wrong'}</p>
+                    <p
+                        style={{
+                            fontSize: 'clamp(20px, 2vw, 23px)',
+                            color: 'var(--error)',
+                        }}
+                    >{error.message ?? 'something went wrong'}</p>
                 )}
 
 
-                {loading && <p>loading...</p>}
+                {loading && <p
+                    style={{
+                        fontSize: 'clamp(20px, 2vw, 23px)',
+                        color: 'var(--warning)',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        width: 'max-content',
+                        marginTop: '100px'
+                    }}
+                >loading...</p>}
 
 
                 {!loading && orders.length === 0 && (
-                    <p>no orders found</p>
+                    <p
+                        style={{
+                            fontSize: 'clamp(20px, 4vw, 30px)',
+                            fontWeight: 'bold',
+                            color: '#9299a7ad',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                            width: 'max-content',
+                            marginTop: '100px'
+                        }}
+                    >no orders found !</p>
                 )}
 
-
-                {orders.map((order) => (
-                    <div
-                        key={order.id}
-                        onClick={() => navigate(`/orders/${order.id}`)}
-                    >
-                        <p>order number: {order.id}</p>
-                        <p>status: {order.status}</p>
-                        <p>payment: {order.payment}</p>
-                        <p>items: {order.order_items?.length ?? 0}</p>
-                        <p>created at: 2{order.created_at.slice(1,10)}</p>
-                        <hr />
-                    </div>
-                ))}
-            </NarrowView>
+                <br />
+                <hr />
+                <br />
+                <div
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: ' repeat(auto-fit, minmax(161px,1fr))',
+                        gap: '10px',
+                        width: '100%',
+                        placeItems: 'center'
+                    }}
+                >
+                    {orders.map((order) => (
+                        <OrderComponent
+                            key={order.id}
+                            order={order}
+                            onClick={() => navigate(`/orders/${order.id}`)}
+                        />
+                    ))}
+                </div>
+            </NarrowView >
         </>
     )
 }

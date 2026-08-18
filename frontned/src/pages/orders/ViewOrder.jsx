@@ -8,7 +8,9 @@ import checkImage from '../../assets/images/icons/check.png'
 import downloadImage from '../../assets/images/icons/download.png'
 import okImage from '../../assets/images/icons/ok.png'
 import InputFieldWithErrors from '../../components/InputFieldWithErrors';
-
+import { OrderComponent } from '../../components/OrderComponent';
+import './ViewOrder.css'
+import { InfoCard } from '../../components/InfoCard';
 
 export function ViewOrder() {
 
@@ -43,54 +45,140 @@ export function ViewOrder() {
 
 
   return (
-    <>
+    <div>
       <Header />
       <NarrowView>
-        <h1>order</h1>
+        <div
+          style={{
+            position: 'relative',
+            border: '1px solid var(--shadow)',
+            padding: '20px',
+            boxSizing: 'border-box',
+            borderRadius: '20px',
+            minWidth: 'max-content'
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 'clamp(30px, 3vw, 40px)',
+              color: 'var(--primary)',
+            }}
+          >•order:</h1>
+          <div
+            className='order-div'
+          >
+            <span className='status'>
+              status:
+              <span
+                className='status-view-val'
+                style={{
+                  color: order.status == 'accepted' ? '#0ff0005e' : order.status == 'pending' ? '#f0b000d3' : order.status == 'cancelled' ? '#ff00005e' : '#6d6969ab',
+                }}
+              >
+                {order.status}
+              </span>
+            </span>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}
+            >
+              <div>
+                {order.contacts && (
+                  <span className='order-view-label'>
+                    contacts:
+                    <span className='order-view-val'>
+                      {order.contacts}
+                    </span>
+                  </span>
+                )}
+                {order.email && (
+                  <span className='order-view-label'>
+                    email:
+                    <span className='order-view-val'>
+                      {order.email}
+                    </span>
+                  </span>
+                )}
+                {order.address && (
+                  <span className='order-view-label'>
+                    address:
+                    <span className='order-view-val'>
+                      {order.address}
+                    </span>
+                  </span>
+                )}
+                {order.phone_number && (
+                  <span className='order-view-label'>
+                    phone number:
+                    <span className='order-view-val'>
+                      {order.phone_number}
+                    </span>
+                  </span>
+                )}
+              </div>
+              <div>
 
-        <p>status: {order.status}</p>
-        {order.contacts && (
-          <p>contacts: {order.contacts}</p>
-        )}
-        {order.email && (
-          <p>email: {order.email}</p>
-        )}
-        {order.address && (
-          <p>address: {order.address}</p>
-        )}
-        {order.phone_number && (
-          <p>phone number: {order.phone_number}</p>
-        )}
-        <p>payment: {order.payment}</p>
-        {order.notes && (
-          <p>notes: {order.notes}</p>
-        )}
+                <span className='order-view-label'>
+                  payment:
+                  <span className='order-view-val'>
+                    {order.payment}
+                  </span>
+                </span>
+                {order.notes && (
+                  <span className='order-view-label'>
+                    notes:
+                    <span className='order-view-val'>
+                      {order.notes}
+                    </span>
+                  </span>
+                )}
+                {order.created_at && (
+                  <span className='order-view-label'>
+                    created at:
+                    <span className='order-view-val'>
+                      2{order.created_at.slice(1, 10)}
+                    </span>
+                  </span>
+                )}
+              </div>
+            </div>
 
-
-        {order.created_at && (
-          <p>created at: 2{order.created_at.slice(1, 10)}</p>
-        )}
-
-        <OrderBody
-          order={order}
-          errors={errors}
-          arrivalDate={arrivalDate}
-          setArrivalDate={setArrivalDate}
-          setTriggerRefresh={setTriggerRefresh}
-          loading={loading}
-          setLoading={setLoading}
-          setErrors={setErrors}
-        />
-
-        < Button
-          text='ok'
-          color='green'
-          image={checkImage}
-          onClick={() => navigate('/orders')}
-          isLoading={loading}
-        />
+          </div>
+          <br />
+          <hr />
+          <br />
+          <OrderBody
+            order={order}
+            errors={errors}
+            arrivalDate={arrivalDate}
+            setArrivalDate={setArrivalDate}
+            setTriggerRefresh={setTriggerRefresh}
+            loading={loading}
+            setLoading={setLoading}
+            setErrors={setErrors}
+          />
+          <div
+            style={{
+              position: 'fixed',
+              left: '50%',
+              right: '50%',
+              bottom: '20px'
+            }}
+          >
+            < Button
+              text='ok'
+              color='green'
+              image={checkImage}
+              onClick={() => navigate('/orders')}
+              isLoading={loading}
+            />
+          </div>
+        </div>
       </NarrowView>
-    </>
+    </div>
   )
 }
 
@@ -129,62 +217,111 @@ function OrderBody({ order, errors, arrivalDate, setArrivalDate, setTriggerRefre
 
   return (
     <>
-      {
-        order.status == 'pending' &&
-        <>
-          <InputFieldWithErrors
-            type='date'
-            name='arrival date'
-            error={errors.arrival_date}
-            value={arrivalDate}
-            setValue={setArrivalDate}
-            required={true}
-            message='choose an arrival date'
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-around'
+        }}
+      >
+        {
+          order.status == 'pending' &&
+          <div
+            className='date-section'
+          >
+            <InputFieldWithErrors
+              type='date'
+              name='arrival date'
+              error={errors.arrival_date}
+              value={arrivalDate}
+              setValue={setArrivalDate}
+              required={true}
+              message='choose an arrival date'
+            />
+            <Button
+              text='set date'
+              onClick={() => handleClick(arrivalDate)}
+              isLoading={loading}
+              color='var(--success)'
+              image={okImage}
+            />
+          </div>
+        }
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px'
+          }}
+        >
+          <span className='order-view-label'>
+            arrival date:
+            <span className='order-view-val'>
+              {order.arrival_date ?? "DATE OF ARRIVAL HAS NOT BEEN SET YET"}
+            </span>
+          </span>
+          <span className='order-view-label'>
+            revenue:
+            <span className='order-view-val'>
+              {order.final_price_in_cents ?? 'PRICE THE ORDER ITEMS TO GET THE FINAL PRICE'}
+            </span>
+          </span>
+        </div>
+      </div>
+      < h2
+        style={{
+          fontSize: 'clamp(30px, 3vw, 40px)',
+          color: 'var(--primary)',
+        }}
+      >•order items:</h2 >
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '5px',
+          width: '100%',
+          gap: '20px',
+        }}
+      >
+        {order.order_items?.map((item) => (
+          <OrderItemExpanded
+            key={item.id}
+            setTriggerRefresh={setTriggerRefresh}
+            item={item}
+            order={order}
           />
-          <Button
-            text='set date'
-            onClick={() => handleClick(arrivalDate)}
-            isLoading={loading}
-            color='var(--success)'
-            image={okImage}
-          />
-        </>
-      }
-      <p>arrival date: {order.arrival_date??"DATE OF ARRIVAL HAS NOT BEEN SET YET"}</p>
-      <p>revenue: {order.final_price_in_cents ?? 'PRICE THE ORDER ITEMS TO GET THE FINAL PRICE'}</p>
-
-      < h2 > order items</h2 >
-
-      {order.order_items?.map((item) => (
-        <OrderItemExpanded
-          key={item.id}
-          setTriggerRefresh={setTriggerRefresh}
-          item={item}
-          order={order}
-        />
-      ))}
+        ))}
+      </div>
       {order.status === 'pending' && (
         <>
-          <Button
-            text='accept'
-            color='green'
-            onClick={(e) => {
-              e.stopPropagation()
-              updateStatus(order.id, 'accepted')
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+              marginTop:'20px'
             }}
-            isLoading={loading}
-          />
-
-          <Button
-            text='cancel'
-            color='red'
-            onClick={(e) => {
-              e.stopPropagation()
-              updateStatus(order.id, 'cancelled')
-            }}
-            isLoading={loading}
-          />
-
+          >
+            <Button
+              text='accept'
+              color='green'
+              onClick={(e) => {
+                e.stopPropagation()
+                updateStatus(order.id, 'accepted')
+              }}
+              isLoading={loading}
+            />
+            <Button
+              text='cancel'
+              color='red'
+              onClick={(e) => {
+                e.stopPropagation()
+                updateStatus(order.id, 'cancelled')
+              }}
+              isLoading={loading}
+            />
+          </div>
         </>
       )
       }
@@ -248,65 +385,174 @@ export function OrderItemExpanded({ item, order, setTriggerRefresh }) {
   if (item.purchase)
     return (
 
-      <>
-        <p>book title: {item.book_title ?? 'no specific book'}</p>
-        <p>quantity purchased: {item.quantity}</p>
-        <p>client comment: {item.comment ?? 'no comment has been submitted'}</p>
-
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          gap: '20px',
+          border: '3px solid var(--shadow)',
+          borderRadius: '10px',
+          padding: '10px',
+          boxSizing: 'border-box',
+          width: '100%',
+          minWidth: 'max-content'
+        }}
+      >
+        <div
+          className='item-div'
+        >
+          <span className='order-view-label'>
+            book title:
+            <span className='order-view-val'>
+              {item.book_title ?? 'no specific book'}
+            </span>
+          </span>
+          <span className='order-view-label'>
+            quantity purchased:
+            <span className='order-view-val'>
+              {item.quantity}
+            </span>
+          </span>
+          <span className='order-view-label'>
+            client comment:
+            <span className='order-view-val'>
+              {item.comment ?? 'no comment has been submitted'}
+            </span>
+          </span>
+        </div>
         {
           order.status == 'pending' &&
           <>
-            <InputFieldWithErrors
-              type='number'
-              name='unit price'
-              error={errors.unit_price_in_cents}
-              value={unitP}
-              setValue={setUnitP}
-              required={true}
-              message='enter the suitable price for this order item'
-            />
-            <Button
-              text='calculate'
-              onClick={() => handlePrice('unit_price_in_cents', unitP)}
-              isLoading={loading}
-              color='var(--success)'
-              image={okImage}
-            />
+            <div
+              className='date-section'
+            >
+              <InputFieldWithErrors
+                type='number'
+                name='unit price'
+                error={errors.unit_price_in_cents}
+                value={unitP}
+                setValue={setUnitP}
+                required={true}
+                message='enter the suitable price for this order item'
+              />
+              <Button
+                text='calculate'
+                onClick={() => handlePrice('unit_price_in_cents', unitP)}
+                isLoading={loading}
+                color='var(--success)'
+                image={okImage}
+              />
+            </div>
           </>
         }
-        <p>unit price : {item.unit_price_in_cents ?? "PRICE HAS NOT BEEN SET YET"}</p>
-        <p> total price in cents: {item.total_price_in_cents ?? "SET THE UNIT PRICE FOR THIS TO BE CALCULATED"} </p>
-      </>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '5px',
+            width: 'max-content'
+          }}
+        >
+          <span className='order-view-label'>
+            unit price :
+            <span className='order-view-val'>
+              {item.unit_price_in_cents ?? "PRICE HAS NOT BEEN SET YET"}
+            </span>
+          </span>
+          <span className='order-view-label'>
+            total price in cents:
+            <span className='order-view-val'>
+              {item.total_price_in_cents ?? "SET THE UNIT PRICE FOR THIS TO BE CALCULATED"}
+            </span>
+          </span>
+        </div>
+        <hr />
+      </div>
 
     )
 
   else
     return (
-      <>
-        <p>the client requests the following services:</p>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          gap: '20px',
+          border: '3px solid var(--shadow)',
+          borderRadius: '10px',
+          padding: '10px',
+          boxSizing: 'border-box',
+          width: '100%'
+        }}
+      >
+        <p
+          style={{
+            fontSize: 'clamp(20px, 3vw, 25px)',
+            color: 'var(--primary)',
+            fontWeight: 'bold'
+          }}
+        >the client requests the following services:</p>
+        <div
+          style={{
+            display: 'flex',
+            gap: '20px',
+            marginBottom: '20px',
+          }}
+        >
+          <span className='order-view-label'>
+            print  <input className="checkbox-input" type='checkbox' checked={item.print} readOnly />
+          </span>
+          <span className='order-view-label'>
+            publish  <input type='checkbox' checked={item.publish} readOnly />
+          </span>
+          <span className='order-view-label'>
+            translate  <input type='checkbox' checked={item.translate} readOnly />
+          </span>
+          <span className='order-view-label'>
+            other  <input type='checkbox' checked={item.other} readOnly />
+          </span>
+        </div>
+        <span className='order-view-label'>
+          client comment:
+          <span className='order-view-val'>
+            {item.comment ?? 'no comment has been submitted'}
+          </span>
+        </span>
 
-        print  <input type='checkbox' checked={item.print} readOnly />
-        publish  <input type='checkbox' checked={item.publish} readOnly />
-        translate  <input type='checkbox' checked={item.translate} readOnly />
-        other  <input type='checkbox' checked={item.other} readOnly />
-        <p>client comment: {item.comment ?? 'no comment has been submitted'}</p>
-
-        <p>files:</p>
-        {
-          item.files?.map((file, index) =>
-            <Button
-              key={file ?? index}
-              text={`download file ${index}`}
-              onClick={() => handleDownload(file)}
-              isLoading={loading}
-              color='var(--success)'
-              image={downloadImage}
-            />
-          )
-        }
+        <p
+          style={{
+            fontSize: 'clamp(20px, 3vw, 25px)',
+            color: 'var(--primary)',
+            fontWeight: 'bold'
+          }}
+        >files:</p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: '10px',
+            marginBottom: '10px'
+          }}
+        >
+          {
+            item.files?.map((file, index) =>
+              <Button
+                key={file ?? index}
+                text={`download file ${index}`}
+                onClick={() => handleDownload(file)}
+                isLoading={loading}
+                color='var(--success)'
+                image={downloadImage}
+              />
+            )
+          }
+        </div>
         {
           order.status == 'pending' &&
-          <>
+          <div className='date-section'>
             <InputFieldWithErrors
               type='number'
               name='total price'
@@ -323,9 +569,15 @@ export function OrderItemExpanded({ item, order, setTriggerRefresh }) {
               color='var(--success)'
               image={okImage}
             />
-          </>
+          </div>
         }
-        <p> total price in cents: {item.total_price_in_cents ?? "price has not been set yet"} </p>
-      </>
+        <span className='order-view-label'>
+          total price in cents:
+          <span className='order-view-val'>
+            {item.total_price_in_cents ?? "price has not been set yet"}
+          </span>
+        </span>
+        <hr />
+      </div>
     )
 }

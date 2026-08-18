@@ -13,16 +13,16 @@
 }
 
 .input-list-select {
-    width: 100%;
+    min-width: 300px;
     max-width: 300px;
     padding: 10px 14px;
     font-size: clamp(18px, 2vw, 10px);
     font-family: inherit;
-    color: var(--primary);
+    color: var(--surface);
     text-align: left;
     border: 1px solid var(--border);
     border-radius: 8px;
-    background-color: var(--surface);
+    background-color: var(--primary);
     cursor: pointer;
     outline: none;
     box-shadow: 0 1px 3px var(--shadow);
@@ -30,8 +30,8 @@
 
 .input-list-select:hover {
     border-color: var(--hover);
-    background-color: var(--primary);
-    color: var(--surface);
+    background-color: var(--surface);
+    color: var(--primary);
 }
 
 .input-list-select:focus {

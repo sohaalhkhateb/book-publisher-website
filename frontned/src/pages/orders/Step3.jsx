@@ -23,7 +23,15 @@ export function Step3() {
   console.log(items)
   return (
     <>
-
+      {
+        items.length != 0 &&
+        <h2 style={{
+          fontSize: 'clamp(20px, 2vw, 30px)',
+          color: 'var(--primary)'
+        }}>
+          •Your order items :
+        </h2>
+      }
       {items.length == 0 &&
         <div
           className="no-items-div"
@@ -71,20 +79,20 @@ export function Step3() {
           position='left'
           text='back'
           color='var(--accent)'
-          onClick={() => navigate('/orders/add/2')}
+          onClick={() => navigate('/guestOrder/2')}
           image={leftArrow}
         />
         <Button
           position='right'
           text='add more order items'
-        onClick={() => navigate('/guestOrder/4')}
+          onClick={() => navigate('/guestOrder/4')}
           image={add}
         />
         <Button
           position='right'
           text='submit order'
           color='var(--success)'
-        onClick={() => navigate('/guestOrder/7')}
+          onClick={() => navigate('/guestOrder/7')}
           image={check}
         />
       </div>
@@ -107,11 +115,11 @@ export function OrderItem({ item }) {
 
       <InfoCard
         title={<>
-            {item.translate=='1' && (<span>translate |</span>)}
-            {item.print=='1' && (<span>print |</span>)}
-            {item.publish=='1' && (<span>publish |</span>)}
-            {item.other=='1' && (<span>other |</span>)}
-          </>}
+          {item.translate == '1' && (<span>translate |</span>)}
+          {item.print == '1' && (<span>print |</span>)}
+          {item.publish == '1' && (<span>publish |</span>)}
+          {item.other == '1' && (<span>other |</span>)}
+        </>}
         subtitle={`files sent : ${item.files?.length} files`}
         width={60}
       />

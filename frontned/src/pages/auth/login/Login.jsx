@@ -59,7 +59,7 @@ export function Login() {
                 width={40}
                 bgColor='var(--primary)'
                 fontColor='var(--surface)'
-                onClick={() => navigate('/orders/add/1')}
+                onClick={() => navigate('/guestOrder/1')}
               />
               <Card
                 subTitle='I want to login as an Admin'
