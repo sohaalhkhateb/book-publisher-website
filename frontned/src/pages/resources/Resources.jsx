@@ -14,7 +14,7 @@ export function Resources() {
     const [queryFilter, setQueryFilter] = useState('');
     const [usedFilter, setUsedFilter] = useState('');
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
 
     useEffect(() => {

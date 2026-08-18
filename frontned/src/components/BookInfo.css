@@ -1,0 +1,22 @@
+.book-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-width:250px;
+    max-width: max-content;
+    border-radius: 10px;
+    border: 1px solid var(--hover);
+    padding: 10px;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.book-info-container:hover {
+    transform: scale(1.03);
+    box-shadow: 2px 2px 8px var(--shadow);
+}
+
+.book-info-label{
+    font-weight: bold;
+}

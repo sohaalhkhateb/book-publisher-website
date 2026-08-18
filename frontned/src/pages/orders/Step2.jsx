@@ -5,7 +5,7 @@ import upwardsArrow from '../../assets/images/icons/upwardsArrow.png'
 import closeImage from '../../assets/images/icons/close.png'
 import api from "../../lib/axios";
 import { useNavigate } from "react-router";
-
+import './Step2.css'
 
 export function Step2() {
 
@@ -45,62 +45,73 @@ export function Step2() {
 
   return (
     <>
-      <h2>how can we contact you ?</h2>
+      <h2
+        style={{
+          color: 'var(--shadow)'
+        }}
+      >how can we contact you ?</h2>
 
+      <div className="step2-container">
+        <div className="step2-section">
+          <InputFieldWithErrors
+            type='email'
+            name='email'
+            value={email}
+            setValue={setEmail}
+            error={error.email}
+            required={false}
+          />
 
-      <InputFieldWithErrors
-        type='email'
-        name='email'
-        value={email}
-        setValue={setEmail}
-        error={error.email}
-        required={false}
-      />
+          <InputFieldWithErrors
+            type='text'
+            name='phone number'
+            value={phoneNumber}
+            setValue={setPhoneNumber}
+            error={error.phone_number}
+            required={false}
+          />
+        </div>
+        <div className="step2-section">
+          <InputFieldWithErrors
+            type='text'
+            name='address'
+            value={address}
+            setValue={setAddress}
+            error={error.address}
+            required={false}
+          />
 
-      <InputFieldWithErrors
-        type='text'
-        name='phone number'
-        value={phoneNumber}
-        setValue={setPhoneNumber}
-        error={error.phone_number}
-        required={false}
-      />
-
-      <InputFieldWithErrors
-        type='text'
-        name='address'
-        value={address}
-        setValue={setAddress}
-        error={error.address}
-        required={false}
-      />
-
-      <InputFieldWithErrors
-        type='text'
-        name='contacts'
-        value={contacts}
-        setValue={setContacts}
-        error={error.contacts}
-        required={false}
-      />
-
-      <hr/>
-
-      <Button
-        color='firebrick'
-        text='cancel'
-        position="left"
-        image={closeImage}
+          <InputFieldWithErrors
+            type='text'
+            name='contacts'
+            value={contacts}
+            setValue={setContacts}
+            error={error.contacts}
+            required={false}
+          />
+        </div>
+      </div>
+      <br />
+      <br />
+      <hr />
+      <br />
+      <div className="step2-btns">
+        <Button
+          color='firebrick'
+          text='cancel'
+          position="left"
+          image={closeImage}
         onClick={() => navigate('/guestOrder/1')}
-        isLoading={loading}
-      />
-      <Button
-        color='darkgreen'
-        text='continue'
-        image={upwardsArrow}
-        onClick={next}
-        isLoading={loading}
-      />
+          isLoading={loading}
+        />
+        <Button
+          color='darkgreen'
+          text='continue'
+          image={upwardsArrow}
+          onClick={next}
+          isLoading={loading}
+        />
+      </div>
 
     </>
   )

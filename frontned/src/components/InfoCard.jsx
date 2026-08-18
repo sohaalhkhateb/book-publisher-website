@@ -16,7 +16,7 @@ export function InfoCard({ title = null, subtitle, width=20, color='white', bord
                     `}
         </style>
         <div  id={`${infoCardId}`} className='info-card-container'>
-            {title != null && <p className="info-card-title">{title}</p>}
+            {title != null && <span className="info-card-title">{title}</span>}
             <p className="info-card-subtitle">•{subtitle}</p>
         </div>
     </>

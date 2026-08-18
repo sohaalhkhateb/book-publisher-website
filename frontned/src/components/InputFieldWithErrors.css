@@ -16,7 +16,7 @@
 }
 
 .astrisk {
-    font-size:x-large;
+    font-size: x-large;
     color: red;
 }
 
@@ -28,10 +28,10 @@
     color: var(--primary);
     text-decoration: underline;
     margin-bottom: 5px;
-    max-width: 100%; 
+    max-width: 100%;
     overflow-wrap: break-word;
     word-break: break-word;
-    hyphens: auto; 
+    hyphens: auto;
 }
 
 .input-field {
@@ -45,12 +45,25 @@
     box-shadow: 5px 5px 8px var(--shadow);
 }
 
+
+.input-field:focus {
+    background-color: var(--surface);
+    border-color: var(--primary);
+    box-shadow: 10px 10px 8px var(--shadow);
+    color: var(--primary);
+}
+
+.input-field:focus::placeholder {
+    color: var(--primary);
+}
+
+
 .input-field::file-selector-button {
     border: 1px solid white;
     border-radius: 10px;
     padding: 5px;
     color: white;
-    background:none;
+    background: none;
     cursor: pointer;
 }
 
@@ -70,6 +83,7 @@
     font-weight: 700;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 input[type="color"] {
     border: none;
     border-radius: 10px;

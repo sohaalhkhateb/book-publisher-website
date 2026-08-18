@@ -13,15 +13,15 @@ export function Product({ book }) {
       onClick={() => navigate(`/books/${book.id}`)}
     >
       <BookImage src={book.image} />
-      <p className='title'>{book.title}</p>
-      <span className='label'>
+      <p className='book-title'>{book.title}</p>
+      <span className='book-label'>
         author:
-        <span className='author-val'>
+        <span className='book-val'>
           {book.author}
         </span>
       </span>
       <span className='label'>
-        <p style={{ textAlign: 'center' }}>status:</p>
+        <p style={{ textAlign: 'center' }}>status</p>
 
         <Status
           statusValue={book.status}

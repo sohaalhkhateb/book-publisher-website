@@ -1,6 +1,9 @@
 import './ResourcesTable.css'
+import { useNavigate } from "react-router";
 
 export function ResourcesTable({ resources }) {
+    const navigate = useNavigate();
+
     return (
         <div className="resources-table-container">
             <table className="resources-table">
@@ -22,7 +25,10 @@ export function ResourcesTable({ resources }) {
                     {
                         resources.map((resource, index) => {
                             return (
-                                <tr key={resource.id}>
+                                <tr 
+                                    key={resource.id}
+                                    onClick={() => navigate(`/resources/${resource.id}`)}
+                                >
                                     <td>{resource.name}</td>
                                     <td>{resource.category}</td>
                                     <td>{`${resource.stock} ${resource.unit}`}</td>

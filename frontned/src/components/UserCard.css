@@ -1,0 +1,41 @@
+.user-card-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--surface);
+    background-color: var(--shadow);
+    color: var(--surface);
+    box-shadow: 10px 10px 8px var(--shadow);
+}
+
+.user-card-container:hover{
+    transform: scale(1.03);
+}
+
+.publeisher-name{
+    font-size: clamp(25px,3vw,30px);
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.card-icon{
+    width: clamp(20px,2vw,30px);
+}
+
+.user-card-left{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-location{
+    font-size: clamp(15px,2vw,20px);
+}
+
+.user-card-email{
+    font-size: clamp(20px,2vw,25px);
+    text-decoration: underline;
+}

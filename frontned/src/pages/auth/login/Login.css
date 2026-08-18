@@ -14,13 +14,12 @@
 }
 
 .login-title {
-  font-size: 50px;
+  font-size: clamp(30px,5vw,50px);
+  color: var(--primary);
   margin: 0px;
-  color: var(--text);
 }
 
 .sign-up-link {
-  
   text-decoration: underline;
   color: var(--primary);
   font-size: 25px;
@@ -56,4 +55,13 @@
   text-decoration: none;
   color: gray;
   font-size: 25px;
+}
+
+.question-login{
+  font-size: clamp(20px,2.5vw,25px);
+  align-self: flex-start;
+  margin-left: 35px;
+  font-weight: 800;
+  color: var(--shadow);
+  text-decoration: underline;
 }

@@ -5,6 +5,7 @@ import { SearchInput } from '../../components/SearchInput'
 import menuImage from '../../assets/images/icons/menu.png'
 import { Button } from "../../components/Button";
 import api from "../../lib/axios";
+import books from '../../assets/images/icons/books.png'
 
 export function Header({ setShowOptionList, showOptionList, empty = false }) {
   const navigate = useNavigate('');
@@ -18,9 +19,26 @@ export function Header({ setShowOptionList, showOptionList, empty = false }) {
     return (
       <div className="header-container">
         <div className="header-middle-section">
-          <Link className='web-name' to='/'>
-            publishing house website
-          </Link>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '5px',
+            }}
+          >
+            <img
+              src={books}
+              style={{
+                width: '25px',
+                height:'25px',
+              }}
+              alt=""
+            />
+            <Link className='web-name' to='/'>
+              publishing house website
+            </Link>
+          </div>
+
         </div>
       </div>
     )
@@ -49,9 +67,6 @@ export function Header({ setShowOptionList, showOptionList, empty = false }) {
             text="logout"
             onClick={async () => { await api.post('/logout', {}); navigate('/login') }}
           />
-          <p className='number-book-paragraph'>
-            number of orders : 22
-          </p>
         </div>
         <div className='header-right-section'>
           <button className='menu-button' title="Menu">

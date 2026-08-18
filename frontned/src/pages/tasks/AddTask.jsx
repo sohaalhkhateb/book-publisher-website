@@ -125,8 +125,11 @@ export function AddTask() {
                           color: 'white',
                           borderRadius: '10px',
                           border: 'none',
-                          padding: '10px 5px',
-                          backgroundColor: 'darkkhaki'
+                          padding: '14px',
+                          backgroundColor: 'darkkhaki',
+                          fontSize: 'clamp(10px, 2.5vw, 15px)',
+                          boxShadow: '5px 5px 8px var(--shadow)',
+                          cursor: 'pointer',
                         }}
                         name='type'
                         value={type}
