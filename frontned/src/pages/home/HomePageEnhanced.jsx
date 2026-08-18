@@ -4,6 +4,9 @@ import { Products } from './Products'
 import { Button } from '../../components/Button'
 import { BookStatus } from '../../lib/BookStatus'
 import plusIcon from '../../assets/images/icons/addIcon.png'
+import leftImage from '../../assets/images/icons/leftArrow.png'
+import rightImage from '../../assets/images/icons/rightArrow.png'
+
 
 import api from '../../lib/axios'
 import './HomePage.css'
@@ -11,26 +14,30 @@ import './HomePage.css'
 
 export function HomePageEnhanced() {
 
-  const [books, setBooks] = useState([]);
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
   const [statusUpdate, setStatusUpdate] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const getbooks = async () => {
-      const response = await api.get('/books');
-      setBooks(response.data.books);
+      const response = await api.get('/books', {
+        params: { page }
+      });
+      setData(response.data);
     }
     getbooks();
-  }, [statusUpdate]);
+  }, [statusUpdate, page]);
+
 
 
 
   return (
     <div className='content-container'>
       <div className='products-container'>
-        
+
         <BookStatus value={[statusUpdate, setStatusUpdate]}>
-          <Products books={books} />
+          <Products books={data.data} />
         </BookStatus>
       </div>
       <div className='add-books-container'>
@@ -40,6 +47,18 @@ export function HomePageEnhanced() {
           image={plusIcon}
           onClick={() => navigate('/books/add')}
         />
+        {data.from > 1 &&
+          <Button
+            image={leftImage}
+            onClick={() => setPage((previousValue) => previousValue - 1)}
+          />
+        }
+        {data.to < data.total &&
+          <Button
+            image={rightImage}
+            onClick={() => setPage((previousValue) => previousValue + 1)}
+          />
+        }
       </div>
     </div>
   )

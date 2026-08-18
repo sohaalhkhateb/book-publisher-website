@@ -8,24 +8,24 @@ import { useState } from "react";
 export function LayoutElement() {
     const [showOptionList, setShowOptionList] = useState(false);
     return (
-    <>
-        <Header
-            setShowOptionList={setShowOptionList}
-            showOptionList={showOptionList}
-        />
-        <div className='home-page-container container'
-            onClick={() =>
-                setShowOptionList(false)
-            }>
-
-            <Options
-                showOptionList={showOptionList}
+        <>
+            <Header
                 setShowOptionList={setShowOptionList}
+                showOptionList={showOptionList}
             />
-            <MainMenu />
-            <Outlet />
-            <SubMenu />
-        </ div>
-    </>
+            <div className='home-page-container container'
+                onClick={() =>
+                    setShowOptionList(false)
+                }>
+
+                <Options
+                    showOptionList={showOptionList}
+                    setShowOptionList={setShowOptionList}
+                />
+                <MainMenu />
+                <Outlet />
+
+            </ div>
+        </>
     )
 }

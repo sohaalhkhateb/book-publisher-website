@@ -5,7 +5,7 @@ export function Products({ books }) {
   return (
     <>
       {
-        books.map((book) => {
+        books?.map((book) => {
           return (
             <Product
               key={book.id}

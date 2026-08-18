@@ -31,7 +31,6 @@ import { employees } from '../src/backend-json/employees'
 import { internationalIds } from '../src/backend-json/internationalIds'
 import { GoodsPage } from './pages/wharehouse/goods/GoodsPage'
 import { EbooksPage } from './pages/wharehouse/ebooks/EbooksPage'
-import { ResourcesPage } from './pages/resources(old)/ResourcesPage.jsx'
 import AuthGuard from './lib/AuthGuard.jsx'
 import { LayoutElement } from './pages/layout/LayoutElement.jsx'
 import { HomePageEnhanced } from './pages/home/HomePageEnhanced.jsx'
@@ -57,7 +56,7 @@ import { Step4 } from './pages/orders/Step4.jsx'
 import { Step5 } from './pages/orders/Step5.jsx'
 import { Step6 } from './pages/orders/Step6.jsx'
 import { Step7 } from './pages/orders/Step7.jsx'
-
+import { Sales } from './pages/sales/Sales.jsx'
 import './App.css'
 import { GuestLayout } from './pages/layout/GuestLayout.jsx'
 import { OrderSuccess } from './pages/orders/OrderSuccess.jsx'
@@ -135,6 +134,9 @@ function App() {
           <Route path=':id' element={<ViewOrder />} />
         </Route>
 
+        <Route path='sales'>
+            <Route index element={<Sales />}/>
+        </Route>
 
         {/* <Route
             path='/'
@@ -299,15 +301,7 @@ function App() {
             setSearch={setSearch}
           />}
         />
-        <Route
-          path='/resources'
-          element={<ResourcesPage
-            showOptionList={showOptionList}
-            setShowOptionList={setShowOptionList}
-            search={search}
-            setSearch={setSearch}
-          />}
-        />
+        
 
         <Route
           path='/inventory-sales'
@@ -345,3 +339,4 @@ function App() {
 }
 
 export default App
+
