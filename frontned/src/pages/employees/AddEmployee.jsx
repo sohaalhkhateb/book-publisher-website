@@ -97,7 +97,6 @@ export function AddEmployee() {
                 value={name}
                 setValue={setName}
                 error={errors.name}
-                color='darkkhaki'
                 required={true}
                 message="enter employee name:"
               />
@@ -107,7 +106,6 @@ export function AddEmployee() {
                 value={age}
                 setValue={setAge}
                 error={errors.age}
-                color='darkkhaki'
                 required={false}
                 message="enter employee age:"
               />
@@ -117,7 +115,6 @@ export function AddEmployee() {
                 value={rating}
                 setValue={setRating}
                 error={errors.rating}
-                color='darkkhaki'
                 required={false}
                 message="rate this employee:"
               />
@@ -130,7 +127,6 @@ export function AddEmployee() {
                 value={image}
                 setValue={setImage}
                 error={errors.image}
-                color='darkkhaki'
                 required={false}
                 message="insert an image of the employee:"
               />
@@ -140,7 +136,6 @@ export function AddEmployee() {
                 value={notes}
                 setValue={setNotes}
                 error={errors.notes}
-                color='darkkhaki'
                 required={false}
                 message="enter a note:"
               />

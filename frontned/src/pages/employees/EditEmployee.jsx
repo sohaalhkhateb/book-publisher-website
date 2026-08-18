@@ -42,8 +42,8 @@ export function EditEmployee() {
             setRating(response2.data.rating)
             setImage(response2.data.Image)
             setNotes(response2.data.notes)
-            setSelectedOccupations(response2.data.selectedOccupations.map((x)=>x.id))
-            
+            setSelectedOccupations(response2.data.selectedOccupations.map((x) => x.id))
+
         }
         fetchOccupations();
     }, [occupationAdder])
@@ -97,101 +97,111 @@ export function EditEmployee() {
             <Header />
             <div className="content-container">
                 <NarrowView>
-
-                    <InputFieldWithErrors
-                        type='text'
-                        name='name'
-                        value={name}
-                        setValue={setName}
-                        error={errors.name}
-                        color='green'
-                        required={true}
-                        message="enter employee name:"
-                    />
-                    <InputFieldWithErrors
-                        type='number'
-                        name='age'
-                        value={age}
-                        setValue={setAge}
-                        error={errors.age}
-                        color='green'
-                        required={false}
-                        message="enter employee age"
-                    />
-                    <InputFieldWithErrors
-                        type='number'
-                        name='rating'
-                        value={rating}
-                        setValue={setRating}
-                        error={errors.rating}
-                        color='green'
-                        required={false}
-                        message="rate this employee"
-                    />
-                    <InputFieldWithErrors
-                        type='file'
-                        name='image'
-                        value={image}
-                        setValue={setImage}
-                        error={errors.image}
-                        color='green'
-                        required={false}
-                        message="insert an image of the employee"
-                    />
-                    <InputFieldWithErrors
-                        type='text'
-                        name='notes'
-                        value={notes}
-                        setValue={setNotes}
-                        error={errors.notes}
-                        color='green'
-                        required={false}
-                        message="enter a note"
-                    />
-                    <hr />
-                    <h2>Choose occupation(s) for this employee</h2>
-                    <Occupations
-                        occupations={storedOccupations}
-                        selectedOccupations={selectedOccupations}
-                        setSelectedOccupations={setSelectedOccupations}
-                        errors={errors.selectedOccupations}
-                    />
-                    {occupationAdder && (
-                        <div>
+                    <div className="fields-section">
+                        <div className="fields-left-section">
                             <InputFieldWithErrors
                                 type='text'
-                                name='occupationName'
-                                value={occupationName}
-                                setValue={setOccupationName}
-                                error={occupationErrors.name}
-                                message="enter the occupation name"
+                                name='name'
+                                value={name}
+                                setValue={setName}
+                                error={errors.name}
+                                required={true}
+                                message="enter employee name:"
                             />
                             <InputFieldWithErrors
-                                type='color'
-                                name='occupationColor'
-                                value={occupationColor}
-                                setValue={setOccupationColor}
-                                error={occupationErrors.color}
-                                message="choose a color for the occupation tag"
+                                type='number'
+                                name='age'
+                                value={age}
+                                setValue={setAge}
+                                error={errors.age}
+                                required={false}
+                                message="enter employee age"
+                            />
+                            <InputFieldWithErrors
+                                type='number'
+                                name='rating'
+                                value={rating}
+                                setValue={setRating}
+                                error={errors.rating}
+                                required={false}
+                                message="rate this employee"
                             />
                         </div>
-                    )}
-                    {occupationAdder && (
-                        <Button
-                            position="left"
-                            image={closeImage}
-                            text='cancel'
-                            color='red'
-                            onClick={() => setOccupationAdder(false)}
-                        />
-                    )}
-                    <Button
-                        image={occupationAdder ? okImage : undefined}
-                        text={occupationAdder ? 'add now' : 'add occupation'}
-                        color={occupationAdder ? 'darkgreen' : null}
-                        onClick={addOccupation}
-                        isLoading={loading}
-                    />
+                        <div className='separator-container-emp'></div>
+                        <div className="fields-right-section">
+                            <InputFieldWithErrors
+                                type='file'
+                                name='image'
+                                value={image}
+                                setValue={setImage}
+                                error={errors.image}
+                                required={false}
+                                message="insert an image of the employee"
+                            />
+                            <InputFieldWithErrors
+                                type='text'
+                                name='notes'
+                                value={notes}
+                                setValue={setNotes}
+                                error={errors.notes}
+                                required={false}
+                                message="enter a note"
+                            />
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div className="add-occupation-section">
+                        <h2
+                            style={{ color: 'var(--primary)', alignSelf: 'flex-start' }}
+                        >Choose occupation(s) for this employee</h2>
+                        <div style={{ alignSelf: 'stretch' }}>
+                            <Occupations
+                                occupations={storedOccupations}
+                                selectedOccupations={selectedOccupations}
+                                setSelectedOccupations={setSelectedOccupations}
+                                errors={errors.selectedOccupations}
+                            />
+                        </div>
+                        {occupationAdder && (
+                            <div className="add-occupation-inputs">
+                                <InputFieldWithErrors
+                                    type='text'
+                                    name='occupationName'
+                                    value={occupationName}
+                                    setValue={setOccupationName}
+                                    error={occupationErrors.name}
+                                    message="enter the occupation name"
+                                />
+                                <InputFieldWithErrors
+                                    type='color'
+                                    name='occupationColor'
+                                    value={occupationColor}
+                                    setValue={setOccupationColor}
+                                    error={occupationErrors.color}
+                                    message="choose a color for the occupation tag"
+                                />
+                            </div>
+                        )}
+                        <div className="add-occupation-btns">
+                            {occupationAdder && (
+                                <Button
+                                    position="left"
+                                    image={closeImage}
+                                    text='exit'
+                                    color='var(--warning)'
+                                    onClick={() => setOccupationAdder(false)}
+                                />
+                            )}
+                            <Button
+                                image={occupationAdder ? okImage : undefined}
+                                text={occupationAdder ? 'add now' : 'add occupation'}
+                                color={occupationAdder ? 'darkgreen' : null}
+                                onClick={addOccupation}
+                                isLoading={loading}
+                            />
+                        </div>
+                    </div>
                     <div className="button-wrapper-left">
                         <Button
                             color='firebrick'
