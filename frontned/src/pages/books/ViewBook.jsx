@@ -54,83 +54,75 @@ export function ViewBook() {
 
 
     return (
-        <NarrowView>
+        <>
             <Header />
-            <h1>{location.state}</h1>
-            <div className='view-book-container'>
-                <div className='viewbook-wrapper'>
-                    <div className='book-info-container'>
-                        <InfoCard
-                            title="title "
-                            subtitle={book.title}
-                        />
-                        <InfoCard
-                            title="page Count "
-                            subtitle={book.page_count}
-                        />
-                        <InfoCard
-                            title="publishing year "
-                            subtitle={book.publishing_year}
-                        />
-                        <InfoCard
-                            title="author "
-                            subtitle={book.author}
-                        />
-                    </div>
-                    <div className='separator-container'></div>
-                    <div className='book-info-container'>
+            <NarrowView>
+                <h1>{location.state}</h1>
+                <div className='view-book-container'>
+                    <div className='viewbook-wrapper'>
+                        <div className='book-info-container'>
+                            <InfoCard
+                                title="title "
+                                subtitle={book.title}
+                            />
+                            <InfoCard
+                                title="page Count "
+                                subtitle={book.page_count}
+                            />
+                            <InfoCard
+                                title="publishing year "
+                                subtitle={book.publishing_year}
+                            />
+                            <InfoCard
+                                title="author "
+                                subtitle={book.author}
+                            />
+                        </div>
+                        <div className='separator-container'></div>
+                        <div className='book-info-container'>
 
-                        <InfoCard
-                            title="edition "
-                            subtitle={book.edition}
+                            <InfoCard
+                                title="edition "
+                                subtitle={book.edition}
+                            />
+                            <InfoCard
+                                title="copies "
+                                subtitle={book.number_of_copies}
+                            />
+                            <InfoCard
+                                title="notes "
+                                subtitle={book.notes}
+                                hieght={6}
+                            />
+                        </div>
+                
+                        <img src={book.image} className='view-book-img' alt="book image" width='200' height='300' />
+                    </div>
+                    <div className='button-container'>
+                        <Button
+                            text='delete'
+                            color='red'
+                            onClick={deleteBook}
+                            isLoading={loading}
+                            image={trashImage}
                         />
-                        <InfoCard
-                            title="copies "
-                            subtitle={book.number_of_copies}
+                        <Button
+                            text='edit'
+                            onClick={() => navigate(`/books/edit/${book.id}`)}
+                            isLoading={loading}
+                            image={editImage}
                         />
-                        <InfoCard
-                            title="notes "
-                            subtitle={book.notes}
-                            hieght={6}
+                        <Button
+                            text='ok'
+                            color='green'
+                            onClick={() => navigate('/')}
+                            isLoading={loading}
+                            image={checkImage}
                         />
                     </div>
-                    {// "id": 17,
-                        // "title": "sambook",
-                        // "page_count": 22,
-                        // "publishing_year": 2002,
-                        // "author": "sam",
-                        // "edition": "1st",
-                        // "number_of_copies": 20,
-                        // "image": "http:\/\/backend.test\/images\/IK4I01Scf4vwEPCRZrbSzs3pHZnCav1OiHZoriQB.jpg",
-                        // "notes": "ss",
-                        // "created_at": "2026-08-08T12:06:59.000000Z",
-                    }
-                    <img src={book.image} className='view-book-img' alt="book image" width='200' height='300' />
                 </div>
-                <div className='button-container'>
-                    <Button
-                        text='delete'
-                        color='red'
-                        onClick={deleteBook}
-                        isLoading={loading}
-                        image={trashImage}
-                    />
-                    <Button
-                        text='edit'
-                        onClick={() => navigate(`/books/edit/${book.id}`)}
-                        isLoading={loading}
-                        image={editImage}
-                    />
-                    <Button
-                        text='ok'
-                        color='green'
-                        onClick={() => navigate('/')}
-                        isLoading={loading}
-                        image={checkImage}
-                    />
-                </div>
-            </div>
-        </NarrowView>
+            </NarrowView>
+        </>
 
 
     )

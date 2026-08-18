@@ -22,9 +22,9 @@ export function Step4() {
             if (response.data.success) {
                 setLoading(false)
                 if (purchase) {
-                    navigate('/orders/add/5')
+                    navigate('/guestOrder/5')
                 } else {
-                    navigate('/orders/add/6')
+                    navigate('/guestOrder/6')
                 }
             }
         }).catch((errors) => {
@@ -64,7 +64,7 @@ export function Step4() {
                 text='cancel'
                 position="left"
                 image={closeImage}
-                onClick={() => navigate('/orders/add/3')}
+                onClick={() => navigate('/guestOrder/3')}
                 isLoading={loading}
             />
 

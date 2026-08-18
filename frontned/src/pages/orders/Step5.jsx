@@ -60,7 +60,7 @@ export function Step5() {
     }).then((response) => {
       if (response.data.success) {
         setLoading(false)
-        navigate('/orders/add/3')
+        navigate('/guestOrder/3')
       }
     }).catch((errors) => {
       setError(errors.response.data.errors ?? errors.response.data)
@@ -113,7 +113,7 @@ export function Step5() {
         text='go back'
         position="left"
         image={closeImage}
-        onClick={() => navigate('/orders/add/4')}
+        onClick={() => navigate('/guestOrder/4')}
         isLoading={loading}
       />
 

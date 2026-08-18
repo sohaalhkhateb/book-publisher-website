@@ -26,11 +26,11 @@ export function Step3() {
       }
       <Button
         text='add more order items'
-        onClick={() => navigate('/orders/add/4')}
+        onClick={() => navigate('/guestOrder/4')}
       />
       <Button
         text='submit order'
-        onClick={() => navigate('/orders/add/7')}
+        onClick={() => navigate('/guestOrder/7')}
       />
     </>
   )

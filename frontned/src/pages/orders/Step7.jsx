@@ -4,7 +4,7 @@ import { useState } from "react";
 import upwardsArrow from '../../assets/images/icons/upwardsArrow.png'
 import closeImage from '../../assets/images/icons/close.png'
 import api from "../../lib/axios";
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { InputList } from '../../components/InputList'
 
 export function Step7() {
@@ -15,7 +15,6 @@ export function Step7() {
   const [error, setError] = useState({});
 
   const navigate = useNavigate();
-
   const [loading, setLoading] = useState(false);
 
 
@@ -31,7 +30,7 @@ export function Step7() {
     }).then((response) => {
       if (response.data.success) {
         setLoading(false)
-        navigate('/orders/success')
+        navigate('/guestOrder/success')
       }
     }).catch((errors) => {
       setError(errors.response.data.errors ?? errors.response.data)
@@ -44,6 +43,7 @@ export function Step7() {
     <>
       <h2>finalize your order</h2>
 
+      <p>{error.message}</p>
 
       <InputFieldWithErrors
         type='text'
@@ -76,7 +76,7 @@ export function Step7() {
         text='go back'
         position="left"
         image={closeImage}
-        onClick={() => navigate('/orders/add/6')}
+        onClick={() => navigate('/guestOrder/3')}
         isLoading={loading}
       />
 

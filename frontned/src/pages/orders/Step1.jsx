@@ -23,7 +23,7 @@ export function Step1() {
     api.post('/orders?step=1', { user_id: id })
       .then((response) => {
         if (response.data.success) {
-          navigate('/orders/add/2')
+          navigate('/guestOrder/2')
         }
       })
   }
