@@ -1,0 +1,16 @@
+.back-text-order {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--warning);
+    width: max-content;
+    border-bottom: 2px solid var(--warning);
+    text-shadow: 3px 3px 8px var(--shadow);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: clamp(20px, 4vw, 15px);
+}
+
+.back-text-order:hover{
+    transform: scale(1.04);
+}

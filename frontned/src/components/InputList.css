@@ -13,7 +13,7 @@
 }
 
 .input-list-select {
-    width: 100%;
+    min-width: 300px;
     max-width: 300px;
     padding: 10px 14px;
     font-size: clamp(18px, 2vw, 10px);
@@ -25,7 +25,7 @@
     background-color: var(--surface);
     cursor: pointer;
     outline: none;
-    box-shadow: 0 1px 3px var(--shadow);
+    box-shadow: 5px 5px 8px var(--shadow);
 }
 
 .input-list-select:hover {

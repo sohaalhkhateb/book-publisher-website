@@ -1,10 +1,10 @@
 import InputFieldWithErrors from "../../components/InputFieldWithErrors";
 import { Button } from "../../components/Button";
 import { useState } from "react";
-import upwardsArrow from '../../assets/images/icons/upwardsArrow.png'
-import closeImage from '../../assets/images/icons/close.png'
+import check from '../../assets/images/icons/check.png'
+import backImage from '../../assets/images/icons/back.png'
 import api from "../../lib/axios";
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { InputList } from '../../components/InputList'
 
 export function Step7() {
@@ -41,53 +41,72 @@ export function Step7() {
 
   return (
     <>
-      <h2>finalize your order</h2>
-
-      <p>{error.message}</p>
-
-      <InputFieldWithErrors
-        type='text'
-        name='notes'
-        value={notes}
-        setValue={setNotes}
-        error={error.notes}
-        required={false}
-      />
-
-
-
-
-      <InputList
-        label='choose payment method'
-        options={[{'cash':'cash'}, {'paypal':'paypal'}, {'visa':'visa'}, {'master card':'master card'}]}
-        value={payment}
-        setValue={setPayment}
-      />
+      <h2
+        style={{
+          fontSize: 'clamp(20px, 2vw, 35px)',
+          color: 'var(--primary)'
+        }}
+      >•finalize your order :</h2>
+      <p
+        style={{
+          fontSize: 'clamp(20px, 2vw, 23px)',
+          color: 'var(--error)',
+        }}
+      >{error.message}</p>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-around'
+        }}
+      >
+        <InputFieldWithErrors
+          type='text'
+          name='notes'
+          value={notes}
+          setValue={setNotes}
+          error={error.notes}
+          required={false}
+        />
+        <InputList
+          label='•choose payment method :'
+          options={[{ 'cash': 'cash' }, { 'paypal': 'paypal' }, { 'visa': 'visa' }, { 'master card': 'master card' }]}
+          value={payment}
+          setValue={setPayment}
+        />
+      </div>
 
 
       {error.payment && <p>{error.payment}</p>}
 
-
+      <br />
+      <br />
       <hr />
-
-
-      <Button
-        color='firebrick'
-        text='go back'
-        position="left"
-        image={closeImage}
-        onClick={() => navigate('/guestOrder/3')}
-        isLoading={loading}
-      />
-
-
-      <Button
-        color='darkgreen'
-        text='finish'
-        image={upwardsArrow}
-        onClick={next}
-        isLoading={loading}
-      />
+      <br />
+      <br />
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Button
+          color='firebrick'
+          text='go back'
+          position="left"
+          image={backImage}
+          onClick={() => navigate('/guestOrder/3')}
+          isLoading={loading}
+        />
+        <Button
+          color='darkgreen'
+          text='finish'
+          image={check}
+          onClick={next}
+          isLoading={loading}
+        />
+      </div>
     </>
   )
 }
