@@ -67,9 +67,6 @@ export function Header({ setShowOptionList, showOptionList, empty = false }) {
             text="logout"
             onClick={async () => { await api.post('/logout', {}); navigate('/login') }}
           />
-          <p className='number-book-paragraph'>
-            number of orders : 22
-          </p>
         </div>
         <div className='header-right-section'>
           <button className='menu-button' title="Menu">

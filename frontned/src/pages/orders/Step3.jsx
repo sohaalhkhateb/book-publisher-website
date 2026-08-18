@@ -7,6 +7,8 @@ import noItemsIcon from '../../assets/images/icons/no-items.png'
 import leftArrow from '../../assets/images/icons/leftArrow.png'
 import check from '../../assets/images/icons/check.png'
 import add from '../../assets/images/icons/add-white.png'
+import { InfoCard } from '../../components/InfoCard'
+
 
 export function Step3() {
   const [items, setItems] = useState([]);
@@ -20,6 +22,7 @@ export function Step3() {
   console.log(items)
   return (
     <>
+
       {items.length == 0 &&
         <div
           className="no-items-div"
@@ -34,15 +37,34 @@ export function Step3() {
           <p >no items , try adding one to your order !</p>
         </div>
       }
+      <div className="step3-container">
+        {
+          items.map((item) => {
+            return (
+              <OrderItem item={item} />
 
-      {
-        items.map((item) => {
-          return (
-            <OrderItem item={item} />
-          )
-        })
-      }
-      <div className="step3-btns">
+            )
+          })
+        }
+      </div>
+      <br />
+      <br />
+      <hr />
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          marginTop: '10px',
+          position: 'fixed',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          zIndex: '1000',
+          padding: '12px 40px',
+          paddingBottom: '40px',
+        }}
+      >
         <Button
           position='left'
           text='back'
@@ -78,9 +100,11 @@ export function OrderItem({ item }) {
         {item.publish && (<span>publish |</span>)}
         {item.other && (<span>other |</span>)}
       </span>
-      <p>{item.book_title && `book title ${item.book_title}`}</p>
-      <p>quantity : {item.quantity}</p>
-
+      <InfoCard
+        title={item.book_title}
+        subtitle={`quantity : ${item.quantity}`}
+        width={60}
+      />
     </>
 
   )

@@ -68,10 +68,10 @@ export function Step4() {
                     </span>
                 </label>
             </div>
-            {error.purchase && <p>{error.purchase}</p>}
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
+            {error.purchase && <p className="step4-error">{error.purchase}</p>}
             <hr />
             <div className="step4-btns">
                 <Button
