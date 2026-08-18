@@ -13,6 +13,7 @@ import { InfoCard } from '../../components/InfoCard'
 export function Step3() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate()
+
   useEffect(() => {
     api.get('/sessionItems')
       .then((response) => {
@@ -42,6 +43,7 @@ export function Step3() {
           items.map((item) => {
             return (
               <OrderItem item={item} />
+
 
             )
           })
@@ -91,21 +93,28 @@ export function Step3() {
 }
 
 export function OrderItem({ item }) {
-
-  return (
-    <>
-      <span>
-        {item.pruchase && (<span>purchase |</span>)}
-        {item.print && (<span>print |</span>)}
-        {item.publish && (<span>publish |</span>)}
-        {item.other && (<span>other |</span>)}
-      </span>
+  if (item.purchase)
+    return (
       <InfoCard
         title={item.book_title}
-        subtitle={`quantity : ${item.quantity}`}
+        subtitle={`quantity : ${item?.quantity}`}
         width={60}
       />
-    </>
+    )
 
-  )
+  else
+    return (
+
+      <InfoCard
+        title={<>
+            {item.translate=='1' && (<span>translate |</span>)}
+            {item.print=='1' && (<span>print |</span>)}
+            {item.publish=='1' && (<span>publish |</span>)}
+            {item.other=='1' && (<span>other |</span>)}
+          </>}
+        subtitle={`files sent : ${item.files?.length} files`}
+        width={60}
+      />
+
+    )
 }
