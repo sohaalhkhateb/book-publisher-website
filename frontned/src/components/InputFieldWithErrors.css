@@ -95,3 +95,15 @@ input[type="color"] {
     box-shadow: 5px 5px 8px var(--shadow);
     cursor: pointer;
 }
+
+input[type="date"] {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    padding: 10px;
+    color: white;
+    padding: 20px;
+    font-size: clamp(10px, 2.5vw, 15px);
+    box-shadow: 5px 5px 8px var(--shadow);
+    cursor: pointer;
+}

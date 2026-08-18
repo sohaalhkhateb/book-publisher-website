@@ -37,11 +37,6 @@ export function MainMenu({ setShowMainContent, showMainContent }) {
         src={saleIcon}
         text='Publishing offers'
       />
-      <SidebarButton
-        to='/notifications'
-        src={alarmIcon}
-        text='Notificatios'
-      />
     </div>
   )
 }

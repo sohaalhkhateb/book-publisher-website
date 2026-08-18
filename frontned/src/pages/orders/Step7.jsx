@@ -68,16 +68,23 @@ export function Step7() {
           error={error.notes}
           required={false}
         />
-        <InputList
-          label='•choose payment method :'
-          options={[{ 'cash': 'cash' }, { 'paypal': 'paypal' }, { 'visa': 'visa' }, { 'master card': 'master card' }]}
-          value={payment}
-          setValue={setPayment}
-        />
+        <div>
+          <InputList
+            label='•choose payment method :'
+            options={[{ 'cash': 'cash' }, { 'paypal': 'paypal' }, { 'visa': 'visa' }, { 'master card': 'master card' }]}
+            value={payment}
+            setValue={setPayment}
+          />{error.payment && <p
+            style={{
+              fontSize: 'clamp(20px, 2vw, 23px)',
+              color: 'var(--error)',
+            }}
+          >{error.payment}</p>}
+        </div>
       </div>
 
 
-      {error.payment && <p>{error.payment}</p>}
+
 
       <br />
       <br />

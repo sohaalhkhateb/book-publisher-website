@@ -24,7 +24,6 @@ export function LayoutElement() {
             />
             <MainMenu />
             <Outlet />
-            <SubMenu />
         </ div>
     </>
     )

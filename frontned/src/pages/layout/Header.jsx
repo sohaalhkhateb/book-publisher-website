@@ -68,16 +68,6 @@ export function Header({ setShowOptionList, showOptionList, empty = false }) {
             onClick={async () => { await api.post('/logout', {}); navigate('/login') }}
           />
         </div>
-        <div className='header-right-section'>
-          <button className='menu-button' title="Menu">
-            <img
-              src={menuImage}
-              className='header-menu-image'
-              alt=""
-              onClick={showOption}
-            />
-          </button>
-        </div>
       </div>
     )
 }
