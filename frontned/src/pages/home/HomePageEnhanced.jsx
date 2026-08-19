@@ -18,12 +18,15 @@ export function HomePageEnhanced() {
   const navigate = useNavigate()
 
   const query = urlP.get('search') || ''
+  const status = urlP.get('status') || ''
+
 
   useEffect(() => {
     const getbooks = async () => {
       const response = await api.get('/books', {
         params: {
           'query': query||undefined,
+          'status': status || undefined,
           page: page,
         },
       })
@@ -32,7 +35,7 @@ export function HomePageEnhanced() {
     }
 
     getbooks()
-  }, [statusUpdate, page, query])
+  }, [statusUpdate, page, query, status])
 
   useEffect(() => {
     setPage(1)

@@ -1,7 +1,7 @@
 import { useId } from "react"
 import './InputList.css'
 
-export function InputList({ label = null, options, value, setValue }) {
+export function InputList({ label = null, options, value, setValue, noGap=false }) {
     const listId = useId()
     return (
         <>
@@ -9,7 +9,7 @@ export function InputList({ label = null, options, value, setValue }) {
                 style={{
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '5px'
+                    gap: noGap? '0px':'5px'
                 }}
             >
                 <label className="input-list-label" htmlFor={listId}>
