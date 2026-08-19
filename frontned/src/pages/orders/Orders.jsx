@@ -5,6 +5,7 @@ import api from "../../lib/axios";
 import { Header } from "../layout/Header";
 import { NarrowView } from "../../components/NarrowView";
 import { OrderComponent } from "../../components/OrderComponent";
+import { MainMenu } from "../../components/MainMenu";
 
 
 export function Orders() {
@@ -31,7 +32,7 @@ export function Orders() {
 
             await api.get('/orders', {
                 params: {
-                    status: status || undefined,
+                    'status': status=="all"? null : status ,
                 },
             }).then((response) => {
                 setOrders(response.data)
@@ -51,87 +52,89 @@ export function Orders() {
     return (
         <>
             <Header />
-            <NarrowView>
-
-                <h2
-                    style={{
-                        fontSize: 'clamp(20px, 2vw, 30px)',
-                        color: 'var(--primary)'
-                    }}
-                >orders</h2>
-
-
-                <InputList
-                    label='choose the status of the orders:'
-                    options={[
-                        { 'all orders': '' },
-                        { accepted: 'accepted' },
-                        { pending: 'pending' },
-                        { cancelled: 'cancelled' },
-                        { done: 'done' }
-                    ]}
-                    value={status}
-                    setValue={setStatus}
-                />
+            <div className='content-container'>
+                <NarrowView>
+                    <h2
+                        style={{
+                            fontSize: 'clamp(20px, 2vw, 30px)',
+                            color: 'var(--primary)'
+                        }}
+                    >orders</h2>
 
 
-                {error && Object.keys(error).length > 0 && (
-                    <p
+                    <InputList
+                        label='choose the status of the orders:'
+                        options={[
+                            { all:'all orders' },
+                            { accepted: 'accepted' },
+                            { pending: 'pending' },
+                            { cancelled: 'cancelled' },
+                            { done: 'done' }
+                        ]}
+                        value={status}
+                        setValue={setStatus}
+                    />
+
+
+                    {error && Object.keys(error).length > 0 && (
+                        <p
+                            style={{
+                                fontSize: 'clamp(20px, 2vw, 23px)',
+                                color: 'var(--error)',
+                            }}
+                        >{error.message ?? 'something went wrong'}</p>
+                    )}
+
+
+                    {loading && <p
                         style={{
                             fontSize: 'clamp(20px, 2vw, 23px)',
-                            color: 'var(--error)',
-                        }}
-                    >{error.message ?? 'something went wrong'}</p>
-                )}
-
-
-                {loading && <p
-                    style={{
-                        fontSize: 'clamp(20px, 2vw, 23px)',
-                        color: 'var(--warning)',
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                        width: 'max-content',
-                        marginTop: '100px'
-                    }}
-                >loading...</p>}
-
-
-                {!loading && orders.length === 0 && (
-                    <p
-                        style={{
-                            fontSize: 'clamp(20px, 4vw, 30px)',
-                            fontWeight: 'bold',
-                            color: '#9299a7ad',
+                            color: 'var(--warning)',
                             marginLeft: 'auto',
                             marginRight: 'auto',
                             width: 'max-content',
                             marginTop: '100px'
                         }}
-                    >no orders found !</p>
-                )}
+                    >loading...</p>}
 
-                <br />
-                <hr />
-                <br />
-                <div
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: ' repeat(auto-fit, minmax(161px,1fr))',
-                        gap: '10px',
-                        width: '100%',
-                        placeItems: 'center'
-                    }}
-                >
-                    {orders.map((order) => (
-                        <OrderComponent
-                            key={order.id}
-                            order={order}
-                            onClick={() => navigate(`/orders/${order.id}`)}
-                        />
-                    ))}
-                </div>
-            </NarrowView >
+
+                    {!loading && orders.length === 0 && (
+                        <p
+                            style={{
+                                fontSize: 'clamp(20px, 4vw, 30px)',
+                                fontWeight: 'bold',
+                                color: '#9299a7ad',
+                                marginLeft: 'auto',
+                                marginRight: 'auto',
+                                width: 'max-content',
+                                marginTop: '100px'
+                            }}
+                        >no orders found !</p>
+                    )}
+
+                    <br />
+                    <hr />
+                    <br />
+                    <div
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: ' repeat(auto-fit, minmax(161px,1fr))',
+                            gap: '10px',
+                            width: '100%',
+                            placeItems: 'center'
+                        }}
+                    >
+                        {orders.map((order) => (
+                            <OrderComponent
+                                key={order.id}
+                                order={order}
+                                onClick={() => navigate(`/orders/${order.id}`)}
+                            />
+                        ))}
+                    </div>
+                </NarrowView >
+            </div>
+            <MainMenu />
         </>
     )
 }

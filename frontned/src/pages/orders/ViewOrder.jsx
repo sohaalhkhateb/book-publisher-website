@@ -51,11 +51,12 @@ export function ViewOrder() {
         <div
           style={{
             position: 'relative',
-            border: '1px solid var(--shadow)',
+            border: 'none',
             padding: '20px',
             boxSizing: 'border-box',
             borderRadius: '20px',
-            minWidth: 'max-content'
+            minWidth: 'max-content',
+            backgroundColor:'#9ed1ce55'
           }}
         >
           <h1
@@ -66,13 +67,17 @@ export function ViewOrder() {
           >•order:</h1>
           <div
             className='order-div'
+            style={{
+              backgroundColor : '#ffffff5e',
+            }}
           >
             <span className='status'>
               status:
               <span
                 className='status-view-val'
                 style={{
-                  color: order.status == 'accepted' ? '#0ff0005e' : order.status == 'pending' ? '#f0b000d3' : order.status == 'cancelled' ? '#ff00005e' : '#6d6969ab',
+                  backgroundColor: order.status == 'accepted' ? '#0ff0005e' : order.status == 'pending' ? '#f0b000d3' : order.status == 'cancelled' ? '#ff00005e' : '#6d69695e',
+                  padding:'2px 20px', borderRadius:'10px'
                 }}
               >
                 {order.status}
@@ -88,7 +93,7 @@ export function ViewOrder() {
               <div>
                 {order.contacts && (
                   <span className='order-view-label'>
-                    contacts:
+                    contacts :
                     <span className='order-view-val'>
                       {order.contacts}
                     </span>
@@ -96,7 +101,7 @@ export function ViewOrder() {
                 )}
                 {order.email && (
                   <span className='order-view-label'>
-                    email:
+                    email :
                     <span className='order-view-val'>
                       {order.email}
                     </span>
@@ -104,7 +109,7 @@ export function ViewOrder() {
                 )}
                 {order.address && (
                   <span className='order-view-label'>
-                    address:
+                    address :
                     <span className='order-view-val'>
                       {order.address}
                     </span>
@@ -112,7 +117,7 @@ export function ViewOrder() {
                 )}
                 {order.phone_number && (
                   <span className='order-view-label'>
-                    phone number:
+                    phone number :
                     <span className='order-view-val'>
                       {order.phone_number}
                     </span>
@@ -122,14 +127,14 @@ export function ViewOrder() {
               <div>
 
                 <span className='order-view-label'>
-                  payment:
+                  payment :
                   <span className='order-view-val'>
                     {order.payment}
                   </span>
                 </span>
                 {order.notes && (
                   <span className='order-view-label'>
-                    notes:
+                    notes :
                     <span className='order-view-val'>
                       {order.notes}
                     </span>
@@ -137,7 +142,7 @@ export function ViewOrder() {
                 )}
                 {order.created_at && (
                   <span className='order-view-label'>
-                    created at:
+                    created at :
                     <span className='order-view-val'>
                       2{order.created_at.slice(1, 10)}
                     </span>

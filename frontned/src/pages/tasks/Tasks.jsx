@@ -7,6 +7,7 @@ import { Header } from "../layout/Header";
 import { NarrowView } from "../../components/NarrowView";
 import plusIconWhite from '../../assets/images/icons/add-white.png'
 import './Tasks.css'
+import { MainMenu } from "../../components/MainMenu";
 
 export function Tasks() {
     const [tasks, setTasks] = useState([]);
@@ -25,34 +26,41 @@ export function Tasks() {
     return (
         <>
             <Header />
-            <NarrowView>
-                <p className="tasks-title">here are all the tasks you created :</p>
-                <div   
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(400px,1fr))',
-                        placeItems: 'center'
-                    }}
-                >
-                    {tasks.map((task) => {
-                        return (
-                            <Task
-                                task={task}
-                            />
-                        )
-                    })}
-                </div>
-                <div className="tasks-btn-container">
-                    <Button
-                        text='create task'
-                        position='right'
-                        image={plusIconWhite}
-                        color='var(--success)'
-                        onClick={() => navigate('/tasks/add')}
-                    // get add image
-                    />
-                </div>
-            </NarrowView>
+            <div className='content-container'>
+                <NarrowView>
+                    {tasks.length != 0 ? (
+                        <>
+                            <p className="tasks-title">here are all the tasks you created :</p>
+                            <div
+                                style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(auto-fit, minmax(400px,1fr))',
+                                    placeItems: 'center'
+                                }}
+                            >
+                                {tasks.map((task) => {
+                                    return (
+                                        <Task
+                                            task={task}
+                                        />
+                                    )
+                                })}
+                            </div>
+                        </>
+                    ) : (<h1>you have not assigned any tasks ....</h1>)}
+                    <div className="tasks-btn-container">
+                        <Button
+                            text='create task'
+                            position='right'
+                            image={plusIconWhite}
+                            color='var(--success)'
+                            onClick={() => navigate('/tasks/add')}
+                        // get add image
+                        />
+                    </div>
+                </NarrowView >
+            </div>
+            <MainMenu />
         </>
     )
 }

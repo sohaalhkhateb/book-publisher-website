@@ -13,7 +13,7 @@ export function SearchInput({ targetPage, fallbackPage }) {
             setSearch('');
         }
         if (event.key == 'Enter') {
-            navigate(search ? `results?query=${search}` : fallbackPage)
+            navigate(search ? `/?search=${search}` : fallbackPage)
         }
     }
     
@@ -32,7 +32,7 @@ export function SearchInput({ targetPage, fallbackPage }) {
                 src={searchImage}
                 className='search-input-image'
                 alt=""
-                onClick={() => navigate(search ? `${targetPage}?query=${search}` : fallbackPage)}
+                onClick={() => navigate(search ? `/?search=${search}` : fallbackPage)}
             />
         </div>
     )

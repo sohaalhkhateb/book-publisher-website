@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router'
 import './SaleComponent.css'
 
-export function SaleComponent({ order, onClock }) {
+export function SaleComponent({ order }) {
+    const navigate = useNavigate()
     return (
-        <div className="sale-component">
+        <div className="sale-component"
+            onClick={() => navigate(`/orders/${order.id}`)}
+
+        >
             {order?.final_price_in_cents && (
                 <span className='order-view-label'>
                     Final price:
@@ -37,7 +42,7 @@ export function SaleComponent({ order, onClock }) {
             )}
             {order?.phone_number && (
                 <span className='order-view-label'>
-                    Phone number: 
+                    Phone number:
                     <span className='order-view-val'>
                         {order.phone_number}
                     </span>
@@ -45,20 +50,20 @@ export function SaleComponent({ order, onClock }) {
             )}
             {order?.address && (
                 <span className='order-view-label'>
-                    Address: 
+                    Address:
                     <span className='order-view-val'>
                         {order.address}
                     </span>
                 </span>
-              )}
-              {order?.contacts && (
+            )}
+            {order?.contacts && (
                 <span className='order-view-label'>
-                    Contacts: 
+                    Contacts:
                     <span className='order-view-val'>
                         {order.contacts}
                     </span>
                 </span>
-              )}
+            )}
         </div>
     )
 }

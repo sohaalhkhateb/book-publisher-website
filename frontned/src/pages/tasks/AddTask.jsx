@@ -42,6 +42,8 @@ export function AddTask() {
       let temp = phase - 1
       setPhase(temp)
     }
+    else
+      navigate('/tasks')
   }
   function rightClick() {
     if (phase < 3) {

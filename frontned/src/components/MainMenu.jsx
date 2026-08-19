@@ -2,6 +2,8 @@ import './MainMenu.css'
 import booksIcon from '../assets/images/icons/book-stack-48.png'
 import WareHouseIcon from '../assets/images/icons/barn-48.png'
 import employeeIcon from '../assets/images/icons/teamwork.png'
+import taskIcon from '../assets/images/icons/book-16-48.png'
+
 import purchaseIcon from '../assets/images/icons/purchase-order-48.png'
 import saleIcon from '../assets/images/icons/sales-order.png'
 import alarmIcon from '../assets/images/icons/appointment-reminders-48.png'
@@ -18,24 +20,29 @@ export function MainMenu({ setShowMainContent, showMainContent }) {
         text='Books'
       />
       <SidebarButton
-        to='/wareHouse'
+        to='/resources'
         src={WareHouseIcon}
         text='WareHouse'
       />
       <SidebarButton
+        to='/tasks'
+        src={taskIcon}
+        text='tasks'
+      />
+      <SidebarButton
         to='/employees'
         src={employeeIcon}
-        text='Manage Employees'
+        text='employees'
       />
       <SidebarButton
-        to='/purchase-orders'
+        to='/orders'
         src={purchaseIcon}
-        text='Purchase Orders'
+        text='orders'
       />
       <SidebarButton
-        to='/offers'
+        to='/sales'
         src={saleIcon}
-        text='Publishing offers'
+        text='sales'
       />
     </div>
   )
