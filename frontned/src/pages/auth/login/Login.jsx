@@ -31,7 +31,14 @@ export function Login() {
         setIsLoading(false)
       navigate('/')
     }).catch((error) => {
-      setErrors(error.response.data)
+      if (error.response?.status === 429) {
+        setErrors({
+          email: [''],
+          password: ['Too many login attempts. Please try again later.'],
+        })
+      }
+      else
+        setErrors(error.response.data)
       setIsLoading(false)
     })
   }
