@@ -22,7 +22,8 @@ export function Card({ number = null, title = null, subTitle, adition = null,wid
                 <p
                     className="card-number"
                     style={{
-                        color: `${color}`
+                        color: `${color}`,
+                        alignSelf:'center'
                     }}
                 >
                     {number}
