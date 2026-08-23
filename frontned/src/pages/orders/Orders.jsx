@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { InputList } from "../../components/InputList";
 import api from "../../lib/axios";
 import { Header } from "../layout/Header";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import { OrderComponent } from "../../components/OrderComponent";
 import { MainMenu } from "../../components/MainMenu";
 

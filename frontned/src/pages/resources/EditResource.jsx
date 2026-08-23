@@ -3,7 +3,7 @@ import InputFieldWithErrors from "../../components/InputFieldWithErrors";
 import { Button } from "../../components/Button";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import checkImage from '../../assets/images/icons/check.png'
 import closeImage from '../../assets/images/icons/close.png'
 import api from "../../lib/axios";

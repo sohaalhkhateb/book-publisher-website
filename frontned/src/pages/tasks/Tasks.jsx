@@ -4,7 +4,7 @@ import { Button } from '../../components/Button'
 import api from "../../lib/axios";
 import { Task } from "../../components/Task";
 import { Header } from "../layout/Header";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import plusIconWhite from '../../assets/images/icons/add-white.png'
 import './Tasks.css'
 import { MainMenu } from "../../components/MainMenu";

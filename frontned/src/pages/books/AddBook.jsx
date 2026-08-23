@@ -7,7 +7,7 @@ import closeImage from '../../assets/images/icons/close.png'
 import api from "../../lib/axios";
 import { useNavigate } from "react-router";
 import './AddBook.css'
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 
 export function AddBook() {
 

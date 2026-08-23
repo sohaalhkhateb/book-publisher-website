@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import InputFieldWithErrors from "../../components/InputFieldWithErrors";
 import { Header } from "../layout/Header";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import { Button } from "../../components/Button";
 import rightArrow from '../../assets/images/icons/rightArrow.png'
 import leftArrow from '../../assets/images/icons/leftArrow.png'

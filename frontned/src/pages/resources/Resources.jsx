@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import plusIcon from '../../assets/images/icons/plus2.png'
 import { Card } from "../../components/Card";
 import { Header } from "../layout/Header";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import { ResourcesTable } from "../../components/ResourcesTable";
 import { MainMenu } from "../../components/MainMenu";
 

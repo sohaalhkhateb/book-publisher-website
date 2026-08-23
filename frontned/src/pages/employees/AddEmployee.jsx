@@ -6,7 +6,7 @@ import okImage from '../../assets/images/icons/ok.png'
 import { Header } from "../layout/Header";
 import { Occupations } from "../../components/Occupation";
 import { Button } from "../../components/Button";
-import { NarrowView } from '../../components/NarrowView';
+import { NarrowView } from '../layout/NarrowView';
 import api from "../../lib/axios";
 import { useNavigate } from "react-router";
 import './AddEmployee.css'

@@ -1,6 +1,6 @@
 import { Button } from "../../components/Button";
 import { InfoCard } from "../../components/InfoCard";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import { Header } from "../layout/Header";
 import trashImage from '../../assets/images/icons/trash.png'
 import checkImage from '../../assets/images/icons/check.png'

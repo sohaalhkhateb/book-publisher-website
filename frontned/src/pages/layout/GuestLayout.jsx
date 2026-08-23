@@ -1,4 +1,4 @@
-import { NarrowView } from '../../components/NarrowView';
+import { NarrowView } from './NarrowView';
 import { Header } from '../layout/Header';
 import { Outlet } from "react-router";
 export function GuestLayout() {

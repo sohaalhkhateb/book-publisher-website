@@ -6,7 +6,7 @@ import addWhite from '../../assets/images/icons/add-white.png'
 import closeImage from '../../assets/images/icons/close.png'
 import api from "../../lib/axios";
 import { useNavigate } from "react-router";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import { InputList } from "../../components/InputList";
 import './AddResource.css'
 

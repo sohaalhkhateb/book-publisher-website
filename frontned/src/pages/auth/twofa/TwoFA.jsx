@@ -7,8 +7,30 @@ import { OptionsComponent } from './OptionsComponent';
 import { useState } from 'react';
 import api from '../../../lib/axios';
 import './TwoFA.css'
-
-export function TwoFA({ internationalIds }) {
+import { v4 as uuidv4 } from 'uuid';
+const internationalIds = [
+  {
+    number: '+111',
+    id: uuidv4()
+  },
+  {
+    number: '+963',
+    id: uuidv4()
+  },
+  {
+    number: '+098',
+    id: uuidv4()
+  },
+  {
+    number: '+897',
+    id: uuidv4()
+  },
+  {
+    number: '+223',
+    id: uuidv4()
+  }
+];
+export function TwoFA() {
 
   const [prefixNumber, setPrefixNumber] = useState(internationalIds[0].number);
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -29,7 +51,7 @@ export function TwoFA({ internationalIds }) {
         navigate(`/${response.data.redirect}`)
       if (response.data.success)
         navigate('/signup/3')
-      
+
     } catch (error) {
       setErrors(error.response.data);
       if (error.response.status == 419) {

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import api from '../../lib/axios';
 import { Button } from '../../components/Button';
 import { Header } from '../layout/Header';
-import { NarrowView } from '../../components/NarrowView';
+import { NarrowView } from '../layout/NarrowView';
 import checkImage from '../../assets/images/icons/check.png'
 import downloadImage from '../../assets/images/icons/download.png'
 import okImage from '../../assets/images/icons/ok.png'

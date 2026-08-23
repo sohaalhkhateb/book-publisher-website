@@ -2,7 +2,7 @@ import { useLocation, useNavigate, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Button } from '../../components/Button';
 import { Header } from '../layout/Header';
-import { NarrowView } from '../../components/NarrowView';
+import { NarrowView } from '../layout/NarrowView';
 import trashImage from '../../assets/images/icons/trash.png';
 import checkImage from '../../assets/images/icons/check.png';
 import editImage from '../../assets/images/icons/edit2.png';

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import api from "../../lib/axios"
 import { EmployeesComponent } from "../../components/EmployeesComonent";
-import { NarrowView } from "../../components/NarrowView";
+import { NarrowView } from "../layout/NarrowView";
 import { Header } from "../layout/Header";
 import plusIconWhite from '../../assets/images/icons/add-white.png'
 import { useNavigate } from "react-router";

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate, useOutletContext, useSearchParams } from 'react-router'
 import { Products } from './Products'
 import { Button } from '../../components/Button'
 import { BookStatus } from '../../lib/BookStatus'
@@ -9,7 +9,9 @@ import rightImage from '../../assets/images/icons/rightArrow.png'
 import api from '../../lib/axios'
 import './HomePage.css'
 
+
 export function HomePageEnhanced() {
+  const setLayoutContext= useOutletContext()
   const [data, setData] = useState([])
   const [page, setPage] = useState(1)
   const [statusUpdate, setStatusUpdate] = useState(false)
@@ -22,10 +24,15 @@ export function HomePageEnhanced() {
 
 
   useEffect(() => {
+    setLayoutContext({
+      searchBar:true,
+      sideBar:true,
+      narrowView:false
+    })
     const getbooks = async () => {
       const response = await api.get('/books', {
         params: {
-          'query': query||undefined,
+          'query': query || undefined,
           'status': status || undefined,
           page: page,
         },
@@ -42,31 +49,25 @@ export function HomePageEnhanced() {
   }, [query])
 
   return (
-    <div className='content-container'>
+    <>
       <div className='products-container'>
-        {
-          data.data?.length > 0 ? (
-            <BookStatus
-              value={[
-                statusUpdate,
-                setStatusUpdate,
-              ]}
-            >
-              <Products books={data.data} />
-            </BookStatus>
-          ) : (
-            <h1>no books available</h1>
-          )
-        }
+
+        <BookStatus
+          value={[
+            statusUpdate,
+            setStatusUpdate,
+          ]}>
+          <Products books={data.data} />
+        </BookStatus>
+
       </div>
 
-      <div className='add-books-container'>
         <div
           style={{
-            position: 'fixed',
-            right: '50%',
+            position: 'absolute',
             left: '50%',
-            bottom: '20px',
+            transform:'translate(-50%)',
+            bottom: '10px',
             width: 'max-content',
           }}
         >
@@ -105,7 +106,6 @@ export function HomePageEnhanced() {
             />
           </div>
         )}
-      </div>
-    </div>
+      </>
   )
 }

@@ -7,7 +7,7 @@ import checkImage from '../../assets/images/icons/check.png'
 import editImage from '../../assets/images/icons/edit2.png'
 import api from '../../lib/axios';
 import './ViewEmployee.css'
-import { NarrowView } from '../../components/NarrowView';
+import { NarrowView } from '../layout/NarrowView';
 import { InfoCard } from '../../components/InfoCard';
 import starRating from '../../assets/images/icons/star-rating.png'
 

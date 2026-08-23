@@ -10,7 +10,7 @@ import { Button } from '../../components/Button';
 import './ViewBook.css'
 import { Header } from '../layout/Header';
 import { InfoCard } from '../../components/InfoCard';
-import { NarrowView } from '../../components/NarrowView';
+import { NarrowView } from '../layout/NarrowView';
 
 
 export function ViewBook() {

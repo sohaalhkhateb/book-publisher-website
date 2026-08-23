@@ -1,31 +1,30 @@
 import { Outlet } from "react-router";
+import { NarrowView } from "./NarrowView";
+import { Body } from "./Body";
 import { Header } from "./Header";
-import { MainMenu } from "../../components/MainMenu";
-import { SubMenu } from "../../components/SubMenu";
-import { Options } from "../../components/Options";
+import { SideBar } from "./SideBar";
 import { useState } from "react";
 
 export function LayoutElement() {
-    const [showOptionList, setShowOptionList] = useState(false);
-    return (
-        <>
-            <Header
-                setShowOptionList={setShowOptionList}
-                showOptionList={showOptionList}
-            />
-            <div className='home-page-container container'
-                onClick={() =>
-                    setShowOptionList(false)
-                }>
 
-                <Options
-                    showOptionList={showOptionList}
-                    setShowOptionList={setShowOptionList}
-                />
-                <MainMenu />
-                <Outlet />
+  const [layoutContext, setLayoutContext] = useState({
+    narrowView: true,
+    searchBar: true,
+    sideBar: true
+  })
 
-            </ div>
-        </>
-    )
+  return (
+    <>
+      <Header exists={layoutContext.searchBar} />
+      <Body>
+        {layoutContext.sideBar && <SideBar />}
+        <NarrowView layoutContext={layoutContext}>
+          <Outlet context={setLayoutContext} />
+        </NarrowView>
+      </Body>
+    </>
+  )
 }
+
+
+
