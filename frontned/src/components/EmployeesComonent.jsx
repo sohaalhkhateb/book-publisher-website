@@ -3,11 +3,13 @@ import './EmployeesComponent.css'
 import { InfoCard } from "./InfoCard"
 import trash from "../assets/images/icons/delete.png"
 import { useState } from "react"
+import api from "../lib/axios"
 
-export function EmployeesComponent({ color, name, employees, occupationId }) {
+export function EmployeesComponent({ color, name, employees, occupationId, setRefresher }) {
     const [deleteOption, setDeleteOption] = useState(false);
-    const deleteOccupation = () => {
-        // delete an occupation with an id : occupationId
+    const deleteOccupation = async () => {
+        await api.delete(`/occupations/${occupationId}`)
+        setRefresher((prev)=>!prev  )
     }
 
     return (

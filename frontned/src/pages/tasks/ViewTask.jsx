@@ -5,7 +5,7 @@ import { Header } from "../layout/Header";
 import trashImage from '../../assets/images/icons/trash.png'
 import checkImage from '../../assets/images/icons/check.png'
 import './ViewTask.css'
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate, useOutletContext, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import api from "../../lib/axios";
 
@@ -16,8 +16,17 @@ export function ViewTask() {
     const [task, setTask] = useState({});
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const setLayoutContext = useOutletContext()
+
 
     useEffect(() => {
+        setLayoutContext({
+            searchBar: false,
+            sideBar: false,
+            narrowView: true,
+            bodyHeader: location.state??'here are the details of this task :'
+        })
+
 
         async function fetchTask() {
             try {
@@ -49,87 +58,80 @@ export function ViewTask() {
 
     return (
         <>
-            <Header />
-            <NarrowView>
-                <h3
-                    style={{
-                        color: 'var(--success)',
-                        fontSize: 'clamp(25px,3.5vw,20px)',
-                    }}
-                >{location.state}</h3>
-                <div className="view-task-container">
-                    <div className="view-task">
-                        <div className="view-task-left">
-                            <InfoCard
-                                title="Task Name"
-                                subtitle={task.name}
-                                width={40}
-                            />
-                            <InfoCard
-                                title="Type"
-                                subtitle={task.type}
-                                width={40}
-                            />
-                            <span className='label-name'>
-                                to the following employee:
-                                <span className='task-val'
-                                    onClick={() => navigate(`/employees/${task.employee_id}`)}
-                                >
-                                    {task.employee?.name}
-                                </span>
-                            </span>
-                            <InfoCard
-                                title='notes'
-                                subtitle={task.notes}
-                                width={40}
-                            />
-                        </div>
-                        <div className="view-task-right">
-                            <InfoCard
-                                title="Deadline"
-                                subtitle={task.deadline}
-                                fontColor='var(--error)'
-                                width={40}
-                            />
-                            <InfoCard
-                                subtitle={task.task_size}
-                                width={40}
-                            />
-                            <span className='label-name'>
-                                for the following book:
-                                <span className='task-val'
-                                    onClick={() => navigate(`/books/${task.book_id}`)}
 
-                                >
-                                    {task.book?.title}
-                                </span>
+            <div className="view-task-container">
+                <div className="view-task">
+                    <div className="view-task-left">
+                        <InfoCard
+                            title="Task Name"
+                            subtitle={task.name}
+                            width={38}
+                        />
+                        <InfoCard
+                            title="Type"
+                            subtitle={task.type}
+                            width={38}
+                        />
+                        <span className='label-name'>
+                            to the following employee:
+                            <span className='task-val'
+                                onClick={() => navigate(`/employees/${task.employee_id}`)}
+                            >
+                                {task.employee?.name}
                             </span>
-                            <span className='label-name'>
-                                Task status :
-                                <span style={{ fontWeight:'900',fontSize:'30px'}}>
-                                    {task.finished =='yes'? ' done!!':' not yet'}
-                                </span>
-                            </span>
-                        </div>
+                        </span>
+                        <InfoCard
+                            title='notes'
+                            subtitle={task.notes}
+                            width={38}
+                        />
                     </div>
-                    <div className="view-task-btns">
-                        <Button
-                            isLoading={loading}
-                            text='delete'
-                            onClick={deleteTask}
-                            color='red'
-                            image={trashImage}
+                    <div className="view-task-right">
+                        <InfoCard
+                            title="Deadline"
+                            subtitle={task.deadline}
+                            fontColor='var(--error)'
+                            width={38}
                         />
-                        <Button
-                            isLoading={loading}
-                            text='ok'
-                            color='green'
-                            onClick={() => navigate('/tasks')}
-                            image={checkImage}
+                        <InfoCard
+                            subtitle={task.task_size}
+                            width={38}
                         />
+                        <span className='label-name'>
+                            for the following book:
+                            <span className='task-val'
+                                onClick={() => navigate(`/books/${task.book_id}`)}
+
+                            >
+                                {task.book?.title}
+                            </span>
+                        </span>
+                        <span className='label-name'>
+                            Task status :
+                            <span style={{ fontWeight: '900', fontSize: '30px' }}>
+                                {task.finished == 'yes' ? ' done!!' : ' not yet'}
+                            </span>
+                        </span>
                     </div>
                 </div>
-            </NarrowView>
+                <div className="view-task-btns">
+                    <Button
+                        isLoading={loading}
+                        text='delete'
+                        onClick={deleteTask}
+                        color='red'
+                        image={trashImage}
+                    />
+                    <Button
+                        isLoading={loading}
+                        text='ok'
+                        color='green'
+                        onClick={() => navigate('/tasks')}
+                        image={checkImage}
+                    />
+                </div>
+            </div>
+
         </>
     )
 }

@@ -1,6 +1,7 @@
 import { BookImage } from '../../components/BookImage';
 import { useNavigate } from 'react-router'
 import { Status } from '../../components/BookStatus';
+import placeHolderImage from '../../assets/images/icons/book-icon2.png'
 import './Product.css'
 
 export function Product({ book }) {
@@ -12,7 +13,7 @@ export function Product({ book }) {
       className='product-container'
       onClick={() => navigate(`/books/${book.id}`)}
     >
-      <BookImage src={book.image} />
+      <BookImage src={book.image??placeHolderImage} />
       <p className='book-title'>{book.title}</p>
       <span className='book-label'>
         author:

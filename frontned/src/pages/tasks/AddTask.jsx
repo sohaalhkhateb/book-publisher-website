@@ -5,7 +5,7 @@ import { NarrowView } from "../layout/NarrowView";
 import { Button } from "../../components/Button";
 import rightArrow from '../../assets/images/icons/rightArrow.png'
 import leftArrow from '../../assets/images/icons/leftArrow.png'
-import { useNavigate } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
 import api from "../../lib/axios";
 import './AddTask.css'
 import { Books } from "../../components/Books";
@@ -13,6 +13,16 @@ import { EmployeesSelector } from "../../components/EmployeesSelecor";
 import { InfoCard } from "../../components/InfoCard";
 
 export function AddTask() {
+  const setLayoutContext = useOutletContext()
+
+  useEffect(() => {
+    setLayoutContext({
+      searchBar: false,
+      sideBar: true,
+      narrowView: true,
+      bodyHeader: 'create a task now :'
+    })
+  }, [])
 
   const [name, setName] = useState('');
   const [type, setType] = useState('translation');
@@ -58,7 +68,7 @@ export function AddTask() {
         .then((response) => {
           if (response.data.success) {
             setLoading(false)
-            navigate(response.data.redirect, { state: 'your task has been added successfully!!' })
+            navigate(response.data.redirect, { state: 'your task have been added successfully!!' })
 
           }
         })
@@ -84,186 +94,193 @@ export function AddTask() {
 
   return (
     <>
-      <Header />
-      <NarrowView>
-        <div className="add-task-container">
-          {
-            phase == 1 &&
-            (
+      <div className="add-task-container">
+        {
+          phase == 1 &&
+          (
+            <div
+              className="phase-1-container"
+              style={{
+                alignItems: fullBook ? 'center' : 'flex-start'
+              }}
+            >
               <div
-                className="phase-1-container"
-                style={{
-                  alignItems: fullBook ? 'center' : 'flex-start'
-                }}
-              >
-                <div
-                  className="phase-1-inputs">
-                  <InputFieldWithErrors
-                    type='text'
-                    name='name'
-                    error={errors.name}
-                    value={name}
-                    color='darkkhaki'
-                    setValue={setName}
-                    message="enter task name here : "
-                  />
-                  <InputFieldWithErrors
-                    type="date"
-                    name="deadline"
-                    error={errors.deadline}
-                    value={deadline}
-                    color='darkkhaki'
-                    setValue={setDeadline}
-                    required={true}
-                    message="enter deadline here : "
-                  />
-                  <div className='input-astrisk-container'>
-                    <div className='input-container'>
-                      <label className='input-label'>
-                        • enter task type here :
-                      </label>
-                      <select
-                        style={{
-                          color: 'white',
-                          borderRadius: '10px',
-                          border: 'none',
-                          padding: '14px',
-                          backgroundColor: 'darkkhaki',
-                          fontSize: 'clamp(10px, 2.5vw, 15px)',
-                          boxShadow: '5px 5px 8px var(--shadow)',
-                          cursor: 'pointer',
-                        }}
-                        name='type'
-                        value={type}
-                        onChange={e => setType(e.target.value)}
-                      >
-                        <option value="translation">translation</option>
-                        <option value="copyEditing">copyediting</option>
-                        <option value="typeSetting">typesetting</option>
-                        <option value="proofReading">proofReading</option>
-                        <option value="printing">printing</option>
-                      </select>
-                    </div>
-
-                    <p className='astrisk'>
-                      *
-                    </p>
+                className="phase-1-inputs">
+                <InputFieldWithErrors
+                  type='text'
+                  name='name'
+                  error={errors.name}
+                  value={name}
+                  color='darkkhaki'
+                  setValue={setName}
+                  message="enter task name here : "
+                />
+                <InputFieldWithErrors
+                  type="date"
+                  name="deadline"
+                  error={errors.deadline}
+                  value={deadline}
+                  color='darkkhaki'
+                  setValue={setDeadline}
+                  required={true}
+                  message="enter deadline here : "
+                />
+                <div className='input-astrisk-container'>
+                  <div className='input-container'>
+                    <label className='input-label'>
+                      • enter task type here :
+                    </label>
+                    <select
+                      style={{
+                        color: 'white',
+                        borderRadius: '10px',
+                        border: 'none',
+                        padding: '14px',
+                        backgroundColor: 'darkkhaki',
+                        fontSize: 'clamp(10px, 2.5vw, 15px)',
+                        boxShadow: '5px 5px 8px var(--shadow)',
+                        cursor: 'pointer',
+                      }}
+                      name='type'
+                      value={type}
+                      onChange={e => setType(e.target.value)}
+                    >
+                      <option value="translation">translation</option>
+                      <option value="copyEditing">copyediting</option>
+                      <option value="typeSetting">typesetting</option>
+                      <option value="proofReading">proofReading</option>
+                      <option value="printing">printing</option>
+                    </select>
                   </div>
 
+                  <p className='astrisk'>
+                    *
+                  </p>
                 </div>
-                <div className="saparator-container-y"></div>
-                <div className="phase-1-optional-inputs">
-                  <label className='input-label-assign'>
-                    Do you want to assign the entire book?
-                    <input
-                      className='input-checkbox'
-                      name={name}
-                      type="checkbox"
-                      color='darkkhaki'
-                      checked={fullBook}
-                      onChange={handleCheckBoxChange}
-                    />
-                  </label>
 
-                  {
-                    !fullBook && (
-                      <>
-                        <InputFieldWithErrors
-                          type="number"
-                          name="page_start"
-                          error={errors.page_start}
-                          value={pagesStart}
-                          color='darkkhaki'
-                          setValue={setPagesStart}
-                          required={false}
-                          message="enter starting page here : "
-                        />
-
-                        <InputFieldWithErrors
-                          type="number"
-                          name="page_end"
-                          error={errors.page_end}
-                          value={pagesEnd}
-                          color='darkkhaki'
-                          setValue={setPagesEnd}
-                          required={false}
-                          message="enter ending page here : "
-                        />
-                      </>
-                    )
-                  }
-                  <InputFieldWithErrors
-                    type="text"
-                    name="notes"
-                    error={errors.notes}
-                    value={notes}
-                    setValue={setNotes}
-                    color='darkkhaki'
-                    required={false}
-                    message="enter notes (if you have any) here : "
-                  />
-                </div>
               </div>
-            )
-          }
+              <div className="saparator-container-y"></div>
+              <div className="phase-1-optional-inputs">
+                <label className='input-label-assign'>
+                  Do you want to assign the entire book?
+                  <input
+                    className='input-checkbox'
+                    name={name}
+                    type="checkbox"
+                    color='darkkhaki'
+                    checked={fullBook}
+                    onChange={handleCheckBoxChange}
+                  />
+                </label>
 
+                {
+                  !fullBook && (
+                    <>
+                      <InputFieldWithErrors
+                        type="number"
+                        name="page_start"
+                        error={errors.page_start}
+                        value={pagesStart}
+                        color='darkkhaki'
+                        setValue={setPagesStart}
+                        required={false}
+                        message="enter starting page here : "
+                      />
 
-          {
-            phase == 2 &&
-            (
-              <>
-                <h2
-                  style={{
-                    color: 'var(--error)',
-                    fontSize: 'clamp(20px,2vw,15px)',
-                  }}
-                >{errors.book_id}</h2>
-                <BookViewer
-                  type={type}
-                  bookId={bookId}
-                  setBookId={setBookId}
+                      <InputFieldWithErrors
+                        type="number"
+                        name="page_end"
+                        error={errors.page_end}
+                        value={pagesEnd}
+                        color='darkkhaki'
+                        setValue={setPagesEnd}
+                        required={false}
+                        message="enter ending page here : "
+                      />
+                    </>
+                  )
+                }
+                <InputFieldWithErrors
+                  type="text"
+                  name="notes"
+                  error={errors.notes}
+                  value={notes}
+                  setValue={setNotes}
+                  color='darkkhaki'
+                  required={false}
+                  message="enter notes (if you have any) here : "
                 />
-              </>
-            )
-          }
-          {
-            phase == 3 &&
-            (
-              <>
-                <h2
-                  style={{
-                    color: 'var(--error)',
-                    fontSize: 'clamp(20px,2vw,15px)',
-                  }}
-                >{errors.employee_id}</h2>
-                <EmployeeViewer
-                  type={type}
-                  employeeId={employeeId}
-                  setEmployeeId={setEmployeeId}
-                />
-              </>
-            )
-          }
+              </div>
+            </div>
+          )
+        }
 
-          <div className="add-task-btns">
-            <Button
-              text='back'
-              image={leftArrow}
-              position="left"
-              isLoading={loading}
-              color='red'
-              onClick={leftClick}
-            />
-            <Button
-              text='next'
-              image={rightArrow}
-              color='green'
-              isLoading={loading}
-              onClick={rightClick}
-            />
-          </div>
-        </div>
-      </NarrowView >
+
+        {
+          phase == 2 &&
+          (
+            <>
+              <h2
+                style={{
+                  color: 'var(--error)',
+                  fontSize: 'clamp(20px,2vw,15px)',
+                }}
+              >{errors.book_id}</h2>
+              <BookViewer
+                type={type}
+                bookId={bookId}
+                setBookId={setBookId}
+              />
+            </>
+          )
+        }
+        {
+          phase == 3 &&
+          (
+            <>
+              <h2
+                style={{
+                  color: 'var(--error)',
+                  fontSize: 'clamp(20px,2vw,15px)',
+                }}
+              >{errors.employee_id}</h2>
+              <EmployeeViewer
+                type={type}
+                employeeId={employeeId}
+                setEmployeeId={setEmployeeId}
+              />
+            </>
+          )
+        }
+
+        < div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+            position: 'sticky',
+            bottom: '10px',
+            marginTop: '10px'
+          }}>
+
+
+          <Button
+            text='back'
+            image={leftArrow}
+            position="left"
+            isLoading={loading}
+            color='red'
+            onClick={leftClick}
+          />
+          <Button
+            text='next'
+            image={rightArrow}
+            color='green'
+            isLoading={loading}
+            onClick={rightClick}
+          />
+        </div >
+
+      </div>
     </>
   )
 }
@@ -276,7 +293,7 @@ function BookViewer({ type, bookId, setBookId }) {
   useEffect(() => {
     const getbooks = async () => {
       const response = await api.get(`/books?status=${type}`);
-      setBooks(response.data.books);
+      setBooks(response.data.data);
     }
     getbooks();
   }, [type]);
@@ -284,19 +301,18 @@ function BookViewer({ type, bookId, setBookId }) {
 
   return (
     <>
-      <Header />
-      <NarrowView>
-        <p className="viewer-title">
-          •select a book to assign :
-        </p>
-        <div className="books-container">
-          <Books
-            books={books}
-            bookId={bookId}
-            setBookId={setBookId}
-          />
-        </div>
-      </NarrowView>
+
+      <p className="viewer-title">
+        •select a book to assign :
+      </p>
+      <div className="books-container">
+        <Books
+          books={books}
+          bookId={bookId}
+          setBookId={setBookId}
+        />
+      </div>
+
     </>
   )
 }
@@ -316,24 +332,23 @@ function EmployeeViewer({ type, employeeId, setEmployeeId }) {
 
   return (
     <>
-      <Header />
-      <NarrowView>
-        <p className="viewer-title">
-          •select a employees to assign :
-        </p>
-        <InfoCard
-          subtitle={employees.name}
-          padding="10px"
-          width='70'
-          color="grey"
-        />
-        <br />
-        <EmployeesSelector
-          employees={employees.employees}
-          employeeId={employeeId}
-          setEmployeeId={setEmployeeId}
-        />
-      </NarrowView>
+
+      <p className="viewer-title">
+        •select a employees to assign :
+      </p>
+      <InfoCard
+        subtitle={employees.name}
+        padding="10px"
+        width='70'
+        color="grey"
+      />
+      <br />
+      <EmployeesSelector
+        employees={employees.employees}
+        employeeId={employeeId}
+        setEmployeeId={setEmployeeId}
+      />
+
     </>
   )
 }

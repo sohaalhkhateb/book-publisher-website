@@ -1,16 +1,15 @@
-import { Header } from "../layout/Header";
 import InputFieldWithErrors from "../../components/InputFieldWithErrors";
 import { Button } from "../../components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import upwardsArrow from '../../assets/images/icons/upwardsArrow.png'
 import closeImage from '../../assets/images/icons/close.png'
 import api from "../../lib/axios";
-import { useNavigate } from "react-router";
+import { useNavigate, useOutletContext } from "react-router";
 import './AddBook.css'
-import { NarrowView } from "../layout/NarrowView";
 
 export function AddBook() {
 
+  const setLayoutContext = useOutletContext()
   const [title, setTitle] = useState('');
   const [pageCount, setPageCount] = useState(null);
   const [publishingYear, setPublishingYear] = useState(null);
@@ -25,6 +24,17 @@ export function AddBook() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLayoutContext({
+      searchBar: false,
+      sideBar: true,
+      narrowView: true,
+      bodyHeader: 'add a new book to your collection :'
+    })
+
+  }, [])
+
 
   async function uploadBook() {
 
@@ -60,101 +70,105 @@ export function AddBook() {
   }
 
   return (
-    <NarrowView>
-      <div className="addBook-container">
-        <Header />
-        <NarrowView>
-          <h2 className="form-label">add a new book to your collection :</h2>
-          <div className="addBook-input-container">
+    <>
+      <div className="addBook-input-container">
 
-            <InputFieldWithErrors
-              type='text'
-              name='book title'
-              value={title}
-              setValue={setTitle}
-              error={error.title}
-            />
-            <InputFieldWithErrors
-              type='number'
-              name='book page count'
-              value={pageCount}
-              setValue={setPageCount}
-              error={error.page_count}
-              required={false}
-            />
-            <InputFieldWithErrors 
-              type='number'
-              name='book publishing year'
-              value={publishingYear}
-              setValue={setPublishingYear}
-              error={error.publishing_year}
-            />
-            <InputFieldWithErrors
-              type='text'
-              name='book author'
-              value={author}
-              setValue={setAuthor}
-              error={error.author}
-            />
-            <InputFieldWithErrors
-              type='text'
-              name='book edition'
-              value={edition}
-              setValue={setEdition}
-              error={error.edition}
-              required={false}
-            />
-            <InputFieldWithErrors
-              message="enter the number of copies you have"
-              type='number'
-              name='book copies count'
-              value={numberOfCopies}
-              setValue={setNumberOfCopies}
-              error={error.number_of_copies}
-              required={true}
-            />
-            <InputFieldWithErrors
-              type='text'
-              name='notes'
-              value={notes}
-              setValue={setNotes}
-              error={error.notes}
-              required={false}
-            />
+        <InputFieldWithErrors
+          type='text'
+          name='book title'
+          value={title}
+          setValue={setTitle}
+          error={error.title}
+        />
+        <InputFieldWithErrors
+          type='number'
+          name='book page count'
+          value={pageCount}
+          setValue={setPageCount}
+          error={error.page_count}
+          required={false}
+        />
+        <InputFieldWithErrors
+          type='number'
+          name='book publishing year'
+          value={publishingYear}
+          setValue={setPublishingYear}
+          error={error.publishing_year}
+        />
+        <InputFieldWithErrors
+          type='text'
+          name='book author'
+          value={author}
+          setValue={setAuthor}
+          error={error.author}
+        />
+        <InputFieldWithErrors
+          type='text'
+          name='book edition'
+          value={edition}
+          setValue={setEdition}
+          error={error.edition}
+          required={false}
+        />
+        <InputFieldWithErrors
+          message="enter the number of copies you have"
+          type='number'
+          name='book copies count'
+          value={numberOfCopies}
+          setValue={setNumberOfCopies}
+          error={error.number_of_copies}
+          required={true}
+        />
+        <InputFieldWithErrors
+          type='text'
+          name='notes'
+          value={notes}
+          setValue={setNotes}
+          error={error.notes}
+          required={false}
+        />
 
-            <InputFieldWithErrors
-              type='file'
-              name='book cover or image'
-              value={image}
-              setValue={setImage}
-              error={error.image}
-              required={false}
-            />
-          </div>
-
-          <div className="divider"></div>
-
-          <div className="button-wrapper-left">
-            <Button
-              color='firebrick'
-              text='cancel'
-              position="left"
-              image={closeImage}
-              onClick={() => navigate('/')}
-              isLoading={loading}
-            />
-          </div>
-          <div className="button-wrapper-right">
-            <Button
-              color='darkgreen'
-              text='add'
-              image={upwardsArrow}
-              onClick={uploadBook}
-              isLoading={loading}
-            />
-          </div>
-        </NarrowView>
+        <InputFieldWithErrors
+          type='file'
+          name='book cover or image'
+          value={image}
+          setValue={setImage}
+          error={error.image}
+          required={false}
+        />
       </div>
-    </NarrowView>
+
+      <div className="divider"></div>
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          position: 'sticky',
+          bottom: '10px',
+          marginTop: '10px'
+        }}>
+
+        <div>
+          <Button
+            color='firebrick'
+            text='cancel'
+            position="left"
+            image={closeImage}
+            onClick={() => navigate('/')}
+            isLoading={loading}
+          />
+        </div>
+        <div>
+          <Button
+            color='darkgreen'
+            text='add'
+            image={upwardsArrow}
+            onClick={uploadBook}
+            isLoading={loading}
+          />
+        </div>
+      </div>
+    </>
   )
 }

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router'
 import starRating from '../assets/images/icons/star-rating.png'
 import './EmployeeComponent.css'
 import { useState } from 'react';
+import  noPerson  from '../assets/images/icons/account.png'
 export function EmployeeComponent({ name, age, rating, image, id, employeeId, onClick }) {
     const navigate = useNavigate();
     const [isHovered, setIsHoverd] = useState(false);
@@ -24,7 +25,7 @@ export function EmployeeComponent({ name, age, rating, image, id, employeeId, on
             }}
         >
             <img
-                src={image}
+                src={image??noPerson}
                 alt=""
                 className='employee-image'
             />

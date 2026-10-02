@@ -20,6 +20,7 @@ export function Button({ text, onClick, image = null, position = 'right', isLoad
                         padding: 7px 10px;
                         cursor: pointer;
                         align-self: ${alignSelf};
+                        transition: transform 0.3s;
                     }
                      .txt-button{
                         font-size: 20px;

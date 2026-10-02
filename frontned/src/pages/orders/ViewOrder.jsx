@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useOutletContext, useParams } from 'react-router';
 import api from '../../lib/axios';
 import { Button } from '../../components/Button';
-import { Header } from '../layout/Header';
-import { NarrowView } from '../layout/NarrowView';
 import checkImage from '../../assets/images/icons/check.png'
 import downloadImage from '../../assets/images/icons/download.png'
 import okImage from '../../assets/images/icons/ok.png'
 import InputFieldWithErrors from '../../components/InputFieldWithErrors';
-import { OrderComponent } from '../../components/OrderComponent';
 import './ViewOrder.css'
-import { InfoCard } from '../../components/InfoCard';
 
 export function ViewOrder() {
 
@@ -25,8 +21,15 @@ export function ViewOrder() {
   const [triggerRefresh, setTriggerRefresh] = useState(false);
 
   const [errors, setErrors] = useState({});
+  const setLayoutContext = useOutletContext()
 
   useEffect(() => {
+    setLayoutContext({
+      searchBar: false,
+      sideBar: false,
+      narrowView: true,
+      bodyHeader: 'order details :'
+    })
 
     async function fetchOrder() {
       try {
@@ -46,8 +49,6 @@ export function ViewOrder() {
 
   return (
     <div>
-      <Header />
-      <NarrowView>
         <div
           style={{
             position: 'relative',
@@ -56,7 +57,7 @@ export function ViewOrder() {
             boxSizing: 'border-box',
             borderRadius: '20px',
             minWidth: 'max-content',
-            backgroundColor:'#9ed1ce55'
+            backgroundColor: '#9ed1ce55'
           }}
         >
           <h1
@@ -68,7 +69,7 @@ export function ViewOrder() {
           <div
             className='order-div'
             style={{
-              backgroundColor : '#ffffff5e',
+              backgroundColor: '#ffffff5e',
             }}
           >
             <span className='status'>
@@ -77,7 +78,7 @@ export function ViewOrder() {
                 className='status-view-val'
                 style={{
                   backgroundColor: order.status == 'accepted' ? '#0ff0005e' : order.status == 'pending' ? '#f0b000d3' : order.status == 'cancelled' ? '#ff00005e' : '#6d69695e',
-                  padding:'2px 20px', borderRadius:'10px'
+                  padding: '2px 20px', borderRadius: '10px'
                 }}
               >
                 {order.status}
@@ -182,7 +183,6 @@ export function ViewOrder() {
             />
           </div>
         </div>
-      </NarrowView>
     </div>
   )
 }
@@ -305,7 +305,7 @@ function OrderBody({ order, errors, arrivalDate, setArrivalDate, setTriggerRefre
             style={{
               display: 'flex',
               justifyContent: 'space-around',
-              marginTop:'20px'
+              marginTop: '20px'
             }}
           >
             <Button
@@ -546,7 +546,7 @@ export function OrderItemExpanded({ item, order, setTriggerRefresh }) {
             item.files?.map((file, index) =>
               <Button
                 key={file ?? index}
-                text={`download file ${index}`}
+                text={`download file ${index+1}`}
                 onClick={() => handleDownload(file)}
                 isLoading={loading}
                 color='var(--success)'

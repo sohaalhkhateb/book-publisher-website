@@ -2,7 +2,7 @@ import { Header } from "../layout/Header";
 import InputFieldWithErrors from "../../components/InputFieldWithErrors";
 import { Button } from "../../components/Button";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useOutletContext, useParams } from "react-router";
 import { NarrowView } from "../layout/NarrowView";
 import checkImage from '../../assets/images/icons/check.png'
 import closeImage from '../../assets/images/icons/close.png'
@@ -24,8 +24,15 @@ export function EditResource() {
     const [error, setError] = useState({});
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const setLayoutContext = useOutletContext()
 
     useEffect(() => {
+        setLayoutContext({
+            searchBar: false,
+            sideBar: false,
+            narrowView: true,
+            bodyHeader: 'edit this resource :'
+        })
         async function fetchResource() {
             try {
                 setLoading(true);
@@ -73,115 +80,109 @@ export function EditResource() {
     }
 
     return (
-        <NarrowView>
-            <Header />
-            <div className="edit-resource-container">
-                <h2
-                    style={{
-                        color: 'var(--primary)',
-                        fontSize: 'clamp(30px,3vw,25px)',
-                    }}
-                >edit your resource information :</h2>
-                <div className="edit-resource-div">
-                    <div className="edit-resource-left">
-                        <InputFieldWithErrors
-                            color='darkkhaki'
-                            type='text'
-                            name='resource name'
-                            color='var(--primary)'
-                            value={name}
-                            setValue={setName}
-                            error={error.name}
-                        />
-                        <InputFieldWithErrors
-                            color='darkkhaki'
-                            type='text'
-                            name='resource category'
-                            color='var(--primary)'
-                            value={category}
-                            setValue={setCategory}
-                            error={error.category}
-                        />
-                        <InputFieldWithErrors
-                            color='darkkhaki'
-                            type='number'
-                            name='resource stock'
-                            color='var(--primary)'
-                            value={stock}
-                            setValue={setStock}
-                            error={error.stock}
-                        />
-                        <InputList
-                            options={[
-                                { piece: 'piece' },
-                                { pack: 'pack' },
-                                { box: 'box' },
-                                { kg: 'kg' },
-                                { g: 'g' },
-                                { liter: 'liter' },
-                                { ml: 'ml' },
-                                { bottle: 'bottle' },
-                                { container: 'container' },
-                                { ream: 'ream' },
-                            ]}
-                            value={unit}
-                            setValue={setUnit}
-                            label="choose one of the following units :"
-                        />
-                    </div>
-                    <div className="edit-resource-right">
-                        <InputFieldWithErrors
-                            color='darkkhaki'
-                            type='number'
-                            name='resource min stock'
-                            color='var(--primary)'
-                            value={minStock}
-                            setValue={setMinStock}
-                            error={error.min_stock}
-                        />
-                        <InputFieldWithErrors
-                            color='darkkhaki'
-                            type='text'
-                            name='resource price'
-                            color='var(--primary)'
-                            value={priceInCents}
-                            setValue={setPriceInCents}
-                            error={error.price_in_cents}
-                        />
-                        <InputFieldWithErrors
-                            color='darkkhaki'
-                            type='text'
-                            name='supplier'
-                            color='var(--primary)'
-                            value={supplier}
-                            setValue={setSupplier}
-                            error={error.supplier}
-                            required={false}
-                        />
-                    </div>
-                </div>
 
-                <div className="resource-divider"></div>
-                <div className="button-wrapper-left">
-                    <Button
-                        color='firebrick'
-                        text='cancel'
-                        position="left"
-                        image={closeImage}
-                        onClick={() => navigate(`/resources/${params.id}`)}
-                        isLoading={loading}
+        <div className="edit-resource-container">
+
+            <div className="edit-resource-div">
+                <div className="edit-resource-left">
+                    <InputFieldWithErrors
+                        color='darkkhaki'
+                        type='text'
+                        name='resource name'
+                        value={name}
+                        setValue={setName}
+                        error={error.name}
+                    />
+                    <InputFieldWithErrors
+                        color='darkkhaki'
+                        type='text'
+                        name='resource category'
+                        value={category}
+                        setValue={setCategory}
+                        error={error.category}
+                    />
+                    <InputFieldWithErrors
+                        color='darkkhaki'
+                        type='number'
+                        name='resource stock'
+                        value={stock}
+                        setValue={setStock}
+                        error={error.stock}
+                    />
+                    <InputList
+                        options={[
+                            { piece: 'piece' },
+                            { pack: 'pack' },
+                            { box: 'box' },
+                            { kg: 'kg' },
+                            { g: 'g' },
+                            { liter: 'liter' },
+                            { ml: 'ml' },
+                            { bottle: 'bottle' },
+                            { container: 'container' },
+                            { ream: 'ream' },
+                        ]}
+                        value={unit}
+                        setValue={setUnit}
+                        label="choose one of the following units :"
                     />
                 </div>
-                <div className="button-wrapper-right">
-                    <Button
-                        color='darkgreen'
-                        text='confirm'
-                        image={checkImage}
-                        onClick={editResource}
-                        isLoading={loading}
+                <div className="edit-resource-right">
+                    <InputFieldWithErrors
+                        color='darkkhaki'
+                        type='number'
+                        name='resource min stock'
+                        value={minStock}
+                        setValue={setMinStock}
+                        error={error.min_stock}
+                    />
+                    <InputFieldWithErrors
+                        color='darkkhaki'
+                        type='text'
+                        name='resource price'
+                        value={priceInCents}
+                        setValue={setPriceInCents}
+                        error={error.price_in_cents}
+                    />
+                    <InputFieldWithErrors
+                        color='darkkhaki'
+                        type='text'
+                        name='supplier'
+                        value={supplier}
+                        setValue={setSupplier}
+                        error={error.supplier}
+                        required={false}
                     />
                 </div>
             </div>
-        </NarrowView>
+
+            <div className="resource-divider" />
+
+            < div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    position: 'sticky',
+                    bottom: '10px',
+                    marginTop: '10px'
+                }}>
+
+                <Button
+                    color='firebrick'
+                    text='cancel'
+                    position="left"
+                    image={closeImage}
+                    onClick={() => navigate(`/resources/${params.id}`)}
+                    isLoading={loading}
+                />
+                <Button
+                    color='darkgreen'
+                    text='confirm'
+                    image={checkImage}
+                    onClick={editResource}
+                    isLoading={loading}
+                />
+            </div >
+        </div>
     )
 }

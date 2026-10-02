@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 
 import api from '../../lib/axios'
-import { useNavigate } from 'react-router'
+import { useNavigate, useOutletContext } from 'react-router'
 import { InputList } from '../../components/InputList'
 import InputFieldWithErrors from '../../components/InputFieldWithErrors'
 import { Button } from '../../components/Button'
-import { Header } from '../layout/Header'
-import { NarrowView } from '../layout/NarrowView'
 import { SaleComponent } from '../../components/SaleComponent'
 import { Card } from '../../components/Card'
-import { MainMenu } from '../../components/MainMenu'
+import EmptyPage from '../EmptyPage'
+import Loading from '../Loading'
 
 export function Sales() {
   const navigate = useNavigate()
@@ -17,7 +16,7 @@ export function Sales() {
   const [unit, setUnit] = useState(undefined)
   const [quantity, setQuantity] = useState(undefined)
 
-  const [orders, setOrders] = useState([])
+  const [orders, setOrders] = useState(undefined)
   const [sum, setSum] = useState(0)
   const [count, setCount] = useState(0)
 
@@ -25,8 +24,15 @@ export function Sales() {
 
   const [loading, setLoading] = useState(false)
 
+  const setLayoutContext = useOutletContext()
 
   useEffect(() => {
+    setLayoutContext({
+      searchBar: false,
+      sideBar: true,
+      narrowView: true,
+      bodyHeader: 'your sold items :'
+    })
     async function fetchOrders() {
       setLoading(true)
       try {
@@ -44,129 +50,125 @@ export function Sales() {
     fetchOrders()
   }, [unit, quantity])
 
-
-
+if (orders == null) {
+    return <Loading />
+  }
+  if (orders.length == 0) {
+    return (
+      <EmptyPage type='sale' />
+    )
+  }
   if (loading)
     return (
       <>
-        <Header />
-        <div className='content-container'>
-          <NarrowView>
-            <p
-              style={{
-                fontSize: 'clamp(20px, 2vw, 23px)',
-                color: 'var(--warning)',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                width: 'max-content',
-                marginTop: '100px'
-              }}
-            >loading ...</p>
-          </NarrowView >
-        </div>
-        <MainMenu />
+        <p
+          style={{
+            fontSize: 'clamp(20px, 2vw, 23px)',
+            color: 'var(--warning)',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            width: 'max-content',
+            marginTop: '100px'
+          }}
+        >loading ...</p>
       </>
     )
   else
     return (
       <>
-        <Header />
-        <div className='content-container'>
-          <NarrowView>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '20px'
-              }}
-            >
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-around'
-                }}
-              >
-                <InputFieldWithErrors
-                  type='number'
-                  name='amount'
-                  value={quantity}
-                  setValue={setQuantity}
-                  error={errors.quantity}
-                  message='choose the duration: '
-                />
 
-                <InputList
-                  label='choose the unit of the duration'
-                  options={[
-                    { day: 'day' },
-                    { week: 'week' },
-                    { month: 'month' },
-                    { year: 'year' }
-                  ]}
-                  value={unit}
-                  setValue={setUnit}
-                />
-              </div>
-              <div
-                style={{
-                  marginLeft: 'auto',
-                  marginRight: 'auto',
-                }}
-              >
-                <Button
-                  text='reset'
-                  onClick={() => { setCount(undefined); setQuantity(undefined); setErrors({}) }}
-                  isLoading={loading}
-                />
-              </div>
-            </div>
-            {errors?.unit}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px'
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around'
+            }}
+          >
+            <InputFieldWithErrors
+              type='number'
+              name='amount'
+              value={quantity}
+              setValue={setQuantity}
+              error={errors.quantity}
+              message='choose the duration: '
+            />
 
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-around',
-              }}
-            >
-              <Card
-                number={sum}
-                title='TOTAL REVENUE'
-                color='var(--success)'
-              />
-              <Card
-                number={count}
-                title='ORDERS DONE'
-                color='var(--success)'
-                fontColor='var(--success)'
-              />
-            </div>
-
-            <h1
-              style={{
-                fontSize: 'clamp(20px, 3vw, 35px)',
-                color: 'var(--primary)'
-              }}
-            >•SALES:</h1>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: ' repeat(auto-fit, minmax(161px,1fr))',
-                columnGap: '10px',
-                rowGap: '10px',
-                width: '100%',
-                placeItems: 'center'
-              }}
-            >
-              {orders.map((order) => (
-                <SaleComponent
-                  order={order}
-                  key={order.id}
-                />
-              ))}
-            </div>
-          </NarrowView >
+            <InputList
+              label='choose the unit of the duration'
+              options={[
+                { day: 'day' },
+                { week: 'week' },
+                { month: 'month' },
+                { year: 'year' }
+              ]}
+              value={unit}
+              setValue={setUnit}
+            />
+          </div>
+          <div
+            style={{
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            <Button
+              text='reset'
+              onClick={() => { setCount(undefined); setQuantity(undefined); setErrors({}) }}
+              isLoading={loading}
+            />
+          </div>
         </div>
-        <MainMenu />
+        {errors?.unit}
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-around',
+          }}
+        >
+          <Card
+            number={sum}
+            title='TOTAL REVENUE'
+            color='var(--success)'
+          />
+          <Card
+            number={count}
+            title='ORDERS DONE'
+            color='var(--success)'
+            fontColor='var(--success)'
+          />
+        </div>
+
+        <h1
+          style={{
+            fontSize: 'clamp(20px, 3vw, 35px)',
+            color: 'var(--primary)'
+          }}
+        >•SALES:</h1>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: ' repeat(auto-fit, minmax(161px,1fr))',
+            columnGap: '10px',
+            rowGap: '10px',
+            width: '100%',
+            placeItems: 'center'
+          }}
+        >
+          {orders.map((order) => (
+            <SaleComponent
+              order={order}
+              key={order.id}
+            />
+          ))}
+        </div>
+
       </>
     )
 }

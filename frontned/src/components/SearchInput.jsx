@@ -1,10 +1,10 @@
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import searchImage from '../assets/images/icons/search-icon.png'
 import { useState } from 'react';
 import './SearchInput.css'
 
-export function SearchInput({ targetPage, fallbackPage }) {
-
+export function SearchInput() {
+    const location = useLocation()
     const [search, setSearch] = useState('');
     const navigate = useNavigate();
 
@@ -13,15 +13,15 @@ export function SearchInput({ targetPage, fallbackPage }) {
             setSearch('');
         }
         if (event.key == 'Enter') {
-            navigate(search ? `/?search=${search}` : fallbackPage)
+            navigate(search ? `${location.pathname}?search=${search}` : location.pathname)
         }
     }
-    
+
     return (
         <div className='search-input-container'>
 
             <input
-                type='text'
+                type='search'
                 placeholder='search'
                 className='search-input'
                 value={search}
@@ -32,7 +32,8 @@ export function SearchInput({ targetPage, fallbackPage }) {
                 src={searchImage}
                 className='search-input-image'
                 alt=""
-                onClick={() => navigate(search ? `/?search=${search}` : fallbackPage)}
+                onClick={() => navigate(search ? `${location.pathname}?search=${search}` : location.pathname)
+                }
             />
         </div>
     )

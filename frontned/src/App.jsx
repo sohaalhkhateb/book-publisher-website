@@ -21,7 +21,6 @@ import { Resources } from './pages/resources/Resources.jsx'
 import { AddResource } from './pages/resources/AddResource.jsx'
 import { ViewResource } from './pages/resources/ViewResource.jsx'
 import { EditResource } from './pages/resources/EditResource.jsx'
-import { Task } from './components/Task.jsx'
 import { Step1 } from './pages/orders/Step1.jsx'
 import { Step2 } from './pages/orders/Step2.jsx'
 import { Step3 } from './pages/orders/Step3.jsx'
@@ -68,53 +67,47 @@ function App() {
 
 
       <Route element={<AuthGuard />}>
+
         <Route element={<LayoutElement />}>
+        
           <Route path='/' element={<HomePageEnhanced />} />
+          <Route path='books'>
+            <Route path='add' element={<AddBook />} />
+            <Route path=':id' element={<ViewBook />} />
+            <Route path='edit/:id' element={<EditBook />} />
+          </Route>
+
+          <Route path='employees'>
+            <Route index element={<Employees />} />
+            <Route path='add' element={<AddEmployee />} />
+            <Route path=':id' element={<ViewEmployee />} />
+            <Route path='edit/:id' element={<EditEmployee />} />
+          </Route>
+
+          <Route path='tasks'>
+            <Route index element={<Tasks />} />
+            <Route path='add' element={<AddTask />} />
+            <Route path=':id' element={<ViewTask />} />
+          </Route>
 
 
-        <Route path='books'>
-          <Route path='add' element={<AddBook />} />
-          <Route path=':id' element={<ViewBook />} />
-          <Route path='edit/:id' element={<EditBook />} />
-        </Route>
-        </Route>
+          <Route path='resources'>
+            <Route index element={<Resources />} />
+            <Route path='add' element={<AddResource />} />
+            <Route path=':id' element={<ViewResource />} />
+            <Route path='edit/:id' element={<EditResource />} />
+          </Route>
 
-        <Route path='employees'>
-          <Route index element={<Employees />} />
-          <Route path='add' element={<AddEmployee />} />
-          <Route path=':id' element={<ViewEmployee />} />
-          <Route path='edit/:id' element={<EditEmployee />} />
-        </Route>
+          <Route path='orders'>
+            <Route index element={<Orders />} />
+            <Route path=':id' element={<ViewOrder />} />
+          </Route>
 
-        <Route path='tasks'>
-          <Route index element={<Tasks />} />
-          <Route path='add' element={<AddTask />} />
-          <Route path=':id' element={<ViewTask />} />
-        </Route>
-
-
-        <Route path='resources'>
-          <Route index element={<Resources />} />
-          <Route path='add' element={<AddResource />} />
-          <Route path=':id' element={<ViewResource />} />
-          <Route path='edit/:id' element={<EditResource />} />
-        </Route>
-
-        <Route path='orders'>
-          <Route index element={<Orders />} />
-          <Route path=':id' element={<ViewOrder />} />
-        </Route>
-
-        <Route path='sales'>
-          <Route index element={<Sales />} />
+          <Route path='sales'>
+            <Route index element={<Sales />} />
+          </Route>
         </Route>
       </Route>
-
-
-      <Route
-        path='/test'
-        element={<LayoutElement />}
-      />
 
     </Routes>
 

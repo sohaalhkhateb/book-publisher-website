@@ -6,7 +6,7 @@ import checkImage from '../../assets/images/icons/check.png'
 import closeImage from '../../assets/images/icons/close.png'
 
 import api from "../../lib/axios";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useOutletContext, useParams } from "react-router";
 import './EditBook.css'
 import { NarrowView } from "../layout/NarrowView";
 
@@ -25,12 +25,22 @@ export function EditBook() {
   const [image, setImage] = useState(null);
 
   const [error, setError] = useState({});
+  const setLayoutContext = useOutletContext()
+
 
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLayoutContext({
+      searchBar: false,
+      sideBar: true,
+      narrowView: true,
+      bodyHeader: 'edit the book information :'
+    })
+
+
 
     async function fetchBook() {
       try {
@@ -89,10 +99,8 @@ export function EditBook() {
       })
   }
 
-  return (<NarrowView>
-    <Header />
+  return (
     <div className="editBook-container">
-      <h2 className="edit-form-label">edit your book information :</h2>
       <div className="addBook-input-container">
 
         <InputFieldWithErrors
@@ -168,8 +176,18 @@ export function EditBook() {
         />
       </div>
 
-      <div className="divider"></div>
-      <div className="button-wrapper-left">
+      <div className="divider" />
+
+
+      < div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          position: 'sticky',
+          bottom: '10px',
+          marginTop: '10px'
+        }}>
+          
         <Button
           color='firebrick'
           text='cancel'
@@ -178,8 +196,6 @@ export function EditBook() {
           onClick={() => navigate(`/books/${params.id}`)}
           isLoading={loading}
         />
-      </div>
-      <div className="button-wrapper-right">
         <Button
           color='darkgreen'
           text='confirm'
@@ -188,7 +204,8 @@ export function EditBook() {
           isLoading={loading}
         />
       </div>
+
+
     </div>
-  </NarrowView>
   )
 }

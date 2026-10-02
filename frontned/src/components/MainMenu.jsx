@@ -3,7 +3,6 @@ import booksIcon from '../assets/images/icons/book-stack-48.png'
 import WareHouseIcon from '../assets/images/icons/barn-48.png'
 import employeeIcon from '../assets/images/icons/teamwork.png'
 import taskIcon from '../assets/images/icons/book-16-48.png'
-
 import purchaseIcon from '../assets/images/icons/purchase-order-48.png'
 import saleIcon from '../assets/images/icons/sales-order.png'
 import alarmIcon from '../assets/images/icons/appointment-reminders-48.png'

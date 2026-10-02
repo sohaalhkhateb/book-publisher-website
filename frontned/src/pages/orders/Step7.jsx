@@ -11,7 +11,7 @@ export function Step7() {
 
 
   const [notes, setNotes] = useState('');
-  const [payment, setPayment] = useState('');
+  const [payment, setPayment] = useState('cash');
   const [error, setError] = useState({});
 
   const navigate = useNavigate();
